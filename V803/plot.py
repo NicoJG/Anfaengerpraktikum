@@ -1,20 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import curve_fit
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
+def f(x,a,b):
+    return a*x+b
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
+x,F = np.genfromtxt('data.csv',delimiter=',',unpack=True)
+
+xFit = np.linspace(0,60,50)
+params, pcov = curve_fit(f,x,F)
+
+plt.plot(xFit, f(xFit,*params), 'b-', label="Curve Fit")
+plt.plot(x, F, 'ko', label='Messdaten')
+
+plt.xlabel(r'$x \:/\: \si{\centi\meter}$')
+plt.ylabel(r'$F \:/\: \si{\joule}$')
 plt.legend(loc='best')
 
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)

@@ -3,7 +3,8 @@
 
 Die Federkraft und Auslenkung hängen nach dem Hook'schen Gesetz über
 \begin{equation}
-F=-D\cdot\delta x
+  \label{eq:Hook}
+  F = - D \cdot \Delta x
 \end{equation}
 zusammen.
 Die Federkonstante $D$ kann nun aus den Messwerten über zwei Methoden bestimmt werden.
@@ -11,11 +12,18 @@ Die Federkonstante $D$ kann nun aus den Messwerten über zwei Methoden bestimmt 
 \subsection{Mittelwertsbildung}
 
 \begin{equation}
-  \bar{x} = \frac{1}{n} \cdot \sum_{i=1}^{n} x_i
+  \left< x \right> = \frac{1}{n} \cdot \sum_{i=1}^{n} x_i
 \end{equation}
 
 \subsection{Ausgleichsrechnung}
 
+Da \eqref{eq:Hook} ein linearer Zusammenhang ohne y-Achsenabschnitt ist kann für die Ausgleichsrechnung
+\begin{equation}
+  \label{eq:Lin-Ausgleich}
+  D = - \frac
+  {\left< F \Delta x \right> - \left< F \, \right> \left< \Delta x \right>}
+  {\left< \Delta x^2 \right> - \left< \Delta x \right> ^2}
+\end{equation}
 
 \begin{figure}
   \centering

@@ -13,7 +13,7 @@ params, pcov = curve_fit(f,x,F)
 plt.plot(xFit, f(xFit,*params), 'b-', label="Ausgleichsgerade")
 plt.plot(x, F, 'ko', label='Messdaten')
 
-plt.xlabel(r'$x \:/\: \si{\centi\meter}$')
+plt.xlabel(r'$\Delta x \:/\: \si{\centi\meter}$')
 plt.ylabel(r'$F \:/\: \si{\joule}$')
 plt.legend(loc='best')
 

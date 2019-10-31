@@ -10,7 +10,7 @@ x,F = np.genfromtxt('data.csv',delimiter=',',unpack=True)
 xFit = np.linspace(0,60,50)
 params, pcov = curve_fit(f,x,F)
 
-plt.plot(xFit, f(xFit,*params), 'b-', label="Curve Fit")
+plt.plot(xFit, f(xFit,*params), 'b-', label="Ausgleichsgerade")
 plt.plot(x, F, 'ko', label='Messdaten')
 
 plt.xlabel(r'$x \:/\: \si{\centi\meter}$')

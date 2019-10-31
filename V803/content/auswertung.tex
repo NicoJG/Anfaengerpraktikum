@@ -2,32 +2,34 @@
 \label{sec:Auswertung}
 \begin{table}
   \centering
+  \caption{Messwerte: Auslenkung $\Delta x $ und Federkraft $F$}
+  \label{tab:data}
   \begin{tabular}{c c}
-  \toprule
-  Messwerte\\  
-  \midrule 
-  Auslenkung (\SI{}{\centi\meter}) & Federkraft (\SI{}{\newton})\\ 
-  \midrule 
-  2 & 0.06 \\
-  6 & 0.18 \\
-  10 & 0.29 \\
-  16 & 0.47 \\
-  21 & 0.62 \\
-  24 & 0.71 \\
-  33.5 & 1 \\
-  38 & 1.13 \\
-  50 & 1.49 \\
-  58 & 1.73 \\ 
-  \bottomrule
+    \toprule 
+    $\Delta x \:/\: \si{\centi\meter}$ & $F \:/\: \si{\newton}$ \\ 
+    \midrule 
+    2 & 0.06 \\
+    6 & 0.18 \\
+    10 & 0.29 \\
+    16 & 0.47 \\
+    21 & 0.62 \\
+    24 & 0.71 \\
+    33.5 & 1.00 \\
+    38 & 1.13 \\
+    50 & 1.49 \\
+    58 & 1.73 \\ 
+    \bottomrule
   \end{tabular}
-\end{table} \noindent
-Die Federkraft und Auslenkung hängen nach dem Hook'schen Gesetz über
+\end{table} 
+\noindent Die Federkraft und Auslenkung hängen nach dem Hook'schen Gesetz über
 \begin{equation}
   \label{eq:Hook}
   F = - D \cdot \Delta x
 \end{equation}
 zusammen.
-Die Federkonstante $D$ kann nun aus den Messwerten über zwei Methoden bestimmt werden.
+Die Federkonstante $D$ kann nun aus den Messwerten (siehe \autoref{tab:data}) über zwei Methoden bestimmt werden.
+
+\newpage
 
 \subsection{Mittelwertsbildung}
 Aus den zehn aufgenommenen Messwerten für die Federkonstente $D$ wird nun der Mittelwert mit der Formel
@@ -40,7 +42,7 @@ bestimmt.
 
 \subsection{Ausgleichsrechnung}
 
-Da \eqref{eq:Hook} ein linearer Zusammenhang ohne y-Achsenabschnitt ist kann für die Ausgleichsrechnung
+Da \autoref{eq:Hook} ein linearer Zusammenhang ohne y-Achsenabschnitt ist kann für die Ausgleichsrechnung
 \begin{equation}
   \label{eq:Lin-Ausgleich}
   D = - \frac
@@ -48,8 +50,10 @@ Da \eqref{eq:Hook} ein linearer Zusammenhang ohne y-Achsenabschnitt ist kann fü
   {\left< \Delta x^2 \right> - \left< \Delta x \right> ^2}
 \end{equation}
 verwendet werden.
-Aus den gemessenen Werten ergeben sich die Mittelwerte $\left< F \cdot \Delta x \right> = \SI{29.296}{\newton\meter}$, $\left< F \right> = \SI{0.768}{\newton}$, $\left< x \right> = \SI{25.85}{\meter}$, $\left< x^2 \right> = \SI{984.325}{\meter\squared}$ und $\left< x \right> ^2 = \SI{668.223}{\meter\squared}$.
-Damit ergibt sich eine Federkonstante $D=\SI{0.03}{\newton\per\meter}$ siehe \autoref{fig:plot}.
+
+Aus den gemessenen Werten ergeben sich nun die Mittelwerte $\left< F \Delta x \right> = \SI{29.296}{\newton\meter}$, $\left< F \, \right> = \SI{0.768}{\newton}$, $\left< x \right> = \SI{25.85}{\meter}$, $\left< x^2 \right> = \SI{984.325}{\meter\squared}$ und $\left< x \right> ^2 = \SI{668.223}{\meter\squared}$.
+Damit ergibt sich eine Federkonstante $D=\SI{0.03}{\newton\per\meter}$.
+Dies kann man in \autoref{fig:plot} sehen.
 
 \begin{figure}
   \centering

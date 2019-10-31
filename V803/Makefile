@@ -2,12 +2,12 @@ all: build/main.pdf
 
 # klappt leider nicht: MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc":
 # hier Python-Skripte: 
-build/plot.pdf: plot.py matplotlibrc ../default/header-matplotlib.tex | build
+build/plot.pdf: plot.py matplotlibrc ../default/header-matplotlib.tex data.csv | build
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default": \
 	python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot.pdf data.csv
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

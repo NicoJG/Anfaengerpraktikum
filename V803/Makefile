@@ -15,7 +15,7 @@ build/main.pdf: FORCE | build
 	latexmk \
 	  --lualatex \
 	  --output-directory=build \
-	  --interaction=batchmode \
+	  --interaction=nonstopmode \
 	  --halt-on-error \
 	main.tex
 

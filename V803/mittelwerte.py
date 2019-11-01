@@ -2,7 +2,10 @@ import numpy as np
 
 x,F = np.genfromtxt('data.csv',delimiter=',',unpack=True)
 
-print("Mittelwerte von")
+print("Mittelwertsbildung:")
+print("<F/x> ",np.mean(F/x))
+
+print("Ausgleichsrechnung:")
 Fx = np.mean(F*x)
 print("F*x",Fx)
 Fmean = np.mean(F)

@@ -14,7 +14,7 @@ plt.plot(xFit, f(xFit,*params), 'b-', label="Ausgleichsgerade")
 plt.plot(x, F, 'ko', label='Messdaten')
 
 plt.xlabel(r'$\Delta x \:/\: \si{\centi\meter}$')
-plt.ylabel(r'$F \:/\: \si{\joule}$')
+plt.ylabel(r'$F \:/\: \si{\newton}$')
 plt.legend(loc='best')
 
 

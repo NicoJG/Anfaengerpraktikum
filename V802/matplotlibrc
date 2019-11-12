@@ -1,5 +1,5 @@
 # pgf-Backend benutzen
-# backend : pgf
+backend : pgf
 
 # Größe der Zeichenfläche in Zoll
 figure.figsize : 5.78, 3.57

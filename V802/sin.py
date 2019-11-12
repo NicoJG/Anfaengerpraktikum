@@ -10,7 +10,7 @@ def A(k):
 
 # B(k) = 0
 
-N = 8
+N = 17
 AnzahlX = 10000
 
 a = []

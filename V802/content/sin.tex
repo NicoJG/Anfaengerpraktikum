@@ -1,0 +1,39 @@
+\section{Fouriersynthese von $f(x)=|sin(x)|$}
+
+Nun lässt sich mit den genannten Formeln die Fourier-Reihe für $f(x)=|sin(x)|$ mit $T=\pi$ folgendermaßen berechnen:
+
+\begin{align}
+    A_0 &= \frac{1}{\pi} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} | \sin t | \symup{d}t \\
+    &= \frac{1}{\pi} \int_{-\frac{\pi}{2}}^0 -\sin t \symup{d}t + \frac{1}{\pi} \int_0^{\frac{\pi}{2}} \sin t \symup{d}t \\
+    &= \frac{2}{\pi}
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Berechnete Koeffizienten für $|\sin(x)|$}
+  \label{tab:a_sin}
+  \begin{tabular}{c c}
+    \toprule 
+    $k$ & $A_k$ \\ 
+    \midrule 
+    0 & 0.6366 \\
+    1 & -0.4244 \\
+    2 & -0.0849 \\
+    3 & -0.0364 \\
+    4 & -0.0202 \\
+    5 & -0.0129 \\
+    6 & -0.0089 \\
+    7 & -0.0065 \\
+    8 & -0.0050 \\
+    9 & -0.0039 \\
+    10 & -0.0032 \\
+    11 & -0.0026 \\
+    12 & -0.0022 \\
+    13 & -0.0019 \\
+    14 & -0.0016 \\
+    15 & -0.0014 \\
+    16 & -0.0012 \\
+    17 & -0.0011 \\ 
+    \bottomrule
+  \end{tabular}
+\end{table}

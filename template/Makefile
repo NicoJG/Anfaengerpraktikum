@@ -1,9 +1,9 @@
 all: build/main.pdf
-
-# klappt leider nicht: MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc":
+ 
 # hier Python-Skripte: 
-build/plot.pdf: plot.py matplotlibrc ../default/header-matplotlib.tex | build
-	  TEXINPUTS="$$(dirname "$$(pwd)")/default": \
+build/plot.pdf: plot.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:

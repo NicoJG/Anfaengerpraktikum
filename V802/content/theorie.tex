@@ -1,44 +1,14 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+Jede periodische Funktion lässt sich mit einer Fouriersynthese in einer Reihe von $\sin(x)$ und $\cos(x)$ darstellen. Die allgemeine Darstellung ist dann 
 \begin{equation}
     \label{eq:Fouriersynthese}
-    f (t) = \sum_{k=0}^\infty \left(A_k \cos \left( \omega _k t \right) + B_k \sin \left( \omega _k t \right) \right)
+    f (t) = \sum_{k=0}^\infty \left(A_k \cos \left( \omega _k t \right) + B_k \sin \left( \omega _k t \right) \right).
 \end{equation}
-
-mit
-
-\begin{equation}
-    \label{eq:Omega}
-    \omega _k = \frac {2 \pi k}{T}
-\end{equation}
-
-und
-
-\begin{equation}
-    \label{eq:A_k}
-    A_k = \frac{2}{T} \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \, \cos \left( \omega _k t \right)  \symup{d}t
-\end{equation}
-
-mit
-
-\begin{equation}
-    \label{eq:A_0}
-    A_0 = \frac{1}{T} \int f (t) \, \symup{d}t
-\end{equation}
-
-und
-
-\begin{equation}
-    \label{eq:B_k}
-    B_k = \frac{2}{T} \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \, \sin \left( \omega _k t \right)  \symup{d}t
-\end{equation}
-
-mit
-
-\begin{equation}
-    \label{eq:B_0}
-    B_0 = 0
-\end{equation}
-
-\cite{sample}
+Wobei $\omega _k = \frac {2 \pi k}{T}$ ist und die Koeffizienten $A_k$ und $B_k$ mit 
+\begin{align}
+    A_k &= \frac{2}{T} \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \, \cos \left( \omega _k t \right)  \symup{d}t & A_0 &= \frac{1}{T} \int f (t) \, \symup{d}t \label{eq:A_k} \\
+    B_k &= \frac{2}{T} \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \, \sin \left( \omega _k t \right)  \symup{d}t & B_0 &= 0 \label{eq:B_k}
+\end{align}
+berechnet werden. Wobei $T$ die Periodendauer ist. \cite{V802}

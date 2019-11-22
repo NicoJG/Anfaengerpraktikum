@@ -10,10 +10,13 @@
 %Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 %Graphische Darstellung der Ergebnisse.
 
+Messung der Resonanzfrequanz ergibt
+    $35.6\mp$.
+
 \begin{table}
   \centering
   \caption{Messwerte: Kopplungskapazität $C_k $ und Frequenz $f$ mit der entsprechenden Anzahl Maxima, sowie Extrema}
-  \label{tab:data}
+  \label{tab:schwebung}
   \begin{tabular}{c c c c}
     \toprule 
     $C_k \:/\: \si{\nano\farad}$ & $f \:/\: \si{\kilo\hertz}$ & Anzahl Maxima &  Anzahl Extrema   \\ 
@@ -30,10 +33,16 @@
   \end{tabular}
 \end{table}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{images/foto_03.jpg}
+  \caption{Screenshot der Schwebung für den $C_k$ Wert $6.860$ aus \autoref{tab:schwebung}}
+\end{figure}
+
 \begin{table}
   \centering
   \caption{Messwerte: Kopplungskapazität $C_k $ und die Frequenzen $\nu _+$ und $\nu _-$}
-  \label{tab:data}
+  \label{tab:frequenzen}
   \begin{tabular}{c c c}
     \toprule 
     $C_k \:/\: \si{\nano\farad}$ & $\nu _+ \:/\: \si{\kilo\hertz}$ & $\nu _- \:/\: \si{\kilo\hertz}$   \\ 
@@ -50,10 +59,12 @@
   \end{tabular}
 \end{table}
 
+
+
 \begin{table}
   \centering
   \caption{Messwerte: Kopplungskapazität $C_k $ und Ampliduten von $U_{2+}$, $U_{2-}$ und $U_k$}
-  \label{tab:data}
+  \label{tab:amplituden}
   \begin{tabular}{c c c c}
     \toprule 
     $C_k \:/\: \si{\nano\farad}$ & $U_{2+} \:/\: \si{\volt}$ & $U_{2-} \:/\: \si{\volt}$ &  $U_k \:/\: \si{\volt}$       \\ 
@@ -68,3 +79,41 @@
     \bottomrule
   \end{tabular}
 \end{table}
+
+Die Resonanzfrequanz kann nun mit der Formel XY genau bestimmt werden.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der gemessenen Resonanzfrequanz und des berechnetet Theoriewerts}
+  \label{tab:resonanz}
+  \begin{tabular}{c c}
+    \toprule 
+    Gemessener Wert $\nu _+ \:/\: \si{\kilo\hertz}$ & Berechneter Wert $\nu _+ \:/\: \si{\kilo\hertz}$    \\ 
+    \midrule 
+    35.600 & 35.884 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Vergleich der gemessenen Fundamentalschwinungen mit den berechneten Theoriewerten}
+  \label{tab:schwingung}
+  \begin{tabular}{c c c}
+    \toprule 
+    $C_k \:/\: \si{\nano\farad}$ & Gemessener Wert $\nu _- \:/\: \si{\kilo\hertz}$ & Berechneter Wert $\nu _- \:/\: \si{\kilo\hertz}$    \\ 
+    \midrule 
+    0.997 & 56.100 & 58.386 \\
+    2.190 & 46.500 & 47.470 \\
+    2.860 & 44.300 & 45.024 \\
+    4.740 & 41.200 & 41.640 \\
+    6.860 & 39.600 & 39.950 \\
+    8.180 & 39.100 & 39.322 \\
+    9.990 & 38.500 & 38.722 \\
+    12.00 & 38.100 & 38.261 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+

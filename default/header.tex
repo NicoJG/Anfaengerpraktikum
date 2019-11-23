@@ -134,6 +134,14 @@
 % Anpassbare Enumerates/Itemizes
 \usepackage{enumitem}
 
+%----------------
+% Neue Commands
+%----------------
+\NewDocumentCommand \dif{m} 
+{
+  \mathinner{\symup{d} #1}
+}
+
 \author{%
   David Venker\\%
   \href{mailto:david.venker@udo.edu}{david.venker@udo.edu}%

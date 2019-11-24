@@ -10,8 +10,12 @@
 %Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 %Graphische Darstellung der Ergebnisse.
 
-Messung der Resonanzfrequanz ergibt
-    $35.6\mp$.
+Im Folgendem werden die während des Praktikums gemessenen Werte aufgeliset.
+Die Messung der Resonanzfrequanz ergibt dann
+    $35.6 \pm 0.2 \: \si{\kilo\hertz}$.
+
+Messergebnisse für Aufgabe 1:
+Für die Messungen von Aufgabe 1 werden hier jeweils die eingestellten Werte für die Kopplungskapazität $C_k$ aufgetragen, sowie die Frequenz bei der die Maxima gezählt wurden. Die gezählten Maxima und Extrema allgemein werden dahinter notiert. 
 
 \begin{table}
   \centering
@@ -39,6 +43,9 @@ Messung der Resonanzfrequanz ergibt
   \caption{Screenshot der Schwebung für den $C_k$ Wert $6.860$ aus \autoref{tab:schwebung}}
 \end{figure}
 
+Messergebnisse für Aufgabe 2:
+In Aufgabe 2 wurden die Frequenzen für die jeweiligen Fundamentalschwingungen untersucht und gemessen, diese sind nachfolgend mit ihrer entsprechenden Kopplungskapazität $C_k$ aufgeschrieben.
+
 \begin{table}
   \centering
   \caption{Messwerte: Kopplungskapazität $C_k $ und die Frequenzen $\nu _+$ und $\nu _-$}
@@ -59,7 +66,8 @@ Messung der Resonanzfrequanz ergibt
   \end{tabular}
 \end{table}
 
-
+Messergebnisse für Aufgabe 3:
+In Abhängigkeit von der Kopplungskapazität $C_k$ sind die jeweilien maximalen Spannungsamplituden gelistet. Für jeden $C_k$ Wert wurde mit den beiden gemessenen Frequenzen aus \autoref{tab:frequenzen} die maximale Spannungsamplitude gemessen. Dabei entsprechen $U_{2+}$ und $U_{2-}$ der maximalen Spannungsamplitude im äußeren Schwingkreis bei den beiden Frequenzen $\nu _+$ und $\nu _-$. $U_k$ ist definiert als die maximale Spannungsamplitude innerhalb des gekoppelten Schwingkreises. Dort kann nur mit $\nu _-$ gemessen werden, da bei $\nu _+$, $C_k$ keinen Einfluss hat.
 
 \begin{table}
   \centering
@@ -80,11 +88,32 @@ Messung der Resonanzfrequanz ergibt
   \end{tabular}
 \end{table}
 
-Die Resonanzfrequanz kann nun mit der Formel XY genau bestimmt werden.
+
+Die Resonanzfrequanz kann nun mit der Formel für $\nu _+$ aus \autoref{eq:frequenzen} genau bestimmt werden.
+
+Wobei:
+
+$L = \SI{23.9540}{\milli\henry}$ 
+
+und 
+
+$C = \SI{0.7932}{\nano\farad}$
+
+Hierbei wurde beachtet, dass die Induktivität $L$ ebenfalls eine Kapazität $C_{sp}$ besitzt, die in unserem Fall
+
+$C_{sp} = \SI{0.0280}{\nano\farad}$ 
+
+beträgt.
+Bevor die Resonanzfrequenz $\nu _+$ berechnet werden kann, muss man also
+
+$\SI{0.7932}{\nano\farad} + \SI{0.0280}{\nano\farad} = \SI{0.8212}{\nano\farad}$
+
+als das neue $C$ setzen.
+Damit ergibt sich dann der Theoriewert, der in der folgenden Tabelle mit dem gemessenen Wert verglichen wird.
 
 \begin{table}
   \centering
-  \caption{Vergleich der gemessenen Resonanzfrequanz und des berechnetet Theoriewerts}
+  \caption{Vergleich der gemessenen Resonanzfrequanz und dem berechneten Theoriewert}
   \label{tab:resonanz}
   \begin{tabular}{c c}
     \toprule 
@@ -94,6 +123,8 @@ Die Resonanzfrequanz kann nun mit der Formel XY genau bestimmt werden.
     \bottomrule
   \end{tabular}
 \end{table}
+
+Die in Aufgabe 2 gemessenen Frequenzen zu den Fundamentalschwingungen werden ebenfalls mit den Theoriewerten verglichen. Mithilfe der Formel für $\nu _-$ aus \autoref{eq:frequenzen} und den bekannten Werten für $L$ und $C$ kann besagte Frequenz bestimmt werden. Für $\nu_-$ ist jedoch die Kopplungskapazität $C_k$ nicht mehr irrelevant, sodass sich für jedes $C_k$ ein anderer Theoriewert ergibt.
 
 \begin{table}
   \centering

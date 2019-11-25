@@ -81,9 +81,24 @@ Für die in \autoref{sec:amplituden} gemessenen Werte sind hier in Abhängigkeit
   \end{tabular}
 \end{table}
 
+Zur Referenz der Generatorspannung wurde die Amplidute der Spannung bei verschiedenen Frequenzen gemessen. Wobei jeweils bei den Fundamentalfrequenzen und einer von den Fundamentalfrequenzen gänzlich verschiedenen Frequenz gemessen wurde.
+
+\begin{table}
+  \centering
+  \caption{Referenzwerte der Generatorspannung bei verschiedenen Frequenzen}
+  \label{tab:resonanz}
+  \begin{tabular}{c c c c}
+    \toprule 
+    $C_k \:/\: \si{\nano\farad}$ & $U \: bei\:  \nu _+ \:/\: \si{\volt}$ & $U \: bei \: \nu _- \:/\: \si{\volt}$ & $U \: bei \: \SI{20.1}{\kilo\hertz} \:/\: \si{\volt} $ \\ 
+    \midrule 
+     8.180 & 8.00 & 7.50 & 10.00 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \subsection{Vergleich der Messwerte zu den erwarteten Werten}
 
-Die Resonanzfrequanz kann nun mit der \autoref{eq:frequenz+} für $\nu _+$ berechnet werden.
+Die Resonanzfrequenz kann nun mit der \autoref{eq:frequenz+} für $\nu _+$ berechnet werden.
 
 Die gegebenen Werte der in der Schaltung eingebauten Bauelemente sind $R = \SI{48}{\ohm}$ $L = \SI{23.9540}{\milli\henry}$ und $C = \SI{0.7932}{\nano\farad}$.
 
@@ -144,7 +159,7 @@ Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:freque
     6.860 & 39.600 & 39.950 \\
     8.180 & 39.100 & 39.322 \\
     9.990 & 38.500 & 38.722 \\
-    12.00 & 38.100 & 38.261 \\
+    12.000 & 38.100 & 38.261 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -155,7 +170,7 @@ $R$, $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{tab:amplitud
 
 \begin{table}
   \centering
-  \caption{Vergleich der gemessenen Maximalstromamplituden mit den berechneten Theoriewerten}
+  \caption{Vergleich der gemessenen Maximalstromamplituden zu den berechneten Theoriewerten}
   \label{tab:theorieamplituden}
   \begin{tabular}{c c c c c}
     \toprule 
@@ -167,7 +182,7 @@ $R$, $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{tab:amplitud
     6.860 & 0.0521 & 0.0521 & 0.0469 & 0.0355 \\
     8.180 & 0.0521 & 0.0517 & 0.0496 & 0.0487 \\
     9.990 & 0.0521 & 0.0512 & 0.0496 & 0.0494 \\
-    12.00 & 0.0521 & 0.0505 & 0.0521 & 0.0588 \\
+    12.000 & 0.0521 & 0.0505 & 0.0521 & 0.0588 \\
     \bottomrule
   \end{tabular}  
 \end{table}

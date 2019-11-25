@@ -12,11 +12,16 @@ UPlus = 8 #V
 UMinus = 7.5 #V
 
 Ck , vPlus , vMinus = np.genfromtxt('frequenzen.csv', delimiter=",", unpack=True)
+#Ck , vPlusTheorie , vMinusTheorie = np.genfromtxt('frequenzentheorie.csv', delimiter=",", unpack=True)
 Ck = Ck* 10**(-9) #F
 vPlus = vPlus * 10**(3) #Hz
 vMinus = vMinus * 10**(3) #Hz
+#vPlusTheorie = vPlusTheorie * 10**(3) #Hz
+#vMinusTheorie = vMinusTheorie * 10**(3) #Hz
 
 Ck_ , U2Plus, U2Minus, Uk = np.genfromtxt('amplitude.csv', delimiter=",", unpack=True)
+#U2Plus = U2Plus * (1/2)
+#U2Minus = U2Minus * (1/2)
 
 I2Plus = U2Plus / R
 I2Minus = U2Minus / R
@@ -26,6 +31,8 @@ I1 = U / R
 
 I2Plus_Theorie = I_Theorie(UPlus,2*np.pi*vPlus,Ck,R,L,C)
 I2Minus_Theorie = I_Theorie(UMinus,2*np.pi*vMinus,Ck,R,L,C)
+#I2Plus_Theorie = I_Theorie(UPlus,2*np.pi*vPlusTheorie,Ck,R,L,C)
+#I2Minus_Theorie = I_Theorie(UMinus,2*np.pi*vMinusTheorie,Ck,R,L,C)
 Ik_Theorie = I1 - I2Minus_Theorie
 
 print('I2Plus: ',I2Plus)

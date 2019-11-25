@@ -10,12 +10,13 @@
 %Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 %Graphische Darstellung der Ergebnisse.
 
-Im Folgendem werden die während des Praktikums gemessenen Werte aufgeliset.
-Die Messung der Resonanzfrequanz ergibt dann
-    $35.6 \pm 0.2 \: \si{\kilo\hertz}$.
+\subsection{Messergebnisse}
 
-Messergebnisse für Aufgabe 1:
-Für die Messungen von Aufgabe 1 werden hier jeweils die eingestellten Werte für die Kopplungskapazität $C_k$ aufgetragen, sowie die Frequenz bei der die Maxima gezählt wurden. Die gezählten Maxima und Extrema allgemein werden dahinter notiert. 
+Im Folgendem werden die während des Praktikums gemessenen Werte aufgelistet.
+
+Die Messung der Resonanzfrequanz aus \autoref{sec:resonanz} ergibt dann $\SI{35.6}{\kilo\hertz}$.
+
+Für die Messungen aus \autoref{sec:schwebung} werden hier jeweils die eingestellten Werte für die Kopplungskapazität $C_k$ aufgetragen, sowie die Frequenz bei der die Maxima gezählt wurden. Die gezählten Maxima und Extrema werden dahinter notiert. 
 
 \begin{table}
   \centering
@@ -37,14 +38,7 @@ Für die Messungen von Aufgabe 1 werden hier jeweils die eingestellten Werte fü
   \end{tabular}
 \end{table}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{images/foto_03.jpg}
-  \caption{Screenshot der Schwebung für den $C_k$ Wert $6.860$ aus \autoref{tab:schwebung}}
-\end{figure}
-
-Messergebnisse für Aufgabe 2:
-In Aufgabe 2 wurden die Frequenzen für die jeweiligen Fundamentalschwingungen untersucht und gemessen, diese sind nachfolgend mit ihrer entsprechenden Kopplungskapazität $C_k$ aufgeschrieben.
+In \autoref{sec:frequenzen} wurden die Frequenzen für die jeweiligen Fundamentalschwingungen untersucht und gemessen, diese sind nachfolgend mit ihrer entsprechenden Kopplungskapazität $C_k$ aufgeschrieben.
 
 \begin{table}
   \centering
@@ -66,8 +60,7 @@ In Aufgabe 2 wurden die Frequenzen für die jeweiligen Fundamentalschwingungen u
   \end{tabular}
 \end{table}
 
-Messergebnisse für Aufgabe 3:
-In Abhängigkeit von der Kopplungskapazität $C_k$ sind die jeweilien maximalen Spannungsamplituden gelistet. Für jeden $C_k$ Wert wurde mit den beiden gemessenen Frequenzen aus \autoref{tab:frequenzen} die maximale Spannungsamplitude gemessen. Dabei entsprechen $U_{2+}$ und $U_{2-}$ der maximalen Spannungsamplitude im äußeren Schwingkreis bei den beiden Frequenzen $\nu _+$ und $\nu _-$. $U_k$ ist definiert als die maximale Spannungsamplitude innerhalb des gekoppelten Schwingkreises. Dort kann nur mit $\nu _-$ gemessen werden, da bei $\nu _+$, $C_k$ keinen Einfluss hat.
+Für die in \autoref{sec:amplituden} gemessenen Werte sind hier in Abhängigkeit von der Kopplungskapazität $C_k$ die jeweilien maximalen Spannungsamplituden gelistet. Für jeden $C_k$ Wert wurde mit den beiden gemessenen Frequenzen aus \autoref{tab:frequenzen} die maximale Spannungsamplitude gemessen. Dabei entsprechen $U_{2+}$ und $U_{2-}$ der maximalen Spannungsamplitude im äußeren Schwingkreis bei den beiden Frequenzen $\nu _+$ und $\nu _-$. $U_k$ ist definiert als die maximale Spannungsamplitude innerhalb des gekoppelten Schwingkreises. Dort kann nur mit $\nu _-$ gemessen werden, da bei $\nu _+$, $C_k$ keinen Einfluss hat.
 
 \begin{table}
   \centering
@@ -88,27 +81,15 @@ In Abhängigkeit von der Kopplungskapazität $C_k$ sind die jeweilien maximalen 
   \end{tabular}
 \end{table}
 
+\subsection{Vergleich der Messwerte zu den erwarteten Werten}
 
-Die Resonanzfrequanz kann nun mit der Formel für $\nu _+$ aus \autoref{eq:frequenzen} genau bestimmt werden.
+Die Resonanzfrequanz kann nun mit der \autoref{eq:frequenz+} für $\nu _+$ berechnet werden.
 
-Wobei:
+Die gegebenen Werte der in der Schaltung eingebauten Bauelemente sind $R = \SI{48}{\ohm}$ $L = \SI{23.9540}{\milli\henry}$ und $C = \SI{0.7932}{\nano\farad}$.
 
-$L = \SI{23.9540}{\milli\henry}$ 
+Hierbei muss beachtet werden, dass die Induktivität $L$ ebenfalls eine Kapazität $C_{sp}$ besitzt, die in unserem Fall $C_{sp} = \SI{0.0280}{\nano\farad}$ beträgt.
+Bevor die Resonanzfrequenz $\nu _+$ berechnet werden kann, muss also die Gesamtkapazität $\SI{0.7932}{\nano\farad} + \SI{0.0280}{\nano\farad} = \SI{0.8212}{\nano\farad}$ als das neue $C$ gesetzt werden.
 
-und 
-
-$C = \SI{0.7932}{\nano\farad}$
-
-Hierbei wurde beachtet, dass die Induktivität $L$ ebenfalls eine Kapazität $C_{sp}$ besitzt, die in unserem Fall
-
-$C_{sp} = \SI{0.0280}{\nano\farad}$ 
-
-beträgt.
-Bevor die Resonanzfrequenz $\nu _+$ berechnet werden kann, muss man also
-
-$\SI{0.7932}{\nano\farad} + \SI{0.0280}{\nano\farad} = \SI{0.8212}{\nano\farad}$
-
-als das neue $C$ setzen.
 Damit ergibt sich dann der Theoriewert, der in der folgenden Tabelle mit dem gemessenen Wert verglichen wird.
 
 \begin{table}
@@ -117,14 +98,14 @@ Damit ergibt sich dann der Theoriewert, der in der folgenden Tabelle mit dem gem
   \label{tab:resonanz}
   \begin{tabular}{c c}
     \toprule 
-    Gemessener Wert $\nu _+ \:/\: \si{\kilo\hertz}$ & Berechneter Wert $\nu _+ \:/\: \si{\kilo\hertz}$    \\ 
+    $\nu _{+,gemessen} \:/\: \si{\kilo\hertz}$ & $\nu _{+,berechnet} \:/\: \si{\kilo\hertz}$    \\ 
     \midrule 
     35.600 & 35.884 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Die Theoriewerte der berechneten Maxima aus Ausgabe 1 können mit der Formel \autoref{eq:extrema} berechnet werden. Die Werte für $\nu _+$ und $\nu _-$ sind die theoretisch berechneten Werte aus \autoref{tab:schwinungen}, für die jeweiligen Kopplungskapazitäten $C_k$, die man in der Aufgabe einstellt. Für die Anzahl der Maxima wurde jeweils auf den nächsten Runden Wert gerundet.
+Die entsprechenden Theoriewerte zu den gemessenen Maxima aus \autoref{tab:schwebung} können mit der \autoref{eq:extrema} berechnet werden. Die Werte für $\nu _+$ und $\nu _-$ sind die theoretisch berechneten Werte aus \autoref{tab:frequenzentheorie}, für die jeweiligen Kopplungskapazitäten $C_k$, die man in der Durchführung eingestellt hat. Für die Anzahl der Maxima wurde jeweils auf den nächsten Runden Wert gerundet.
 
 \begin{table}
   \centering
@@ -132,7 +113,7 @@ Die Theoriewerte der berechneten Maxima aus Ausgabe 1 können mit der Formel \au
   \label{tab:schwebungstheorie}
   \begin{tabular}{c c c}
     \toprule 
-    $C_k \:/\: \si{\nano\farad}$ & gemessene Anzahl Maxima &  theoretische Anzahl Maxima   \\ 
+    $C_k \:/\: \si{\nano\farad}$ & gemessene Anzahl Maxima &  berechnete Anzahl Maxima   \\ 
     \midrule 
     0.997 & 2 & 2 \\
     2.290 & 3 & 3 \\
@@ -146,15 +127,15 @@ Die Theoriewerte der berechneten Maxima aus Ausgabe 1 können mit der Formel \au
   \end{tabular}
 \end{table}
 
-Die in Aufgabe 2 gemessenen Frequenzen zu den Fundamentalschwingungen werden ebenfalls mit den Theoriewerten verglichen. Mithilfe der Formel für $\nu _-$ aus \autoref{eq:frequenzen} und den bekannten Werten für $L$ und $C$ kann besagte Frequenz bestimmt werden. Für $\nu_-$ ist jedoch die Kopplungskapazität $C_k$ nicht mehr irrelevant, sodass sich für jedes $C_k$ ein anderer Theoriewert ergibt.
+Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:frequenzen} werden ebenfalls mit den Theoriewerten verglichen. Mithilfe der \autoref{eq:frequenz-} für $\nu _-$ und den bekannten Werten für $L$ und $C$ kann besagte Frequenz bestimmt werden. Für $\nu_-$ ist jedoch die Kopplungskapazität $C_k$ nicht mehr irrelevant, sodass sich für jedes $C_k$ ein anderer Theoriewert ergibt.
 
 \begin{table}
   \centering
   \caption{Vergleich der gemessenen Fundamentalschwingungen mit den berechneten Theoriewerten}
-  \label{tab:schwingung}
+  \label{tab:frequenzentheorie}
   \begin{tabular}{c c c}
     \toprule 
-    $C_k \:/\: \si{\nano\farad}$ & Gemessener Wert $\nu _- \:/\: \si{\kilo\hertz}$ & Berechneter Wert $\nu _- \:/\: \si{\kilo\hertz}$    \\ 
+    $C_k \:/\: \si{\nano\farad}$ & $\nu _{-,gemessen} \:/\: \si{\kilo\hertz}$ & $\nu _{-,berechnet} \:/\: \si{\kilo\hertz}$    \\ 
     \midrule 
     0.997 & 56.100 & 58.386 \\
     2.190 & 46.500 & 47.470 \\
@@ -168,11 +149,9 @@ Die in Aufgabe 2 gemessenen Frequenzen zu den Fundamentalschwingungen werden ebe
   \end{tabular}
 \end{table}
 
-In Aufgabe 3 wurden lediglich die Werte für $U_{2+}$, $U_{2-}$ und $U_k$ berechnet, jedoch sind die Werte für $I_{2+}$, $I_{2-}$ und $I_k$ gefragt worden, sodass wir diese über die Formel
+In \autoref{sec:amplituden} wurden lediglich die Werte für $U_{2+}$, $U_{2-}$ und $U_k$ gemessen, jedoch sind die Werte für $I_{2+}$, $I_{2-}$ und $I_k$ gefragt gewesen, sodass diese über die Formel $I = \frac{U}{R}$ berechnet werden können. 
 
-$I = \frac{U}{R}$
-
-berechnen können. Das $R$ in diesem Stromkreis beträgt $\SI{48}{\ohm}$. $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{amplituden} entnommen. In der Tabelle stehen jeweils die aus den gemessenen $U_{2+}$ und $U_{2-}$ berechneten Werte für $I_{2+}$ und $I_{2-}$. Die Theoriewerte für $I_{2+}$ und $I_{2-}$ werden berechnet durch die Formel \autoref{eq:stromamplitude}. Der kleinste Wert für $C_k$ wurde beim messen nicht beachtet. Daraus ergeben sich dann folgende Werte.
+$R$, $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{tab:amplituden} entnommen. In der Tabelle stehen jeweils die aus den gemessenen $U_{2+}$ und $U_{2-}$ berechneten Werte für $I_{2+}$ und $I_{2-}$. Die Theoriewerte für $I_{2+}$ und $I_{2-}$ werden berechnet durch die Formel \autoref{eq:stromamplitude}. Der kleinste Wert für $C_k$ wurde beim messen nicht beachtet. Daraus ergeben sich dann folgende Werte.
 
 \begin{table}
   \centering

@@ -1,7 +1,22 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-Kurze Zusammenfassung der Ergebnisse
--Vergleich mit Literaturwerten
--Vergleich mit verschiedenen Messverfahren
--bei Abweichungen mögliche Ursachen finden
+%Kurze Zusammenfassung der Ergebnisse
+%-Vergleich mit Literaturwerten
+%-Vergleich mit verschiedenen Messverfahren
+%-bei Abweichungen mögliche Ursachen finden
+
+Wie in \autoref{sec:vergleich} zu sehen ist sind die gemessenen Ergebnisse fast ausschließlich abweichend zu den berechneten Werten. Im Folgenden gilt es die möglichen Ursachen dieser Abweichungen zu beschreiben.
+
+Vorab sei zu sagen, dass der verwendete Wechselspannungsgenerator nicht genau einstellbar war. Geschätzt war die Generatorfrequenz nur auf $\pm \SI{0.5}{\kilo\hertz}$ einstellbar. 
+Da diese Frequenz bei jeder Schaltung wichtig war, kommt es generell zu Abweichungen.
+
+Wenn dies beachtet wird scheint die Abweichung der Resonanzfrequenz in \autoref{tab:resonanz} plausibel.
+
+Die Abweichungen der Anzahl der Maxima in einer Schwebungsperiode in \autoref{tab:schwebungstheorie} lässt sich einerseits durch die Abweichungen der Frequenzen in \autoref{tab:frequenzentheorie} erklären und andererseits war beim Abzählen der Maxima teilweise unklar welches Maximum noch mitgezählt werden muss, damit es innerhalb einer Schwebungsperiode liegt.
+
+In \autoref{tab:frequenzentheorie} lassen sich die Abweichungen genau wie oben genannt erklären.
+
+Die aus den gemessenen Spannungsamplituden berechneten Stromaplituden $I_{2+}$ in \autoref{tab:amplitudentheorie} zeigen kleine Abweichungen zu den berechneten Werten.
+Allerdings ist die Abweichung der $I_{2-}$ Werte deutlich größer. 
+Eine mögliche Ursache dafür ist wie oben beschrieben die Ungenauigkeit der Generatorfrequenz. Außerdem wurde die Generatorspannungsamplitude nur für $Ck = \SI{8.18}{\nano\farad}$ gemessen und es wurde angenommen, dass diese für andere $Ck$ Werte gleich bleibt. Diese Annahme scheint nicht richtig zu sein und andere Generatorspannungen müssten gemessen und zur Berechnung genutzt werden.

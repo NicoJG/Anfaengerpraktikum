@@ -16,7 +16,7 @@
 
 Ein elektrischer Schwingkreis ist eine Schaltung bestehend aus einem Widerstand $R$, einer Spule $L$ und einem Kondensator $C$. 
 Schwingkreis heißt diese Schaltung, weil sie beschrieben werden kann wie ein harmonischer Oszillator, in dem die Spannungsamplitude und die Stromamplitude gegenphasig hin und her schwingen.
-Gekoppelt werden zwei Schwingkreise über einen zusätzlichen Kondensator $C_k$. (siehe \autoref{fig:schaltung_1})
+Gekoppelt werden zwei Schwingkreise über einen zusätzlichen Kondensator $C_k$. (siehe \autoref{fig:schaltung_1}).
 Eine gleiche Resonanzfrequenz der beiden Schwingkreise muss vorausgesetzt sein. 
 Dies kann analog angesehen werden wie zwei identische Fadenpendel, welche mit einer Feder gekoppelt sind.
 
@@ -25,7 +25,7 @@ Es gelten die Zusammenhänge von Strom $I$, Spannung $U$, Widerstand $R$, Kapazi
     U = RI && U_C = \frac{1}{C} \int I \dif{t} && U_L = L \dot{I}
 \end{align}
 
-Nun ergeben für die Ströme $I_1$ und $I_2$ mit den Stromamplituden $I_{1_0}$ und $I_{2_0}$ mithilfe der Kirchhoffschen Regeln die Gleichungen
+Nun ergeben sich für die Ströme $I_1$ und $I_2$ mit den Stromamplituden $I_{1_0}$ und $I_{2_0}$ mithilfe der Kirchhoffschen Regeln die Gleichungen
 
 \begin{align}
     \label{eq:strom}
@@ -47,7 +47,7 @@ Hieran ist zu sehen, dass das System zwei Fundamentalschwingungen besitzt:
 \item Wenn $I_{1_0} = - I_{2_0}$ ist, ist nur der Teil mit $\nu _-$ von Bedeutung und die Schwingkreise schwingen mit einem Phasenunterschied von $\pi$.
 \end{enumerate}
 
-Wenn nun wie in \autoref{fig:schaltung_2} dargestellt in den Schaltkreis ein Sinusgenerator mit Spannungsamplitude $U_0$ und Frequenz $\omega$ sowie ein Widerstand $R$ eingebaut werden, lässt sich die Stromamplitude $I_2$ des rechten Schwingkreises mit 
+Wenn nun wie in \autoref{fig:schaltung_2} dargestellt in den Schaltkreis einen Sinusgenerator mit Spannungsamplitude $U_0$ und Frequenz $\omega$ sowie einen Widerstand $R$ eingebaut werden, lässt sich die Stromamplitude $I_2$ des rechten Schwingkreises mit 
 \begin{equation}
     \label{eq:stromamplitude}
     I_2 = U_0 \frac{1}{\sqrt{4 \omega^2 C_k^2 R^2 Z(\omega)^2 + \left( \frac{1}{\omega C_k} - \omega C_k Z(\omega)^2 + \omega R^2 C_k \right)^2 }}
@@ -57,7 +57,7 @@ berechnen. Wobei
     Z(\omega) = \omega L - \frac{1}{\omega} \left( \frac{1}{C} + \frac{1}{C_k} \right)
 \end{equation}
 ist. \cite{V355}
-Der Strom durch den Kopplungskondensator ist durch Knotenregel
+Der Strom durch den Kopplungskondensator ist durch die Knotenregel
 \begin{equation}
     I_k = I_2 - I_1
 \end{equation}
@@ -72,7 +72,7 @@ mit
     \label{fig:schaltung_2}
 \end{figure}
 
-Eine dritte spezielle Schwingung tritt auf wenn bei $t=0$ $I_1 \neq 0$ ist und $I_2 = 0$ ist. Nun ergibt sich eine Schwebung wie in \autoref{fig:schwebung} dargestellt.
+Eine dritte spezielle Schwingung tritt auf, wenn bei $t=0$, $I_1 \neq 0$ ist und $I_2 = 0$ ist. Nun ergibt sich eine Schwebung wie in \autoref{fig:schwebung} dargestellt.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth/2]{images/schwebung.png}

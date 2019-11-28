@@ -1,13 +1,13 @@
 all: build/main.pdf
  
 # hier Python-Skripte: 
-build/plot.pdf: plot.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_entladekurve.pdf: python/entladekurve.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
-	python plot.py
+	python python/entladekurve.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot_entladekurve.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

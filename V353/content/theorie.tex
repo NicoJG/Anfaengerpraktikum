@@ -30,11 +30,35 @@ Durch das ohmsche Gesetz ist bekannt, dass durch diese Spannung $U_C$ und den Wi
 \end{equation}
 
 erzeugt wird. 
-Der zeitliche Verlauf der Ladung $Q$ auf dem Kondensator $C$ kann durch eine Exponentialfunktion beschrieben werden, dadruch ergibt sich
+Der zeitliche Verlauf der Ladung $Q$ auf dem Kondensator $C$ kann durch eine Exponentialfunktion beschrieben werden, dadurch ergibt sich
 
 \begin{equation}
     \label{eq:entladungsladung}
-    Q (t) = Q (0) \exp{\left(\frac{-t}{RC} \right)}
+    Q (t) = Q (0) \exp{\left(\frac{-t}{RC} \right)}.
+\end{equation}
+
+Wobei $RC$ eine Zeitkonstante ist, die im nächsten Abschnitt näher erklärt wird. \cite{V353}
+Äquivalent dazu lässt sich der Aufladevorgang eines Kondensators $C$ durch die Spannung $U_0$ über den Widerstand $R$ beschreiben. Hierbei gelten folgende Randbedingungen für $Q$
+
+\begin{align}
+    \label{eq:ladung}
+    Q (0) = 0 && Q (\infty) = C \cdot U_0.
+\end{align}
+
+Damit lässt sich der Aufladevorgang durch
+
+\begin{equation}
+    \label{eq:aufladungsladung}
+    Q (t) = C \cdot U_0  (1- \exp{\left(\frac{-t}{RC} \right)} )
+\end{equation}
+
+beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{entladungsladung}, mit dieser Konstante kann beschrieben werden, wie schnell sich ein System zu seinem Endzustand begibt. $RC$ ist festgeschrieben. Nachdem eine Zeit von 
+\begin{equation}
+    \Delta T = RC
+\end{equation} verstrichen ist, ändert sich die Kondensatorladung $Q$ um den Faktor
+\begin{equation}
+    \label{eq:RC}
+    \frac{Q (t = RC)}{Q (0)} = \frac{1}{e} \approx 0.386.
 \end{equation}
 
 \begin{figure}

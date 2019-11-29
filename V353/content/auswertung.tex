@@ -27,7 +27,7 @@ Im ersten Teil des Versuchs wie in \autoref{sec:Durchführung_1} konnte nur ein 
     \label{tab:entladekurve}
     \begin{tabular}{c c}
         \toprule
-        $U_C \:/\: \si{\volt}$ & $t \:/\: \si{\milli\second}$ \\
+        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} \\
         \midrule
         1.00 & 0.00 \\
         0.90 & 0.10 \\
@@ -74,31 +74,35 @@ bestimmen.
 \subsection{Untersuchung bei einer angelegten Sinusspannung}
 \label{sec:Auswertung_Sinusspannung}
 
-Die Ergebnisse der im \autoref{sec:Durchführung_2} beschriebenen Durchführung sind in \autoref{tab:gemessen} dargestellt. Hierbei ist zu beachten, dass die Werte $a$ bei einer invertierten Generatorspannung abgelesen wurden. Also entspricht der zeitliche Abstand $a$ der Zeit zwischen steigendem Nulldurchgang der Kondensatorspannung und abfallendem Nulldurchgang der Generatorspannung.
+Die Ergebnisse der im \autoref{sec:Durchführung_2} beschriebenen Durchführung sind in \autoref{tab:gemessen} dargestellt. Hierbei ist zu beachten, dass die Werte $a_{\text{gemessen}}$ bei einer invertierten Generatorspannung abgelesen wurden. Also entspricht der zeitliche Abstand $a_{\text{gemessen}}$ der Zeit zwischen steigendem Nulldurchgang der Kondensatorspannung und abfallendem Nulldurchgang der Generatorspannung.
+Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
+\begin{equation}
+    a = \frac{1}{2f} - a_{\text{gemessen}}
+\end{equation}
 
 \begin{table}
     \centering
-    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlicher Abstand $a$ (siehe Beschreibung)}
+    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$}
     \label{tab:gemessen}
-    \begin{tabular}{c c c}
+    \begin{tabular}{c c c c}
         \toprule
-        $f \:/\: \si{\hertz}$ & $U_C \:/\: \si{\volt}$ & $a \:/\: \si{\milli\second}$ \\
+        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} \\
         \midrule
-        20 & 1.000 & 25.000 \\
-        50 & 0.960 & 9.200 \\
-        100 & 0.900 & 4.200 \\
-        200 & 0.700 & 1.850 \\
-        300 & 0.550 & 1.150 \\
-        400 & 0.450 & 0.800 \\
-        500 & 0.360 & 0.620 \\
-        600 & 0.300 & 0.500 \\
-        800 & 0.240 & 0.360 \\
-        1000 & 0.200 & 0.280 \\
-        2000 & 0.100 & 0.130 \\
-        3000 & 0.067 & 0.085 \\
-        4500 & 0.044 & 0.056 \\
-        6000 & 0.034 & 0.042 \\
-        10000 & 0.020 & 0.025 \\
+        20 & 1.000 & 25.000 & 0.000 \\
+        50 & 0.960 & 9.200 & 0.800 \\
+        100 & 0.900 & 4.200 & 0.800 \\
+        200 & 0.700 & 1.850 & 0.650 \\
+        300 & 0.550 & 1.150 & 0.517 \\
+        400 & 0.450 & 0.800 & 0.450 \\
+        500 & 0.360 & 0.620 & 0.380 \\
+        600 & 0.300 & 0.500 & 0.333 \\
+        800 & 0.240 & 0.360 & 0.265 \\
+        1000 & 0.200 & 0.280 & 0.220 \\
+        2000 & 0.100 & 0.130 & 0.120 \\
+        3000 & 0.067 & 0.085 & 0.082 \\
+        4500 & 0.044 & 0.056 & 0.055 \\
+        6000 & 0.034 & 0.042 & 0.041 \\
+        10000 & 0.020 & 0.025 & 0.025 \\
         \bottomrule
     \end{tabular}
 \end{table}

@@ -1,12 +1,17 @@
 all: build/main.pdf
 
-plots: build/plot_entladekurve.pdf
+plots: build/plot_entladekurve.pdf build/plot_spannungen.pdf
  
 # hier Python-Skripte: 
 build/plot_entladekurve.pdf: python/entladekurve.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/entladekurve.py
+
+build/plot_spannungen.pdf: python/spannungsplot.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/spannungsplot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot_entladekurve.pdf
@@ -29,4 +34,4 @@ clean:
 
 FORCE:
 
-.PHONY: all clean
+.PHONY: all plots clean

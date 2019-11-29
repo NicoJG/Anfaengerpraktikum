@@ -10,9 +10,9 @@ a = a*10**(-3) #s
 #Berechne die Phasenverschiebung
 phi = a*f*2*np.pi
 
-data = list(zip(f,phi))
+data = list(zip(f,U_C,phi))
 
-np.savetxt('data/phasen.csv',data,header='f[Hz],phi[]',fmt='%i,%1.3f')
+np.savetxt('data/phasen.csv',data,header='f[Hz],U_C[V],phi[]',fmt='%i,%1.3f,%1.3f')
 
 #plot
 def f_(x,a):

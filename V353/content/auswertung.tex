@@ -135,27 +135,27 @@ Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der freque
 
 \begin{table}
     \centering
-    \caption{Mit $a$ berechnete Phasenverschiebung $\varphi$}
+    \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
     \label{tab:phasen}
     \begin{tabular}{c c}
         \toprule
         \tableSI{f}{\hertz} & $\varphi$ \\
         \midrule
-        20 & 0.000 \\
-        50 & 0.251 \\
-        100 & 0.503 \\
-        200 & 0.817 \\
-        300 & 0.975 \\
-        400 & 1.131 \\
-        500 & 1.194 \\
-        600 & 1.255 \\
-        800 & 1.332 \\
-        1000 & 1.382 \\
-        2000 & 1.508 \\
-        3000 & 1.546 \\
-        4500 & 1.555 \\
-        6000 & 1.546 \\
-        10000 & 1.571 \\
+        20 & 1.000 & 0.000 \\
+        50 & 0.960 & 0.251 \\
+        100 & 0.900 & 0.503 \\
+        200 & 0.700 & 0.817 \\
+        300 & 0.550 & 0.975 \\
+        400 & 0.450 & 1.131 \\
+        500 & 0.360 & 1.194 \\
+        600 & 0.300 & 1.255 \\
+        800 & 0.240 & 1.332 \\
+        1000 & 0.200 & 1.382 \\
+        2000 & 0.100 & 1.508 \\
+        3000 & 0.067 & 1.546 \\
+        4500 & 0.044 & 1.555 \\
+        6000 & 0.034 & 1.546 \\
+        10000 & 0.020 & 1.571 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -173,7 +173,7 @@ Die mithilfe von SciPy\cite{scipy} und
 \end{equation}
 erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Zeitkonstante
 \begin{equation}
-    RC = \SI{8.2580}{\milli\second}.
+    RC = \SI{0.8258}{\milli\second}.
 \end{equation}
 
 \subsection{Betrachtung des RC-Glieds als Integrator}

@@ -77,7 +77,7 @@ bestimmen.
 Die Ergebnisse der im \autoref{sec:Durchführung_2} beschriebenen Durchführung sind in \autoref{tab:gemessen} dargestellt. Hierbei ist zu beachten, dass die Werte $a_{\text{gemessen}}$ bei einer invertierten Generatorspannung abgelesen wurden. Also entspricht der zeitliche Abstand $a_{\text{gemessen}}$ der Zeit zwischen steigendem Nulldurchgang der Kondensatorspannung und abfallendem Nulldurchgang der Generatorspannung.
 Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
 \begin{equation}
-    a = \frac{1}{2f} - a_{\text{gemessen}}
+    a = \frac{1}{2f} - a_{\text{gemessen}}.
 \end{equation}
 
 \begin{table}
@@ -106,6 +106,26 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
         \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_spannungen.pdf}
+    \caption{Graph der Werte Spannungsverhältnis $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen}}
+    \label{fig:spannungen_plot}
+\end{figure}
+
+Durch die Gleichung
+\begin{equation}
+    \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2R^2C^2}}
+\end{equation}
+lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:spannungen_plot} mit
+\begin{equation}
+    f(x) = \frac{1}{\sqrt{1+(2 \pi x)^2a^2}}
+\end{equation} 
+ausgeführt wird. Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt die Zeitkonstante
+\begin{equation}
+    RC = \SI{0.8078}{\milli\second}.
+\end{equation}
 
 \subsection{Betrachtung des RC-Glieds als Integrator}
 \label{sec:Auswertung_Integrator}

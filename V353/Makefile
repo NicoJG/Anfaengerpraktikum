@@ -19,7 +19,7 @@ build/plot_phasen.pdf: python/phasen.py ../default/matplotlibrc ../default/heade
 	python python/phasen.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_entladekurve.pdf python/plot_spannungen.pdf
+build/main.pdf: build/plot_entladekurve.pdf build/plot_spannungen.pdf build/plot_phasen.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

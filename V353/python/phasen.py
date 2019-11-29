@@ -16,7 +16,7 @@ np.savetxt('data/phasen.csv',data,header='f[Hz],phi[]',fmt='%i,%1.3f')
 
 #plot
 def f_(x,a):
-    return np.arctan(-2*np.pi*x*a)
+    return -np.arctan(-2*np.pi*x*a)
 
 params,pcov = curve_fit(f_,f,phi)
 

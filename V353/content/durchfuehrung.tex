@@ -5,12 +5,38 @@
 
 \subsection{Bestimmung der Zeitkonstante}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth/2]{images/foto_schaltung.jpg}
+    \caption{Schaltkasten mit dem RC-Glied  \cite{V353}}
+    \label{fig:schaltung_3}
+\end{figure}
 
-\subsection{Amplitudenmessung der Kondensatorspannung bei Sinusgenerator}
+Obiger Schaltkasten mit dem Widerstand $R$ und der Kapazität $C$ war wie folgt anzuschließen.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth/2]{images/schaltung_3.png}
+    \caption{Schaltung zur Bestimmung der Zeitkonstante eines RC-Kreises  \cite{V353}}
+    \label{fig:schaltung_3}
+\end{figure}
 
-\subsection{Messung der Phasenverschiebung zwischen $U_C$ und $U_0$}
+Schaltet man nur die Rechteckspannung ein, zeigtt der Ozillator einen Ausschnitt der Auflade- und Entladekurve des RC-Kreises an. Die Frequenz ist so anzupassen, dass der Kondensator sich gänzlich aufladen kann, sich also asymptotisch einem Wert nähert. Damit die Zeitkonstante $RC$ bestimmt werden kann, muss die Spannung $U_C$ in Abhängingkeit von der Zeit $t$ deutlich ablesbar sein. Es ist ein Bild anzufertigen, das einen gesamten Entladungs- oder Aufladungsvorgang zeigt. 
 
+\subsection{Amplitudenmessung der Kondensatorspannung und Messung der Phasenverschiebung zwischen $U_C$ und $U_0$}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth/2]{images/schaltung_5.png}
+    \caption{Schaltung zur Messung der Amplitude und der Phasenverschiebung  \cite{V353}}
+    \label{fig:schaltung_5}
+\end{figure}
+
+Die Schaltung ist nach \autoref{fig:schaltung_5} aufzubauen. Die Amplitude der Kondensatorspannung und die Phasenverschiebung zwischen $U_0$ und $U_C$ ist in Abhängigkeit von der Frequenz $f$ zu messen. Die Frequenz ist mehrere Male zu variieren und daraufhin ist die Spannung $U_C$ am Oszilloskop abzulesen. Sicherheitshalber wird die Generatorspannung $U_0$ ebenfalls bei jeder Frequenz zu messen. Es ist wichtig zu beachten, dass die Frequenzen über mindestens drei Zehnerpotenzen hinweg eingestellt werden. 
+Die Phasenverschiebung zwischen den beiden Spannungen lässt sich ebenfalls am Oszilloskop ablesen, indem die Spannungeen gleichzeitig angezeigt werden und die Nulldurchgänge verglichen werden.
+Nach \autoref{eq:phasenmessung2} kann dann die Phasenverschiebung berechnet werden. 
 
 \subsection{RC-Kreis als Integrator}
+
+Damit diese Messung gelingen kann muss eine für den Integrator geeignete Frequenz eingestellt werden, diese findet man bei einem $\omega \gg \frac{1}{RC}$. Um den Effekt des Integrators zu sehen, werden nacheinander eine Sinusspannung, Rechteckspannung und eine Dreieckspannung ein. Auf dem Oszilloskop ergibt der zeitliche Verauf von $U_C$ dann eine Stammfunktion von $C_0$ nach \autoref{eq:integrator}. Von beiden Ozillogrammen ist jeweils für jede Spannugn ein Bild anzufertigen.
 

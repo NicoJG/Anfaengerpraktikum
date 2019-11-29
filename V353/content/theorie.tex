@@ -99,12 +99,29 @@ Durch die verzögerte Aufladung entsteht eine Phasenverschiebung $\varphi$, die 
     \varphi (\omega) = \arctan \left(-\omega R C \right)
 \end{equation}
 
-auch zu erkennen ist. Aus allen bisher genannten Eigenschaften besitzt die Schaltung \autoref{fig:schaltung_2} die Eigenschaften eines Tiefpasses. \cite{V353}
-Die RC-Kreis \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaft, sie kann als ein sogenannter Integrator verwendet werden. Für $\omega \gg \frac{1}{RC}$ gilt folgende Beziehung
+auch zu erkennen ist. Alternativ lässt sich die Phasenverschiebung auch über die zeitlichen Verläufe von $U_C$ und $U_0$ berechnen, dafür müssen die Schwingungsdauer $T$ und der zeitliche Abstand der Nulldurchgänge $a$ bekannt sein. Die Schwingungsdauer $T$ ist die Inverse der eingestellten Frequenz $f$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth/2]{images/phasenmessung.png}
+    \caption{Darstellung der Methode zur Berechnung der Phasenverschiebung  \cite{V353}}
+    \label{fig:phasenmessung}
+\end{figure}
+
+\autoref{fig:phasenmessung} stellt das Prinzip genauer da. Über den Zusammenhang
+
+\begin{equation}
+    \label{eq:phasenverschiebung2}
+    \varphi = a \cdot f \cdot 2\pi
+\end{equation}
+
+lässt sich die Phasenverschiebung ebenfalls berechnen.
+Aus der Eigenschaft, nur niedrige Frequenzen kaum unverändert passiern zu lassen, kann \autoref{fig:schaltung_2} als ein Tiefpass verwendet werden. \cite{V353}
+Die Schaltung \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaft, sie kann als ein sogenannter Integrator verwendet werden. Für $\omega \gg \frac{1}{RC}$ gilt die Beziehung
 
 \begin{align}
     \label{eq:integrator}
-    U (t) = RC \: \frac{\mathrm{d} U_C}{\mathrm{d}t}  && U_C (t) = \frac{1}{RC} \int _0^t U (t') \mathrm{d} t'
+    U (t) = RC \: \frac{\mathrm{d} U_C}{\mathrm{d}t}  && U_C (t) = \frac{1}{RC} \int _0^t U (t') \mathrm{d} t'.
 \end{align}
 
 Dadurch wird zu der Generatorspannung $U (t)$ eine Stammfunktion $U_C (t)$ erzeugt, die sich nur durch einen Faktor unterscheidet. \cite{V353}

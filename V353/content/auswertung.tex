@@ -21,6 +21,56 @@ Im ersten Teil des Versuchs wie in \autoref{sec:Durchführung_1} konnte nur ein 
     \label{fig:foto_entladekurve}
 \end{figure}
 
+\begin{table}
+    \centering
+    \caption{Abgelesene Werte aus \autoref{fig:foto_entladekurve} mit y-Achse als Kondensatorspannung $U_C$ und x-Achse als Zeit $t$}
+    \label{tab:entladekurve}
+    \begin{tabular}{c c}
+        \toprule
+        $U_C \:/\: \si{\volt}$ & $t \:/\: \si{\milli\second}$ \\
+        \midrule
+        1.00 & 0.00 \\
+        0.90 & 0.10 \\
+        0.80 & 0.20 \\
+        0.70 & 0.30 \\
+        0.60 & 0.40 \\
+        0.50 & 0.50 \\
+        0.44 & 0.60 \\
+        0.40 & 0.70 \\
+        0.36 & 0.80 \\
+        0.28 & 1.00 \\
+        0.20 & 1.20 \\
+        0.16 & 1.40 \\
+        0.12 & 1.60 \\
+        0.08 & 1.80 \\
+        0.06 & 2.00 \\
+        0.04 & 2.30 \\
+        0.02 & 2.70 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse als $\ln\left( \frac{U_C}{U_0} \right)$, wobei $U_0=\SI{1}{\volt}$ ist, dargestellt werden entsteht \autoref{fig:entladekurve_plot}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_entladekurve.pdf}
+    \caption{Graph der Werte aus \autoref{tab:entladekurve} und der passenden Ausgleichsgerade}
+    \label{fig:entladekurve_plot}
+\end{figure}
+
+Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy berechnet.\cite{scipy}
+Die Darstellung entspreicht der Gleichung 
+\begin{equation}
+    \ln\left(\frac{U_C}{U_0}\right) = -\frac{t}{RC}.
+\end{equation}
+Wobei sich hier eine Steigung von $-1/RC = \SI{-1.431e6}{\milli\second}^{-1}$ ergibt. 
+Damit lässt sich die Zeitkonstante als 
+\begin{equation}
+    RC = \SI{0.6988}{\milli\second}
+\end{equation}
+bestimmen.
+
 \subsection{Untersuchung bei einer angelegten Sinusspannung}
 \label{sec:Auswertung_Sinusspannung}
 

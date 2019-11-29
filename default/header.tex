@@ -140,9 +140,15 @@
 %----------------
 % Neue Commands
 %----------------
+% Differentiale
 \NewDocumentCommand \dif{m} 
 {
   \mathinner{\symup{d} #1}
+}
+% Tabellen Header mit Variable und Einheit
+\NewDocumentCommand \tableSI{m m} 
+{
+  $#1 \:/\: \si{#2}$
 }
 
 \author{%

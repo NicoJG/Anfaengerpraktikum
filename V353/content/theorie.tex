@@ -52,7 +52,7 @@ Damit lässt sich der Aufladevorgang durch
     Q (t) = C \cdot U_0  (1- \exp{\left(\frac{-t}{RC} \right)} )
 \end{equation}
 
-beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{entladungsladung}, mit dieser Konstante kann beschrieben werden, wie schnell sich ein System zu seinem Endzustand begibt. $RC$ ist festgeschrieben. Nachdem eine Zeit von 
+beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{eq:entladungsladung}, mit dieser Konstante kann beschrieben werden, wie schnell sich ein System zu seinem Endzustand begibt. $RC$ ist festgeschrieben. Nachdem eine Zeit von 
 \begin{equation}
     \Delta T = RC
 \end{equation} verstrichen ist, ändert sich die Kondensatorladung $Q$ um den Faktor
@@ -61,9 +61,48 @@ beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{en
     \frac{Q (t = RC)}{Q (0)} = \frac{1}{e} \approx 0.386.
 \end{equation}
 
+Eine periodische Auslenkunge aus der Gleichgewichtslage erzeugt ebenfalls Relaxationsphänomene und kann ebenfalls mit einem RC-Kreis beschrieben werden. 
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth/2]{images/schaltung_2.png}
     \caption{Mögliches Schaltbild zur Entstehung eines Relaxationsphänomens durch periodische Anregung.  \cite{V353}}
     \label{fig:schaltung_2}
 \end{figure}
+
+Wird \autoref{fig:schaltung_2} durch die Wechselspannung $U (t)$ mit der Kreisfrequenz $\omega$ angetrieben, also 
+
+\begin{equation}
+    \label{eq:wechselspannung}
+    U (t) = U_0 \cdot \cos \left(\omega t \right),
+\end{equation}
+
+ergeben sich für verschiedene $\omega$ andere Effekte. Für $\omega \ll \frac{1}{RC}$ werden die Kondensatorspannung $U_C$ und die Generatorspannung $U (t)$ \autoref{eq:wechselspannung} etwa gleich sein, da der Kondensator genug Zeit hat sich vollständig aufzuladen, bevor die Spannung wieder abfällt und ihr Vorzeichen ändert. Bei entsprechend höheren Frequenzen kann der Aufladevorgang nicht mehr vollständig stattfinden und die Amplitude $A$ der Kondensatorspannung wird kleiner werden. Sie ist gegeben durch
+
+\begin{equation}
+    \label{eq:amplitude}
+    A (\omega) = \frac{U_0}{\sqrt{1 + \omega^2 R^2 C^2}}.
+\end{equation}
+
+Durch die verzögerte Aufladung entsteht eine Phasenverschiebung $\varphi$, die sich bei ansteigender Frequenz asymptotisch dem Wert $\varphi = \frac{\pi}{2}$ annähert. Wie an
+
+\begin{equation}
+    \label{eq:phasenverschiebung}
+    \varphi (\omega) = \arctan \left(-\omega R C \right)
+\end{equation}
+
+auch zu erkennen ist. Aus allen bisher genannten Eigenschaften besitzt die Schaltung \autoref{fig:schaltung_2} die Eigenschaften eines Tiefpasses. \cite{V353}
+Die RC-Kreis \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaft, sie kann als ein sogenannter Integrator verwendet werden. Für $\omega \gg \frac{1}{RC}$ gilt folgende Beziehung
+
+\begin{align}
+    \label{eq:integrator}
+    U (t) = RC \: \frac{\mathrm{d} U_C}{\mathrm{d}t}  && U_C (t) = \frac{1}{RC} \int _0^t U (t') \mathrm{d} t'
+\end{align}
+
+Dadurch wird zu der Generatorspannung $U (t)$ eine Stammfunktion $U_C (t)$ erzeugt, die sich nur durch einen Faktor unterscheidet. \cite{V353}
+
+\subsection{Aufgaben}
+\label{sec:aufgaben}
+
+
+

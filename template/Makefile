@@ -1,4 +1,6 @@
 all: build/main.pdf
+
+plots: build/plot.pdf
  
 # hier Python-Skripte: 
 build/plot.pdf: plot.py ../default/matplotlibrc ../default/header-matplotlib.tex | build

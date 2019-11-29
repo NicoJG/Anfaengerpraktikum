@@ -12,7 +12,7 @@
 \subsection{Bestimmung der Zeitkonstante}
 \label{sec:Auswertung_Zeitkonstante}
 
-Im ersten Teil des Versuchs wie in \autoref{sec:Durchführung_1} konnte nur ein Foto der Entladekurve als Messergebnis dienen, dieses ist in \autoref{fig:foto_entladekurve} dargestellt:
+Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, konnte nur ein Foto der Entladekurve als Messergebnis dienen, dieses ist in \autoref{fig:foto_entladekurve} dargestellt:
 
 \begin{figure}
     \centering
@@ -50,7 +50,7 @@ Im ersten Teil des Versuchs wie in \autoref{sec:Durchführung_1} konnte nur ein 
     \end{tabular}
 \end{table}
 
-Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse als $\ln\left( \frac{U_C}{U_0} \right)$, wobei $U_0=\SI{1}{\volt}$ ist, dargestellt werden entsteht \autoref{fig:entladekurve_plot}.
+Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse $\ln\left( \frac{U_C}{U_0} \right)$, wobei $U_0=\SI{1}{\volt}$ ist, dargestellt werden entsteht \autoref{fig:entladekurve_plot}.
 
 \begin{figure}
     \centering
@@ -59,12 +59,16 @@ Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse als $\ln
     \label{fig:entladekurve_plot}
 \end{figure}
 
-Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy berechnet.\cite{scipy}
 Die Darstellung entspreicht der Gleichung 
 \begin{equation}
     \ln\left(\frac{U_C}{U_0}\right) = -\frac{t}{RC}.
 \end{equation}
-Wobei sich hier eine Steigung von $-1/RC = \SI{-1.431e6}{\milli\second}^{-1}$ ergibt. 
+Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy\cite{scipy} mit
+\begin{equation}
+    f(x)=ax+b
+\end{equation}
+berechnet.
+Wobei sich hier eine Steigung von $a = \SI{-1.431e6}{\milli\second}^{-1}$ ergibt. 
 Damit lässt sich die Zeitkonstante als 
 \begin{equation}
     RC = \SI{0.6988}{\milli\second}
@@ -111,20 +115,65 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
     \centering
     \includegraphics[width=\textwidth]{build/plot_spannungen.pdf}
     \caption{Graph der Werte Spannungsverhältnis $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen}}
-    \label{fig:spannungen_plot}
+    \label{fig:plot_spannungen}
 \end{figure}
 
 Durch die Gleichung
 \begin{equation}
     \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2R^2C^2}}
 \end{equation}
-lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:spannungen_plot} mit
+lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:plot_spannungen} mit
 \begin{equation}
     f(x) = \frac{1}{\sqrt{1+(2 \pi x)^2a^2}}
 \end{equation} 
 ausgeführt wird. Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt die Zeitkonstante
 \begin{equation}
     RC = \SI{0.8078}{\milli\second}.
+\end{equation}
+
+Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:phasen} gelistet.
+
+\begin{table}
+    \centering
+    \caption{Mit $a$ berechnete Phasenverschiebung $\varphi$}
+    \label{tab:phasen}
+    \begin{tabular}{c c}
+        \toprule
+        \tableSI{f}{\hertz} & $\varphi$ \\
+        \midrule
+        20 & 0.000 \\
+        50 & 0.251 \\
+        100 & 0.503 \\
+        200 & 0.817 \\
+        300 & 0.975 \\
+        400 & 1.131 \\
+        500 & 1.194 \\
+        600 & 1.255 \\
+        800 & 1.332 \\
+        1000 & 1.382 \\
+        2000 & 1.508 \\
+        3000 & 1.546 \\
+        4500 & 1.555 \\
+        6000 & 1.546 \\
+        10000 & 1.571 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
+    \caption{Die Werte Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
+    \label{fig:plot_phasen}
+\end{figure}
+
+Die mithilfe von SciPy\cite{scipy} und
+\begin{equation}
+    f(x)=-arctan(2\pi f a)
+\end{equation}
+erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Zeitkonstante
+\begin{equation}
+    RC = \SI{8.2580}{\milli\second}.
 \end{equation}
 
 \subsection{Betrachtung des RC-Glieds als Integrator}

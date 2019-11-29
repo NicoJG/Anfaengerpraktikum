@@ -57,11 +57,19 @@ beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{eq
     \Delta T = RC
 \end{equation} verstrichen ist, ändert sich die Kondensatorladung $Q$ um den Faktor
 \begin{equation}
-    \label{eq:RC}
+    \label{eq:RC1}
     \frac{Q (t = RC)}{Q (0)} = \frac{1}{e} \approx 0.386.
 \end{equation}
 
-Eine periodische Auslenkunge aus der Gleichgewichtslage erzeugt ebenfalls Relaxationsphänomene und kann ebenfalls mit einem RC-Kreis beschrieben werden. 
+Um den entsprechenden Wert für $RC$ zu berechnen wird \autoref{eq:RC1} in eine andere Form gebracht. In der neuen Form
+
+\begin{equation}
+    \label{eq:RC2}
+    \ln \left( \frac{Q (t)}{Q (0)} \right) = t \cdot \frac{-1}{RC}
+\end{equation}
+
+kann man $RC$ als negative reziproke Steigung einer halblogarithmischen Funktion sehen.\cite{V353}
+Eine periodische Auslenkung aus der Gleichgewichtslage erzeugt ebenfalls Relaxationsphänomene und kann ebenfalls mit einem RC-Kreis beschrieben werden. 
 
 \begin{figure}
     \centering
@@ -100,9 +108,3 @@ Die RC-Kreis \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaft, si
 \end{align}
 
 Dadurch wird zu der Generatorspannung $U (t)$ eine Stammfunktion $U_C (t)$ erzeugt, die sich nur durch einen Faktor unterscheidet. \cite{V353}
-
-\subsection{Aufgaben}
-\label{sec:aufgaben}
-
-
-

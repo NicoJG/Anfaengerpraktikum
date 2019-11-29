@@ -1,4 +1,6 @@
 all: build/main.pdf
+
+plots: build/plot_entladekurve.pdf
  
 # hier Python-Skripte: 
 build/plot_entladekurve.pdf: python/entladekurve.py ../default/matplotlibrc ../default/header-matplotlib.tex | build

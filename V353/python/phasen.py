@@ -29,7 +29,7 @@ plt.plot(f,phi,'kx',label='Gemessen')
 plt.plot(f_linspace,f_(f_linspace,*params),'k-',label='Ausgleichsrechnung')
 
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
-plt.ylabel(r'$\varphi')
+plt.ylabel(r'$\varphi \:/\: \si{\radian}')
 plt.legend(loc='best')
 
 plt.grid(True,which="both", linestyle='--')

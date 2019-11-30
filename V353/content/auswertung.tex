@@ -137,9 +137,9 @@ Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der freque
     \centering
     \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
     \label{tab:phasen}
-    \begin{tabular}{c c}
+    \begin{tabular}{c c c}
         \toprule
-        \tableSI{f}{\hertz} & $\varphi$ \\
+        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{\varphi}{\radian} \\
         \midrule
         20 & 1.000 & 0.000 \\
         50 & 0.960 & 0.251 \\
@@ -176,10 +176,19 @@ erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Ze
     RC = \SI{0.8258}{\milli\second}.
 \end{equation}
 
+Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:phasen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_polar.pdf}
+    \caption{Kondensatorspannung $U_C$ in Abhängigkeit von der Phase $\varphi$ entnommen aus \autoref{tab:phasen}}
+    \label{fig:plot_polar}
+\end{figure}
+
 \subsection{Betrachtung des RC-Glieds als Integrator}
 \label{sec:Auswertung_Integrator}
 
-Im letzten Teil des Versuchs wie in \autoref{sec:Durchführung_3} beschrieben sind die Ergebnisse nur in Form von Fotos darzustellen. Diese sind in \autoref{fig:fotos_integrator} zu sehen. Hierbei wurde jeweils die Generatorfrequenz von $\SI{5}{\kilo\hertz}$ gewählt.
+Im letzten Teil des Versuchs wie in \autoref{sec:Durchführung_3} beschrieben sind die Ergebnisse nur in Form von Fotos darzustellen. Diese sind in \autoref{fig:fotos_integrator} zu sehen. Hierbei wurde jeweils die Generatorfrequenz von $\SI{5}{\kilo\hertz}$ gewählt und sowohl die Generatorspannung als auch die Kondensatorspannung abgebildet.
 
 \begin{figure}
     \centering
@@ -204,3 +213,5 @@ Im letzten Teil des Versuchs wie in \autoref{sec:Durchführung_3} beschrieben si
     \caption{Fotos der Integratorschaltung für eine Generatorfrequenz von $\SI{5}{\kilo\hertz}$ und verschiedene Generatorspannungstypen}
     \label{fig:fotos_integrator}
 \end{figure}
+
+Hier ist zu sehen, dass die angelegte Spannung integriert wird. Eine Sinusspannung wird zu einer Sinusspannung um $\pi/2$ verschoben, eine Sägezahnspannung wird zu einer parabolischen Spannung und eine Rechteckspannung wird zu einer Sägezahnspannung.

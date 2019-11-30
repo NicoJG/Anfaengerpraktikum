@@ -7,9 +7,18 @@ def f(x,a,b):
     return a*x+b
 
 # Daten einlesen
-# x,y = np.genfromtxt('data/DATEN.csv',delimiter=',',unpack=True)
-x = np.linspace(0, 10, 10) # als Bsp
-y = x+1/2*np.sin(x) # als Bsp
+x,y,z = np.genfromtxt('data/NAME.csv',delimiter=',',unpack=True)
+
+#Berechnungen
+x_new = x
+y_new = y
+z_new = x+y
+
+# Daten speichern
+data = list(zip(x_new,y_new,z))
+np.savetxt('data/NAME.csv', data, header='x[Ohm],y[J],z[V]', fmt='%1.1f,%1.3f,%i')
+# Nicht so wie hier die alten Daten überschreiben!
+# fmt = format (Genauigkeit,...)
 
 # Ausgleichskurve berechnen
 params,pcov = curve_fit(f,x,y)

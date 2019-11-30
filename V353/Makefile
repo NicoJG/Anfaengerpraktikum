@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_entladekurve.pdf build/plot_spannungen.pdf build/plot_phasen.pdf
+plots: build/plot_entladekurve.pdf build/plot_spannungen.pdf build/plot_phasen.pdf build/plot_polar.pdf
  
 # hier Python-Skripte: 
 build/plot_entladekurve.pdf: python/entladekurve.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
@@ -18,8 +18,13 @@ build/plot_phasen.pdf: python/phasen.py ../default/matplotlibrc ../default/heade
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/phasen.py
 
+build/plot_polar.pdf: python/polar.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/polar.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_entladekurve.pdf build/plot_spannungen.pdf build/plot_phasen.pdf
+build/main.pdf: build/plot_entladekurve.pdf build/plot_spannungen.pdf build/plot_phasen.pdf build/plot_polar.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

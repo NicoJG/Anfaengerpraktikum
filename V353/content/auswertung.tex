@@ -9,15 +9,15 @@
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
 
-\subsection{Bestimmung der Zeitkonstante}
-\label{sec:Auswertung_Zeitkonstante}
+\subsection{Bestimmung der Zeitkonstante bei angelegter Rechteckspannung}
+\label{sec:Auswertung_Rechteckspannung}
 
-Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, konnte nur ein Foto der Entladekurve als Messergebnis dienen, dieses ist in \autoref{fig:foto_entladekurve} dargestellt:
+Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, kann nur ein Foto der Entladekurve als Messergebnis dienen, dieses ist in \autoref{fig:foto_entladekurve} dargestellt:
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{images/foto_01.jpg}
-    \caption{Foto der Entladekurve des RC Glieds bei angeschlossener Rechteckspannung mit $\SI{100}{\hertz}$}
+    \includegraphics[width=\textwidth/2]{images/foto_01_ausschnitt.jpg}
+    \caption{Foto der Entladekurve des RC Glieds bei angeschlossener Rechteckspannung mit $\SI{100}{\hertz}$ wobei die x-Achse auf $\SI{1}{\milli\second}$ und die y-Achse auf $\SI{0.2}{\volt}$ geregelt ist}
     \label{fig:foto_entladekurve}
 \end{figure}
 
@@ -59,10 +59,11 @@ Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse $\ln\lef
     \label{fig:entladekurve_plot}
 \end{figure}
 
-Die Darstellung entspreicht der Gleichung 
+Die Darstellung entspricht der Gleichung 
 \begin{equation}
-    \ln\left(\frac{U_C}{U_0}\right) = -\frac{t}{RC}.
+    \ln\left(\frac{U_C}{U_0}\right) = -\frac{t}{RC}
 \end{equation}
+wie aus \autoref{eq:entladungsladung} zu sehen ist.
 Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy\cite{scipy} mit
 \begin{equation}
     f(x)=ax+b
@@ -75,7 +76,7 @@ Damit lässt sich die Zeitkonstante als
 \end{equation}
 bestimmen.
 
-\subsection{Untersuchung bei einer angelegten Sinusspannung}
+\subsection{Bestimmung der Zeitkonstante bei angelegter Sinusspannung}
 \label{sec:Auswertung_Sinusspannung}
 
 Die Ergebnisse der im \autoref{sec:Durchführung_2} beschriebenen Durchführung sind in \autoref{tab:gemessen} dargestellt. Hierbei ist zu beachten, dass die Werte $a_{\text{gemessen}}$ bei einer invertierten Generatorspannung abgelesen wurden. Also entspricht der zeitliche Abstand $a_{\text{gemessen}}$ der Zeit zwischen steigendem Nulldurchgang der Kondensatorspannung und abfallendem Nulldurchgang der Generatorspannung.
@@ -114,7 +115,7 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_spannungen.pdf}
-    \caption{Graph der Werte Spannungsverhältnis $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen}}
+    \caption{Graph des Spannungsverhältnises $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen} wobei die Generatorspannung konstant auf \SI{1}{\volt} bleibt}
     \label{fig:plot_spannungen}
 \end{figure}
 
@@ -163,7 +164,7 @@ Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der freque
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
-    \caption{Die Werte Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
+    \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
     \label{fig:plot_phasen}
 \end{figure}
 

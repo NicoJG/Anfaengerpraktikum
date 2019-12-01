@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import json
 from scipy.optimize import curve_fit
 
 def f(x,a,b):
@@ -14,10 +15,20 @@ U_0 = 1 #Spannung bei t=0
 tRange = np.linspace(np.min(t),np.max(t),100)
 params, pcov = curve_fit(f,t,np.log(U_C))
 
-print(params)
-print(params[0], '1/s')
-print('RC=',1/params[0],' s')
-print('RC(10%)=',1.7*10**(-3)/2.3,' s')
+a = params[0]
+a_err = np.absolute(pcov[0][0])**0.5
+RC = 1/a
+RC_err = (a_err/a)*RC
+
+RC_10 = 1.7*10**(-3)/2.3
+
+#Save in RC_Ergebnisse.json
+RC_Ergebnisse = json.load(open('data/RC_Ergebnisse.json','r'))
+RC_Ergebnisse['entladekurve_a[1/s]'] = a
+RC_Ergebnisse['entladekurve_a_err[1/s]'] = a_err
+RC_Ergebnisse['entladekurve[s]'] = RC
+RC_Ergebnisse['entladekurve_err[s]'] = RC_err
+json.dump(RC_Ergebnisse, open('data/RC_Ergebnisse.json','w'), indent=4)
 
 plt.plot(t*10**3,np.log(U_C/U_0),'kx', label='Gemessen')
 plt.plot(tRange*10**3,f(tRange,*params),'k-', label='Ausgleichsgerade')
@@ -30,5 +41,5 @@ plt.legend(loc='best')
 
 plt.grid(True,which="both", linestyle='--')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.show()
+#plt.show()
 plt.savefig('build/plot_entladekurve.pdf')

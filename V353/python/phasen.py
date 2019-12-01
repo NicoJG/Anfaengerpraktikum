@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import json
 from scipy.optimize import curve_fit
 
 f,U_C,a_gemessen,a = np.genfromtxt('data/gemessen_und_a.csv',delimiter=',',unpack=True)
@@ -20,7 +21,10 @@ def f_(x,a):
 
 params,pcov = curve_fit(f_,f,phi)
 
-print(params[0],' s')
+RC_Ergebnisse = json.load(open('data/RC_Ergebnisse.json','r'))
+RC_Ergebnisse['phase[s]'] = params[0]
+RC_Ergebnisse['phase_err[s]'] = np.absolute(pcov[0][0])**0.5
+json.dump(RC_Ergebnisse,open('data/RC_Ergebnisse.json','w'),indent=4)
 
 f_linspace = np.linspace(np.min(f),np.max(f),100)
 
@@ -34,5 +38,5 @@ plt.legend(loc='best')
 
 plt.grid(True,which="both", linestyle='--')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.show()
+#plt.show()
 plt.savefig('build/plot_phasen.pdf')

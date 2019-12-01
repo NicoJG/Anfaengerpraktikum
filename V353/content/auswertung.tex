@@ -69,10 +69,10 @@ Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy\cite
     f(x)=ax+b
 \end{equation}
 berechnet.
-Wobei sich hier eine Steigung von $a = \SI{-1.431e6}{\milli\second}^{-1}$ ergibt. 
+Wobei sich hier eine Steigung von $a = \SI{-1431+-19}{\second}^{-1}$ ergibt. 
 Damit lässt sich die Zeitkonstante als 
 \begin{equation}
-    RC = \SI{0.6988}{\milli\second}
+    RC = \SI{0.6988+-0.0092}{\milli\second}
 \end{equation}
 bestimmen.
 
@@ -129,7 +129,7 @@ lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung w
 \end{equation} 
 ausgeführt wird. Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt die Zeitkonstante
 \begin{equation}
-    RC = \SI{0.8078}{\milli\second}.
+    RC = \SI{0.8078+-0.0056}{\milli\second}.
 \end{equation}
 
 Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:phasen} gelistet.
@@ -174,7 +174,7 @@ Die mithilfe von SciPy\cite{scipy} und
 \end{equation}
 erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Zeitkonstante
 \begin{equation}
-    RC = \SI{0.8258}{\milli\second}.
+    RC = \SI{0.8258+-0.0261}{\milli\second}.
 \end{equation}
 
 Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:phasen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.

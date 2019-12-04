@@ -25,12 +25,12 @@ Es gelten die Zusammenhänge von Strom $I$, Spannung $U$, Widerstand $R$, Kapazi
     U = RI && U_C = \frac{1}{C} \int I \dif{t} && U_L = L \dot{I}
 \end{align}
 
-Nun ergeben sich für die Ströme $I_1$ und $I_2$ mit den Stromamplituden $I_{1_0}$ und $I_{2_0}$ mithilfe der Kirchhoffschen Regeln die Gleichungen
+Nun ergeben sich für die Ströme $I_1$ und $I_2$ mit den Stromamplituden $I_{1,0}$ und $I_{2,0}$ mithilfe der Kirchhoffschen Regeln die Gleichungen
 
 \begin{align}
     \label{eq:strom}
-    I_1(t) &= \frac{1}{2} (I_{1_0} + I_{2_0})\cos(2 \pi \nu _+ t) + \frac{1}{2} (I_{1_0} - I_{2_0})\cos(2 \pi \nu _- t) \\
-    I_2(t) &= \frac{1}{2} (I_{1_0} + I_{2_0})\cos(2 \pi \nu _+ t) - \frac{1}{2} (I_{1_0} - I_{2_0})\cos(2 \pi \nu _- t).
+    I_1(t) &= \frac{1}{2} (I_{1,0} + I_{2,0})\cos(2 \pi \nu _+ t) + \frac{1}{2} (I_{1,0} - I_{2,0})\cos(2 \pi \nu _- t) \\
+    I_2(t) &= \frac{1}{2} (I_{1,0} + I_{2,0})\cos(2 \pi \nu _+ t) - \frac{1}{2} (I_{1,0} - I_{2,0})\cos(2 \pi \nu _- t).
 \end{align}
 Wobei die Frequenzen
 \begin{align}
@@ -88,4 +88,4 @@ Also ist
     \label{eq:extrema}
     N \coloneq \frac{1}{2} \cdot \frac{ \nu _+ + \nu _-}{\nu _- - \nu _+}
 \end{equation}
-die Anzahl der Maxima der Schwingung innerhalb eines Nulldurchgangs der Schwebung.
+die Anzahl der Maxima der Schwingung zwischen zwei Nulldurchgängen der Schwebung.

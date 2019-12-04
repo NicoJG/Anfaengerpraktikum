@@ -8,3 +8,70 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+\subsection{Biegung eines einseitig eingespannten zylindrischen Stabes}
+
+In \autoref{tab:einseitig_rund} wurden an je zehn verschiedenen Stellen, die jeweils den Abstand $x$ zu dem Aufhängepunkt besitzen, zwei Messungen durchgeführt. $D_0$ beschreibt die Auslenkung ohne eine Masse, also die Ruhelage, $D_m$ die Auslenkung des Stabes mit einer angehängten Masse $m$. Diese wurde in einem Abstand $L$ vom Aufhängepunkt an die Stange gehängt, dabei ist $m$ = $\SI{0.7474}{\kilo\gram}$ und $L$ = $\SI{450}{\milli\meter}$.
+$\Delta x$ ist als die Differenz von $D_0$ und $D_m$ definiert, gibt also die eigentliche Auslenkung des Stabes an. 
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse zu dem einseitig eingespannten zylindrischen Stab}
+    \label{tab:einseitig_rund}
+    \begin{tabular}{c c c c}
+        \toprule
+        \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
+        \midrule
+        25 & 8.01 & 7.95 & 0.06 \\
+        50 & 8.06 & 7.89 & 0.17 \\
+        75 & 8.13 & 7.81 & 0.32 \\
+        100 & 8.19 & 7.66 & 0.53 \\
+        150 & 8.32 & 7.25 & 1.07 \\
+        200 & 8.47 & 6.71 & 1.76 \\
+        250 & 8.61 & 6.05 & 2.56 \\
+        300 & 8.72 & 5.27 & 3.35 \\
+        350 & 8.74 & 4.38 & 4.36 \\
+        375 & 8.73 & 3.88 & 4.85 \\
+        400 & 8.74 & 3.37 & 5.37 \\
+        410 & 8.68 & 3.14 & 5.54 \\
+        420 & 8.68 & 2.93 & 5.75 \\
+        430 & 8.68 & 2.71 & 5.97 \\
+        435 & 8.69 & 2.62 & 6.07 \\
+            \bottomrule
+    \end{tabular}
+\end{table}
+
+Um den Elastizitätsmodul zubestimmen wird zunächst die runde Stange aus \autoref{tab:einseitig_rund} näher untersucht. Sie besitzt die oben beschriebene Länge $L$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. Der Radius beträgt $r$ = $\SI{5}{mm}$, somit ist das Volumen $V = \Si{0.000035342}{\cubic\meter}$, dadurch kann auch die Dichte mit FORMEL ausgerechnet werden. Es ergibt sich $\rho = \SI{2808.07}{\kg \per \cubic\meter}$, was in etwa der Dichte von Aluminium entspricht. 
+
+ANDERES ZEUG
+
+\subsection{Biegung eines einseitig eingespannten rechteckigen Stabes}
+
+Genau wie in \autoref{ssec:Biegung eines einseitig eingespannten zylindrischen Stabes} sind hier die Verschiebungen 
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse zu dem einseitig eingespannten rechteckigen Stab}
+    \label{tab:einseitig_eckig}
+    \begin{tabular}{c c c c}
+        \toprule
+        \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
+        \midrule
+        25 & 7.89 & 7.85 & 0.04\\
+        50 & 7.87 & 7.74 & 0.13 \\
+        75 & 7.86 & 7.62 & 0.24\\
+        100 & 7.81 & 7.41 & 0.40 \\
+        150 & 7.63 & 6.83 & 0.80\\
+        200 & 7.43 & 6.11 & 1.32\\
+        250 & 7.23 & 5.29 & 1.94\\
+        300 & 6.98 & 4.38 & 2.60\\
+        350 & 6.72 & 3.39 & 3.33\\
+        375 & 6.56 & 2.84 & 3.72\\
+        400 & 6.37 & 2.27 & 4.10 \\
+        410 & 6.28 & 2.03 & 4.25\\
+        420 & 6.20 & 1.79 & 4.41\\
+        430 & 6.12 & 1.56 & 4.56 \\
+        435 & 6.08 & 1.46 & 4.62\\
+            \bottomrule
+    \end{tabular}
+\end{table}

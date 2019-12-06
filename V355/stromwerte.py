@@ -31,8 +31,8 @@ I1 = U / R
 
 I2Plus_Theorie = I_Theorie(UPlus,2*np.pi*vPlus,Ck,R,L,C)
 I2Minus_Theorie = I_Theorie(UMinus,2*np.pi*vMinus,Ck,R,L,C)
-#I2Plus_Theorie = I_Theorie(UPlus,2*np.pi*vPlusTheorie,Ck,R,L,C)
-#I2Minus_Theorie = I_Theorie(UMinus,2*np.pi*vMinusTheorie,Ck,R,L,C)
+I2Plus_Theorie = I_Theorie(UPlus,2*np.pi*vPlusTheorie,Ck,R,L,C)
+I2Minus_Theorie = I_Theorie(UMinus,2*np.pi*vMinusTheorie,Ck,R,L,C)
 Ik_Theorie = I1 - I2Minus_Theorie
 
 print('I2Plus: ',I2Plus)

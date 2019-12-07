@@ -34,20 +34,22 @@ I2Plus_gemessen = U2Plus_gemessen / R #A
 I2Minus_gemessen = U2Minus_gemessen / R #A
 Ik_gemessen = Uk_gemessen / R #A
 
-print(I2Plus_gemessen)
-print(I2Minus_gemessen)
+# Theoriewerte für die Tabelle
+I2Plus_Theorie = I_Theorie(UPlus,wPlus_Theorie(L,C,Ck_gemessen_2),Ck_gemessen_2)
+I2Minus_Theorie = I_Theorie(UMinus,wMinus_Theorie(L,C,Ck_gemessen_2),Ck_gemessen_2)
 
-
-Ck_linspace = np.linspace(1.5,12.5,100)*10**(-9) #F
-
+# Daten Speichern für Tabelle
+data = list(zip(Ck_gemessen_2*10**(9),I2Plus_gemessen,I2Plus_Theorie,I2Minus_gemessen,I2Minus_Theorie))
+np.savetxt('amplitudentheorie.csv',data,header='Ck[nF],I2Plus_gemessen[A],I2Plus_Theorie[A],I2Minus_gemessen[A],I2Minus_Theorie[A]',fmt='%1.3f,%1.4f,%1.4f,%1.4f,%1.4f')
 
 # Plot der Messwerte
-plt.plot(Ck_gemessen_2*10**(9), I2Plus_gemessen, 'rx', label=r'I2+ gemessen')
-plt.plot(Ck_gemessen_2*10**(9), I2Minus_gemessen, 'yx', label=r'I2- gemessen')
+plt.plot(Ck_gemessen_2*10**(9), I2Plus_gemessen, 'gx', label=r'$I_{2,+}$ gemessen')
+plt.plot(Ck_gemessen_2*10**(9), I2Minus_gemessen, 'bx', label=r'$I_{2,-}$ gemessen')
 
 # Plot der Theoriekurve
-plt.plot(Ck_linspace*10**(9), I_Theorie(UPlus,wPlus_Theorie(L,C,Ck_linspace),Ck_linspace), 'g-', label=r'I2+ berechnet')
-plt.plot(Ck_linspace*10**(9), I_Theorie(UMinus,wMinus_Theorie(L,C,Ck_linspace),Ck_linspace), 'b-', label=r'I2- berechnet')
+Ck_linspace = np.linspace(1.5,12.5,100)*10**(-9) #F
+plt.plot(Ck_linspace*10**(9), I_Theorie(UPlus,wPlus_Theorie(L,C,Ck_linspace),Ck_linspace), 'g-', label=r'$I_{2+}$ berechnet')
+plt.plot(Ck_linspace*10**(9), I_Theorie(UMinus,wMinus_Theorie(L,C,Ck_linspace),Ck_linspace), 'b-', label=r'$I_{2-}$ berechnet')
 
 # Achsenbeschriftung
 plt.xlabel(r'$C_\text{k} \:/\: \si{\nano\farad}$')

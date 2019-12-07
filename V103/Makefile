@@ -7,17 +7,17 @@ plots: build/plot_einseitig_rund.pdf build/plot_einseitig_eckig.pdf build/plot_z
 # das Beispiel kopieren und NAME ersetzen
 # Außerdem muss in plots und in build/main.pdf
 # die jeweilige Abhängigkeit hinzugefügt werden
-build/plot_einseitig_rund.pdf: python/einseitig_rund.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_einseitig_rund.pdf: python/einseitig_rund.py ../default/matplotlibrc ../default/header-matplotlib.tex data/*.csv | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/einseitig_rund.py
 
-build/plot_einseitig_eckig.pdf: python/einseitig_eckig.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_einseitig_eckig.pdf: python/einseitig_eckig.py ../default/matplotlibrc ../default/header-matplotlib.tex data/*.csv | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/einseitig_eckig.py
 
-build/plot_zweiseitig_eckig.pdf: python/zweiseitig_eckig.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_zweiseitig_eckig.pdf: python/zweiseitig_eckig.py ../default/matplotlibrc ../default/header-matplotlib.tex data/*.csv | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/zweiseitig_eckig.py

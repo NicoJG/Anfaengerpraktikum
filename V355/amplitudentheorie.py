@@ -53,6 +53,9 @@ plt.plot(Ck_linspace*10**(9), I_Theorie(UMinus,wMinus_Theorie(L,C,Ck_linspace),C
 plt.xlabel(r'$C_\text{k} \:/\: \si{\nano\farad}$')
 plt.ylabel(r'$I \:/\: \si{\ampere}$')
 
+# y-Achse höher
+plt.ylim(0,0.1)
+
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)

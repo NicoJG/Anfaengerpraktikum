@@ -41,9 +41,44 @@ $\Delta x$ ist als die Differenz von $D_0$ und $D_m$ definiert, gibt also die ei
     \end{tabular}
 \end{table}
 
-Um den Elastizitätsmodul zubestimmen wird zunächst die runde Stange aus \autoref{tab:einseitig_rund} näher untersucht. Sie besitzt die oben beschriebene Länge $L$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. Der Radius beträgt $r$ = $\SI{5}{\milli\meter}$, somit ist das Volumen $V = \SI{0.000035342}{\cubic\meter}$, dadurch kann auch die Dichte mit FORMEL ausgerechnet werden. Es ergibt sich $\rho = \SI{2808.07}{\kilogram \per \cubic\meter}$, was in etwa der Dichte von Aluminium entspricht. 
+Um den Elastizitätsmodul $E$ zu bestimmen wird zunächst die runde Stange aus \autoref{tab:einseitig_rund} näher untersucht. Sie besitzt insgesamt die Länge $L_\text{gesamt} = \SI{0.55}{\meter}$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. Der Radius beträgt $r$ = $\SI{5}{\milli\meter}$, somit ist das Volumen $V = \SI{0.000035342}{\cubic\meter}$, dadurch kann auch die Dichte mit FORMEL ausgerechnet werden. Es ergibt sich $\rho = \SI{2808.07}{\kilogram \per \cubic\meter}$, was in etwa der Dichte von Aluminium entspricht. 
+Für die Auswertung wird $\Delta x$ gegen $x$ aufgetragen.
 
-ANDERES ZEUG
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_einseitig_rund.pdf}
+    \caption{Graph der Werte aus \autoref{tab:einseitig_rund}}
+    \label{fig:einseitig_rund_plot}
+\end{figure}
+
+Außerdem wurde ein Curve Fit mit SyPy durchgeführt, mit der Funktion \autoref{eq:durchbiegung_einseitig}. Wobei folgende gegebene Werte verwendet wurden. $F$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt, $L$ ist die Länge der Stange vom Aufhängepunkt aus gemssen, also nicht die gesamte Länge. $R$ ist der Radius der Querschnittsfläche und $I$ ist der Flächenträgheitsmoment, der sich aus \autoref{eq:flächentragheitsmoment} ergibt.
+Im Falle eines Kreises:
+
+\begin{equation}
+    I_\text{Kreis} = \frac{\pi}{4} \cdot R^4
+    \label{eq:flächentragheitsmoment_kreis}
+\end{equation}
+
+\begin{table}
+  \centering
+  \caption{Gegebene Werte für die Berechnung von E}
+  \label{tab:werte_rund_einseitig}
+  \begin{tabular}{c c c c}
+    \toprule 
+    \tableSI{F}{\newton} & \tableSI{L}{\meter} & \tableSI{R}{\meter}& \tableSI{I}{\meter\tothe{4}} \\ 
+    \midrule 
+     7.332 & 0.450 & 0.005 & $4.910 \cdot 10^{-10}$\\
+    \bottomrule
+  \end{tabular}
+\end{table}  
+
+Aus Curve Fit wird der Parameter $E$, der bestimmt werden soll, zurückgegeben. Für diesen ergibt sich dann
+\begin{equation}
+    E = 70.40 \pm 0.36 \giga\pascal
+    \label{eq:E_einseitig_rund}
+\end{equation}
+
+Der Theoriewert für den Elastizitätsmodul von Aluminium beträgt $\SI{70}{\giga\pascal}$. Es wurde also bestägigt, dass es sich bei diesem Material um Aluminium handelt.
 
 \subsection{Biegung eines einseitig eingespannten rechteckigen Stabes}
 

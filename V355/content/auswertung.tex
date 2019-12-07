@@ -12,9 +12,9 @@
 
 \subsection{Messergebnisse}
 
-Im Folgendem werden die während des Praktikums gemessenen Werte aufgelistet.
+%Im Folgendem werden die während des Praktikums gemessenen Werte aufgelistet.
 
-Die Messung der Resonanzfrequanz aus \autoref{sec:resonanz} ergibt dann $\SI{35.6}{\kilo\hertz}$.
+Die Messung der Resonanzfrequenz aus \autoref{sec:resonanz} ergibt $\SI{35.6}{\kilo\hertz}$.
 
 Für die Messungen aus \autoref{sec:schwebung} werden hier jeweils die eingestellten Werte für die Kopplungskapazität $C_\text{k}$ aufgetragen, sowie die Frequenz bei der die Maxima gezählt wurden. Die gezählten Maxima und Extrema werden dahinter notiert. 
 
@@ -105,17 +105,17 @@ Die Resonanzfrequenz kann nun mit der \autoref{eq:frequenz+} für $\nu _+$ berec
   \centering
   \caption{Gegebene Werte der Bauelementschaltung}
   \label{tab:bauelement}
-  \begin{tabular}{c c c}
+  \begin{tabular}{c c c c c}
     \toprule 
-    \tableSI{R}{\ohm} & \tableSI{L}{\milli\henry} & \tableSI{C}{\nano\farad} \\ 
+    \tableSI{R}{\ohm} & \tableSI{L}{\milli\henry} & \tableSI{C}{\nano\farad} & \tableSI{C_\text{sp}}{\nano\farad} & \tableSI{C_\text{gesamt}}{\nano\farad} \\ 
     \midrule 
-     48 & 23.9540 & 0.7932 \\
+    48 & 23.9540 & 0.7932 & 0.0280 & 0.8212 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Hierbei muss beachtet werden, dass die Induktivität $L$ ebenfalls eine Kapazität $C_\text{sp}$ besitzt, die in unserem Fall $C_\text{sp} = \SI{0.0280}{\nano\farad}$ beträgt.
-Bevor die Resonanzfrequenz $\nu _+$ berechnet werden kann, muss also die Gesamtkapazität $\SI{0.7932}{\nano\farad} + \SI{0.0280}{\nano\farad} = \SI{0.8212}{\nano\farad}$ als das neue $C$ gesetzt werden.
+In \autoref{tab:bauelement} muss beachtet werden, dass die Induktivität $L$ ebenfalls eine Kapazität $C_\text{sp}$ besitzt.
+Bevor die Resonanzfrequenz $\nu _+$ berechnet werden kann, muss also die Gesamtkapazität $C_\text{gesamt} = C + C_\text{sp}$ berechnet werden und wird von nun an als $C$ verwendet.
 
 Damit ergibt sich dann der Theoriewert, der in der folgenden Tabelle mit dem gemessenen Wert verglichen wird.
 
@@ -140,21 +140,22 @@ Die entsprechenden Theoriewerte zu den gemessenen Maxima aus \autoref{tab:schweb
   \label{tab:schwebungstheorie}
   \begin{tabular}{c c c}
     \toprule 
-    $C_\text{k} \:/\: \si{\nano\farad}$ & gemessene Anzahl Maxima & berechnete Anzahl Maxima \\ 
+    \multirow{2}{*}{$C_\text{k} \:/\: \si{\nano\farad}$} & gemessene & berechnete \\
+    & Anzahl Maxima & Anzahl Maxima \\ 
     \midrule 
-    0.997 & 2.00 & 2.00 \\
-    2.290 & 3.00 & 3.60 \\
-    2.860 & 5.00 & 4.43 \\
-    4.740 & 6.00 & 6.73 \\
-    6.860 & 9.00 & 9.33 \\
-    8.180 & 11.00 & 10.94 \\
-    9.990 & 13.00 & 13.14 \\
-    12.000 & 18.00 & 15.60 \\
+    0.997 & 2 & 2.00 \\
+    2.290 & 3 & 3.60 \\
+    2.860 & 5 & 4.43 \\
+    4.740 & 6 & 6.73 \\
+    6.860 & 9 & 9.33 \\
+    8.180 & 11 & 10.94 \\
+    9.990 & 13 & 13.14 \\
+    12.000 & 18 & 15.60 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:frequenzen} werden ebenfalls mit den Theoriewerten verglichen. Mithilfe der \autoref{eq:frequenz-} für $\nu _-$ und den bekannten Werten für $L$ und $C$ aus \autoref{tab:bauelement} kann besagte Frequenz bestimmt werden. Für $\nu_-$ ist jedoch die Kopplungskapazität $C_\text{k}$nicht mehr irrelevant, sodass sich für jedes $C_\text{k}$ ein anderer Theoriewert ergibt.
+Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:frequenzen} werden ebenfalls mit den Theoriewerten verglichen. Mithilfe der \autoref{eq:frequenz-} für $\nu _-$ und den bekannten Werten für $L$ und $C$ aus \autoref{tab:bauelement} kann besagte Frequenz bestimmt werden. Für $\nu_-$ ist nun jedoch die Kopplungskapazität $C_\text{k}$ relevant, sodass sich für jedes $C_\text{k}$ ein anderer Theoriewert ergibt.
 
 \begin{table}
   \centering
@@ -185,7 +186,7 @@ Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:freque
 
 In diesem Versuch wurden lediglich die Werte für $U_{2+}$, $U_{2-}$ und $U_\text{k}$ gemessen, die Werte für $I_{2+}$, $I_{2-}$ und $I_k$ sind noch zu bestimmen, diese werden über die Formel $I = \frac{U}{R}$ berechnet.
 
-$R$, $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{tab:amplituden} entnommen. In der Tabelle stehen jeweils die aus den gemessenen $U_{2+}$ und $U_{2-}$ berechneten Werte für $I_{2+}$ und $I_{2-}$. Die Theoriewerte für $I_{2+}$ und $I_{2-}$ werden berechnet durch \autoref{eq:stromamplitude}. Der kleinste Wert für $C_\text{k}$ wurde beim messen nicht beachtet. Daraus ergeben sich dann folgende Werte.
+$R$, $L$ und $C$ sind bekannte Werte aus \autoref{tab:bauelement} und $U$ wird jeweils aus \autoref{tab:amplituden} entnommen. In der Tabelle stehen jeweils die aus den gemessenen $U_{2+}$ und $U_{2-}$ berechneten Werte für $I_{2+}$ und $I_{2-}$. Die Theoriewerte für $I_{2+}$ und $I_{2-}$ werden mit \autoref{eq:stromamplitude} berechnet. Der kleinste Wert für $C_\text{k}$ wurde beim messen nicht beachtet. Daraus ergeben sich dann folgende Werte.
 
 \begin{table}
   \centering
@@ -195,15 +196,22 @@ $R$, $L$ und $C$ sind bekannte Werte, $U$ wird jeweils aus \autoref{tab:amplitud
     \toprule 
     $C_\text{k} \:/\: \si{\nano\farad}$ & $I_{2+,\text{gemessen}} \:/\: \si{\ampere}$ & $I_{2+,\text{berechnet}} \:/\: \si{\ampere}$ & $I_{2-,\text{gemessen}} \:/\: \si{\ampere}$ & $I_{2-,\text{berechnet}} \:/\: \si{\ampere}$    \\ 
     \midrule 
-    2.190 & 0.0521 & 0.0537 & 0.0417 & 0.0139 \\
-    2.860 & 0.0521 & 0.0535 & 0.0469 & 0.0183 \\
-    4.740 & 0.0521 & 0.0529 & 0.0469 & 0.0288 \\
-    6.860 & 0.0521 & 0.0521 & 0.0469 & 0.0355 \\
-    8.180 & 0.0521 & 0.0517 & 0.0496 & 0.0487 \\
-    9.990 & 0.0521 & 0.0512 & 0.0496 & 0.0494 \\
-    12.000 & 0.0521 & 0.0505 & 0.0521 & 0.0588 \\
+    2.190 & 0.0521 & 0.0833 & 0.0417 & 0.0781 \\
+    2.860 & 0.0521 & 0.0833 & 0.0469 & 0.0781 \\
+    4.740 & 0.0521 & 0.0833 & 0.0469 & 0.0781 \\
+    6.860 & 0.0521 & 0.0833 & 0.0469 & 0.0781 \\
+    8.180 & 0.0521 & 0.0833 & 0.0496 & 0.0780 \\
+    9.990 & 0.0521 & 0.0832 & 0.0496 & 0.0780 \\
+    12.000 & 0.0521 & 0.0832 & 0.0521 & 0.0779 \\
     \bottomrule
   \end{tabular}  
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_amplitudentheorie.pdf}
+    \caption{Graph der Werte aus \autoref{tab:amplitudentheorie}}
+    \label{fig:amplitudentheorie_plot}
+\end{figure}
 
 

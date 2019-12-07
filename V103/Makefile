@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_einseitig_rund.pdf build/plot_einseitig_eckig.pdf
+plots: build/plot_einseitig_rund.pdf build/plot_einseitig_eckig.pdf build/plot_zweiseitig_eckig.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -17,8 +17,12 @@ build/plot_einseitig_eckig.pdf: python/einseitig_eckig.py ../default/matplotlibr
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/einseitig_eckig.py
 
+build/plot_zweiseitig_eckig.pdf: python/zweiseitig_eckig.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/zweiseitig_eckig.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_einseitig_rund.pdf build/plot_einseitig_eckig.pdf
+build/main.pdf: build/plot_einseitig_rund.pdf build/plot_einseitig_eckig.pdf build/plot_zweiseitig_eckig.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

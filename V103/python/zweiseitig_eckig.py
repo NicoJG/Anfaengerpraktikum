@@ -55,7 +55,7 @@ plt.plot(x*10**(3), D*10**(3), 'rx', label='Auslenkung')
 x_linspace = np.linspace(np.min(x),np.max(x),100)
 plt.plot(x_linspace*10**(3), D_fit(x_linspace,*params)*10**3, 'k-', label='Ausgleichskurve')
 # Theorie Plot mit dem E Wert aus der anderen Messung (keine Ahnung warum das direkt in mm berechnet wird, eigentlich müsste man ja das Ergebnis *10**3 rechnen...)
-plt.plot(x_linspace*10**(3), D_Theorie_Array(x_linspace,F,E_vorher,I,L)*10**3, 'b-', label='Theorie')
+#plt.plot(x_linspace*10**(3), D_Theorie_Array(x_linspace,F,E_vorher,I,L)*10**3, 'b-', label='Theorie')
 
 
 # Achsenbeschriftung

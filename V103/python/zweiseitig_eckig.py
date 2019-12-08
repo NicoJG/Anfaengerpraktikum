@@ -3,10 +3,10 @@ import numpy as np
 import json
 from scipy.optimize import curve_fit
 
-F = 4718.8 * 9.81 #Gewichtskraft
+F = 4.7188 * 9.81 #Gewichtskraft
 L = 0.555 #Meter
 I= (0.010**4)/12 #Meter^4
-E_vorher = (86.64-1)*10**9 #Pascal
+E_vorher = (86.64)*10**9 #Pascal
 
 # Funktion für Curve Fit:
 
@@ -24,7 +24,8 @@ def D_Theorie_Array(x,F,E,I,L):
     #print(result)
     return result
 
-def D_fit(x,E):
+def D_fit(x,E,b):
+    x = x - b
     if isinstance(x, (np.ndarray, np.generic) ):
         return D_Theorie_Array(x,F,E,I,L)
     else:
@@ -40,8 +41,9 @@ DM = DM*10**(-3) #m
 D= D0-DM #m
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(D_fit,x,D,p0=E_vorher)
-a = params[0]
+params,pcov = curve_fit(D_fit,x,D,p0=[E_vorher,0])
+E = params[0]
+verschiebung = params[1]
 
 #Fehler berechnen
 E_err = np.absolute(pcov[0][0])**0.5
@@ -53,7 +55,7 @@ plt.plot(x*10**(3), D*10**(3), 'rx', label='Auslenkung')
 x_linspace = np.linspace(np.min(x),np.max(x),100)
 plt.plot(x_linspace*10**(3), D_fit(x_linspace,*params)*10**3, 'k-', label='Ausgleichskurve')
 # Theorie Plot mit dem E Wert aus der anderen Messung (keine Ahnung warum das direkt in mm berechnet wird, eigentlich müsste man ja das Ergebnis *10**3 rechnen...)
-plt.plot(x_linspace*10**(3), D_Theorie_Array(x_linspace,F,E_vorher,I,L), 'b-', label='Theorie')
+plt.plot(x_linspace*10**(3), D_Theorie_Array(x_linspace,F,E_vorher,I,L)*10**3, 'b-', label='Theorie')
 
 
 # Achsenbeschriftung
@@ -68,5 +70,6 @@ plt.grid(True,which="both", linestyle='--')
 # Speicherort
 plt.savefig('build/plot_zweiseitig_eckig.pdf')
 
-print('E3:',a*10**(-9))
-print('Fehler von E3',E_err*10**(-9))
+print('E3[GP]:',E*10**(-9))
+print('Fehler von E3[GP]',E_err*10**(-9))
+print('Verschiebung nach rechts[mm]: ',verschiebung*10**(3))

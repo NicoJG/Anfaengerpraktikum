@@ -42,7 +42,7 @@ $\Delta x$ ist als die Differenz von $D_0$ und $D_m$ definiert, gibt also die ei
     \end{tabular}
 \end{table}
 
-Um den Elastizitätsmodul $E$ zu bestimmen wird zunächst die runde Stange aus \autoref{tab:einseitig_rund} näher untersucht. Sie besitzt insgesamt die Länge $L_\text{gesamt} = \SI{0.55}{\meter}$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. Der Radius beträgt $R$ = $\SI{5}{\milli\meter}$, somit ist das Volumen $V = \SI{0.000035342}{\cubic\meter}$, dadurch kann auch die Dichte mit FORMEL ausgerechnet werden. Es ergibt sich $\rho = \SI{2808.07}{\kilogram \per \cubic\meter}$, was in etwa der Dichte von Aluminium entspricht. 
+Um den Elastizitätsmodul $E$ zu bestimmen wird zunächst die runde Stange aus \autoref{tab:einseitig_rund} näher untersucht. Sie besitzt insgesamt die Länge $L_\text{gesamt} = \SI{0.55}{\meter}$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. Der Radius beträgt $R$ = $\SI{5}{\milli\meter}$, somit ist das Volumen $V = \SI{0.000035342}{\cubic\meter}$, dadurch kann auch die Dichte ausgerechnet werden. Es ergibt sich $\rho = \SI{2808.07}{\kilogram \per \cubic\meter}$, was in etwa der Dichte von Aluminium entspricht. 
 Für die Auswertung wird $\Delta x$ gegen $x$ aufgetragen.
 
 \begin{figure}
@@ -52,7 +52,7 @@ Für die Auswertung wird $\Delta x$ gegen $x$ aufgetragen.
     \label{fig:einseitig_rund_plot}
 \end{figure}
 
-Außerdem wurde ein Curve Fit mit SyPy durchgeführt, mit der Funktion \autoref{eq:durchbiegung_einseitig}. Wobei folgende gegebene Werte verwendet wurden. $F$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt, $L$ ist die Länge der Stange vom Aufhängepunkt aus gemssen, also nicht die gesamte Länge. $R$ ist der Radius der Querschnittsfläche und $I$ ist der Flächenträgheitsmoment, der sich aus \autoref{eq:flächentragheitsmoment} ergibt.
+Außerdem wurde ein Curve Fit mit SciPy durchgeführt, mit der Funktion \autoref{eq:durchbiegung_einseitig}. Wobei folgende gegebene Werte verwendet wurden. $F$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt, $L$ ist die Länge der Stange vom Aufhängepunkt aus gemssen, also nicht die gesamte Länge. $R$ ist der Radius der Querschnittsfläche und $I$ ist der Flächenträgheitsmoment, der sich aus \autoref{eq:flächentragheitsmoment} ergibt.
 Im Falle eines Kreises:
 
 \begin{equation}
@@ -84,7 +84,7 @@ Der Theoriewert für den Elastizitätsmodul von Aluminium beträgt $\SI{70}{\gig
 \subsection{Biegung eines einseitig eingespannten rechteckigen Stabes}
 \label{sec:Biegung eines einseitig eingespannten rechteckigen Stabes}
 
-Genau wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes} sind hier die Verschiebungen 
+Genau wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes} sind hier die Verschiebungen bei einer bei $L$ angehängten Masse $m = \SI{1.2077}{\kilogram}$.
 
 \begin{table}
     \centering
@@ -125,21 +125,21 @@ Die Berechnung von E wird hier genau so durchgeführt wie in \autoref{sec:Biegun
 Da die Querschnittsfläche dieser Stange ein Quadrat ist, muss der Flächenträgheitsmoment $I$ nun mit 
 
 \begin{equation}
-    I_\text{Quadtrat} = \frac{R^4}{12} berechnet werden. 
+    I_\text{Quadtrat} = \frac{R^4}{12}
     \label{eq:flächentragheitsmoment_quadrat}
-\end{equation}
-
+\end{equation} 
+berechnet werden.
 Damit ergeben sich erneut alle Werte, die zur Berechnung von E und zum Erstellen des Plots gebraucht werden:
 
 \begin{table}
   \centering
   \caption{Gegebene Werte für die Berechnung von E}
-  \label{tab:werte_rund_einseitig}
+  \label{tab:werte_eckig_einseitig}
   \begin{tabular}{c c c c}
     \toprule 
     \tableSI{F}{\newton} & \tableSI{L}{\meter} & \tableSI{R}{\meter}& \tableSI{I}{\meter\tothe{4}} \\ 
     \midrule 
-     7.33211.85 & 0.446 & 0.01 & $8.33 \cdot 10^{-10}$\\
+     11.85 & 0.446 & 0.01 & $8.33 \cdot 10^{-10}$\\
     \bottomrule
   \end{tabular}
 \end{table} 
@@ -193,20 +193,36 @@ In den weiteren beiden Auswertung gibt es nun einen Unterschied zu den vorherige
     }
 \end{table}
 
+Für diesen Teil des Experimentes wurde die gleiche Stange wie aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} genutzt. Die Dichte ist also $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$. Der Stab besteht, wie bereits beschrieben aus Messing. Mithilfe von \autoref{eq:durchbiegung_beidseitig} lässt sich eine Curve Fit Funktion mit Scipy aufstellen, sodass $E$ bestimmt werden kann. Folgende Werte sind dafür nötig, sie alle sind gegeben oder gemessen worden. Das Flächenträgheitsmoment $I$ kann mit \autoref{eq:flächentragheitsmoment_quadrat} berechnet werden. $R$ ist dabei nicht der Radius, sondern die Seitenlänge des Querschnitts. $F$ ist die Gewichtskraft, die bei $\frac{L}{2}$ wirkt.  
 
+\begin{table}
+  \centering
+  \caption{Gegebene Werte für die Berechnung von E}
+  \label{tab:werte_eckig_zweiseitig}
+  \begin{tabular}{c c c c}
+    \toprule 
+    \tableSI{F}{\newton} & \tableSI{L}{\meter} & \tableSI{R}{\meter}& \tableSI{I}{\meter\tothe{4}} \\ 
+    \midrule 
+     46.290 & 0.550 & 0.010 & $8.333 \cdot 10^{-10}$\\
+    \bottomrule
+  \end{tabular}
+\end{table} 
 
+Dadurch lässt sich folgender Plot aufstellen, in dem die Messergebnisse aus \autoref{tab:zweiseitig_eckig} eingetragen sind, sowie die oben beschriebe Curve Fit Funktion. 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig.pdf}
+    \caption{Graph der Werte aus \autoref{tab:zweiseitig_eckig}}
+    \label{fig:zweiseitg_eckig_plot}
+\end{figure}
 
-
-
-
-
-
-
-
-
+Es ergibt sich ein $E = 199.42 \pm \SI{3.40}{\giga\pascal}$. Verglichen mit den $78$ bis $\SI{123}{\giga\pascal}$, für Messing, geht aus dieser Bestimmung nicht direkt das Material hervor. 
 
 \subsection{Biegung eines zweiseitig eingespannten zylindrischen Stabes}
+
+In der letzten Messung wurde ein zylindrischer Stab für die zweiseitige Befestigung verwendet. Dieser ist ein anderer, als in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes}, daher nachfolgend die wichtigsten Daten. Er besitzt einen Radius von $R = \SI{0.005}{\meter}$ und eine Gesamtlänge von $L_\text{gesamt} = \SI{0.60}{\meter} $. Seine Masse $m$ beträgt $m = \SI{0.3943}{\kilogram}$ und hat somit eine Dichte von $\rho = \SI{8367.31}{\kilogram \per \cubic\meter}$, was der Dichte von Messing entspricht. Der Abstand zwischen den beiden Aufhängepunkten beträgt $L = \SI{0.555}{\meter}$. Die Masse $m = \SI{4.7188}{\newton}$ wurde im Abstand $\frac{L}{2}$ angebraucht. 
+Im Folgenden sind wie in den vorherigen Schritten auch die Messewerte in einer Tabelle eingetragen.
 
 \begin{table}
     \centering
@@ -249,3 +265,29 @@ In den weiteren beiden Auswertung gibt es nun einen Unterschied zu den vorherige
     \end{tabular}
     }
 \end{table}
+
+Nun wird wie in \autoref{sec:Biegung eines zweiseitig eingespannten rechteckigen Stabes} ein Plot mit den Funktionen aus \autoref{eq:durchbiegung_beidseitig} ein Curve Fit für die Messwerte angefertigt, aus dem der Elastizitätsmodul $E$ bestimmt werden kann. Dafür werden folgene Werte benötigt, wobei hier $R$ der Radius der Querschnittsfläche ist, und $I$ über \autoref{eq:flächentragheitsmoment_kreis} bestimmt wird. Für beide zweiseitig eingespannten Stangen wurde die selbe Masse $m$ verwendet:
+
+\begin{table}
+  \centering
+  \caption{Gegebene Werte für die Berechnung von E}
+  \label{tab:werte_rund_zweiseitig}
+  \begin{tabular}{c c c c}
+    \toprule 
+    \tableSI{F}{\newton} & \tableSI{L}{\meter} & \tableSI{R}{\meter}& \tableSI{I}{\meter\tothe{4}} \\ 
+    \midrule 
+     46.290 & 0.550 & 0.005 & $4.910 \cdot 10^{-10}$\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Daraus ergibt sich dann folgender Plot mit Curve Fit und den Messwerten aus \autoref{tab:zweiseitig_rund}:
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_rund.pdf}
+    \caption{Graph der Werte aus \autoref{tab:zweiseitig_rund}}
+    \label{fig:zweiseitg_rund_plot}
+\end{figure}
+
+Daraus ergibt sich dann $E = 194.88 \pm \SI{2.70}{\giga\pascal}$, ebenso wie das Ergebnis aus \autoref{sec:Biegung eines zweiseitig eingespannten rechteckigen Stabes} weicht auch dieses von seinem Theoriewert recht deutlich ab. 

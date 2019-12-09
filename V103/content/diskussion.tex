@@ -6,30 +6,40 @@
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
 
-Für die Auswertung der Elastizitätsmodule $E$ wurden als Vergleichswerte für die Bestimmung des Stangenmaterials ebenfalls die Dichten $\rho$ bestimmt. Dabei ergaben sich:
+Für die Auswertung der Elastizitätsmodule $E$ wurden als Vergleichswerte für die Bestimmung des Stangenmaterials ebenfalls die Dichten $\rho$ bestimmt. Dadurch ergeben sich die Werte aus \autoref{tab:rho_ergebnisse}.
 
 \begin{table}
   \centering
-  \caption{Ergebnisse für \rho }
+  \caption{Ergebnisse für $\rho$}
   \label{tab:rho_ergebnisse}
-  \begin{tabular}{S S S}
+  \begin{tabular}{c S S S}
     \toprule 
-   Stab & \tableSI{\rho _\text{gemessen}}{\kilogram \per \cubic\meter} & \tableSI{\rho _\text{theorie}}{\kilogram \per \cubic\meter} \\ 
+   \text{Stab} & \tableSI{\rho _\text{gemessen}}{\kilogram \per \cubic\meter} & \tableSI{\rho _\text{theorie}}{\kilogram \per \cubic\meter} & \text{Prozentuale Abweichungen} \\ 
     \midrule 
-    einseitig zylindrisch & 2808.07 & 2560.00 bis 2640.00 \\
-    einseitig rechteckig & 8371.67 & 8400.00 bis 8700.00 \\
-    beidseitig rechteckig & 8371.67 & 8400.00 bis 8700.00 \\
-    beidseitig zylindrisch & 8367.31 & 8400.00 bis 8700.00 \\
+    einseitig zylindrisch & 2808.07 & {2560,00 \text{bis} 2640,00} & 6.36 \% \\
+    einseitig rechteckig & 8371.67 & {8400,00 \text{bis} 8700,00} & 0.33 \% \\
+    beidseitig rechteckig & 8371.67 & {8400,00 \text{bis} 8700,00} & 0.33 \% \\
+    beidseitig zylindrisch & 8367.31 & {8400,00 \text{bis} 8700,00} & 0.39 \% \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-$\rho _2$, $\rho _3$ und $\rho _4$ entsprechen am ehesten der Dichte von Messing. $\rho _1$ lässt sich auf die Dichte von Aluminium zurückführen.
+$\rho _2$, $\rho _3$ und $\rho _4$ entsprechen am ehesten der Dichte von Messing. $\rho _1$ lässt sich auf die Dichte von Aluminium zurückführen.\cite{dichten_metalle}
 
-Aus den Auswertungen ergeben sich vier Elastizitätsmodule:
-\begin{align}
-    E_1 =& \: 70.40 \pm \SI{0.36}{\giga\pascal} \\
-    E_2 =& \: 86.64 \pm \SI{0.36}{\giga\pascal} \\
-    E_3 =& \: 202.04 \pm \SI{6.54}{\giga\pascal} \\
-    E_4 =& \: 197.86 \pm \SI{6.84}{\giga\pascal}
-\end{align}
+Aus den Auswertungen ergeben sich zudem vier Elastizitätsmodule mit ihren Unsicherheiten. Im Folgenden werden sie mit den ihnen entsprechenden Theoriewerten:
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse für E}
+  \label{tab:e_ergebnisse}
+  \begin{tabular}{c S S S S}
+    \toprule 
+   \text{Stab} & \tableSI{E_\text{gemessen}}{\giga\pascal} & \tableSI{E_\text{gemessen}}{\giga\pascal} & \tableSI{E_\text{theorie}}{\giga\pascal} & \text{Prozentuale Abweichungen}\\ 
+    \midrule 
+    einseitig zylindrisch & 70.40 & 0.36 & 69.00 & 2.03 \pm 0.52 \% \\
+    einseitig rechteckig & 86.64 & 0.36 & {102,00 \text{bis} 125,00} & 15.06 \pm 0.35 \% \\
+    beidseitig rechteckig & 202.04 & 6.54 & {102,00 \text{bis} 125,00} & 61.63 \pm 5.23 \% \\
+    beidseitig zylindrisch & 197.86 & 6.84 & {102,00 \text{bis} 125,00} & 57.60 \pm 5.47 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table}

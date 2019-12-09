@@ -20,7 +20,7 @@ $\Delta x$ ist als die Differenz von $D_0$ und $D_m$ definiert, gibt also die ei
     \centering
     \caption{Messergebnisse zu dem einseitig eingespannten zylindrischen Stab}
     \label{tab:einseitig_rund}
-    \begin{tabular}{c c c c}
+    \begin{tabular}{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -58,7 +58,7 @@ Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $x$ aufgetrage
 
 Außerdem wurde ein Curve Fit mit SciPy \cite{scipy} und der Funktion aus \autoref{eq:durchbiegung_einseitig} durchgeführt. 
 Wobei die folgenden Werte verwendet wurden. 
-$F=mg$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt wird, wobei $g=\SI{9.81}{\meter\per\second}$ die Erdbeschleunigung ist.\cite{physics_constants} 
+$F=mg$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt wird, wobei $g=\SI{9.81}{\meter\per\second\squared}$ die Erdbeschleunigung ist.\cite{physics_constants} 
 $L$ ist die Länge der Stange vom Einspannungspunkt aus gemssen, also nicht die gesamte Länge. $R$ ist der Radius der Querschnittsfläche und $I$ ist das Flächenträgheitsmoment, das sich aus \autoref{eq:flächentragheitsmoment} ergibt. 
 Im Falle eines Kreises ist das Flächenträgheitsmoment
 \begin{equation}
@@ -95,7 +95,7 @@ Genau wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen St
     \centering
     \caption{Messergebnisse zu dem einseitig eingespannten rechteckigen Stab}
     \label{tab:einseitig_eckig}
-    \begin{tabular}{c c c c}
+    \begin{tabular}{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -172,13 +172,13 @@ In \autoref{tab:beidseitig_eckig} und \autoref{tab:beidseitig_rund} muss beachte
 Dies führt zu abweichenden Auslenkungen, allerdings kann dies vernachlässigt werden, da nur die Differenz der Werte wichtig sind. 
 Nachfolgend sind wie zuvor die Auslenkungen $\Delta x$ bei verschiedenen Abständen vom Einspannungspunkt gemessen worden. $D0$ ist die Auslenkung ohne eine angehangene Masse, somit ist $DM$ die Auslenkung mit einer bei $x=\frac{L}{2}$ angehangenen Masse $m$. 
 Für die rechteckige Stange beträgt $L = \SI{0.555}{\meter}$, wobei $L$ der Abstand zwischen den beiden Einspannungspunkten ist, und $L_\text{gesamt} = \SI{0.60}{\meter}$ die eigentliche Länge des Stabes ist.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hier gehts weiter ;)
+
 \begin{table}
     \centering
     \caption{Messergebnisse zu dem beidseitig eingespannten rechteckigen Stab}
     \label{tab:beidseitig_eckig}
     \resizebox{\textwidth/2 - 0.1cm}{!}{%
-    \begin{tabular}[t]{c c c c}
+    \begin{tabular}[t]{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -196,7 +196,7 @@ Für die rechteckige Stange beträgt $L = \SI{0.555}{\meter}$, wobei $L$ der Abs
     \end{tabular}
     }
     \resizebox{\textwidth/2 - 0.1cm}{!}{%
-    \begin{tabular}[t]{c c c c}
+    \begin{tabular}[t]{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -215,8 +215,14 @@ Für die rechteckige Stange beträgt $L = \SI{0.555}{\meter}$, wobei $L$ der Abs
     }
 \end{table}
 
-Für diesen Teil des Experimentes wurde die gleiche Stange wie aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} genutzt. Die Dichte ist also $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$. Der Stab besteht, wie bereits beschrieben aus Messing. Mithilfe von \autoref{eq:durchbiegung_beidseitig} lässt sich eine Curve Fit Funktion mit Scipy aufstellen, sodass $E$ bestimmt werden kann. Folgende Werte sind dafür nötig, sie alle sind gegeben oder gemessen worden. Das Flächenträgheitsmoment $I$ kann mit \autoref{eq:flächentragheitsmoment_quadrat} berechnet werden. $R$ ist dabei nicht der Radius, sondern die Seitenlänge des Querschnitts. $F$ ist die Gewichtskraft, die bei $\frac{L}{2}$ wirkt.  
-
+Für diesen Teil des Experimentes wurde die Stange aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} erneut genutzt. 
+Die Dichte wurde bereits bestimmt und beträgt $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$. 
+Mithilfe von \autoref{eq:durchbiegung_beidseitig} lässt sich eine Curve Fit Funktion mit Scipy aufstellen, sodass $E$ bestimmt werden kann. 
+Die Werte aus \autoref{tab:werte_eckig_beidseitig} werden für das Aufstellen der Funktion benötigt. 
+Das Flächenträgheitsmoment $I$ kann mit \autoref{eq:flächentragheitsmoment_quadrat} berechnet werden. 
+$R$ ist dabei die Seitenlänge des Querschnitts und $F$ ist die Gewichtskraft, die bei $\frac{L}{2}$ wirkt und durch $F=mg$ gegeben ist. 
+Die Erdbeschleunigung ist durch die Konstante $g=\SI{9.81}{\meter\per\second\squared}$ bekannt und die Masse $m$ ist in diesem Fall $m = \SI{4.7188}{\kilogram}$.\cite{physics_constants}
+  
 \begin{table}
   \centering
   \caption{Gegebene Werte für die Berechnung von E}
@@ -230,7 +236,7 @@ Für diesen Teil des Experimentes wurde die gleiche Stange wie aus \autoref{sec:
   \end{tabular}
 \end{table} 
 
-Dadurch lässt sich folgender Plot aufstellen, in dem die Messergebnisse aus \autoref{tab:beidseitig_eckig} eingetragen sind, sowie die oben beschriebe Curve Fit Funktion. 
+Die Messwerte aus \autoref{tab:beidseitig_eckig} werden wie oben beschrieben mit einer Ausgleichskurve geplottet. 
 
 \begin{figure}
     \centering
@@ -239,26 +245,28 @@ Dadurch lässt sich folgender Plot aufstellen, in dem die Messergebnisse aus \au
     \label{fig:zweiseitg_eckig_plot}
 \end{figure}
 
-Es ergibt sich ein $E$ von
+SciPy berechntet einen Wert $E$.\cite{scipy}
+
 \begin{equation}
     E = 202.04 \pm \SI{6.54}{\giga\pascal}.
     \label{eq:E_beidseitig_eckig}
-\end{equation}
-
-Verglichen mit den $78$ bis $\SI{123}{\giga\pascal}$, für Messing, geht aus dieser Bestimmung nicht direkt das Material hervor. 
+\end{equation} 
 
 \subsection{Biegung eines beidseitig eingespannten zylindrischen Stabes}
 \label{Biegung eines beidseitig eingespannten zylindrischen Stabes}
 
-In der letzten Messung wurde ein zylindrischer Stab für die beidseitige Befestigung verwendet. Dieser ist ein anderer, als in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes}, daher nachfolgend die wichtigsten Daten. Er besitzt einen Radius von $R = \SI{0.005}{\meter}$ und eine Gesamtlänge von $L_\text{gesamt} = \SI{0.60}{\meter} $. Seine Masse $m$ beträgt $m = \SI{0.3943}{\kilogram}$ und hat somit eine Dichte von $\rho = \SI{8367.31}{\kilogram \per \cubic\meter}$, was der Dichte von Messing entspricht. Der Abstand zwischen den beiden Einspannungspunkten beträgt $L = \SI{0.555}{\meter}$. Die Masse $m = \SI{4.7188}{\newton}$ wurde im Abstand $\frac{L}{2}$ angebraucht. 
-Im Folgenden sind wie in den vorherigen Schritten auch die Messewerte in einer Tabelle eingetragen.
+Für die weitere Messung wurde ein neuer zylindrischer Stab verwerwendet. 
+Er besitzt einen Radius von $R = \SI{0.005}{\meter}$ und eine Gesamtlänge von $L_\text{gesamt} = \SI{0.60}{\meter} $. 
+Seine Masse $m$ beträgt $m = \SI{0.3943}{\kilogram}$ und hat somit eine Dichte von $\rho = \SI{8367.31}{\kilogram \per \cubic\meter}$. 
+Der Abstand zwischen den beiden Einspannungspunkten beträgt $L = \SI{0.555}{\meter}$. 
+Die Masse $m = \SI{4.7188}{\newton}$ wurde im Abstand $\frac{L}{2}$ vom Einspannungspunkt angebracht. 
 
 \begin{table}
     \centering
     \caption{Messergebnisse zu dem beidseitig eingespannten zylindrischen Stab}
     \label{tab:beidseitig_rund}
     \resizebox{\textwidth/2 - 0.1cm}{!}{%
-    \begin{tabular}[t]{c c c c}
+    \begin{tabular}[t]{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -276,7 +284,7 @@ Im Folgenden sind wie in den vorherigen Schritten auch die Messewerte in einer T
     \end{tabular}
     }
     \resizebox{\textwidth/2 - 0.1cm}{!}{%
-    \begin{tabular}[t]{c c c c}
+    \begin{tabular}[t]{S S S S}
         \toprule
         \tableSI{x}{\milli\meter} & \tableSI{D_0}{\milli\meter} & \tableSI{D_m}{\milli\meter} & \tableSI{\Delta x}{\milli\meter} \\
         \midrule
@@ -295,7 +303,9 @@ Im Folgenden sind wie in den vorherigen Schritten auch die Messewerte in einer T
     }
 \end{table}
 
-Nun wird wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} ein Plot mit den Funktionen aus \autoref{eq:durchbiegung_beidseitig} ein Curve Fit für die Messwerte angefertigt, aus dem der Elastizitätsmodul $E$ bestimmt werden kann. Dafür werden folgene Werte benötigt, wobei hier $R$ der Radius der Querschnittsfläche ist, und $I$ über \autoref{eq:flächentragheitsmoment_kreis} bestimmt wird. Für beide beidseitig eingespannten Stangen wurde die selbe Masse $m$ verwendet:
+Nun wird wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} ein Plot mit den Funktionen aus \autoref{eq:durchbiegung_beidseitig} mit den Messwerten angefertigt, aus dem der Elastizitätsmodul $E$ mit SciPy bestimmt werden kann. 
+Die Werte aus \autoref{tab:werte_rund_beidseitig} werden für die Berechnung benötigt, dabei ist $R$ der Radius der Querschnittsfläche und $I$, der über \autoref{eq:flächentragheitsmoment_kreis} berechnete Flächenträgheitsmoment.
+Für $m$ wird die gleiche Masse, wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} verwendet, somit ist $m = \SI{4.7188}{\kilogram}$.
 
 \begin{table}
   \centering
@@ -310,7 +320,7 @@ Nun wird wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen
   \end{tabular}
 \end{table}
 
-Daraus ergibt sich dann folgender Plot mit Curve Fit und den Messwerten aus \autoref{tab:beidseitig_rund} \cite{scipy}:
+Aus \autoref{tab:werte_rund_beidseitig} ergibt sich dann \autoref{fig:zweiseitg_rund_plot} mit Curve Fit aus SciPy und den Messwerten aus \autoref{tab:beidseitig_rund}.\cite{scipy}
 
 \begin{figure}
     \centering
@@ -319,10 +329,8 @@ Daraus ergibt sich dann folgender Plot mit Curve Fit und den Messwerten aus \aut
     \label{fig:zweiseitg_rund_plot}
 \end{figure}
 
-Daraus ergibt sich dann 
-Es ergibt sich ein $E$ von
+Aus \autoref{fig:zweiseitg_rund_plot} ergibt sich
 \begin{equation}
-    E = 197.86 \pm \SI{6.84}{\giga\pascal},
+    E = 197.86 \pm \SI{6.84}{\giga\pascal}.
     \label{eq:E_beidseitig_rund}
-\end{equation}
-ebenso wie das Ergebnis aus \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} weicht auch dieses von seinem Theoriewert recht deutlich ab. 
+\end{equation}.

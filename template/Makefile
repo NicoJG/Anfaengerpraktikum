@@ -7,7 +7,7 @@ plots: build/plot_NAME.pdf
 # das Beispiel kopieren und NAME ersetzen
 # Außerdem muss in plots und in build/main.pdf
 # die jeweilige Abhängigkeit hinzugefügt werden
-build/plot_NAME.pdf: python/NAME.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_NAME.pdf: python/NAME.py data/*.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/NAME.py

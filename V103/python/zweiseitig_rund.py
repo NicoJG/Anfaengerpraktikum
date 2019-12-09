@@ -24,8 +24,8 @@ def D_Theorie_Array(x,F,E,I,L):
     #print(result)
     return result
 
-def D_fit(x,E,b):
-    x = x - b
+def D_fit(x,E):
+    #x = x - b
     if isinstance(x, (np.ndarray, np.generic) ):
         return D_Theorie_Array(x,F,E,I,L)
     else:
@@ -41,9 +41,9 @@ DM = DM*10**(-3) #m
 D= D0-DM #m
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(D_fit,x,D,p0=[E_vorher,0])
+params,pcov = curve_fit(D_fit,x,D,p0=E_vorher)
 E = params[0]
-verschiebung = params[1]
+#verschiebung = params[1]
 
 #Fehler berechnen
 E_err = np.absolute(pcov[0][0])**0.5
@@ -72,4 +72,4 @@ plt.savefig('build/plot_zweiseitig_rund.pdf')
 
 print('E3[GP]:',E*10**(-9))
 print('Fehler von E3[GP]',E_err*10**(-9))
-print('Verschiebung nach rechts[mm]: ',verschiebung*10**(3))
+#print('Verschiebung nach rechts[mm]: ',verschiebung*10**(3))

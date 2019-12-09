@@ -6,4 +6,30 @@
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
 
-Es ergeben sich also insgesamt vier verschiedene Elastizitätsmodule $E$ für 2 verschiedene Metalle. 
+Für die Auswertung der Elastizitätsmodule $E$ wurden als Vergleichswerte für die Bestimmung des Stangenmaterials ebenfalls die Dichten $\rho$ bestimmt. Dabei ergaben sich:
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse für \rho }
+  \label{tab:rho_ergebnisse}
+  \begin{tabular}{S S S}
+    \toprule 
+   Stab & \tableSI{\rho _\text{gemessen}}{\kilogram \per \cubic\meter} & \tableSI{\rho _\text{theorie}}{\kilogram \per \cubic\meter} \\ 
+    \midrule 
+    einseitig zylindrisch & 2808.07 & 2560.00 bis 2640.00 \\
+    einseitig rechteckig & 8371.67 & 8400.00 bis 8700.00 \\
+    beidseitig rechteckig & 8371.67 & 8400.00 bis 8700.00 \\
+    beidseitig zylindrisch & 8367.31 & 8400.00 bis 8700.00 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+$\rho _2$, $\rho _3$ und $\rho _4$ entsprechen am ehesten der Dichte von Messing. $\rho _1$ lässt sich auf die Dichte von Aluminium zurückführen.
+
+Aus den Auswertungen ergeben sich vier Elastizitätsmodule:
+\begin{align}
+    E_1 =& \: 70.40 \pm \SI{0.36}{\giga\pascal} \\
+    E_2 =& \: 86.64 \pm \SI{0.36}{\giga\pascal} \\
+    E_3 =& \: 202.04 \pm \SI{6.54}{\giga\pascal} \\
+    E_4 =& \: 197.86 \pm \SI{6.84}{\giga\pascal}
+\end{align}

@@ -10,36 +10,46 @@ Für die Auswertung der Elastizitätsmodule $E$ wurden als Vergleichswerte für 
 
 \begin{table}
   \centering
-  \caption{Ergebnisse für $\rho$}
+  \caption{Ergebnisse für die Dichte $\rho$ mit entsprechenden Referenzwerten aus der Literatur für ein Metall mit ähnlicher Dichte\cite{dichten_metalle}}
   \label{tab:rho_ergebnisse}
-  \begin{tabular}{c S S S}
+  \begin{tabular}{c S c S}
     \toprule 
-   \text{Stab} & \tableSI{\rho _\text{gemessen}}{\kilogram \per \cubic\meter} & \tableSI{\rho _\text{theorie}}{\kilogram \per \cubic\meter} & \text{Prozentuale Abweichungen} \\ 
+   \text{Stab} & \tableSI{\rho _\text{gemessen}}{\kilogram \per \cubic\meter} & \tableSI{\rho _\text{referenz}}{\kilogram \per \cubic\meter} & \text{Abweichungen} \\ 
     \midrule 
-    einseitig zylindrisch & 2808.07 & {2560,00 \text{bis} 2640,00} & 6.36 \% \\
-    einseitig rechteckig & 8371.67 & {8400,00 \text{bis} 8700,00} & 0.33 \% \\
-    beidseitig rechteckig & 8371.67 & {8400,00 \text{bis} 8700,00} & 0.33 \% \\
-    beidseitig zylindrisch & 8367.31 & {8400,00 \text{bis} 8700,00} & 0.39 \% \\
+    einseitig zylindrisch & 2808.07 & {2560 \text{bis} 2640} & 6.36 \% \\
+    einseitig rechteckig & 8371.67 & {8400 \text{bis} 8700} & 0.33 \% \\
+    beidseitig rechteckig & 8371.67 & {8400 \text{bis} 8700} & 0.33 \% \\
+    beidseitig zylindrisch & 8367.31 & {8400 \text{bis} 8700} & 0.39 \% \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-$\rho _2$, $\rho _3$ und $\rho _4$ entsprechen am ehesten der Dichte von Messing. $\rho _1$ lässt sich auf die Dichte von Aluminium zurückführen.\cite{dichten_metalle}
+Die Dichte des ersten Stabs entspricht am ehesten der Dichte von Aluminium. Somit ist der erste Referenzwert in \autoref{tab:rho_ergebnisse} für die Dichte von Aluminium.
+Alle anderen Dichten entsprechen am ehesten der Dichte von Messing und somit wurde hierfür der Referenzwert gelistet.
 
-Aus den Auswertungen ergeben sich zudem vier Elastizitätsmodule mit ihren Unsicherheiten. Im Folgenden werden sie mit den ihnen entsprechenden Theoriewerten:
+Aus den Auswertungen ergeben sich zudem vier Elastizitätsmodule mit ihren Unsicherheiten. Diese sind in \autoref{tab:e_ergebnisse} mit Referenzwerten der zuvor bestimmten Metalle gelistet.
 
 \begin{table}
   \centering
-  \caption{Ergebnisse für E}
+  \caption{Ergebnisse für $E$ mit entsprechenden Referenzwerten\cite{youngs_modulus}}
   \label{tab:e_ergebnisse}
+  \resizebox{\textwidth - 0.1cm}{!}{%
   \begin{tabular}{c S S S S}
     \toprule 
-   \text{Stab} & \tableSI{E_\text{gemessen}}{\giga\pascal} & \tableSI{E_\text{gemessen}}{\giga\pascal} & \tableSI{E_\text{theorie}}{\giga\pascal} & \text{Prozentuale Abweichungen}\\ 
+   \text{Stab} & \tableSI{E}{\giga\pascal} & \tableSI{\Delta E}{\giga\pascal} & \tableSI{E_\text{referenz}}{\giga\pascal} & {Abweichungen}\\ 
     \midrule 
-    einseitig zylindrisch & 70.40 & 0.36 & 69.00 & 2.03 \pm 0.52 \% \\
-    einseitig rechteckig & 86.64 & 0.36 & {102,00 \text{bis} 125,00} & 15.06 \pm 0.35 \% \\
-    beidseitig rechteckig & 202.04 & 6.54 & {102,00 \text{bis} 125,00} & 61.63 \pm 5.23 \% \\
-    beidseitig zylindrisch & 197.86 & 6.84 & {102,00 \text{bis} 125,00} & 57.60 \pm 5.47 \% \\
+    einseitig zylindrisch & 70.40 & \pm0.36 & 69 & 2.03 \pm 0.52 \% \\
+    einseitig rechteckig & 86.64 & \pm0.36 & {102 \text{bis} 125} & 15.06 \pm 0.35 \% \\
+    beidseitig rechteckig & 202.04 & \pm6.54 & {102 \text{bis} 125} & 61.63 \pm 5.23 \% \\
+    beidseitig zylindrisch & 197.86 & \pm6.84 & {102 \text{bis} 125} & 57.60 \pm 5.47 \% \\
     \bottomrule
   \end{tabular}
+  }
 \end{table}
+
+An \autoref{tab:e_ergebnisse} ist zu sehen, dass die Messungen der beidseitig eingespannten Stäbe deutlich höhere Abweichungen haben, als die der einseitigen Einspannung.
+
+Diese Abweichungen lassen sich durch die erzeugte Biegung erklären, welche deutlich geringer ist, als die empfohlenen \SIrange{3}{7}{\milli\meter}.
+Bei so geringen Auslenkungen können in der Theorie gemachte Vereinfachungen und die Messgenauigkeiten der Messvorrichtungen zu erheblichen Abweichungen führen.
+
+Somit scheint eine Messung bei einseitiger Einspannung deutlich sinnvoller und effektiver.

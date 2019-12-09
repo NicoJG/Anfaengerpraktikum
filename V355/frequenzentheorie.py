@@ -21,10 +21,10 @@ Ck_gemessen = Ck_gemessen*10**(-9) # F
 
 Ck_linspace= np.linspace(0.5,12.5,100)
 # Plot der Daten
-plt.plot(Ck_gemessen*10**(9), vMinus_gemessen*10**(-3), 'kx', label='Messwerte')
+plt.plot(Ck_gemessen*10**(9), vMinus_gemessen*10**(-3), 'rx', label='Messwerte')
 #plt.plot(Ck_gemessen*10**(9), vPlus_gemessen*10**(-3), 'kx', label='Messwerte (v+)')
 # Plot der Theoriekurve
-plt.plot(Ck_linspace, vMinus_theorie(L,C,Ck_linspace*10**(-9))*10**(-3), 'k-', label='Theoriekurve')
+plt.plot(Ck_linspace, vMinus_theorie(L,C,Ck_linspace*10**(-9))*10**(-3), 'b-', label='Theoriekurve')
 #plt.plot(Ck_linspace, (Ck_linspace/Ck_linspace)*vPlus_theorie(L,C)*10**(-3), 'y-', label='Theoriekurve (v+)')
 
 

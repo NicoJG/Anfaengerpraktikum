@@ -43,8 +43,8 @@ data = list(zip(Ck_gemessen_2*10**(9),I2Plus_gemessen,I2Plus_Theorie,I2Minus_gem
 np.savetxt('amplitudentheorie.csv',data,header='Ck[nF],I2Plus_gemessen[A],I2Plus_Theorie[A],I2Minus_gemessen[A],I2Minus_Theorie[A]',fmt='%1.3f,%1.4f,%1.4f,%1.4f,%1.4f')
 
 # Plot der Messwerte
-plt.plot(Ck_gemessen_2*10**(9), I2Plus_gemessen, 'gx', label=r'$I_{2,+}$ gemessen')
-plt.plot(Ck_gemessen_2*10**(9), I2Minus_gemessen, 'bx', label=r'$I_{2,-}$ gemessen')
+plt.plot(Ck_gemessen_2*10**(9), I2Plus_gemessen, 'rx', label=r'$I_{2+}$ gemessen')
+plt.plot(Ck_gemessen_2*10**(9), I2Minus_gemessen, 'yx', label=r'$I_{2-}$ gemessen')
 
 # Plot der Theoriekurve
 Ck_linspace = np.linspace(1.5,12.5,100)*10**(-9) #F

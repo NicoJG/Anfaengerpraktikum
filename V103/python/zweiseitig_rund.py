@@ -5,7 +5,7 @@ from scipy.optimize import curve_fit
 
 F = 4.7188 * 9.81 #Gewichtskraft
 L = 0.555 #Meter
-I= (0.010**4)/12 #Meter^4
+I= (np.pi/4) * 0.005**4 #Meter^4
 E_vorher = (86.64)*10**9 #Pascal
 
 # Funktion für Curve Fit:
@@ -32,7 +32,7 @@ def D_fit(x,E):
         return D_Theorie(x,F,E,I,L)
 
 # Daten einlesen
-x,D0,DM = np.genfromtxt('data/zweiseitig_eckig.csv',delimiter=',',unpack=True)
+x,D0,DM = np.genfromtxt('data/zweiseitig_rund.csv',delimiter=',',unpack=True)
 
 #Berechnungen
 x = x*10**(-3) #m
@@ -68,7 +68,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.grid(True,which="both", linestyle='--')
 
 # Speicherort
-plt.savefig('build/plot_zweiseitig_eckig.pdf')
+plt.savefig('build/plot_zweiseitig_rund.pdf')
 
 print('E3[GP]:',E*10**(-9))
 print('Fehler von E3[GP]',E_err*10**(-9))

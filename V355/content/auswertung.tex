@@ -20,20 +20,20 @@ Für die Messungen aus \autoref{sec:schwebung} werden hier jeweils die eingestel
 
 \begin{table}
   \centering
-  \caption{Messwerte: Kopplungskapazität $C_\text{k}$ und Frequenz $f$ mit der entsprechenden Anzahl Maxima, sowie Extrema}
+  \caption{Messwerte: Kopplungskapazität $C_\text{k}$ und Frequenz $f$ mit der entsprechenden Anzahl Maxima, Minima, sowie Extrema, wobei die Minima aus den gemessenen Maxima und Extrema berechnet wurden}
   \label{tab:schwebung}
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c}
     \toprule 
-    $C_\text{k} \:/\: \si{\nano\farad}$ & $f \:/\: \si{\kilo\hertz}$ & Anzahl Maxima &  Anzahl Extrema   \\ 
+    $C_\text{k} \:/\: \si{\nano\farad}$ & $f \:/\: \si{\kilo\hertz}$ & Anzahl Maxima &  Anzahl Extrema & Anzahl Minima \\ 
     \midrule 
-    0.997 & 0.626 & 2 & 3 \\
-    2.290 & 0.626 & 3 & 5 \\
-    2.860 & 0.626 & 5 & 9 \\
-    4.740 & 0.626 & 6 & 12 \\
-    6.860 & 0.626 & 9 & 17 \\
-    8.180 & 0.626 & 11 & 23 \\
-    9.990 & 0.626 & 13 & 25 \\
-    12.000 & 0.626 & 18 & 35 \\
+    0.997 & 0.626 & 2 & 3 & 1 \\
+    2.290 & 0.626 & 3 & 5 & 2 \\
+    2.860 & 0.626 & 5 & 9 & 4 \\
+    4.740 & 0.626 & 6 & 12 & 6 \\
+    6.860 & 0.626 & 9 & 17 & 8 \\
+    8.180 & 0.626 & 11 & 23 & 12 \\
+    9.990 & 0.626 & 13 & 25 & 12 \\
+    12.000 & 0.626 & 18 & 35 & 17 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -180,11 +180,13 @@ Die gemessenen Frequenzen zu den Fundamentalschwingungen aus \autoref{tab:freque
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_frequenzentheorie.pdf}
-    \caption{Graph der Werte aus \autoref{tab:frequenzentheorie}}
+    \caption{Plot der Mess- und Theoriewerte entnommen aus \autoref{tab:frequenzentheorie} bzw. berechnet mit \autoref{eq:frequenz-}}
     \label{fig:frequenzenthorie_plot}
 \end{figure}
 
-In diesem Versuch wurden lediglich die Werte für $U_{2+}$, $U_{2-}$ und $U_\text{k}$ gemessen, die Werte für $I_{2+}$, $I_{2-}$ und $I_k$ sind noch zu bestimmen, diese werden über die Formel $I = \frac{U}{R}$ berechnet.
+\FloatBarrier
+
+In diesem Versuch wurden lediglich die Werte für $U_{2+}$, $U_{2-}$ und $U_\text{k}$ gemessen, die Werte für $I_{2+}$, $I_{2-}$ und $I_k$ sind noch zu bestimmen. Diese werden über die Formel $I = \frac{U}{R}$ berechnet.
 
 $R$, $L$ und $C$ sind bekannte Werte aus \autoref{tab:bauelement} und $U$ wird jeweils aus \autoref{tab:amplituden} entnommen. In der Tabelle stehen jeweils die aus den gemessenen $U_{2+}$ und $U_{2-}$ berechneten Werte für $I_{2+}$ und $I_{2-}$. Die Theoriewerte für $I_{2+}$ und $I_{2-}$ werden mit \autoref{eq:stromamplitude} berechnet. Der kleinste Wert für $C_\text{k}$ wurde beim messen nicht beachtet. Daraus ergeben sich dann folgende Werte.
 
@@ -209,8 +211,8 @@ $R$, $L$ und $C$ sind bekannte Werte aus \autoref{tab:bauelement} und $U$ wird j
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_amplitudentheorie.pdf}
-    \caption{Graph der Werte aus \autoref{tab:amplitudentheorie}}
+    \includegraphics[width=\textwidth-0.5cm]{build/plot_amplitudentheorie.pdf}
+    \caption{Plot der Mess- und Theoriewerte entnommen aus \autoref{tab:amplitudentheorie} bzw. berechnet mit \autoref{eq:stromamplitude}}
     \label{fig:amplitudentheorie_plot}
 \end{figure}
 

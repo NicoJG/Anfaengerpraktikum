@@ -52,6 +52,7 @@ plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.grid(True,which="both", linestyle='--')
 
 # Speicherort
 plt.savefig('build/plot_NAME.pdf')

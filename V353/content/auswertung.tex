@@ -92,84 +92,59 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
 
 \begin{table}
     \centering
-    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$}
+    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$ und die mit \autoref{eq:phasenverschiebung2} berechnete Phasenverschiebung $\varphi$}
     \label{tab:gemessen}
     \sisetup{table-number-alignment=center}
-    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
+    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
         \toprule
-        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} \\
+        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} & \tableSI{\varphi}{\radian} \\
         \midrule
-        20 & 1.000 & 25.000 & 0.000 \\
-        50 & 0.960 & 9.200 & 0.800 \\
-        100 & 0.900 & 4.200 & 0.800 \\
-        200 & 0.700 & 1.850 & 0.650 \\
-        300 & 0.550 & 1.150 & 0.517 \\
-        400 & 0.450 & 0.800 & 0.450 \\
-        500 & 0.360 & 0.620 & 0.380 \\
-        600 & 0.300 & 0.500 & 0.333 \\
-        800 & 0.240 & 0.360 & 0.265 \\
-        1000 & 0.200 & 0.280 & 0.220 \\
-        2000 & 0.100 & 0.130 & 0.120 \\
-        3000 & 0.067 & 0.085 & 0.082 \\
-        4500 & 0.044 & 0.056 & 0.055 \\
-        6000 & 0.034 & 0.042 & 0.041 \\
-        10000 & 0.020 & 0.025 & 0.025 \\
+        20 & 1.000 & 25.000 & 0.000 & 0.000 \\
+        50 & 0.960 & 9.200 & 0.800 & 0.251 \\
+        100 & 0.900 & 4.200 & 0.800 & 0.503 \\
+        200 & 0.700 & 1.850 & 0.650 & 0.817 \\
+        300 & 0.550 & 1.150 & 0.517 & 0.975 \\
+        400 & 0.450 & 0.800 & 0.450 & 1.131 \\
+        500 & 0.360 & 0.620 & 0.380 & 1.194 \\
+        600 & 0.300 & 0.500 & 0.333 & 1.255 \\
+        800 & 0.240 & 0.360 & 0.265 & 1.332 \\
+        1000 & 0.200 & 0.280 & 0.220 & 1.382 \\
+        2000 & 0.100 & 0.130 & 0.120 & 1.508 \\
+        3000 & 0.067 & 0.085 & 0.082 & 1.546 \\
+        4500 & 0.044 & 0.056 & 0.055 & 1.555 \\
+        6000 & 0.034 & 0.042 & 0.041 & 1.546 \\
+        10000 & 0.020 & 0.025 & 0.025 & 1.571 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_spannungen.pdf}
+    \includegraphics[width=\textwidth-1cm]{build/plot_spannungen.pdf}
     \caption{Graph des Spannungsverhältnises $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen} wobei die Generatorspannung konstant auf \SI{1}{\volt} bleibt}
     \label{fig:plot_spannungen}
 \end{figure}
 
-Durch die Gleichung
+\FloatBarrier
+
+Durch die \autoref{eq:amplitude} lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:plot_spannungen} mit
 \begin{equation}
-    \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2R^2C^2}}
-\end{equation}
-lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:plot_spannungen} mit
-\begin{equation}
-    f(x) = \frac{1}{\sqrt{1+(2 \pi x)^2a^2}}
+    \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2a}}
 \end{equation} 
-ausgeführt wird. Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt die Zeitkonstante
+ausgeführt wird.
+
+Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt den Parameter $a = \SI{6.525+-0.091e-7}{\second}$. Nach \autoref{eq:amplitude} ergibt sich eine Zeitkonstante von
 \begin{equation}
-    RC = \SI{0.8078+-0.0056}{\milli\second}.
+    RC = \sqrt{a} = \SI{0.8078+-0.0056}{\milli\second}.
 \end{equation}
+
+\FloatBarrier
 
 Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:phasen} gelistet.
 
-\begin{table}
-    \centering
-    \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
-    \label{tab:phasen}
-    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3]}
-        \toprule
-        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{\varphi}{\radian} \\
-        \midrule
-        20 & 1.000 & 0.000 \\
-        50 & 0.960 & 0.251 \\
-        100 & 0.900 & 0.503 \\
-        200 & 0.700 & 0.817 \\
-        300 & 0.550 & 0.975 \\
-        400 & 0.450 & 1.131 \\
-        500 & 0.360 & 1.194 \\
-        600 & 0.300 & 1.255 \\
-        800 & 0.240 & 1.332 \\
-        1000 & 0.200 & 1.382 \\
-        2000 & 0.100 & 1.508 \\
-        3000 & 0.067 & 1.546 \\
-        4500 & 0.044 & 1.555 \\
-        6000 & 0.034 & 1.546 \\
-        10000 & 0.020 & 1.571 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
+    \includegraphics[width=\textwidth-1cm]{build/plot_phasen.pdf}
     \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
     \label{fig:plot_phasen}
 \end{figure}

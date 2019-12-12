@@ -10,5 +10,9 @@
     "theorie[s]": 0.0014034056000000001,
     "theorie_err[s]": 5.592000000000001e-05,
     "entladekurve_b[1/s]": 0.07248755925165602,
-    "entladekurve_b_err[1/s]": 0.024526571726904825
+    "entladekurve_b_err[1/s]": 0.024526571726904825,
+    "spannung_a[s]": 6.525494461043122e-07,
+    "spannung_a_err[s]": 9.115814952348943e-09,
+    "spannung_RC[s]": 0.00080780532686057,
+    "spannung_RC_err[s]": 5.642334018628207e-06
 }

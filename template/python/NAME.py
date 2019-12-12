@@ -40,7 +40,7 @@ json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 
 # Plot der Daten
-plt.plot(x, y, 'rx', label='Kurve')
+plt.plot(x, y, 'ro', label='Kurve')
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(x),np.max(x),100)
 plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
@@ -50,9 +50,8 @@ plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
 plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
 
 # in matplotlibrc leider (noch) nicht möglich
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.grid(True,which="both", linestyle='--')
 
 # Speicherort
 plt.savefig('build/plot_NAME.pdf')

@@ -25,9 +25,9 @@ Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, k
     \centering
     \caption{Abgelesene Werte aus \autoref{fig:foto_entladekurve} mit y-Achse als Kondensatorspannung $U_C$ und x-Achse als Zeit $t$}
     \label{tab:entladekurve}
-    \begin{tabular}[t]{c c c}
+    \begin{tabular}[t]{S S S}
         \toprule
-        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & $\ln \left( \frac{U_C}{U_0}{} \right)$ \\
+        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0}{} \right)$} \\
         \midrule
         1.00 & 0.00 & 0.00 \\
         0.90 & 0.10 & -0.11 \\
@@ -40,9 +40,9 @@ Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, k
         0.36 & 0.80 & -1.02 \\
         \bottomrule
     \end{tabular}
-    \begin{tabular}[t]{c c c}
+    \begin{tabular}[t]{S S S}
         \toprule
-        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & $\ln \left( \frac{U_C}{U_0} \right)$\\
+        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0} \right)$} \\
         \midrule
         0.28 & 1.00 & -1.27 \\
         0.20 & 1.20 & -1.61 \\
@@ -94,7 +94,8 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
     \centering
     \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$}
     \label{tab:gemessen}
-    \begin{tabular}{c c c c}
+    \sisetup{table-number-alignment=center}
+    \begin{tabular}{S S S S}
         \toprule
         \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} \\
         \midrule
@@ -143,7 +144,7 @@ Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der freque
     \centering
     \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
     \label{tab:phasen}
-    \begin{tabular}{c c c}
+    \begin{tabular}{S[table-number-alignment = right] S S}
         \toprule
         \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{\varphi}{\radian} \\
         \midrule

@@ -41,15 +41,14 @@ RC_Ergebnisse['entladekurve_err[s]'] = RC_err
 json.dump(RC_Ergebnisse, open('data/RC_Ergebnisse.json','w'), indent=4)
 
 plt.plot(tRange*10**3,f(tRange,*params),'k-', label='Ausgleichsgerade')
-plt.plot(t*10**3,np.log(U_C/U_0),'rx', label='Gemessen')
+plt.plot(t*10**3,np.log(U_C/U_0),'ro', label='Gemessen')
 #plt.xlim(np.min(t),np.max(t))
 #plt.ylim(np.min(U_C),np.max(U_C))
 #plt.yscale('log', basey=np.e)
 plt.xlabel(r'$t \:/\: \si{\milli\second}$')
 plt.ylabel(r'$\ln\left(\frac{U_C}{U_0}\right)$')
-plt.legend(loc='best')
 
-plt.grid(True,which="both", linestyle='--')
+plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.show()
 plt.savefig('build/plot_entladekurve.pdf')

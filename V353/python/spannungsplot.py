@@ -19,17 +19,18 @@ RC_Ergebnisse['spannung[s]'] = params[0]
 RC_Ergebnisse['spannung_err[s]'] = np.absolute(pcov[0][0])**0.5
 json.dump(RC_Ergebnisse, open('data/RC_Ergebnisse.json','w'), indent=4)
 
-f_linspace = np.linspace(np.min(f),np.max(f),100)
+f_linspace = np.linspace(np.min(f),np.max(f),1000)
 
-plt.plot(f,U_C/U_G,'kx',label='Gemessen')
 #plt.plot(f,np.log(U_C/U_G),'kx',label='Gemessen')
 plt.plot(f_linspace,U(f_linspace,*params),'k-',label='Ausgleichsrechnung')
+plt.plot(f,U_C/U_G,'ro',label='Gemessen')
+
+plt.xscale('log')
 
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
 plt.ylabel(r'$\frac{U_C}{U_0} \:/\: \si{\volt}$')
-plt.legend(loc='best')
 
-plt.grid(True,which="both", linestyle='--')
+plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.show()
 plt.savefig('build/plot_spannungen.pdf')

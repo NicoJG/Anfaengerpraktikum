@@ -25,7 +25,7 @@ Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, k
     \centering
     \caption{Abgelesene Werte aus \autoref{fig:foto_entladekurve} mit y-Achse als Kondensatorspannung $U_C$ und x-Achse als Zeit $t$}
     \label{tab:entladekurve}
-    \begin{tabular}[t]{S S S}
+    \begin{tabular}[t]{S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
         \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0}{} \right)$} \\
         \midrule
@@ -40,7 +40,7 @@ Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, k
         0.36 & 0.80 & -1.02 \\
         \bottomrule
     \end{tabular}
-    \begin{tabular}[t]{S S S}
+    \begin{tabular}[t]{S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
         \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0} \right)$} \\
         \midrule
@@ -95,7 +95,7 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
     \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$}
     \label{tab:gemessen}
     \sisetup{table-number-alignment=center}
-    \begin{tabular}{S S S S}
+    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
         \toprule
         \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} \\
         \midrule
@@ -144,7 +144,7 @@ Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der freque
     \centering
     \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
     \label{tab:phasen}
-    \begin{tabular}{S[table-number-alignment = right] S S}
+    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3]}
         \toprule
         \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{\varphi}{\radian} \\
         \midrule

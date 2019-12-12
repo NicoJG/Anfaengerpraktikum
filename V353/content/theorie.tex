@@ -7,15 +7,15 @@
 
 % Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
 
+Wenn ein System durch eine Änderung der Umgebungsbedingungen aus seinem Anfangszustand entfernt wird und daraufhin nicht-oszillatorisch in diesen zurückkehrt, kann man Relaxationseffekte beobachten. \autoref{fig:schaltung_1} ist eine Schaltung dargestellt, mit der diese Relaxationsphänomene beobachten werden können , das Auf- und Entladen eines Kondensators über einen Widerstand. 
+Befindet sich der Schalter in \autoref{fig:schaltung_1} in Stellung eins, so entlädt sich der Kondensator mit der Kapazität $C$. Auf seinen beiden Platten liegt die Ladung Gesamtladung $Q$. Dadurch liegt zwischen den beiden Kondensatorplatten eine Spannung von 
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth/2]{images/schaltung_1.png}
     \caption{Schaltbild eines RC-Kreises, der in Stellung 1 entladen und in Stellung 2 geladen wird. \cite{V353}}
     \label{fig:schaltung_1}
 \end{figure}
-
-Wenn ein System durch eine Änderung aus seinem Anfangszustand entfernt wird und daraufhin nicht-oszillatorisch in diesen zurückkehrt, kann man Relaxationseffekte beobachten. In \autoref{fig:schaltung_1} sind zwei dieser Relaxationsphänomene zu beobachten, das Auf- und Entladen eines Kondensators über einen Widerstand. 
-Befindet sich der Schalter in \autoref{fig:schaltung_1} in Stellung eins, so entlädt sich der Kondensator mit der Kapazität $C$. Auf seinen beiden Platten liegt die Ladung Gesamtladung $Q$. Dadurch liegt zwischen den beiden Kondensatorplatten eine Spannung von 
 
 \begin{equation}
     \label{eq:kondensatorspannung}
@@ -29,8 +29,8 @@ Durch das ohmsche Gesetz ist bekannt, dass durch diese Spannung $U_C$ und den Wi
     I = \frac{U_C}{R}
 \end{equation}
 
-erzeugt wird. 
-Der zeitliche Verlauf der Ladung $Q$ auf dem Kondensator $C$ kann durch eine Exponentialfunktion beschrieben werden, dadurch ergibt sich
+verursacht wird. 
+Der zeitliche Verlauf der Ladung $Q$ auf dem Kondensator $C$, beim Entladen, kann durch eine Exponentialfunktion beschrieben werden, dadurch ergibt sich
 
 \begin{equation}
     \label{eq:entladungsladung}
@@ -52,7 +52,7 @@ Damit lässt sich der Aufladevorgang durch
     Q (t) = C \cdot U_0  (1- \exp{\left(\frac{-t}{RC} \right)} )
 \end{equation}
 
-beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{eq:entladungsladung}, mit dieser Konstante kann beschrieben werden, wie schnell sich ein System zu seinem Endzustand begibt. $RC$ ist festgeschrieben. Nachdem eine Zeit von 
+beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{eq:entladungsladung}, mit dieser Konstante kann beschrieben werden, wie schnell sich ein System seinem Endzustand annähert. Die Zeitkonstante wird druch die Kapazität $C$ und den Widerstand $R$ im RC-Kreis festgelegt. Nachdem eine Zeit von 
 \begin{equation}
     \Delta T = RC
 \end{equation} verstrichen ist, ändert sich die Kondensatorladung $Q$ um den Faktor
@@ -61,7 +61,7 @@ beschreiben. \cite{V353} Dabei ist $RC$ wieder die Zeitkonstante aus \autoref{eq
     \frac{Q (t = RC)}{Q (0)} = \frac{1}{e} \approx 0.386.
 \end{equation}
 
-Um den entsprechenden Wert für $RC$ zu berechnen wird \autoref{eq:RC1} in eine andere Form gebracht. In der neuen Form
+Um den Wert $RC$ aus experimentellen Daten zu bestimmen, wenn $R$ und $C$ unbekannt sind wird \autoref{eq:RC1} in eine andere Form gebracht. In der neuen Form
 
 \begin{equation}
     \label{eq:RC2}
@@ -69,7 +69,8 @@ Um den entsprechenden Wert für $RC$ zu berechnen wird \autoref{eq:RC1} in eine 
 \end{equation}
 
 kann man $RC$ als negative reziproke Steigung einer halblogarithmischen Funktion sehen.\cite{V353}
-Eine periodische Auslenkung aus der Gleichgewichtslage erzeugt ebenfalls Relaxationsphänomene und kann ebenfalls mit einem RC-Kreis beschrieben werden. 
+
+Eine periodische Auslenkung aus der Gleichgewichtslage erzeugt ebenfalls Relaxationsphänomene und kann ebenfalls mit einem RC-Kreis untersucht werden. 
 
 \begin{figure}
     \centering
@@ -78,14 +79,14 @@ Eine periodische Auslenkung aus der Gleichgewichtslage erzeugt ebenfalls Relaxat
     \label{fig:schaltung_2}
 \end{figure}
 
-Wird \autoref{fig:schaltung_2} durch die Wechselspannung $U (t)$ mit der Kreisfrequenz $\omega$ angetrieben, also 
+Wird die Schaltung aus \autoref{fig:schaltung_2} durch die Wechselspannung $U (t)$ mit der Kreisfrequenz $\omega$ angetrieben, also 
 
 \begin{equation}
     \label{eq:wechselspannung}
     U (t) = U_0 \cdot \cos \left(\omega t \right),
 \end{equation}
 
-ergeben sich für verschiedene $\omega$ andere Effekte. Für $\omega \ll \frac{1}{RC}$ werden die Kondensatorspannung $U_C$ und die Generatorspannung $U (t)$ \autoref{eq:wechselspannung} etwa gleich sein, da der Kondensator genug Zeit hat sich vollständig aufzuladen, bevor die Spannung wieder abfällt und ihr Vorzeichen ändert. Bei entsprechend höheren Frequenzen kann der Aufladevorgang nicht mehr vollständig stattfinden und die Amplitude $A$ der Kondensatorspannung wird kleiner werden. Sie ist gegeben durch
+so ändert sich das Verhalten des RC-Kreises in Anhängigkeit von der Frequenz. Für $\omega \ll \frac{1}{RC}$ werden die Kondensatorspannung $U_C$ und die Generatorspannung $U (t)$ in \autoref{eq:wechselspannung} etwa gleich sein, da der Kondensator genug Zeit hat sich vollständig aufzuladen, bevor die Spannung wieder abfällt und ihr Vorzeichen ändert. Bei entsprechend höheren Frequenzen kann der Aufladevorgang nicht mehr vollständig stattfinden und die Amplitude $A$ der Kondensatorspannung wird kleiner werden. Sie ist gegeben durch
 
 \begin{equation}
     \label{eq:amplitude}
@@ -99,7 +100,7 @@ Durch die verzögerte Aufladung entsteht eine Phasenverschiebung $\varphi$, die 
     \varphi (\omega) = \arctan \left(-\omega R C \right)
 \end{equation}
 
-auch zu erkennen ist. Alternativ lässt sich die Phasenverschiebung auch über die zeitlichen Verläufe von $U_C$ und $U_0$ berechnen, dafür müssen die Schwingungsdauer $T$ und der zeitliche Abstand der Nulldurchgänge $a$ bekannt sein. Die Schwingungsdauer $T$ ist die Inverse der eingestellten Frequenz $f$.
+auch zu erkennen ist. Alternativ lässt sich die Phasenverschiebung auch über die zeitlichen Verläufe von $U_C$ und $U_0$ berechnen, dafür müssen die Schwingungsdauer $T$ bzw. $b$ in \autoref{fig:phasenmessung} und der zeitliche Abstand der Nulldurchgänge $a$ bekannt sein. Die Schwingungsdauer $b$ ist die Inverse der eingestellten Frequenz $f$.
 
 \begin{figure}
     \centering
@@ -112,10 +113,10 @@ auch zu erkennen ist. Alternativ lässt sich die Phasenverschiebung auch über d
 
 \begin{equation}
     \label{eq:phasenverschiebung2}
-    \varphi = a \cdot f \cdot 2\pi
+    \varphi = a \cdot f \cdot 2\pi = \frac{a}{T} \cdot 2\pi
 \end{equation}
 
-lässt sich die Phasenverschiebung ebenfalls berechnen.
+lässt sich die Phasenverschiebung berechnen.
 Außerdem lässt sich aus \autoref{eq:amplitude} und \autoref{eq:phasenverschiebung} der Zusammenhang
 \begin{equation}
     \label{eq:spannung_phase}
@@ -123,7 +124,7 @@ Außerdem lässt sich aus \autoref{eq:amplitude} und \autoref{eq:phasenverschieb
 \end{equation}
 zeigen, welcher die Spannungsamplitude in Abhängigkeit der Phasenverschiebung aufzeigt.
 
-Aus der Eigenschaft, nur niedrige Frequenzen kaum unverändert passiern zu lassen, kann \autoref{fig:schaltung_2} als ein Tiefpass verwendet werden. \cite{V353}
+Aus der Eigenschaft, nur niedrige Frequenzen passiern zu lassen, kann \autoref{fig:schaltung_2} als ein Tiefpass verwendet werden. \cite{V353}
 Die Schaltung aus \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaft, sie kann als ein sogenannter Integrator verwendet werden. Für $\omega \gg \frac{1}{RC}$ gilt die Beziehung
 
 \begin{align}
@@ -131,4 +132,4 @@ Die Schaltung aus \autoref{fig:schaltung_2} besitzt noch eine weitere Eigenschaf
     U (t) = RC \: \frac{\mathrm{d} U_C}{\mathrm{d}t}  && U_C (t) = \frac{1}{RC} \int _0^t U (t') \mathrm{d} t'.
 \end{align}
 
-Dadurch wird zu der Generatorspannung $U (t)$ eine Kondensatorspannung $U_C (t)$ erzeugt, die sich nur durch einen Faktor zur von der Stammfunktion von $U(t)$ unterscheidet. \cite{V353}
+Dadurch wird zu der Generatorspannung $U (t)$ eine Kondensatorspannung $U_C (t)$ erzeugt, die sich nur durch einen Faktor von der Stammfunktion von $U(t)$ unterscheidet. \cite{V353}

@@ -140,33 +140,33 @@ Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausge
 
 \FloatBarrier
 
-Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:phasen} gelistet.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth-1cm]{build/plot_phasen.pdf}
-    \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
-    \label{fig:plot_phasen}
-\end{figure}
+Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:gemessen} gelistet.
 
 Die mithilfe von SciPy\cite{scipy} und
 \begin{equation}
-    f(x)=-arctan(-2\pi f a)
+    \varphi=-\arctan(-2\pi f a)
 \end{equation}
-erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Zeitkonstante
+nach \autoref{eq:phasenverschiebung} erstellte Ausgleichsrechnung ergibt den Parameter $a=\SI{8.258+-0.261e-4}{\second}$ und ist in \autoref{fig:plot_phasen} zu sehen. Nach \autoref{eq:phasenverschiebung} ergibt sich eine Zeitkonstante
 \begin{equation}
-    RC = \SI{0.8258+-0.0261}{\milli\second}.
+    RC = a = \SI{0.8258+-0.0261}{\milli\second}.
 \end{equation}
-
-Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:phasen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_polar.pdf}
-    \caption{Kondensatorspannung $U_C$ in Abhängigkeit von der Phase $\varphi$ entnommen aus \autoref{tab:phasen}}
+    \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
+    \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:gemessen} abgebildet}
+    \label{fig:plot_phasen}
+\end{figure}
+Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:gemessen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth-0.5cm]{build/plot_polar.pdf}
+    \caption{Kondensatorspannung $U_C$ in Abhängigkeit von der Phase $\varphi$ entnommen aus \autoref{tab:gemessen}}
     \label{fig:plot_polar}
 \end{figure}
 
+\FloatBarrier
+\newpage
 \subsection{Betrachtung des RC-Glieds als Integrator}
 \label{sec:Auswertung_Integrator}
 

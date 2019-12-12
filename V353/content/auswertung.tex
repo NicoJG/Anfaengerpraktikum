@@ -92,7 +92,7 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
 
 \begin{table}
     \centering
-    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$ und die mit \autoref{eq:phasenverschiebung2} berechnete Phasenverschiebung $\varphi$}
+    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$, Phasenverschiebung~$\varphi$}
     \label{tab:gemessen}
     \sisetup{table-number-alignment=center}
     \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
@@ -153,20 +153,18 @@ nach \autoref{eq:phasenverschiebung} erstellte Ausgleichsrechnung ergibt den Par
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
+    \includegraphics[width=\textwidth-1cm]{build/plot_phasen.pdf}
     \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:gemessen} abgebildet}
     \label{fig:plot_phasen}
 \end{figure}
 Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:gemessen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth-0.5cm]{build/plot_polar.pdf}
-    \caption{Kondensatorspannung $U_C$ in Abhängigkeit von der Phase $\varphi$ entnommen aus \autoref{tab:gemessen}}
+    \includegraphics[height=7cm]{build/plot_polar.pdf}
+    \caption{Kondensatorspannung $U_C$ (radial) in Abhängigkeit von der Phase $\varphi$ (lateral) entnommen aus \autoref{tab:gemessen}}
     \label{fig:plot_polar}
 \end{figure}
-
 \FloatBarrier
-\newpage
 \subsection{Betrachtung des RC-Glieds als Integrator}
 \label{sec:Auswertung_Integrator}
 
@@ -177,23 +175,23 @@ Im letzten Teil des Versuchs wie in \autoref{sec:Durchführung_3} beschrieben si
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_03_ausschnitt.jpg}
-        \caption{Sinusspannung}
+        \caption{Sinus- und \\ Cosinusspannung}
         \label{fig:foto_sin_integrator}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_04_ausschnitt.jpg}
-        \caption{Sägezahnspannung}
+        \caption{Dreiecks- und \\ Paraboloidialspannung}
         \label{fig:foto_saege_integrator}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_05_ausschnitt.jpg}
-        \caption{Rechteckspannung}
+        \caption{Rechteck- und \\ Dreieckspannung}
         \label{fig:foto_rechteck_integrator}
     \end{subfigure}
     \caption{Fotos der Integratorschaltung für eine Generatorfrequenz von $\SI{5}{\kilo\hertz}$ und verschiedene Generatorspannungstypen}
     \label{fig:fotos_integrator}
 \end{figure}
 
-Hier ist zu sehen, dass die angelegte Spannung integriert wird. Eine Sinusspannung wird zu einer Sinusspannung um $\pi/2$ verschoben, eine Sägezahnspannung wird zu einer parabolischen Spannung und eine Rechteckspannung wird zu einer Sägezahnspannung.
+Hier ist zu sehen, dass die angelegte Spannung integriert wird. Eine Sinusspannung wird zu einer Cosinusspannung, eine Dreieckspannung wird zu einer parabolischen Spannung und eine Rechteckspannung wird zu einer Dreieckspannung.

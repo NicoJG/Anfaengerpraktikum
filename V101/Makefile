@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf brauner_zylinder
+plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf brauner_zylinder weisser_zylinder
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -20,6 +20,9 @@ build/plot_eigentraegheit.pdf: build/plot_winkelrichtgroesse.pdf python/eigentra
 # Python Dateien ohne Plots
 brauner_zylinder: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/brauner_zylinder.py data/*.csv
 	python python/brauner_zylinder.py
+
+weisser_zylinder: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/weisser_zylinder.py data/*.csv
+	python python/weisser_zylinder.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

@@ -2,5 +2,11 @@
     "winkelrichtgroesse_a[Nm]": 0.02371906372938749,
     "winkelrichtgroesse_a_err[Nm]": 0.00012366197446781187,
     "winkelrichtgroesse_D[Nm]": 0.02371906372938749,
-    "winkelrichtgroesse_D_err[Nm]": 0.00012366197446781187
+    "winkelrichtgroesse_D_err[Nm]": 0.00012366197446781187,
+    "eigentraegheit_p1[s^2/m^2]": 660.6371658135487,
+    "eigentraegheit_p1_err[s^2/m^2]": 18.422729766411287,
+    "eigentraegheit_p2[s^2]": 4.479032220807432,
+    "eigentraegheit_p2_err[s^2]": 0.8612352582709407,
+    "eigentraegheit_I_D[kg*m^2]": 0.002691051393092954,
+    "eigentraegheit_I_D_err[kg*m^2]": 0.0005176297075166731
 }

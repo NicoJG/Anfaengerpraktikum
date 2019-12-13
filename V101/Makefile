@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_winkelrichtgroesse.pdf
+plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -12,8 +12,13 @@ build/plot_winkelrichtgroesse.pdf: python/winkelrichtgroesse.py data/*.csv ../de
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/winkelrichtgroesse.py
 
+build/plot_eigentraegheit.pdf: python/eigentraegheit.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/eigentraegheit.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_winkelrichtgroesse.pdf
+build/main.pdf: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

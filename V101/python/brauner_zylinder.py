@@ -5,6 +5,8 @@ from scipy.optimize import curve_fit
 from scipy import stats
 from uncertainties import ufloat
 
+### Kann leider nicht richtig sein, aber erstmal die anderen berechnen
+
 T = np.genfromtxt('data/brauner_zylinder_gemessen.csv',delimiter=',',unpack=True)
 T = T #s
 

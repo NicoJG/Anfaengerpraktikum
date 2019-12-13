@@ -25,34 +25,34 @@ Im ersten Teil des Versuchs, wie in \autoref{sec:Durchführung_1} beschrieben, k
     \centering
     \caption{Abgelesene Werte aus \autoref{fig:foto_entladekurve} mit y-Achse als Kondensatorspannung $U_C$ und x-Achse als Zeit $t$}
     \label{tab:entladekurve}
-    \begin{tabular}[t]{c c}
+    \begin{tabular}[t]{S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
-        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} \\
+        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0}{} \right)$} \\
         \midrule
-        1.00 & 0.00 \\
-        0.90 & 0.10 \\
-        0.80 & 0.20 \\
-        0.70 & 0.30 \\
-        0.60 & 0.40 \\
-        0.50 & 0.50 \\
-        0.44 & 0.60 \\
-        0.40 & 0.70 \\
-        0.36 & 0.80 \\
+        1.00 & 0.00 & 0.00 \\
+        0.90 & 0.10 & -0.11 \\
+        0.80 & 0.20 & -0.22 \\
+        0.70 & 0.30 & -0.36 \\
+        0.60 & 0.40 & -0.51 \\
+        0.50 & 0.50 & -0.69 \\
+        0.44 & 0.60 & -0.82 \\
+        0.40 & 0.70 & -0.92 \\
+        0.36 & 0.80 & -1.02 \\
         \bottomrule
     \end{tabular}
-    \begin{tabular}[t]{c c}
+    \begin{tabular}[t]{S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
-        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} \\
+        \tableSI{U_C}{\volt} & \tableSI{t}{\milli\second} & {$\ln \left( \frac{U_C}{U_0} \right)$} \\
         \midrule
-        0.28 & 1.00 \\
-        0.20 & 1.20 \\
-        0.16 & 1.40 \\
-        0.12 & 1.60 \\
-        0.08 & 1.80 \\
-        0.06 & 2.00 \\
-        0.04 & 2.30 \\
-        0.02 & 2.70 \\
-         & \\
+        0.28 & 1.00 & -1.27 \\
+        0.20 & 1.20 & -1.61 \\
+        0.16 & 1.40 & -1.83 \\
+        0.12 & 1.60 & -2.12 \\
+        0.08 & 1.80 & -2.53 \\
+        0.06 & 2.00 & -2.81 \\
+        0.04 & 2.30 & -3.22 \\
+        0.02 & 2.70 & -3.91 \\
+         & & \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -61,25 +61,23 @@ Wenn die Werte aus \autoref{tab:entladekurve} nun als Graph mit y-Achse $\ln\lef
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_entladekurve.pdf}
-    \caption{Graph der Werte aus \autoref{tab:entladekurve} und der passenden Ausgleichsgerade}
+    \includegraphics[width=\textwidth-1cm]{build/plot_entladekurve.pdf}
+    \caption{Graph der Werte $\ln \left( \frac{U_C}{U_0} \right)$ in Abhängigkeit von $t$ entnommen aus \autoref{tab:entladekurve} und der passenden Ausgleichsgerade}
     \label{fig:entladekurve_plot}
 \end{figure}
 
-Diese Darstellung entspricht der Gleichung 
-\begin{equation}
-    \ln\left(\frac{U_C}{U_0}\right) = -\frac{t}{RC}
-\end{equation}
-wie aus \autoref{eq:entladungsladung} zu sehen ist.
+Diese Darstellung wird theoretisch beschrieben von der \autoref{eq:RC2}.
 Die entsprechende Ausgleichsgerade wurde in Python mit der Bibliothek SciPy\cite{scipy} mit
 \begin{equation}
-    f(x)=ax+b
+    \ln \left( \frac{U_C}{U_0} \right)=at+b
 \end{equation}
 berechnet.
-Wobei sich hier eine Steigung von $a = \SI{-1431+-19}{\second}^{-1}$ ergibt. 
-Damit lässt sich die Zeitkonstante als 
+
+Wobei sich hier eine Steigung von $a = \SI{-1431+-19}{\second}^{-1}$ ergibt.
+Der y-Achsenabschnitt ergibt sich zu $b = \SI{0.07+-0.02}{}$.
+Nach \autoref{eq:RC2} lässt sich die Zeitkonstante als 
 \begin{equation}
-    RC = \SI{0.6988+-0.0092}{\milli\second}
+    RC = \frac{1}{a} = \SI{0.6988+-0.0092}{\milli\second}
 \end{equation}
 bestimmen.
 
@@ -94,105 +92,79 @@ Somit ergeben sich die für \autoref{eq:phasenverschiebung2} gesuchten $a$ durch
 
 \begin{table}
     \centering
-    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$}
+    \caption{Messergebnisse zu \autoref{sec:Durchführung_2} mit Generatorfrequenz $f$, Kondensatorspannung $U_C$, zeitlichen Abständen $a_{\text{gemessen}}$ und $a$, Phasenverschiebung~$\varphi$}
     \label{tab:gemessen}
-    \begin{tabular}{c c c c}
+    \sisetup{table-number-alignment=center}
+    \begin{tabular}{S[table-format=4.0] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
         \toprule
-        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} \\
+        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{a_{\text{gemessen}}}{\milli\second} & \tableSI{a}{\milli\second} & \tableSI{\varphi}{\radian} \\
         \midrule
-        20 & 1.000 & 25.000 & 0.000 \\
-        50 & 0.960 & 9.200 & 0.800 \\
-        100 & 0.900 & 4.200 & 0.800 \\
-        200 & 0.700 & 1.850 & 0.650 \\
-        300 & 0.550 & 1.150 & 0.517 \\
-        400 & 0.450 & 0.800 & 0.450 \\
-        500 & 0.360 & 0.620 & 0.380 \\
-        600 & 0.300 & 0.500 & 0.333 \\
-        800 & 0.240 & 0.360 & 0.265 \\
-        1000 & 0.200 & 0.280 & 0.220 \\
-        2000 & 0.100 & 0.130 & 0.120 \\
-        3000 & 0.067 & 0.085 & 0.082 \\
-        4500 & 0.044 & 0.056 & 0.055 \\
-        6000 & 0.034 & 0.042 & 0.041 \\
-        10000 & 0.020 & 0.025 & 0.025 \\
+        20 & 1.000 & 25.000 & 0.000 & 0.000 \\
+        50 & 0.960 & 9.200 & 0.800 & 0.251 \\
+        100 & 0.900 & 4.200 & 0.800 & 0.503 \\
+        200 & 0.700 & 1.850 & 0.650 & 0.817 \\
+        300 & 0.550 & 1.150 & 0.517 & 0.975 \\
+        400 & 0.450 & 0.800 & 0.450 & 1.131 \\
+        500 & 0.360 & 0.620 & 0.380 & 1.194 \\
+        600 & 0.300 & 0.500 & 0.333 & 1.255 \\
+        800 & 0.240 & 0.360 & 0.265 & 1.332 \\
+        1000 & 0.200 & 0.280 & 0.220 & 1.382 \\
+        2000 & 0.100 & 0.130 & 0.120 & 1.508 \\
+        3000 & 0.067 & 0.085 & 0.082 & 1.546 \\
+        4500 & 0.044 & 0.056 & 0.055 & 1.555 \\
+        6000 & 0.034 & 0.042 & 0.041 & 1.546 \\
+        10000 & 0.020 & 0.025 & 0.025 & 1.571 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_spannungen.pdf}
+    \includegraphics[width=\textwidth-1cm]{build/plot_spannungen.pdf}
     \caption{Graph des Spannungsverhältnises $U_C/U_0$ in Abhängigkeit zur Generatorfrequenz $f$ aus der \autoref{tab:gemessen} wobei die Generatorspannung konstant auf \SI{1}{\volt} bleibt}
     \label{fig:plot_spannungen}
 \end{figure}
 
-Durch die Gleichung
+\FloatBarrier
+
+Durch die \autoref{eq:amplitude} lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:plot_spannungen} mit
 \begin{equation}
-    \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2R^2C^2}}
-\end{equation}
-lässt sich nun die Zeitkonstante $RC$ bestimmen indem eine Ausgleichsrechnung wie in \autoref{fig:plot_spannungen} mit
-\begin{equation}
-    f(x) = \frac{1}{\sqrt{1+(2 \pi x)^2a^2}}
+    \frac{U_C}{U_0} = \frac{1}{\sqrt{1+(2 \pi f)^2a}}
 \end{equation} 
-ausgeführt wird. Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt die Zeitkonstante
+ausgeführt wird.
+
+Diese Ausgleichsrechnung wurde mit der Python Bibliothek SciPy\cite{scipy} ausgeführt und ergibt den Parameter $a = \SI{6.525+-0.091e-7}{\second}$. Nach \autoref{eq:amplitude} ergibt sich eine Zeitkonstante von
 \begin{equation}
-    RC = \SI{0.8078+-0.0056}{\milli\second}.
+    RC = \sqrt{a} = \SI{0.8078+-0.0056}{\milli\second}.
 \end{equation}
 
-Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:phasen} gelistet.
+\FloatBarrier
 
-\begin{table}
-    \centering
-    \caption{Generatorfrequenz $f$, Kondensatorspannung $U_C$ und die mit $a$ berechnete Phasenverschiebung $\varphi$}
-    \label{tab:phasen}
-    \begin{tabular}{c c c}
-        \toprule
-        \tableSI{f}{\hertz} & \tableSI{U_C}{\volt} & \tableSI{\varphi}{\radian} \\
-        \midrule
-        20 & 1.000 & 0.000 \\
-        50 & 0.960 & 0.251 \\
-        100 & 0.900 & 0.503 \\
-        200 & 0.700 & 0.817 \\
-        300 & 0.550 & 0.975 \\
-        400 & 0.450 & 1.131 \\
-        500 & 0.360 & 1.194 \\
-        600 & 0.300 & 1.255 \\
-        800 & 0.240 & 1.332 \\
-        1000 & 0.200 & 1.382 \\
-        2000 & 0.100 & 1.508 \\
-        3000 & 0.067 & 1.546 \\
-        4500 & 0.044 & 1.555 \\
-        6000 & 0.034 & 1.546 \\
-        10000 & 0.020 & 1.571 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plot_phasen.pdf}
-    \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:phasen} abgebildet}
-    \label{fig:plot_phasen}
-\end{figure}
+Eine weitere Möglichkeit die Zeitkonstante zu berechnen ist mithilfe der frequenzabhängigen Phase $\varphi$ zwischen Generator- und Kondensatorspannung. Diese lässt sich über \autoref{eq:phasenverschiebung2} berechnen. Die so berechneten $\varphi$ sind in \autoref{tab:gemessen} gelistet.
 
 Die mithilfe von SciPy\cite{scipy} und
 \begin{equation}
-    f(x)=-arctan(-2\pi f a)
+    \varphi=-\arctan(-2\pi f a)
 \end{equation}
-erstellte Ausgleichsrechnung ergibt nach \autoref{eq:phasenverschiebung} eine Zeitkonstante
+nach \autoref{eq:phasenverschiebung} erstellte Ausgleichsrechnung ergibt den Parameter $a=\SI{8.258+-0.261e-4}{\second}$ und ist in \autoref{fig:plot_phasen} zu sehen. Nach \autoref{eq:phasenverschiebung} ergibt sich eine Zeitkonstante
 \begin{equation}
-    RC = \SI{0.8258+-0.0261}{\milli\second}.
+    RC = a = \SI{0.8258+-0.0261}{\milli\second}.
 \end{equation}
-
-Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:phasen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_polar.pdf}
-    \caption{Kondensatorspannung $U_C$ in Abhängigkeit von der Phase $\varphi$ entnommen aus \autoref{tab:phasen}}
+    \includegraphics[width=\textwidth-1cm]{build/plot_phasen.pdf}
+    \caption{Die Phasenverschiebung $\varphi$ zur Generatorfrequenz $f$ aus \autoref{tab:gemessen} abgebildet}
+    \label{fig:plot_phasen}
+\end{figure}
+Die Kondensatorspannung $U_C$ wird nun in einem Polarkoordinatensystem in Abhängigkeit der Phase $\varphi$ dargestellt. Die gemessenen Werte sind aus \autoref{tab:gemessen} abzulesen und die erwartete Kurve wird nach \autoref{eq:spannung_phase} berechnet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7cm]{build/plot_polar.pdf}
+    \caption{Kondensatorspannung $U_C$ (radial) in Abhängigkeit von der Phase $\varphi$ (lateral) entnommen aus \autoref{tab:gemessen}}
     \label{fig:plot_polar}
 \end{figure}
-
+\FloatBarrier
 \subsection{Betrachtung des RC-Glieds als Integrator}
 \label{sec:Auswertung_Integrator}
 
@@ -203,23 +175,23 @@ Im letzten Teil des Versuchs wie in \autoref{sec:Durchführung_3} beschrieben si
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_03_ausschnitt.jpg}
-        \caption{Sinusspannung}
+        \caption{Sinus- und \\ Cosinusspannung}
         \label{fig:foto_sin_integrator}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_04_ausschnitt.jpg}
-        \caption{Sägezahnspannung}
+        \caption{Dreiecks- und \\ Paraboloidialspannung}
         \label{fig:foto_saege_integrator}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=3.3cm]{images/foto_05_ausschnitt.jpg}
-        \caption{Rechteckspannung}
+        \caption{Rechteck- und \\ Dreieckspannung}
         \label{fig:foto_rechteck_integrator}
     \end{subfigure}
     \caption{Fotos der Integratorschaltung für eine Generatorfrequenz von $\SI{5}{\kilo\hertz}$ und verschiedene Generatorspannungstypen}
     \label{fig:fotos_integrator}
 \end{figure}
 
-Hier ist zu sehen, dass die angelegte Spannung integriert wird. Eine Sinusspannung wird zu einer Sinusspannung um $\pi/2$ verschoben, eine Sägezahnspannung wird zu einer parabolischen Spannung und eine Rechteckspannung wird zu einer Sägezahnspannung.
+Hier ist zu sehen, dass die angelegte Spannung integriert wird. Eine Sinusspannung wird zu einer Cosinusspannung, eine Dreieckspannung wird zu einer parabolischen Spannung und eine Rechteckspannung wird zu einer Dreieckspannung.

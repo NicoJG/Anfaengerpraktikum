@@ -20,3 +20,18 @@ pgf.rcfonts : False
 text.usetex : True
 pgf.texsystem : lualatex
 pgf.preamble : \input{header-matplotlib.tex}
+
+# Schönere Marker
+lines.markeredgecolor : k
+lines.markeredgewidth : 0.5
+lines.markersize : 4
+
+# Schöneres Grid
+axes.grid : True
+axes.grid.which : both
+grid.color : 0.7
+grid.linestyle : --
+grid.linewidth : 0.5
+
+# Legend 
+legend.loc : best

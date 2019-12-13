@@ -10,19 +10,32 @@
 
 Aus den drei verschiedenen Bestimmungsmethoden für die Zeitkonstante ergeben sich folgende Werte:
 \begin{align}
-    RC =& \SI{0.6988+-0.0092}{\milli\second} \\
-    RC =& \SI{0.8078+-0.0056}{\milli\second} \\
-    RC =& \SI{0.8258+-0.0261}{\milli\second}
+    RC_1 =& \SI{0.6988+-0.0092}{\milli\second} \\
+    RC_2 =& \SI{0.8078+-0.0056}{\milli\second} \\
+    RC_3 =& \SI{0.8258+-0.0261}{\milli\second}
 \end{align}
 Die angegebenen Werte für den Widerstand $R=\SI{15.058+-0.6}{\kilo\ohm}$ und den Kondensator $C=\SI{93.2}{\nano\farad}$ ergeben allerdings eine Zeitkonstante
 \begin{equation}
-    RC = \SI{1.4034+-0.056}{\milli\second}.
+    RC_\text{Theorie} = \SI{1.4034+-0.056}{\milli\second}.
 \end{equation}
-Die Abweichungen der einzelnen Ergebnisse müssen im Folgenden erklärt werden.
+Somit ergeben sich folgende prozentuale Abweichungen vom Theoriewert:
+\begin{align}
+    \Delta RC_1 =& \SI{50.2}{\percent} \\
+    \Delta RC_2 =& \SI{42.4}{\percent} \\
+    \Delta RC_3 =& \SI{41.2}{\percent} 
+\end{align} 
+Diese Abweichungen müssen im Folgenden erklärt werden.
 
 An den Ergebnissen ist zu sehen, dass die verwendeten Messmethoden auf ähnliche Ergebnisse kommen.
 Allerdings sind die vorhandenen Abweichungen auf Ungenauigkeiten der Messmethoden zurückzuführen. So lässt sich beispielsweise am Oszilloskop die Spannung zu einem bestimmten Zeitpunkt nicht sehr genau ablesen. 
 
-Nun ist allerdings auch zu sehen, dass die bestimmten Zeitkonstanten um etwa 50\% von dem erwarteten Wert abweichen. Dies lässt sich vermutlich auf einen systematischen Fehler zurückführen, da die berechneten Ergebnisse nur eine kleine Abweichung aufzeigen. Eine genaue Ursache lässt sich jedoch nicht finden.
+Nun ist allerdings auch zu sehen, dass die bestimmten Zeitkonstanten um etwa 50\% von dem erwarteten Wert abweichen. Dies lässt sich vermutlich auf einen systematischen Fehler zurückführen, da die berechneten Ergebnisse untereinander nur eine kleine Abweichung aufzeigen. Eine genaue Ursache lässt sich jedoch nicht finden.
+
+Alle mithilfe von Gleichungen der Theorie ausgeführten Ausgleichskurven (\autoref{fig:entladekurve_plot},\autoref{fig:plot_spannungen} und \autoref{fig:plot_phasen}) passen gut zu den Messerwerten. 
+Außerdem sind die berechneten Fehler und der berechnete Verschiebungsparameter $b$ der Ausgleichsgerade in \autoref{fig:entladekurve_plot} ausreichend gering. 
+Auch \autoref{fig:plot_polar} zeigt nur geringe Abweichungen der Messwerte zu der Theoriekurve. 
+Somit scheinen alle Messwerte der Theorie zu folgen.
+
+Ob bei diesem Versuch ein ausreichend großer systematischer Fehler aufgetreten ist oder vielleicht sogar die angegebenen Werte nicht den realen Werten der Schaltung entsprechen, kann hier nicht weiter untersucht werden.
 
 Auch wurde gezeigt, dass eine Schaltung bestehend aus einem Kondensator und einem Widerstand als Integrator dienen kann. Bei angeschlossener Sinusspannung wurde auch gezeigt, dass die Spannung am Kondensator in Abhängigkeit des Phasenunterschieds zwischen Generator- und Kondensatorspannung den erwarteten Zusammenhang aus \autoref{eq:spannung_phase} abbildet.

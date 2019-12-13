@@ -1,4 +1,6 @@
 {
-    "D[Nm]": 0.02371906372938749,
-    "D_err[Nm]": 0.00012366197446781187
+    "winkelrichtgroesse_a[Nm]": 0.02371906372938749,
+    "winkelrichtgroesse_a_err[Nm]": 0.00012366197446781187,
+    "winkelrichtgroesse_D[Nm]": 0.02371906372938749,
+    "winkelrichtgroesse_D_err[Nm]": 0.00012366197446781187
 }

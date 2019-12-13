@@ -31,10 +31,14 @@ D = a #Nm
 
 # Einzelne Daten Speichern
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-Ergebnisse['winkelrichtgroesse_a[Nm]'] = a.n
-Ergebnisse['winkelrichtgroesse_a_err[Nm]'] = a.s
-Ergebnisse['winkelrichtgroesse_D[Nm]'] = D.n
-Ergebnisse['winkelrichtgroesse_D_err[Nm]'] = D.s
+
+if not 'winkelrichtgroesse' in Ergebnisse:
+    Ergebnisse['winkelrichtgroesse'] = {}
+
+Ergebnisse['winkelrichtgroesse']['a[Nm]'] = a.n
+Ergebnisse['winkelrichtgroesse']['a_err[Nm]'] = a.s
+Ergebnisse['winkelrichtgroesse']['D[Nm]'] = D.n
+Ergebnisse['winkelrichtgroesse']['D_err[Nm]'] = D.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 

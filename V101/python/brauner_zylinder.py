@@ -19,9 +19,9 @@ T_mean = ufloat(np.mean(T),stats.sem(T)) #s
 # D und I_D auslesen
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 
-D = ufloat(Ergebnisse['winkelrichtgroesse_D[Nm]'],Ergebnisse['winkelrichtgroesse_D_err[Nm]'])
+D = ufloat(Ergebnisse['winkelrichtgroesse']['D[Nm]'],Ergebnisse['winkelrichtgroesse']['D_err[Nm]'])
 
-I_D = ufloat(Ergebnisse['eigentraegheit_I_D[kg*m^2]'],Ergebnisse['eigentraegheit_I_D_err[kg*m^2]'])
+I_D = ufloat(Ergebnisse['eigentraegheit']['I_D[kg*m^2]'],Ergebnisse['eigentraegheit']['I_D_err[kg*m^2]'])
 
 # Trägheitsmoment berechnen
 I_gemessen = (T_mean**2*D)/(2*np.pi)**2 - I_D 

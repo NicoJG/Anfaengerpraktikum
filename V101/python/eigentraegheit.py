@@ -35,18 +35,21 @@ p2 = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
 # D auslesen
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-D = ufloat(Ergebnisse['winkelrichtgroesse_D[Nm]'],Ergebnisse['winkelrichtgroesse_D_err[Nm]'])
+D = ufloat(Ergebnisse['winkelrichtgroesse']['D[Nm]'],Ergebnisse['winkelrichtgroesse']['D_err[Nm]'])
 
 # I_D berechnen
 I_D = D/(2*np.pi)**2*p2
 
 # Ergebnisse Speichern
-Ergebnisse['eigentraegheit_p1[s^2/m^2]'] = p1.n
-Ergebnisse['eigentraegheit_p1_err[s^2/m^2]'] = p1.s
-Ergebnisse['eigentraegheit_p2[s^2]'] = p2.n
-Ergebnisse['eigentraegheit_p2_err[s^2]'] = p2.s
-Ergebnisse['eigentraegheit_I_D[kg*m^2]'] = I_D.n
-Ergebnisse['eigentraegheit_I_D_err[kg*m^2]'] = I_D.s
+if not 'eigentraegheit' in Ergebnisse:
+    Ergebnisse['eigentraegheit'] = {}
+    
+Ergebnisse['eigentraegheit']['p1[s^2/m^2]'] = p1.n
+Ergebnisse['eigentraegheit']['p1_err[s^2/m^2]'] = p1.s
+Ergebnisse['eigentraegheit']['p2[s^2]'] = p2.n
+Ergebnisse['eigentraegheit']['p2_err[s^2]'] = p2.s
+Ergebnisse['eigentraegheit']['I_D[kg*m^2]'] = I_D.n
+Ergebnisse['eigentraegheit']['I_D_err[kg*m^2]'] = I_D.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # Plot des Fits

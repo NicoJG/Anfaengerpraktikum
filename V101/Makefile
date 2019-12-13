@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf
+plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf brauner_zylinder
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -17,8 +17,12 @@ build/plot_eigentraegheit.pdf: python/eigentraegheit.py data/*.csv ../default/ma
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/eigentraegheit.py
 
+# Python Dateien ohne Plots
+brauner_zylinder: python/brauner_zylinder.py data/*.csv
+	python python/brauner_zylinder.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf
+build/main.pdf: plots
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

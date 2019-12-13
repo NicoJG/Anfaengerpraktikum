@@ -8,5 +8,12 @@
     "eigentraegheit_p2[s^2]": 4.479032220807432,
     "eigentraegheit_p2_err[s^2]": 0.8612352582709407,
     "eigentraegheit_I_D[kg*m^2]": 0.002691051393092954,
-    "eigentraegheit_I_D_err[kg*m^2]": 0.0005176297075166731
+    "eigentraegheit_I_D_err[kg*m^2]": 0.0005176297075166731,
+    "brauner_zylinder": {
+        "T_mean[s]": 0.8799999999999999,
+        "T_mean_err[s]": 0.02352303835250313,
+        "I_gemessen[kg*m^2]": -0.0022257834298195145,
+        "I_gemessen_err[kg*m^2]": 0.000518232678600117,
+        "I_Theorie": 0.0007859588185312501
+    }
 }

@@ -12,13 +12,13 @@ build/plot_winkelrichtgroesse.pdf: python/winkelrichtgroesse.py data/*.csv ../de
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/winkelrichtgroesse.py
 
-build/plot_eigentraegheit.pdf: python/eigentraegheit.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_eigentraegheit.pdf: build/plot_winkelrichtgroesse.pdf python/eigentraegheit.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/eigentraegheit.py
 
 # Python Dateien ohne Plots
-brauner_zylinder: python/brauner_zylinder.py data/*.csv
+brauner_zylinder: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/brauner_zylinder.py data/*.csv
 	python python/brauner_zylinder.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:

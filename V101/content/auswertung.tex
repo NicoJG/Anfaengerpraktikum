@@ -8,3 +8,132 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+Zunächst muss die Winkelrichtgröße $D$ und das Eigenträgheitsmoment $I_D$ der Drillachse bestimmt werden.
+
+Mit diesen Werten können dann über \autoref{eq:periodendauer} die Trägheitsmomente der verwendeten Körper bestimmt werden. Folgende Körper wurden bei diesem Versuch untersucht:
+\begin{enumerate}
+    \item Zylinder mit Drehachse entlang der Symmetrieachse
+    \item Zylinder mit Drehachse entlang der Querachse
+    \item Holzpuppe mit angelegten Armen und Beinen
+    \item Holzpuppe mit ausgestreckten Armen und Beinen
+\end{enumerate}
+
+\subsection{Bestimmung der Winkelrichtgröße der Drillachse}
+\label{sec:winkelrichtgroesse}
+
+Zur Bestimmung der Winkelrichtgröße $D$ wurde die rücktreibende Kraft $F$ im Abstand $R=\SI{28.7}{\centi\meter}$ zur Drehachse in Abhängigkeit der Auslenkung $\varphi$ gemessen. Hiermit kann nun das rücktreibende Drehmoment $M=R \cdot F$ berechnet werden. Diese Werte sind in \autoref{tab:winkelrichtgroesse} aufgelistet und in \autoref{fig:plot_winkelrichtgroesse} dargestellt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=1.2] S[table-format=1.2] S[table-format=1.3]}
+        \toprule
+        \tableSI{\varphi}{\degree} & \tableSI{\varphi}{\radian} & \tableSI{F}{\newton} & \tableSI{M}{\newton\meter} \\
+        \midrule
+        30 & 0.52 & 0.05 & 0.014 \\
+        60 & 1.05 & 0.09 & 0.026 \\
+        90 & 1.57 & 0.13 & 0.037 \\
+        120 & 2.09 & 0.17 & 0.049 \\
+        150 & 2.62 & 0.22 & 0.063 \\
+        180 & 3.14 & 0.26 & 0.075 \\
+        210 & 3.67 & 0.31 & 0.089 \\
+        240 & 4.19 & 0.34 & 0.098 \\
+        270 & 4.71 & 0.39 & 0.112 \\
+        300 & 5.24 & 0.43 & 0.123 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messwerte zur Bestimmung der Winkelrichtgröße: Auslenkung $\varphi$, Kraft $F$ und Drehmoment $M=R \cdot F$}
+    \label{tab:winkelrichtgroesse}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_winkelrichtgroesse.pdf}
+    \caption{Plot des rücktreibenden Drehmoments $M$ in Abhängigkeit der Auslenkung $\varphi$ aus \autoref{tab:winkelrichtgroesse} mit dazugehöriger Ausgleichsgerade}
+    \label{fig:plot_winkelrichtgroesse}
+\end{figure}
+
+Um nun die Winkelrichtgröße aus \autoref{eq:winkelrichtgroesse} bestimmen zu können, wurde eine Ausgleichsrechnung mit
+\begin{equation}
+    M = a \cdot \varphi
+\end{equation}
+mithilfe der Python Bibliothek SciPy ausgeführt.\cite{scipy} Dadurch ergibt sich der Parameter $a=\SI{0.0237+-0.0001}{\newton\meter}$. Nach \autoref{eq:winkelrichtgroesse} ergibt sich also die Winkelrichtgröße
+\begin{equation}
+    D = a = \SI{0.0237+-0.0001}{\newton\meter}.
+\end{equation}
+
+\subsection{Bestimmung des Eigenträgheitsmoments der Drillachse}
+\label{sec:eigentraegheit}
+
+Zur Bestimmung des Eigenträgheitsmoments $I_\text{D}$ wurden zwei zylinderförmige Massen $m=\SI{222.9}{\gram}$ in verschiedenen Abständen $a$ zur Drehachse befestigt und die Periodendauer $T$ wurde bei einer Initialauslenkung von $\varphi=\SI{10}{\degree}$ gemessen.
+
+Die Massen werden hier als Punktmassen angenommen. Gemessen wurden hierbei allerdings die Abstände von der Drehachse bis zum Anfang des Zylinders. Also lässt sich der gesuchte Abstand mit $a=a_\text{gemessen} + L/2$ berechnen, wobei $L=\SI{3.0}{\centi\meter}$ die Länge des Zylinders ist.
+
+Diese Werte sind in \autoref{tab:eigentraegheit} aufgelistet und in \autoref{fig:plot_eigentraegheit} dargestellt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=2.1] S[table-format=2.1] S[table-format=1.2]}
+        \toprule
+        \tableSI{a_\text{gemessen}}{\centi\meter} & \tableSI{a}{\centi\meter} & \tableSI{T}{\second} \\
+        \midrule
+        26.9 & 28.4 & 7.50 \\
+        25.0 & 26.5 & 7.15 \\
+        23.0 & 24.5 & 6.58 \\
+        21.0 & 22.5 & 6.35 \\
+        19.0 & 20.5 & 5.80 \\
+        17.0 & 18.5 & 5.32 \\
+        15.0 & 16.5 & 4.60 \\
+        13.0 & 14.5 & 4.15 \\
+        9.0 & 10.5 & 3.32 \\
+        4.0 & 5.5 & 2.60 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.1] S[table-format=2.2]}
+        \toprule
+        \tableSI{a^2}{\centi\meter\squared} & \tableSI{T^2}{\second\squared} \\
+        \midrule
+        806.6 & 56.25 \\
+        702.2 & 51.12 \\
+        600.2 & 43.30 \\
+        506.2 & 40.32 \\
+        420.2 & 33.64 \\
+        342.2 & 28.30 \\
+        272.2 & 21.16 \\
+        210.3 & 17.22 \\
+        110.2 & 11.02 \\
+        30.2 & 6.76 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messwerte zur Bestimmung des Eigenträgheitsmoments: Abstände $a_\text{gemessen}$ und $a$, Periodendauer $T$ sowie die geplotteten Werte $a^2$ und $T^2$}
+    \label{tab:eigentraegheit}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_eigentraegheit.pdf}
+    \caption{Plot der Quadratperiodendauer $T^2$ in Abhängigkeit des Quadratabstands $a^2$ aus \autoref{tab:eigentraegheit} mit dazugehöriger Ausgleichsgerade}
+    \label{fig:plot_eigentraegheit}
+\end{figure}
+
+Um nun aus den gemessenen Werten das Eigenträgheitsmoment der Drillachse auszurechnen kann \autoref{eq:periodendauer} verwendet werden. Hierbei ist $I=I_\text{D}+2I_m$ mit dem Trägheitsmoment $I_m=ma^2$ der zusätzlich angehangenen Massen. Somit ergibt sich die Gleichung
+\begin{equation}
+    T=2\pi \sqrt{\frac{I_\text{D}+2ma^2}{D}}.
+    \label{eq:eigentraegheit_theorie}
+\end{equation}
+Also wird eine Ausgleichsrechnung mit
+\begin{equation}
+    T^2 = p_1 \cdot a^2 + p_2
+    \label{eq:eigentraegheit_fit}
+\end{equation}
+mithilfe von SciPy ausgeführt.\cite{scipy} Dabei ergeben sich die Parameter $p_1=\SI{660+-18}{\second\squared\per\meter\squared}$ und $p_2=\SI{4.48+-0.86}{\second\squared}$. 
+
+Nach vergleichen der \autoref{eq:eigentraegheit_fit} mit \autoref{eq:eigentraegheit_theorie} lässt sich das Eigenträgheitsmoment mit
+\begin{equation}
+    I_\text{D} = \frac{D}{(2\pi)^2}p_2
+\end{equation}
+berechnen. Somit ergibt sich
+\begin{equation}
+    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\per\meter\squared}
+\end{equation}
+mit ausgeführter Fehlerrechnung nach \autoref{eq:fehlerrechnung} mit der Python Bibliothek Uncertainties.\cite{uncertainties}

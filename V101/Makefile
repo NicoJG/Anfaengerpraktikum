@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_winkelrichtgroesse.pdf
+plots: build/plot_winkelrichtgroesse.pdf build/plot_eigentraegheit.pdf brauner_zylinder weisser_zylinder puppe
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -12,8 +12,23 @@ build/plot_winkelrichtgroesse.pdf: python/winkelrichtgroesse.py data/*.csv ../de
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/winkelrichtgroesse.py
 
+build/plot_eigentraegheit.pdf: build/plot_winkelrichtgroesse.pdf python/eigentraegheit.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/eigentraegheit.py
+
+# Python Dateien ohne Plots
+brauner_zylinder: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/brauner_zylinder.py data/*.csv
+	python python/brauner_zylinder.py
+
+weisser_zylinder: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/weisser_zylinder.py data/*.csv
+	python python/weisser_zylinder.py
+
+puppe: build/plot_eigentraegheit.pdf build/plot_winkelrichtgroesse.pdf python/puppe.py data/*.csv
+	python python/puppe.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_winkelrichtgroesse.pdf
+build/main.pdf: plots
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

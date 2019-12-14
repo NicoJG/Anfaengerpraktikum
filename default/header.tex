@@ -85,8 +85,16 @@
 % Floats innerhalb einer Section halten
 \usepackage[
   section, % Floats innerhalb der Section halten
-  below,   % unterhalb der Section aber auf der selben Seite ist ok
+  %below,   % unterhalb der Section aber auf der selben Seite ist ok
 ]{placeins}
+% Floats innerhalb einer Subsection Halten:
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
 
 % Seite drehen für breite Tabellen: landscape Umgebung
 \usepackage{pdflscape}

@@ -7,8 +7,8 @@ from uncertainties import ufloat
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 
 # D und I_D auslesen
-D = ufloat(Ergebnisse['winkelrichtgroesse']['D[Nm]'],Ergebnisse['winkelrichtgroesse']['D_err[Nm]'])
-I_D = ufloat(Ergebnisse['eigentraegheit']['I_D[kg*m^2]'],Ergebnisse['eigentraegheit']['I_D_err[kg*m^2]'])
+D = ufloat(Ergebnisse['winkelrichtgroesse']['D'],Ergebnisse['winkelrichtgroesse']['D_err'])
+I_D = ufloat(Ergebnisse['eigentraegheit']['I_D'],Ergebnisse['eigentraegheit']['I_D_err'])
 
 
 #############################
@@ -52,10 +52,10 @@ if not 'puppe' in Ergebnisse:
 if not 'allgemein' in Ergebnisse['puppe']:
     Ergebnisse['puppe']['allgemein'] = {}
 
-Ergebnisse['puppe']['allgemein']['m_Kopf'] = m_Kopf
-Ergebnisse['puppe']['allgemein']['m_Torso'] = m_Torso
-Ergebnisse['puppe']['allgemein']['m_Arm'] = m_Arm
-Ergebnisse['puppe']['allgemein']['m_Bein'] = m_Bein
+Ergebnisse['puppe']['allgemein']['m_Kopf[kg]'] = m_Kopf
+Ergebnisse['puppe']['allgemein']['m_Torso[kg]'] = m_Torso
+Ergebnisse['puppe']['allgemein']['m_Arm[kg]'] = m_Arm
+Ergebnisse['puppe']['allgemein']['m_Bein[kg]'] = m_Bein
 Ergebnisse['puppe']['allgemein']['I_Kopf'] = I_Kopf
 Ergebnisse['puppe']['allgemein']['I_Torso'] = I_Torso
 Ergebnisse['puppe']['allgemein']['I_Arm_1'] = I_Arm_1
@@ -88,13 +88,15 @@ DeltaI_1 = I_Theorie_1 - I_gemessen_1
 if not 'stellung_1' in Ergebnisse['puppe']:
     Ergebnisse['puppe']['stellung_1'] = {}
 
-Ergebnisse['puppe']['stellung_1']['T5_mean'] = T5_mean_1.n
-Ergebnisse['puppe']['stellung_1']['T5_mean_err'] = T5_mean_1.s
-Ergebnisse['puppe']['stellung_1']['T_mean'] = T_mean_1.n
-Ergebnisse['puppe']['stellung_1']['T_mean_err'] = T_mean_1.s
+Ergebnisse['puppe']['stellung_1']['T5_mean[s]'] = T5_mean_1.n
+Ergebnisse['puppe']['stellung_1']['T5_mean_err[s]'] = T5_mean_1.s
+Ergebnisse['puppe']['stellung_1']['T_mean[s]'] = T_mean_1.n
+Ergebnisse['puppe']['stellung_1']['T_mean_err[s]'] = T_mean_1.s
 Ergebnisse['puppe']['stellung_1']['I_gemessen'] = I_gemessen_1.n
 Ergebnisse['puppe']['stellung_1']['I_gemessen_err'] = I_gemessen_1.s
+Ergebnisse['puppe']['stellung_1']['I_Theorie'] = I_Theorie_1
 Ergebnisse['puppe']['stellung_1']['DeltaI'] = DeltaI_1.n
+Ergebnisse['puppe']['stellung_1']['DeltaI_err'] = DeltaI_1.s
 
 
 
@@ -121,14 +123,15 @@ DeltaI_2 = I_Theorie_2 - I_gemessen_2
 if not 'stellung_2' in Ergebnisse['puppe']:
     Ergebnisse['puppe']['stellung_2'] = {}
 
-Ergebnisse['puppe']['stellung_2']['T2_mean'] = T2_mean_2.n
-Ergebnisse['puppe']['stellung_2']['T2_mean_err'] = T2_mean_2.s
-Ergebnisse['puppe']['stellung_2']['T_mean'] = T_mean_2.n
-Ergebnisse['puppe']['stellung_2']['T_mean_err'] = T_mean_2.s
+Ergebnisse['puppe']['stellung_2']['T2_mean[s]'] = T2_mean_2.n
+Ergebnisse['puppe']['stellung_2']['T2_mean_err[s]'] = T2_mean_2.s
+Ergebnisse['puppe']['stellung_2']['T_mean[s]'] = T_mean_2.n
+Ergebnisse['puppe']['stellung_2']['T_mean_err[s]'] = T_mean_2.s
 Ergebnisse['puppe']['stellung_2']['I_gemessen'] = I_gemessen_2.n
 Ergebnisse['puppe']['stellung_2']['I_gemessen_err'] = I_gemessen_2.s
 Ergebnisse['puppe']['stellung_2']['I_Theorie'] = I_Theorie_2
 Ergebnisse['puppe']['stellung_2']['DeltaI'] = DeltaI_2.n
+Ergebnisse['puppe']['stellung_2']['DeltaI_err'] = DeltaI_2.s
 
 
 

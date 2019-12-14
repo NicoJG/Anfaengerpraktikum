@@ -37,8 +37,8 @@ if not 'winkelrichtgroesse' in Ergebnisse:
 
 Ergebnisse['winkelrichtgroesse']['a[Nm]'] = a.n
 Ergebnisse['winkelrichtgroesse']['a_err[Nm]'] = a.s
-Ergebnisse['winkelrichtgroesse']['D[Nm]'] = D.n
-Ergebnisse['winkelrichtgroesse']['D_err[Nm]'] = D.s
+Ergebnisse['winkelrichtgroesse']['D'] = D.n
+Ergebnisse['winkelrichtgroesse']['D_err'] = D.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 

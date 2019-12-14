@@ -21,9 +21,9 @@ T_mean = ufloat(np.mean(T),stats.sem(T)) #s
 # D und I_D auslesen
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 
-D = ufloat(Ergebnisse['winkelrichtgroesse']['D[Nm]'],Ergebnisse['winkelrichtgroesse']['D_err[Nm]'])
+D = ufloat(Ergebnisse['winkelrichtgroesse']['D'],Ergebnisse['winkelrichtgroesse']['D_err'])
 
-I_D = ufloat(Ergebnisse['eigentraegheit']['I_D[kg*m^2]'],Ergebnisse['eigentraegheit']['I_D_err[kg*m^2]'])
+I_D = ufloat(Ergebnisse['eigentraegheit']['I_D'],Ergebnisse['eigentraegheit']['I_D_err'])
 
 # Trägheitsmoment berechnen
 I_gemessen = ((T_mean**2)*D)/(2*np.pi)**2 - I_D 
@@ -38,8 +38,8 @@ if 'weisser_zylinder' not in Ergebnisse:
 
 Ergebnisse['weisser_zylinder']['T_mean[s]'] = T_mean.n
 Ergebnisse['weisser_zylinder']['T_mean_err[s]'] = T_mean.s
-Ergebnisse['weisser_zylinder']['I_gemessen[kg*m^2]'] = I_gemessen.n
-Ergebnisse['weisser_zylinder']['I_gemessen_err[kg*m^2]'] = I_gemessen.s
+Ergebnisse['weisser_zylinder']['I_gemessen'] = I_gemessen.n
+Ergebnisse['weisser_zylinder']['I_gemessen_err'] = I_gemessen.s
 Ergebnisse['weisser_zylinder']['I_Theorie'] = I_Theorie
 Ergebnisse['weisser_zylinder']['DeltaI'] = DeltaI.n
 Ergebnisse['weisser_zylinder']['DeltaI_err'] = DeltaI.s

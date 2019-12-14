@@ -134,7 +134,7 @@ Nach vergleichen der \autoref{eq:eigentraegheit_fit} mit \autoref{eq:eigentraegh
 \end{equation}
 berechnen. Somit ergibt sich
 \begin{equation}
-    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\per\meter\squared}
+    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\meter\squared}
 \end{equation}
 mit ausgeführter Fehlerrechnung nach \autoref{eq:fehlerrechnung} mit der Python Bibliothek Uncertainties.\cite{uncertainties}
 
@@ -177,7 +177,7 @@ Daraus ergibt sich mit \autoref{eq:periodendauer} das Trägheitsmoment
 \begin{equation}
     I_\text{gemessen} = \SI{-0.0022+-0.0005}{\kilo\gram\meter\squared}.
 \end{equation}
-Diese rrrechnete Größe ist jedoch nicht Sinnvoll, da ein negatives Trägheitsmoment nicht physikalisch zu erklären ist.
+Diese errechnete Größe ist jedoch nicht Sinnvoll, da ein negatives Trägheitsmoment nicht physikalisch zu erklären ist.
 
 Auf die Ursachen der Bestimmung dieses offensichtlich fehlerhaften Trägheitsmoments wird näher in der Diskussion eingegangen.
 
@@ -187,9 +187,40 @@ Um die berechnete Größe vergleichen zu können wird außerdem mithilfe der gem
 \end{equation}
 bestimmt.\cite{traegheitsmomente} Damit ergibt sich der Theoriewert
 \begin{equation}
-    I_\text{Theorie} = \SI{0.0031}{\kilo\gram\meter\squared}.
+    I_\text{Theorie} = \SI{0.00079}{\kilo\gram\meter\squared}.
 \end{equation}
 
 \subsubsection{Zylinder um seine Querachse drehend}
-\label{weisser_zylinder}
+\label{sec:weisser_zylinder}
 
+\begin{table}
+    \centering
+    \begin{tabular}{S S S S S S S S S S}
+        \toprule
+        \multicolumn{10}{c}{\tableSI{T_\text{gemessen}}{\second}} \\
+        \midrule
+        2.36 & 2.03 & 2.04 & 2.06 & 2.16 & 2.23 & 2.13 & 2.20 & 2.18 & 2.16 \\
+        \bottomrule
+    \end{tabular}
+    \caption{gemessene Periodendauern des Zylinders, welcher um seine Querachse dreht}
+    \label{tab:weisser_zylinder}
+\end{table}
+
+Die Mittelwertsbildung der Werte aus \autoref{tab:weisser_zylinder} ergibt eine Periodendauer 
+\begin{equation}
+    T = \SI{2.15+-0.030}{\second}.
+\end{equation}
+Daraus ergibt sich mit \autoref{eq:periodendauer} das Trägheitsmoment
+\begin{equation}
+    I_\text{gemessen} = \SI{0.0001+-0.0005}{\kilo\gram\meter\squared}.
+\end{equation}
+Auch hier lässt sich ein nicht sinnvolles Ergebnis beobachten, da der berechnete Fehler größer ist als das berechnete Trägheitsmoment.
+
+Um die berechnete Größe vergleichen zu können wird außerdem mithilfe der gemessenen Masse $m=\SI{1546.6}{\gram}$, dem Durchmesser $d=\SI{8.00}{\centi\meter}$ und der Länge $l=\SI{13.93}{\centi\meter}$ des Zylinders das theoretische Trägheitsmoment über
+\begin{equation}
+    I_\text{Theorie} = \frac{1}{4}m\left(\frac{d}{2}\right)^2 + \frac{1}{12}ml^2
+\end{equation}
+bestimmt.\cite{traegheitsmomente} Damit ergibt sich der Theoriewert
+\begin{equation}
+    I_\text{Theorie} = \SI{0.0031}{\kilo\gram\meter\squared}.
+\end{equation}

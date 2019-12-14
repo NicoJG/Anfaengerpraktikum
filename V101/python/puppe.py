@@ -17,7 +17,7 @@ I_D = ufloat(Ergebnisse['eigentraegheit']['I_D'],Ergebnisse['eigentraegheit']['I
 
 # Konstanten gemessen
 L_Arm=13.7*10**(-2) #m
-D_Arm=10.3*10**(-2) #m
+D_Arm=1.3*10**(-2) #m
 D_Kopf=3.0*10**(-2) #m
 D_Torso=4.0*10**(-2) #m
 L_Torso=10.0*10**(-2) #m

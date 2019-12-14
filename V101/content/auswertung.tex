@@ -19,6 +19,13 @@ Mit diesen Werten können dann über \autoref{eq:periodendauer} die Trägheitsmo
     \item Holzpuppe mit ausgestreckten Armen und Beinen
 \end{enumerate}
 
+Zur Fehlerfortpflanzung wird 
+\begin{equation}
+    \Delta y = \sum_{i=1}^n \left| \frac{\delta f(x_1,...,x_n)}{\delta x_i} \right| \Delta x_i
+    \label{eq:fehlerrechnung}
+\end{equation}
+bzw. die Python Bibliothek Uncertainties verwendet.\cite{uncertainties}
+
 \subsection{Bestimmung der Winkelrichtgröße der Drillachse}
 \label{sec:winkelrichtgroesse}
 
@@ -134,9 +141,8 @@ Nach vergleichen der \autoref{eq:eigentraegheit_fit} mit \autoref{eq:eigentraegh
 \end{equation}
 berechnen. Somit ergibt sich
 \begin{equation}
-    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\meter\squared}
+    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\meter\squared}.
 \end{equation}
-mit ausgeführter Fehlerrechnung nach \autoref{eq:fehlerrechnung} mit der Python Bibliothek Uncertainties.\cite{uncertainties}
 
 \subsection{Bestimmung des Trägheitsmoments zweier Zylinder}
 \label{sec:zylinder}

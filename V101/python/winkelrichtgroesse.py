@@ -9,17 +9,17 @@ def M_fit(phi,a):
     return a*phi
 
 # Daten einlesen
-phi,F = np.genfromtxt('data/kraft_gemessen.csv',delimiter=',',unpack=True)
+phi_grad,F = np.genfromtxt('data/kraft_gemessen.csv',delimiter=',',unpack=True)
 
-phi = np.radians(phi) #rad
+phi = np.radians(phi_grad) #rad
 F = F #N
 
 R = 28.7 * 10**(-2) #m
 M = R*F
 
 # Daten speichern
-data = list(zip(phi,F,M))
-np.savetxt('data/winkelrichtgroesse.csv', data, header='phi[rad],F[N],RF[V]', fmt='%1.2f,%1.2f,%1.3f')
+data = list(zip(phi_grad,phi,F,M))
+np.savetxt('data/winkelrichtgroesse.csv', data, header='phi[Grad],phi[rad],F[N],RF[V]', fmt='%i,%1.2f,%1.2f,%1.3f')
 # Nicht so wie hier die alten Daten überschreiben!
 # fmt = format (Genauigkeit,...)
 
@@ -50,7 +50,7 @@ plt.plot(phi, M, 'ro', label='Messwerte')
 
 # Achsenbeschriftung
 plt.xlabel(r'$\varphi \:/\: \si{\radian}$')
-plt.ylabel(r'$R \cdot F \:/\: \si{\newton\meter}$')
+plt.ylabel(r'$M \:/\: \si{\newton\meter}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

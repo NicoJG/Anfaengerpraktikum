@@ -8,3 +8,56 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+Zunächst muss die Winkelrichtgröße $D$ und das Eigenträgheitsmoment $I_D$ der Drillachse bestimmt werden.
+
+Mit diesen Werten können dann über \autoref{eq:periodendauer} die Trägheitsmomente der verwendeten Körper bestimmt werden. Folgende Körper wurden bei diesem Versuch untersucht:
+\begin{enumerate}
+    \item Zylinder mit Drehachse entlang der Symmetrieachse
+    \item Zylinder mit Drehachse entlang der Querachse
+    \item Holzpuppe mit angelegten Armen und Beinen
+    \item Holzpuppe mit ausgestreckten Armen und Beinen
+\end{enumerate}
+
+\subsection{Bestimmung der Winkelrichtgröße der Drillachse}
+\label{sec:winkelrichtgroesse}
+
+Zur Bestimmung der Winkelrichtgröße $D$ wurde die rücktreibende Kraft $F$ im Abstand $R=\SI{28.7}{\centi\meter}$ zur Drehachse in Abhängigkeit der Auslenkung $\varphi$ gemessen. Hiermit kann nun das rücktreibende Drehmoment $M=R \cdot F$ berechnet werden. Diese Werte sind in \autoref{tab:winkelrichtgroesse} aufgelistet und in \autoref{fig:plot_winkelrichtgroesse} dargestellt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=1.2] S[table-format=1.2] S[table-format=1.3]}
+        \toprule
+        \tableSI{\varphi}{\degree} & \tableSI{\varphi}{\radian} & \tableSI{F}{\newton} & \tableSI{M}{\newton\meter} \\
+        \midrule
+        30 & 0.52 & 0.05 & 0.014 \\
+        60 & 1.05 & 0.09 & 0.026 \\
+        90 & 1.57 & 0.13 & 0.037 \\
+        120 & 2.09 & 0.17 & 0.049 \\
+        150 & 2.62 & 0.22 & 0.063 \\
+        180 & 3.14 & 0.26 & 0.075 \\
+        210 & 3.67 & 0.31 & 0.089 \\
+        240 & 4.19 & 0.34 & 0.098 \\
+        270 & 4.71 & 0.39 & 0.112 \\
+        300 & 5.24 & 0.43 & 0.123 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messwerte zur Bestimmung der Winkelrichtgröße: Auslenkung $\varphi$, Kraft $F$ und Drehmoment $M=R \cdot F$}
+    \label{tab:winkelrichtgroesse}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_winkelrichtgroesse.pdf}
+    \caption{Plot des rücktreibenden Drehmoments $M$ in Abhängigkeit der Auslenkung $\varphi$ mit dazugehöriger Ausgleichsgerade}
+    \label{fig:plot_winkelrichtgroesse}
+\end{figure}
+
+Um nun die Winkelrichtgröße aus \autoref{eq:winkelrichtgroesse} bestimmen zu können, wurde eine Ausgleichsrechnung mit
+\begin{equation}
+    M = a \cdot \varphi
+\end{equation}
+mithilfe der Python Bibliothek SciPy ausgeführt.\cite{scipy} Dadurch ergibt sich der Parameter $a=\SI{0.0237+-0.0001}{\newton\meter}$. Nach \autoref{eq:winkelrichtgroesse} ergibt sich also die Winkelrichtgröße
+\begin{equation}
+    D = a = \SI{0.0237+-0.0001}{\newton\meter}.
+\end{equation}

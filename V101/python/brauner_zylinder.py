@@ -30,6 +30,8 @@ I_gemessen = ((T_mean**2)*D)/(2*np.pi)**2 - I_D
 
 I_Theorie = (1/2)*m*(d/2)**2
 
+DeltaI = I_Theorie-I_gemessen
+
 # Ergebnisse Speichern
 if 'brauner_zylinder' not in Ergebnisse:
     Ergebnisse['brauner_zylinder'] = {}
@@ -39,4 +41,6 @@ Ergebnisse['brauner_zylinder']['T_mean_err[s]'] = T_mean.s
 Ergebnisse['brauner_zylinder']['I_gemessen[kg*m^2]'] = I_gemessen.n
 Ergebnisse['brauner_zylinder']['I_gemessen_err[kg*m^2]'] = I_gemessen.s
 Ergebnisse['brauner_zylinder']['I_Theorie'] = I_Theorie
+Ergebnisse['brauner_zylinder']['DeltaI'] = DeltaI.n
+Ergebnisse['brauner_zylinder']['DeltaI_err'] = DeltaI.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)

@@ -137,3 +137,59 @@ berechnen. Somit ergibt sich
     I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\per\meter\squared}
 \end{equation}
 mit ausgeführter Fehlerrechnung nach \autoref{eq:fehlerrechnung} mit der Python Bibliothek Uncertainties.\cite{uncertainties}
+
+\subsection{Bestimmung des Trägheitsmoments zweier Zylinder}
+\label{sec:zylinder}
+
+Es wurde von zwei Zylindern, die jeweils von der zuvor vermessenen Drillachse zum Schwingen gebracht wurden, die Periodendauer $T$ der Schwingung mehrmals gemessen. Diese Peiodendauern werden über
+\begin{equation}
+    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{equation}
+gemittelt.
+Und über 
+\begin{equation}
+    \Delta\bar{x} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i - \bar{x})^2}
+\end{equation}
+wird der entsprechende Fehler des Mittelwerts berechnet.
+Durch diese gemittelte Periodendauer wird im Folgenden über \autoref{eq:periodendauer} das Trägheitsmoment bestimmt.
+
+\subsubsection{Zylinder um seine Symmetrieachse drehend}
+\label{sec:brauner_zylinder}
+
+\begin{table}
+    \centering
+    \begin{tabular}{S S S S S S S S S S}
+        \toprule
+        \multicolumn{10}{c}{\tableSI{T_\text{gemessen}}{\second}} \\
+        \midrule
+        0.73 & 0.92 & 0.87 & 0.78 & 0.93 & 0.96 & 0.89 & 0.96 & 0.89 & 0.87 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gemessene Periodendauern des Zylinders, welcher um seine Symmetrieachse dreht}
+    \label{tab:brauner_zylinder}
+\end{table}
+
+Die Mittelwertsbildung der Werte aus \autoref{tab:brauner_zylinder} ergibt eine Periodendauer 
+\begin{equation}
+    T = \SI{0.88+-0.02}{\second}.
+\end{equation}
+Daraus ergibt sich mit \autoref{eq:periodendauer} das Trägheitsmoment
+\begin{equation}
+    I_\text{gemessen} = \SI{-0.0022+-0.0005}{\kilo\gram\meter\squared}.
+\end{equation}
+Diese rrrechnete Größe ist jedoch nicht Sinnvoll, da ein negatives Trägheitsmoment nicht physikalisch zu erklären ist.
+
+Auf die Ursachen der Bestimmung dieses offensichtlich fehlerhaften Trägheitsmoments wird näher in der Diskussion eingegangen.
+
+Um die berechnete Größe vergleichen zu können wird außerdem mithilfe der gemessenen Masse $m=\SI{1119.3}{\gram}$ und dem Durchmesser $d=\SI{7.495}{\centi\meter}$ des Zylinders das theoretische Trägheitsmoment über
+\begin{equation}
+    I_\text{Theorie} = \frac{1}{2}m\left(\frac{d}{2}\right)^2
+\end{equation}
+bestimmt.\cite{traegheitsmomente} Damit ergibt sich der Theoriewert
+\begin{equation}
+    I_\text{Theorie} = \SI{0.0031}{\kilo\gram\meter\squared}.
+\end{equation}
+
+\subsubsection{Zylinder um seine Querachse drehend}
+\label{weisser_zylinder}
+

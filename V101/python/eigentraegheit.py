@@ -37,8 +37,11 @@ p2 = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 D = ufloat(Ergebnisse['winkelrichtgroesse']['D[Nm]'],Ergebnisse['winkelrichtgroesse']['D_err[Nm]'])
 
+# p1 prüfen
+p1_Theorie = 2*m*(2*np.pi)**2/D
+
 # I_D berechnen
-I_D = D/(2*np.pi)**2*p2
+I_D = D*p2/(2*np.pi)**2
 
 # Ergebnisse Speichern
 if not 'eigentraegheit' in Ergebnisse:
@@ -46,6 +49,7 @@ if not 'eigentraegheit' in Ergebnisse:
     
 Ergebnisse['eigentraegheit']['p1[s^2/m^2]'] = p1.n
 Ergebnisse['eigentraegheit']['p1_err[s^2/m^2]'] = p1.s
+Ergebnisse['eigentraegheit']['p1_Theorie[s^2/m^2]'] = p1_Theorie.n
 Ergebnisse['eigentraegheit']['p2[s^2]'] = p2.n
 Ergebnisse['eigentraegheit']['p2_err[s^2]'] = p2.s
 Ergebnisse['eigentraegheit']['I_D[kg*m^2]'] = I_D.n

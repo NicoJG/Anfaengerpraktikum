@@ -19,7 +19,7 @@ M = R*F
 
 # Daten speichern
 data = list(zip(phi,F,M))
-np.savetxt('data/winkelrichtgroesse.csv', data, header='phi[rad],F[N],RF[V]', fmt='%i,%1.2f,%1.3f')
+np.savetxt('data/winkelrichtgroesse.csv', data, header='phi[rad],F[N],RF[V]', fmt='%1.2f,%1.2f,%1.3f')
 # Nicht so wie hier die alten Daten überschreiben!
 # fmt = format (Genauigkeit,...)
 

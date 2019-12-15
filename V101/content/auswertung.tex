@@ -294,7 +294,7 @@ Im Folgenden wird aus den gemessenen Periodendauern das jeweilige Trägheitsmome
 
 Aus den Werten in \autoref{tab:puppe_1} wird die gemittelte 5-fache Periodendauer
 \begin{equation}
-    \bar{T_\text{gemessen}} = \SI{1.85+-0.03}{\second}
+    \bar{T}_\text{gemessen} = \SI{1.85+-0.03}{\second}
 \end{equation}
 bestimmt. Hieraus lässt sich die Periodendauer
 \begin{equation}
@@ -310,15 +310,64 @@ Auch hier ist diese Größe offensichtlich nicht Sinnvoll. Näheres dazu in der 
 
 Um die experimentell bestimmte Größe mit einem Theoriewert vergleichen zu können, wird mit den Werten aus \autoref{tab:puppe_maße} das theoretische Trägheitsmoment der Puppe in dieser Stellung bestimmt.
 
-Da Trägheitsmomente als Addition der Trägheitsmomente der einzelnen Körper beschrieben werden können. Wird nun nach \autoref{eq:steiner} das Trägheitsmoment über
+Da Trägheitsmomente als Addition der Trägheitsmomente der einzelnen Körper beschrieben werden können, wird nun nach \autoref{eq:steiner} das Trägheitsmoment über
 \begin{equation}
     \begin{split}
         I_{1,\text{Theorie}} = {} & I_\text{Kopf} + I_\text{Torso} \\
-        & + 2 \left( I_\text{Arm} + m_\text{Arm} \left(\frac{d_\text{Torso}}{2} + \frac{d_\text{Arm}}{2} \right)^2 \right) \\
-        & + 2 \left( I_\text{Bein} + m_\text{Bein} \left(\frac{d_\text{Arm}}{2}\right)^2 \right) 
+        & + 2 \left( I_\text{1,Arm} + m_\text{Arm} \left(\frac{d_\text{Torso}}{2} + \frac{d_\text{Arm}}{2} \right)^2 \right) \\
+        & + 2 \left( I_\text{1,Bein} + m_\text{Bein} \left(\frac{d_\text{Arm}}{2}\right)^2 \right) 
     \end{split}
 \end{equation}
 berechnet. Damit ergibt sich der Theoriewert
 \begin{equation}
     I_{1,\text{Theorie}} = \SI{0.00003}{\kilo\gram\meter\squared}.
+\end{equation}
+
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Puppe mit ausgestreckten Armen und Beinen}
+\label{sec:puppe_2}
+
+\begin{table}
+    \centering
+    \begin{tabular}{S S S S S S S S S S}
+        \toprule
+        \multicolumn{10}{c}{\tableSI{T_\text{gemessen}}{\second}} \\
+        \midrule
+        1.72 & 1.73 & 1.81 & 1.72 & 1.78 & 1.76 & 1.81 & 1.87 & 1.72 & 1.84 \\
+        \bottomrule
+    \end{tabular}
+    \caption{gemessene 2-fache Periodendauer der schwingenden Puppe mit ausgestreckten Armen und Beinen}
+    \label{tab:puppe_2}
+\end{table}
+
+Aus den Werten in \autoref{tab:puppe_1} wird die gemittelte 2-fache Periodendauer
+\begin{equation}
+    \overline{T}_\text{gemessen} = \SI{1.78+-0.02}{\second}
+\end{equation}
+bestimmt. Hieraus lässt sich die Periodendauer
+\begin{equation}
+    T = \SI{0.888+-0.009}{\second}
+\end{equation}
+berechnen.
+
+Mithilfe dieser Periodendauer und \autoref{eq:periodendauer} berechnet sich das Trägheitsmoment
+\begin{equation}
+    I_{2,\text{gemessen}} = \SI{-0.0022+-0.0005}{\kilo\gram\meter\squared}.
+\end{equation}
+Auch hier ist diese Größe offensichtlich nicht Sinnvoll. Näheres dazu in der Diskussion.
+
+Wie oben begründet lässt sich das theoretische Trägheitsmoment der Puppe mit ausgestreckten Armen und Beinen mit
+\begin{equation}
+    \begin{split}
+        I_{2,\text{Theorie}} = {} & I_\text{Kopf} + I_\text{Torso} \\
+        & + 2 \left( I_\text{2,Arm} + m_\text{Arm} \left(\frac{d_\text{Torso}}{2} + \frac{l_\text{Arm}}{2} \right)^2 \right) \\
+        & + 2 \left( I_\text{Bein} + m_\text{Bein} \left( \left(\frac{l_\text{Bein}}{2}\right)^2 + \left(\frac{d_\text{Bein}}{2}\right)^2 \right) \right)
+    \end{split}
+\end{equation}
+berechnen. Wobei für den Abstand von Drehachse zum Schwerpunkt des Beins der Satz von Pythagoras verwendet wurde.
+
+Damit ergibt sich das Trägheitsmoment
+\begin{equation}
+    I_{1,\text{Theorie}} = \SI{0.00004}{\kilo\gram\meter\squared}.
 \end{equation}

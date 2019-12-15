@@ -26,6 +26,7 @@ Zur Fehlerfortpflanzung wird
 \end{equation}
 bzw. die Python Bibliothek Uncertainties verwendet.\cite{uncertainties}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bestimmung der Winkelrichtgröße der Drillachse}
 \label{sec:winkelrichtgroesse}
 
@@ -69,6 +70,7 @@ mithilfe der Python Bibliothek SciPy ausgeführt.\cite{scipy} Dadurch ergibt sic
     D = a = \SI{0.0237+-0.0001}{\newton\meter}.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bestimmung des Eigenträgheitsmoments der Drillachse}
 \label{sec:eigentraegheit}
 
@@ -144,6 +146,7 @@ berechnen. Somit ergibt sich
     I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\meter\squared}.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bestimmung des Trägheitsmoments zweier Zylinder}
 \label{sec:zylinder}
 
@@ -159,6 +162,7 @@ Und über
 wird der entsprechende Fehler des Mittelwerts berechnet.
 Durch diese gemittelte Periodendauer wird im Folgenden über \autoref{eq:periodendauer} das Trägheitsmoment bestimmt.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Zylinder um seine Symmetrieachse drehend}
 \label{sec:brauner_zylinder}
 
@@ -196,6 +200,7 @@ bestimmt.(siehe \autoref{fig:zylinder}) Damit ergibt sich der Theoriewert
     I_\text{Theorie} = \SI{0.00079}{\kilo\gram\meter\squared}.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Zylinder um seine Querachse drehend}
 \label{sec:weisser_zylinder}
 
@@ -230,3 +235,48 @@ bestimmt.(siehe \autoref{fig:zylinder}) Damit ergibt sich der Theoriewert
 \begin{equation}
     I_\text{Theorie} = \SI{0.0031}{\kilo\gram\meter\squared}.
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bestimmung des Trägheitsmoments einer Puppe in zwei Stellungen}
+\label{sec:puppe}
+
+Es wurde eine Holzpuppe in zwei verschiedenen Stellungen, wie in \autoref{sec:puppe} beschrieben, zum Schwingen gebracht. 
+Durch die Periodendauer dieser Schwingung kann das jeweilige Trägheitsmoment bestimmt werden.
+
+Um Theoriewerte für das Trägheitsmoment der Puppe berechnen zu können wurde diese zunächst vermessen. 
+Die Messergebnisse sind in \autoref{tab:puppe_maße} aufgelistet. 
+Hierbei wurden alle Körperteile als Zylinder angenähert.
+
+Außerdem wurden die Massen der einzelnen Körperteile berechnet. Hier wurde eine Dichte von Holz $\rho = \SI{500}{\kilo\gram\per\meter\cubed}$ angenommen und \autoref{eq:dichte} verwendet.
+Wobei die Volumen über
+\begin{equation}
+    V_\text{Zylinder} = \pi \left(\frac{d}{2}\right)^2 l 
+\end{equation}
+berechnet wurden.
+
+Das jeweilige Trägheitsmoment bei Rotation um den Schwerpunkt wurde wie in \autoref{fig:zylinder} berechnet. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{c S[table-format=1.1] S[table-format=2.1] S[table-format=2.1] S[table-format=1.7] S[table-format=1.7]}
+        \toprule
+        Körperteil & \tableSI{d}{\centi\meter} & \tableSI{l}{\centi\meter} & \tableSI{m}{\gram} & \tableSI{I_1}{\kilo\gram\meter\squared} & \tableSI{I_2}{\kilo\gram\meter\squared} \\
+        \midrule
+        Kopf & 3.0 & 6.0 &  & \multicolumn{2}{S[table-format=1.7]}{} \\
+        Torso & 4.0 & 10.0 &  & \multicolumn{2}{S[table-format=1.7]}{} \\
+        Arm & 1.3 & 13.7 &  &  \\
+        Bein & 1.5 & 14.5 &  &  &  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messergebnisse des Vermessens der einzelnen Körperteile der Puppe: Durchmesser $d$, Länge $l$, Masse $m$, Trägheitsmoment der jeweiligen Stellung $I_1$,$I_2$}
+    \label{tab:puppe_maße}
+\end{table}
+
+Im Folgenden wird aus den gemessenen Periodendauern das jeweilige Trägheitsmoment bestimmt.
+
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Puppe mit angelegten Armen und Beinen}
+\label{sec:puppe_1}
+
+

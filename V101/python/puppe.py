@@ -18,6 +18,7 @@ I_D = ufloat(Ergebnisse['eigentraegheit']['I_D'],Ergebnisse['eigentraegheit']['I
 # Konstanten gemessen
 L_Arm=13.7*10**(-2) #m
 D_Arm=1.3*10**(-2) #m
+L_Kopf=6.0*10**(-2) #m
 D_Kopf=3.0*10**(-2) #m
 D_Torso=4.0*10**(-2) #m
 L_Torso=10.0*10**(-2) #m
@@ -30,13 +31,13 @@ dichte = 500 #kg/m^2 NOCH UNBEDINGT BESSER HERAUSFINDEN + QUELLE (Dichte von Hol
 
 
 # Theorie Massen
-m_Kopf = (dichte*(4/3)*np.pi*(D_Kopf/2)**3)
+m_Kopf = (dichte*np.pi*(D_Kopf/2)**2*L_Kopf)
 m_Torso = (dichte*np.pi*(D_Torso/2)**2*L_Torso)
 m_Arm = (dichte*np.pi*(D_Arm/2)**2*L_Arm)
 m_Bein = (dichte*np.pi*(D_Bein/2)**2*L_Bein)
 
 # Theorie Trägheitsmomente im Schwerpunkt
-I_Kopf = (2/5) * m_Kopf * (D_Kopf/2)**2
+I_Kopf = (1/2) * m_Kopf * (D_Kopf/2)**2
 I_Torso = (1/2) * m_Torso * (D_Torso/2)**2
 # Erste Stellung
 I_Arm_1 = (1/2) * m_Arm * (D_Arm/2)**2

@@ -27,7 +27,7 @@ D_Bein=1.5*10**(-2) #m
 Masse_mit_Stange=168.0*10**(-3) #kg
 
 #Konstanten nicht gemessen
-dichte = 500 #kg/m^2 NOCH UNBEDINGT BESSER HERAUSFINDEN + QUELLE (Dichte von Holz)
+dichte = 430 #kg/m^2 Tannenholz?
 
 
 # Theorie Massen

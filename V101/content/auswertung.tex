@@ -312,9 +312,11 @@ Um die experimentell bestimmte Größe mit einem Theoriewert vergleichen zu kön
 
 Da Trägheitsmomente als Addition der Trägheitsmomente der einzelnen Körper beschrieben werden können. Wird nun nach \autoref{eq:steiner} das Trägheitsmoment über
 \begin{equation}
-    I_{1,\text{Theorie}} = I_\text{Kopf} + I_\text{Torso} 
-    + 2 \left( I_\text{Arm} + m_\text{Arm} \left(\frac{d_\text{Torso}}{2} + \frac{d_\text{Arm}}{2} \right)^2 \right)
-    + 2 \left( I_\text{Bein} + m_\text{Bein} \left(\frac{d_\text{Arm}}{2}\right)^2 \right) 
+    \begin{split}
+        I_{1,\text{Theorie}} = {} & I_\text{Kopf} + I_\text{Torso} \\
+        & + 2 \left( I_\text{Arm} + m_\text{Arm} \left(\frac{d_\text{Torso}}{2} + \frac{d_\text{Arm}}{2} \right)^2 \right) \\
+        & + 2 \left( I_\text{Bein} + m_\text{Bein} \left(\frac{d_\text{Arm}}{2}\right)^2 \right) 
+    \end{split}
 \end{equation}
 berechnet. Damit ergibt sich der Theoriewert
 \begin{equation}

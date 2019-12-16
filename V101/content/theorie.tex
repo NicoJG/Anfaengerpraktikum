@@ -7,7 +7,7 @@
 
 % Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
 
-Wenn eine Masse $m$ bewegt werden soll, muss zunächst die Trägheit dieser Masse überwunden werden. Das Trägheitsmoment $I$ ist dabei äquivalent bei einer Drehbewegung, eine Trägheit, die überwunden werden muss, bevor ein Körper rotieren kann. Dabei ist das Trägheitsmoment einer Punktmasse
+Wenn eine Masse $m$ bewegt werden soll, muss zunächst die Trägheit dieser Masse überwunden werden. Das Trägheitsmoment $I$ ist dabei äquivalent bei einer Drehbewegung, eine Trägheit, die überwunden werden muss, bevor ein Körper rotiert werden kann. Dabei ist das Trägheitsmoment einer Punktmasse
 
 \begin{equation}
     I = m \cdot r^2.
@@ -21,7 +21,7 @@ Dabei ist $m$ die Masse der Punktmasse und $r$ der senkrechte Abstand zur Rotati
     \label{eq:trägheit2}
 \end{equation}
 
-addiert werden. Äquivalent dazu kann das Trägheitsmoment infinitismaler Massen über 
+addiert werden. Äquivalent dazu kann das Trägheitsmoment infinitesmaler Massen über 
 
 \begin{equation}
     I = \int r^2 \dif{m}
@@ -29,19 +29,15 @@ addiert werden. Äquivalent dazu kann das Trägheitsmoment infinitismaler Massen
 \end{equation}
 
 bestimmt werden. Bei bekannter Dichte $\rho$ und dem Volumen $V$ kann \autoref{eq:trägheit2} und über den Zusammenhang
-
 \begin{equation}
     m = \rho \cdot V,
     \label{eq:dichte}
 \end{equation}
-
 in die Form 
-
 \begin{equation}
     I = \int r^2 \cdot \rho \dif{V}
     \label{eq:trägheit4}
 \end{equation}
-
 gebracht werden. So ist das Trägheitsmoment eines Zylinders durch \autoref{fig:zylinder} gegeben.
 
 \begin{figure}
@@ -74,11 +70,18 @@ Sollte das System schwingungsfähig sein, und wird um den Winkel $\varphi$ ausge
     \label{eq:periodendauer}
 \end{equation}
 
-Das Trägheitsmoment $I$ setzt sich aus der Trägheit des rotierenden Objektes $I$ und der Eigenträgheit der Drillachse $I_\text{D}$ zusammen. $D$ wird als Winkelrichtgröße bezeichnet und ist als 
+Das Trägheitsmoment $I$ setzt sich aus der Trägheit des rotierenden Objektes $I$ und der Eigenträgheit der Drillachse $I_\text{D}$ zusammen. $D$ wird als Winkelrichtgröße bezeichnet und ist über den Zusammenhang  
 
 \begin{equation}
-    D = \frac{M}{\varphi} = \frac{F \cdot r}{\varphi}
+    M = D \cdot \varphi
     \label{eq:winkelrichtgroesse}
 \end{equation}
 
-definiert. 
+definiert. Damit kann $D$ über 
+
+\begin{equation}
+    D = \frac{F \cdot r}{\varphi}
+    \label{eq:winkelrichtgroesse2}
+\end{equation}
+
+berechnet werden.

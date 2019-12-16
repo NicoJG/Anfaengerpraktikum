@@ -247,25 +247,25 @@ Um Theoriewerte für das Trägheitsmoment der Puppe berechnen zu können wurde d
 Die Messergebnisse sind in \autoref{tab:puppe_maße} aufgelistet. 
 Hierbei wurden alle Körperteile als Zylinder angenähert.
 
-Außerdem wurden die Massen der einzelnen Körperteile berechnet. Hier wurde eine Dichte von Holz $\rho = \SI{500}{\kilo\gram\per\meter\cubed}$ angenommen und \autoref{eq:dichte} verwendet.
-Wobei die Volumen über
+Außerdem wurden die Massen der einzelnen Körperteile berechnet. Hier wurde davon ausgegangen, dass die Puppe aus Tannenholz ist, welches eine Dichte von $\rho = \SI{430}{\kilo\gram\per\meter\cubed}$ aufweist.\cite{holzarten}
+Mithilfe dieser Dichte, der \autoref{eq:dichte} und der Gleichung vom Volumen
 \begin{equation}
     V_\text{Zylinder} = \pi \left(\frac{d}{2}\right)^2 l 
 \end{equation}
-berechnet wurden.
+wurden die jeweiligen Massen berechnet.
 
 Das jeweilige Trägheitsmoment bei Rotation um den Schwerpunkt wurde wie in \autoref{fig:zylinder} berechnet. 
 
 \begin{table}
     \centering
-    \begin{tabular}{c S[table-format=1.1] S[table-format=2.1] S[table-format=2.1] S[table-format=1.7] S[table-format=1.7]}
+    \begin{tabular}{c S[table-format=1.1] S[table-format=2.1] S[table-format=2.1] S[table-format=1.2e-1] S[table-format=1.2e-1]}
         \toprule
         Körperteil & \tableSI{d}{\centi\meter} & \tableSI{l}{\centi\meter} & \tableSI{m}{\gram} & \tableSI{I_1}{\kilo\gram\meter\squared} & \tableSI{I_2}{\kilo\gram\meter\squared} \\
         \midrule
-        Kopf & 3.0 & 6.0 &  & \multicolumn{2}{S[table-format=1.7]}{} \\
-        Torso & 4.0 & 10.0 &  & \multicolumn{2}{S[table-format=1.7]}{} \\
-        Arm & 1.3 & 13.7 &  &  \\
-        Bein & 1.5 & 14.5 &  &  &  \\
+        Kopf & 3.0 & 6.0 & 18.2 & \multicolumn{2}{S[table-format=1.2e-1]}{2.05e-6} \\
+        Torso & 4.0 & 10.0 & 54.0 & \multicolumn{2}{S[table-format=1.2e-1]}{1.08e-5} \\
+        Arm & 1.3 & 13.7 & 7.8 & 1.65e-7 & 1.23e-5 \\
+        Bein & 1.5 & 14.5 & 11.0 & 3.10e-7 & 1.95e-5 \\
         \bottomrule
     \end{tabular}
     \caption{Messergebnisse des Vermessens der einzelnen Körperteile der Puppe: Durchmesser $d$, Länge $l$, Masse $m$, Trägheitsmoment der jeweiligen Stellung $I_1$,$I_2$}
@@ -320,7 +320,7 @@ Da Trägheitsmomente als Addition der Trägheitsmomente der einzelnen Körper be
 \end{equation}
 berechnet. Damit ergibt sich der Theoriewert
 \begin{equation}
-    I_{1,\text{Theorie}} = \SI{0.00003}{\kilo\gram\meter\squared}.
+    I_{1,\text{Theorie}} = \SI{2.6e-5}{\kilo\gram\meter\squared}.
 \end{equation}
 
 \FloatBarrier
@@ -343,7 +343,7 @@ berechnet. Damit ergibt sich der Theoriewert
 
 Aus den Werten in \autoref{tab:puppe_1} wird die gemittelte 2-fache Periodendauer
 \begin{equation}
-    \overline{T}_\text{gemessen} = \SI{1.78+-0.02}{\second}
+    \bar{T}_\text{gemessen} = \SI{1.78+-0.02}{\second}
 \end{equation}
 bestimmt. Hieraus lässt sich die Periodendauer
 \begin{equation}
@@ -369,5 +369,5 @@ berechnen. Wobei für den Abstand von Drehachse zum Schwerpunkt des Beins der Sa
 
 Damit ergibt sich das Trägheitsmoment
 \begin{equation}
-    I_{1,\text{Theorie}} = \SI{0.00004}{\kilo\gram\meter\squared}.
+    I_{2,\text{Theorie}} = \SI{3.1e-4}{\kilo\gram\meter\squared}.
 \end{equation}

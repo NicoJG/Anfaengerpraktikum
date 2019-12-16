@@ -36,7 +36,7 @@ plt.plot(f,U_C/U_G,'ro',label='Gemessen')
 plt.xscale('log')
 
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
-plt.ylabel(r'$\frac{U_C}{U_0} \:/\: \si{\volt}$')
+plt.ylabel(r'$\frac{U_C}{U_0}$')
 
 plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)

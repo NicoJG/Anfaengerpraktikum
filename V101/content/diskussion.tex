@@ -5,3 +5,31 @@
 % -Vergleich mit Literaturwerten
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
+
+Die Messung der Eigenschaften der Drillachse ergeben die Winkelrichtgröße
+\begin{equation}
+    D = a = \SI{0.0237+-0.0001}{\newton\meter}
+\end{equation}
+und das Eigenträgheitsmoment
+\begin{equation}
+    I_\text{D} = \SI{0.0026+-0.0005}{\kilo\gram\meter\squared}.
+\end{equation}
+
+Damit haben sich die Werte in \autoref{tab:ergebnisse} ergeben.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c S[table-format=-1.4] S[table-format=1.6] S[table-format=1.4]}
+        \toprule
+        Körper & \tableSI{I_\text{gemessen}}{\kilo\gram\meter\squared} & \tableSI{I_\text{Theorie}}{\kilo\gram\meter\squared} & \tableSI{\Delta I}{\kilo\gram\meter\squared} \\
+        \midrule
+        Zylinder (Symmetrieachse) & -0.0022 & 0.000790 & 0.0030 \\
+        Zylinder (Querachse) & 0.0001 & 0.003100 & 0.0030 \\
+        Puppe (Stellung 1) & -0.0026 & 0.000026 & 0.0026 \\
+        Puppe (Stellung 2) & -0.0022 & 0.000310 & 0.0025 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Ergebnisse der Trägheitsmomentbestimmung mit Theoriewert und Abweichung vom Theoriewert $\Delta I$, wobei die Ergebnisse der gemessenen Werte jeweils einen Fehler von $\SI{+-0.0005}{\kilo\gram\meter\squared}$ aufweisen}
+    \label{tab:ergebnisse}
+\end{table}
+

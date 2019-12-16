@@ -8,7 +8,7 @@
 
 Die Messung der Eigenschaften der Drillachse ergeben die Winkelrichtgröße
 \begin{equation}
-    D = a = \SI{0.0237+-0.0001}{\newton\meter}
+    D = \SI{0.0237+-0.0001}{\newton\meter}
 \end{equation}
 und das Eigenträgheitsmoment
 \begin{equation}
@@ -32,4 +32,18 @@ Damit haben sich die Werte in \autoref{tab:ergebnisse} ergeben.
     \caption{Ergebnisse der Trägheitsmomentbestimmung mit Theoriewert und Abweichung vom Theoriewert $\Delta I$, wobei die Ergebnisse der gemessenen Werte jeweils einen Fehler von $\SI{+-0.0005}{\kilo\gram\meter\squared}$ aufweisen}
     \label{tab:ergebnisse}
 \end{table}
+
+Die Ergebnisse aus den gemessenen Periodendauern scheinen nicht sinnvoll zu sein, da diese sehr gering und teilweise sogar negativ sind.
+Dies lässt sich nur teilweise erklären.
+
+Die wahrscheinlichste Ursache dieser fehlerhaften Trägheitsmomente scheint eine falsche Bestimmung des Eigenträgheitsmoments der Drillachse zu sein.
+Dabei wurden nämlich die angehangenen Massen als Punktmassen und die Stange als masselos angenommen.
+Dies trägt anscheinend zu einem zu großen Eigenträgheitsmoment bei.
+
+Wenn man in \autoref{tab:ergebnisse} die Abweichungen $\Delta I$ betrachtet fällt eine Ähnlichkeit dieser Werte auf, welche nach \autoref{eq:periodendauer} auf ein zu großes Eigenträgheitsmoment $I_\text{D}$ hinweist. 
+
+Auch ohne diese fehlerhafte Bestimmung würden sich vermutlich relativ große Fehler aufzeigen, da eine genaue Bestimmung der Periodendauern mit der verwendeten Stoppuhr nicht möglich war.
+
+Allerdings ist das berechnete Trägheitsmoment der Puppe in Stellung 2 größer als in Stellung 1.
+Dies entspricht den Erwartungen, da sich ein größeres Trägheitsmoment ergibt, wenn die Massen weiter von der Drehachse entfernt sind.
 

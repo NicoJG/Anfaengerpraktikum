@@ -128,7 +128,7 @@ Dafür wird erneut die Funktion aus \autoref{eq:curvefit} verwendet und die zeit
 \end{equation}
 
 gebildet. 
-Die berechneten Parameter aus \autoref{eq:fit1} werden dann verwendet, um die Steigung mit Hilfe von \autoref{eq:diffT} an vier verschiedenen Stellen zu berechnen.
+Die berechneten Parameter aus \autoref{tab:fit1} werden dann verwendet, um die Steigung mit Hilfe von \autoref{eq:diffT} an vier verschiedenen Stellen zu berechnen.
 Mit Hilfe von \autoref{eq:gauß} wird auch vom Differenzialquotienten eine Fehlerreichnung durchgeführt werden, damit die Unsicherheit angegeben werden kann. Dann ergeben sich die Werte aus \autoref{tab:T1_err}.
 
 \begin{table}
@@ -223,7 +223,7 @@ Zum Vergleich wird zusätzlich die ideale Güterziffer zu den jeweiligen Zeitpun
         1200 & 1.46 & 0.08 & 7.91 & 81.54 \% \\
         \bottomrule
     \end{tabular}
-    \caption{Güteziffer zu vier verschiedenen Zeiten}
+    \caption{Güteziffer zu vier verschiedenen Zeiten.}
     \label{tab:guete}
 \end{table}
 Das klappt iwie nicht
@@ -284,15 +284,15 @@ Dadurch ergibt sich das Ergebnis für den Massendurchsatz, umgerechnet in SI-Bas
         1200 & -0.0102 & -0.00070 & 0.00005 \\
         \bottomrule
     \end{tabular}
-    \caption{Massendurchsatz bei vier verschiedenen Temperaturen}
-    \label{tab:guete}
+    \caption{Massendurchsatz bei vier verschiedenen Temperaturen.}
+    \label{tab:masse}
 \end{table}
 
 \subsection{Auswertungsteil f)}
 \label{f}
 
 Die Berechnung der mechanischen Leistung des Kompressors wird über \autoref{eq:arbeit} durchgeführt, die dafür benötigten Größen sind entweder, aus vorherigen Aufgaben bekannt, oder angegeben. 
-Es werden wieder für die vier bekannten Zeiten bzw Temperaturen die Werte entnommen, $p_\text{a}$ und $p_\text{b}$ werden also entsprechen aus \autoref{eq:werte} genommen.
+Es werden wieder für die vier bekannten Zeiten bzw Temperaturen die Werte entnommen, $p_\text{a}$ und $p_\text{b}$ werden also entsprechen aus \autoref{tab:werte} genommen.
 $\rho _0$ sei dabei
 \begin{equation}
     \rho _0 = \SI{5.51}{\kilogram \per \cubic\meter}.
@@ -303,7 +303,7 @@ Dann ergibt sich
 
 \begin{equation}
     \rho  = \frac{\rho _0 T_0 p_\text{a}}{T_2 p_0}.
-    \label{eq:dichte}
+    \label{eq:dichte2}
 \end{equation}
 
 Die Leistung wird bei $T_0 = \SI{0}{\celsius}$ berechnet, also beträgt der Außendruck $p_0 = \SI{1}{\bar}$.
@@ -312,7 +312,22 @@ In diesem Fall, sind alle Parameter der Gleichung bekannt, sodass kein Curve Fit
 Alle notwendigen Größen und Unsicherheiten werden in die Gaußsche Fehlerformel \autoref{eq:gauß} eingesetzt, dadurch ergibt sich
 
 \begin{equation}
-    \Delta N _\text{mech} = sqrt{\frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} - p_\text{a} \right) \frac{T_2 p_0}{\rho _0 T_0 p_\text{a}} \Delta \frac{\Delta m}{\Delta t}^2 }.
+    \Delta N _\text{mech} = \sqrt{\left(\frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} - p_\text{a} \right) \frac{T_2 p_0}{\rho _0 T_0 p_\text{a}} \Delta \frac{\Delta m}{\Delta t}\right)^2 }.
     \label{eq:n_err}
 \end{equation}
 
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{\frac{\Delta m}{\Delta t}}{\kilogram \per \second} & \tableSI{N _\text{mech}}{\watt} & \tableSI{\Delta N _\text{mech}}{\watt}\\
+        \midrule
+        300 & -0.0167 & 11.1 & 0.5\\
+        600 & -0.0145 &  15.5 & 0.8 \\
+        900 & -0.0124 & 17.1 & 1.0\\
+        1200 & -0.0102 & 16.8 & 1.2 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Mechanische Leistung des Kompressors bei vier verschiedenen Temperaturen.}
+    \label{tab:leistung}
+\end{table}

@@ -9,11 +9,17 @@
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
 
+\subsection{Auswertungsteil a) Darstellung der Messwerte in einem Diagramm}
+\label{ssec:a}
+Zunächst werden in \autoref{tab:werte} alle gemessenen Werte aufgetragen. 
+Damit mit folgenden Werten gerechnet werden kann, werden sie in allen folgenden Schritten in die SI-Basiseinheiten umgerechnet. 
+Auf die beiden Drücke $p_\text{a}$ und $p_\text{b}$ werden noch jeweils $\SI{1}{\bar}$ addiert, für den Druck, der während des Versuches im Labor vorlag.
+
 \begin{table}
     \centering
     \begin{tabular}{S[table-format=2.0] S[table-format=1.1] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1] S[table-format=3.0]}
         \toprule
-    \tableSI{t}{\minute} & \tableSI{p_\text{a}}{\bar} & \tableSI{p_\text{a}}{\bar} & \tableSI{T_1}{\celsius} & \tableSI{T_1}{\celsius} & \tableSI{N_\text{el}}{\watt} \\
+    \tableSI{t}{\minute} & \tableSI{p_\text{a}}{\bar} & \tableSI{p_\text{b}}{\bar} & \tableSI{T_1}{\celsius} & \tableSI{T_2}{\celsius} & \tableSI{N_\text{el}}{\watt} \\
         \midrule
         0 & 4.2 & 3.9 & 22.0 & 21.9 & 0 \\
         1 & 3.5 & 5.5 & 22.7 & 21.7 & 115 \\
@@ -49,50 +55,34 @@
     \label{tab:werte}
 \end{table}
 
-Die elektrische Arbeit des Kompressormotors $N_\text{el}$ wird über $\delta t$ mit der Formel der Mittelwertsberechnung
+Die Temperaturverläufe $T_1$ und $T_2$ aus \autoref{tab:werte} werden nun in einem Temperaturdiagramm gegen die Zeit $t$ aufgetragen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_waermepumpe.pdf}
+    \caption{Graph der gemessenen Temperaturen $T_1$ und $T_2$ aus \autoref{tab:werte}.\cite{numpy}}
+    \label{fig:waermepumpe_plot}
+\end{figure}
+
+\subsection{Auswertungsteil b) Bestimmung der Ausgleichskurven}
+\label{ssec:b} 
+Mithilfe von SciPy und Curve Fit ist es möglich die Ergebnisse für $T_1$ und $T_2$ mit einer Ausgleichskurve anzunähern. 
+Durch die Existenz dieser Funktionen werden im weiteren Verlauf der Berechnungen die Differenzenquotienten $\frac{\Delta T}{\Delta t}$ als Differenzialquotienten $\frac{\dif{T}}{\dif{t}}$ ausgedrückt.
+Der Curve Fit wurde mit einer Funktion der Form
 
 \begin{equation}
-    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+    T = a \cdot t^2 + b \cdot t + c
+    \label{eq:curvefit}
 \end{equation}
 
-gemittelt.
-Über 
-\begin{equation}
-    \Delta\bar{x} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i - \bar{x})^2}
-\end{equation}
-
-wird die entsprechende Abweichung dieses Mittelwerts berechnet. 
-Damit ist das gemittelte $N_\text{el}$ mitsamt Abweichung
-
-\begin{equation}
-   N_\text{el} = 117.68 \pm \SI{4.46}{\watt}.
-\end{equation}
-
-Damit die Güteziffer $\nu$ berechnet werden kann, wird die Formel
-
-\begin{equation}
-    \nu = (V_\text{W} \cdot \rho _\text{W} \cdot c_\text{W} + m_\text{k} c_\text{k}) \cdot \frac{\dif{T_1}}{\dif{t}} \cdot \frac{1}{N_\text{el}}
-    \label{eq:gueteziffer}
-\end{equation}
-
-verwendet. Dabei ist $V_\text{W}$ das Volumen des Wassers, mit der Temperatur $T_1$ und $\rho _\text{W}$ die Dichte des Wassers bei etwa Raumtemperatur. 
-$c_\text{W}$ ist die spezifische Wärmekapazität von Wasser bei etwa Raumtemperatur. 
-Der Faktor $m_\text{k} \cdot c_\text{k}$ ist dabei eine vorgegeben Konstante und die Wärmekapazität der verwendeten Kupferschlange. Damit die berechnete Güterziffer am Ende mit einer Ungenauigkeit angegeben werden kann, wird zunächst die Ungenauigkeit von $T_1$ und dem Differenzialquotienten $\frac{\dif{T_1}}{\dif{t}}$ berechnet. 
-Dazu wird die Gaußsche Fehlerformel
+durchgeführt. Wodurch es drei Parameter zu bestimmen gilt, sowie ihre Unsicherheiten, diese lassen sich mit der Fehlerformel von Gauß
 
 \begin{equation}
     \Delta f = \sqrt{\sum_{i=1}^N \left(\frac{\partial{f}}{\partial{y_\text{i}}} \cdot \Delta y_\text{i} \right)^2}
     \label{eq:gauß}
 \end{equation}
 
-verwendet. Mithilfe von SciPy und Curve Fit ist es möglich die Ergebnisse für $T_1$ und $T_2$ mit einer Ausgleichskurve annähern. Der Curve Fit wurde mit einer Funktion der Form
-
-\begin{equation}
-    T = a_1 \cdot t^2 + b_1 \cdot t + c_1
-    \label{eq:curvefit}
-\end{equation}
-
-durchgeführt. Wodurch es drei Parameter zu bestimmen gilt, sowie ihre Unsicherheiten. Durch Curve Fit ergeben sich folgende Werte und der Graph in \autoref{fig:waermepumpe_plot}.
+berechnen. In \autoref{tab:fit1} sind die, durch Curve Fit berechneten Parameter von $T_1$ und ihre Unsicherheiten angegeben. 
 
 \begin{table}
     \centering
@@ -109,25 +99,220 @@ durchgeführt. Wodurch es drei Parameter zu bestimmen gilt, sowie ihre Unsicherh
     \label{tab:fit1}
 \end{table}
 
+Äquivalent dazu, wird die Rechnung auch mit $T_2$ durchgeführt.
+Die drei Paramenter werden mit Curve Fit bestimmt und ihre Unsicherheit über \autoref{eq:gauß} berechnet.
+
 \begin{table}
     \centering
-    \begin{tabular}{S[table-format=3.0] S[table-format=1.3] S[table-format=1.3]}
+    \begin{tabular}{c S S}
         \toprule
-        \tableSI{t}{\second} & \tableSI{\frac{\dif{T_1}}{\dif{t}}}{\kelvin \per \second} & \tableSI{\frac{\dif{T_2}}{\dif{t}}}{\kelvin \per \second} \\
+        \text{Parameter} & \text{Wert} & \text{Unsicherheit} \\
         \midrule
-        300 & 0.023 & -0.017 \\
-        600 & 0.020 & -0.015 \\
-        900 & 0.017 & -0.012 \\
-        1200 & 0.013 &  -0.010 \\
+        a & 3.5689e-6 & 0.1842e-6 \\
+        b & -0.0188 & 0.0003 \\
+        c & 295.4911 & 0.1081 \\
             \bottomrule
     \end{tabular}
-    \caption{Differenzialquotienten zu vier verschiedenen Zeiten}
-    \label{tab:diff_T1}
+    \caption{Parameter zu dem Curve Fit von $T_2$}
+    \label{tab:fit2}
 \end{table}
+
+\subsection{Auswertungsteil c) Differenzialquotienten der Temperaturen}
+\label{ssec:c}
+Im Folgenden Abschnitt werden für vier verschiedene Zeiten $t$ $\frac{\dif{T_1}}{\dif{t}}$ sowie $\frac{\dif{T_2}}{\dif{t}}$ bestimmt. 
+Dafür wird erneut die Funktion aus \autoref{eq:curvefit} verwendet und die zeitliche Ableitung 
+
+\begin{equation}
+    \frac{\dif{T}}{\dif{t}} = 2 \cdot a \cdot t + b
+    \label{eq:diffT}
+\end{equation}
+
+gebildet. 
+Die berechneten Parameter aus \autoref{eq:fit1} werden dann verwendet, um die Steigung mit Hilfe von \autoref{eq:diffT} an vier verschiedenen Stellen zu berechnen.
+Mit Hilfe von \autoref{eq:gauß} wird auch vom Differenzialquotienten eine Fehlerreichnung durchgeführt werden, damit die Unsicherheit angegeben werden kann. Dann ergeben sich die Werte aus \autoref{tab:T1_err}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{T_1}{\celsius} & \tableSI{T_1}{\kelvin} & \tableSI{\frac{\dif{T_1}}{\dif{t}}}{\kelvin \per \second} & \tableSI{\Delta \frac{\dif{T_1}}{\dif{t}}}{\kelvin \per \second} \\
+        \midrule
+        300 & 28.5000 &  301.6500 & 0.0230 & 0.0003\\
+        600 & 35.3000 & 308.4500 & 0.0200 & 0.0004\\
+        900 & 40.9000 & 314.0500 & 0.0170 & 0.0004\\
+        1200 & 45.0000 & 318.1500 & 0.0130 & 0.0005\\
+            \bottomrule
+    \end{tabular}
+    \caption{Differenzialquotienten von $T_1$ zu vier verschiedenen Zeiten}
+    \label{tab:T1_err}
+\end{table}
+
+Äquivalent dazu werden nun zu diesen vier Zeiten die Differenzialquotienten von $T_2$ berechnet und in einer Tabelle eingetragen.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{T_2}{\celsius} & \tableSI{T_2}{\kelvin} & \tableSI{\frac{\dif{T_2}}{\dif{t}}}{\kelvin \per \second} & \tableSI{\Delta \frac{\dif{T_2}}{\dif{t}}}{\kelvin \per \second} \\
+        \midrule
+        300 & 17.0000 &  290.1500 & -0.0167 & 0.0003\\
+        600 & 12.5000 & 285.6500 & -0.0145 & 0.0004\\
+        900 & 8.2000 & 281.3500 & -0.0124 & 0.0004\\
+        1200 & 4.8000 & 277.9500 & -0.0102 & 0.0005\\
+            \bottomrule
+    \end{tabular}
+    \caption{Differenzialquotienten von $T_2$ zu vier verschiedenen Zeiten}
+    \label{tab:T2_err}
+\end{table}
+
+\subsection{Auswertungsteil d) Bestimmung der Güteziffer}
+\label{ssec:d}
+
+Die Güteziffer $\nu$ ist über \autoref{eq:gueteziffer_2} definiert und ist ein Maß für die Effizienz der Wärmepumpe. Für ihre Berechnung werden zunächst alle nötigen Größen bestimmt. 
+Die elektrische Arbeit des Kompressormotors $N_\text{el}$ wird über $\delta t$ mit der Formel der Mittelwertsberechnung
+
+\begin{equation}
+    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{equation}
+
+gemittelt.
+Über 
+
+\begin{equation}
+    \Delta\bar{x} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i - \bar{x})^2}
+\end{equation}
+
+wird die entsprechende Abweichung dieses Mittelwerts berechnet. 
+Damit ist das gemittelte $N_\text{el}$ mitsamt Abweichung
+
+\begin{equation}
+   N_\text{el} = 117.68 \pm \SI{4.46}{\watt}.
+\end{equation}
+
+Für die Berechung werden Konstanten benötigt.
+Der Ausdruck $m_\text{k} c_\text{k}$ ist eine gegebene Gerätekonstante und gibt die Wärmekapazität der verwendeten Kupferschlange an.
+In diesem Fall beträgt sie
+\begin{equation}
+   m_\text{k} c_\text{k} = \SI{750}{\joule \per \kelvin}.
+\end{equation}
+Die Wärmekapazität des Wassers wird ebenso bestimmt, über die Dichte des Wassers $\rho _\text{w}$ und das Volumen des Wassers in den Gefäßen $V_\text{w}$ ergibt sich die Masse $m_\text{w}$.
+Die spezifische Wärmekapazität von Wasser ist damit
+\begin{equation}
+   m_\text{w} c_\text{w} = \SI{12449}{\joule \per \kelvin}.
+\end{equation}
+Aus \autoref{ssec:c} wird der Differenzialquotient von $T_1$ entnommen. Zunächst wird die Fehlerformel \autoref{eq:gauß} aufgestellt. Es ergibt sich dann
+
+\begin{equation}
+    \Delta \nu = \sqrt{\left((V_\text{w} \rho _\text{w} c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{N_\text{el}} \Delta \frac{\dif{T_1}}{\dif{t}}\right)^2 + \left(-(V_\text{w} \rho _\text{w} c_\text{w} + m_\text{k} c_\text{k}) \frac{\dif{T_1}}{\dif{t}} \frac{1}{{N_\text{el}}^2} \Delta N_\text{el}\right)^2}.
+    \label{eq:guetefehler}
+\end{equation}
+
+Damit kann nun die Formel aus \autoref{eq:gueteziffer} für die Güteziffer verwendet werden. 
+Dadurch ergeben sich die folgenden vier dimensionslosen Güterziffern. 
+Zum Vergleich wird zusätzlich die ideale Güterziffer zu den jeweiligen Zeitpunkten mit \autoref{eq:gueteziffer} berechnet.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c c}
+        \toprule
+        \tableSI{t}{\second} & $\nu$ & $\Delta\nu$ & $\nu _\text{ideal}$ & \text{Abweichung} \\
+        \midrule
+        300 & 2.58 & 0.10 & 26.23 & 90.16 \% \\   
+        600 & 2.24 & 0.10 & 13.53 & 83.44 \% \\
+        900 & 1.91 & 0.09 & 9.57 & 80.04 \% \\
+        1200 & 1.46 & 0.08 & 7.91 & 81.54 \% \\
+        \bottomrule
+    \end{tabular}
+    \caption{Güteziffer zu vier verschiedenen Zeiten}
+    \label{tab:guete}
+\end{table}
+Das klappt iwie nicht
+
+\subsection{Auswertungsteil e)}
+\label{ssec:e}
+
+Zur Berechnung des Massendurchsatzes, also wie viel Masse pro Zeitintervall transpotiert wird, zu berechnen werden die Differenzialquotienten von $T_2$ aus \autoref{tab:T2_err} verwendet.
+Aus einer Dampfdruck-Kurve wird zunächst die sogenannte Verdampfungswärme $L$ mit einem Curve Fit bestimmt. 
+Der Curve Fit wurde mithilfe der Funktion
+
+\begin{equation}
+    p = p_0 \cdot \exp{\left(\frac{-L}{R}\frac{1}{T}\right)}
+    \label{eq:L}
+\end{equation}
+
+durchgeführt. Sie wird nach 
+
+\begin{equation}
+    \ln{\left(\frac{p_b}{p_0}\right)} = \frac{-L}{R} \frac{1}{T}
+    \label{eq:L2}
+\end{equation}
+
+umgeformt und geplottet.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_waermepumpe.pdf}
-    \caption{Graph der gemessenen Temperaturen $T_1$ und $T_2$ aus \autoref{fig:werte}.}
-    \label{fig:waermepumpe_plot}
+    \includegraphics[width=\textwidth]{build/plot_dampfdruck.pdf}
+    \caption{Dampfkurve für die Berechnung von $L$ \autoref{tab:werte}.\cite{numpy}}
+    \label{fig:dampfdruck_plot}
 \end{figure}
+
+Für den Parameter $L$ ergibt sich dann
+\begin{equation*}
+    L = 23308.25 \pm \SI{990.74}{\joule \per \mol}
+    \label{eq:L3}
+\end{equation*}
+
+Mit \autoref{eq:massen} wird dann der Massendurchsatz berechnet, die Konstanten sind aus \autoref{ssec:d} bekannt. Dabei ist $m_1 = m_2$. 
+Zuletzt wird noch die Gaußsche Fehlerabweichung mit \autoref{eq:gauß} berechnet.
+
+\begin{equation}
+    \Delta\frac{\Delta m}{\Delta t} = \sqrt{\left((m_2 c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{L} \Delta \frac{\Delta T_2}{\Delta t}\right)^2 + \left(-(m_2 c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{L^2} \frac{\Delta T_2}{\Delta t} \Delta L\right)^2}
+    \label{eq:m_err}
+\end{equation}
+
+Dadurch ergibt sich das Ergebnis für den Massendurchsatz, umgerechnet in SI-Basiseinheiten, mit der molaren Masse von Dichlordifluormethan $\SI{0.121}{\kilogram \per \mol}$ ergeben sich die folgenden Werte in \autoref{tab:guete}. \cite{dichte_CL2F2C}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{\frac{\dif{T_2}}{\dif{t}}}{\kelvin \per \second} & \tableSI{\frac{\Delta m}{\Delta t}}{\kilogram \per \second} & \tableSI{\Delta\frac{\Delta m}{\Delta t}}{\kilogram \per \second}\\
+        \midrule
+        300 & -0.0167 & -0.00115 & 0.00005 \\
+        600 & -0.0145 & -0.00099 & 0.00005 \\
+        900 & -0.0124 & -0.00085 & 0.00005\\
+        1200 & -0.0102 & -0.00070 & 0.00005 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Massendurchsatz bei vier verschiedenen Temperaturen}
+    \label{tab:guete}
+\end{table}
+
+\subsection{Auswertungsteil f)}
+\label{f}
+
+Die Berechnung der mechanischen Leistung des Kompressors wird über \autoref{eq:arbeit} durchgeführt, die dafür benötigten Größen sind entweder, aus vorherigen Aufgaben bekannt, oder angegeben. 
+Es werden wieder für die vier bekannten Zeiten bzw Temperaturen die Werte entnommen, $p_\text{a}$ und $p_\text{b}$ werden also entsprechen aus \autoref{eq:werte} genommen.
+$\rho _0$ sei dabei
+\begin{equation}
+    \rho _0 = \SI{5.51}{\kilogram \per \cubic\meter}.
+    \label{eq:dichte}
+\end{equation}
+Aus $\rho _0$ kann das benötigte $\rho$ berechnet werden, sie können über die ideale Gasgleichung in Zusammenhang gebracht werden.
+Dann ergibt sich
+
+\begin{equation}
+    \rho  = \frac{\rho _0 T_0 p_\text{a}}{T_2 p_0}.
+    \label{eq:dichte}
+\end{equation}
+
+Die Leistung wird bei $T_0 = \SI{0}{\celsius}$ berechnet, also beträgt der Außendruck $p_0 = \SI{1}{\bar}$.
+$\kappa$, das Verhältnis der beiden Molwärmen wird als $\kappa = 1.14$ festgelegt. 
+In diesem Fall, sind alle Parameter der Gleichung bekannt, sodass kein Curve Fit durchgeführt werden muss.
+Alle notwendigen Größen und Unsicherheiten werden in die Gaußsche Fehlerformel \autoref{eq:gauß} eingesetzt, dadurch ergibt sich
+
+\begin{equation}
+    \Delta \N _\text{mech} = sqrt{\frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} - p_\text{a} \right) \frac{T_2 p_0}{\rho _0 T_0 p_\text{a}} \Delta \frac{\Delta m}{\Delta t}^2 }.
+    \label{eq:n_err}
+\end{equation}
+

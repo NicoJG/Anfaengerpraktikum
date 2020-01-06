@@ -17,7 +17,7 @@ def m(c_w, dichte_w, v_w, cm_k, dT2, L):
 
 def dm(c_w, dichte_w, v_w, cm_k, dT2, ddT2, L, dL):
     return sqrt( ( (v_w * c_w * dichte_w + cm_k) * 1/L * ddT2)^2 + ((v_w * c_w * dichte_w + cm_k) * 1/L * ddT2)^2     )
-def N(k, Pa, Pb, rho, Dm):
+def N_berechnet(k, Pa, Pb, rho, Dm):
     return  1/(1-k) * (Pb*(Pa/Pb)**(1/k) - Pa) * 1/rho * Dm
 
 # Daten einlesen
@@ -42,21 +42,21 @@ dm2 = ufloat(-0.00099,0.00005)
 dm3 = ufloat(-0.00085,0.00005)
 dm4 = ufloat(-0.00070,0.00005) #kilogram pro sekunde
 
-print("N1: ", N(1.14, (3.6 + 1.0) * 100000, (7.0 + 1.0) * 100000, 5.51 * 273.15 * (3.6 + 1) * 100000 / ((17 + 273.15) * 100000), dm1)  )
+print("N1: ", N_berechnet(1.14, (3.6 + 1.0) * 100000, (7.0 + 1.0) * 100000, 5.51 * 273.15 * (3.6 + 1) * 100000 / ((17 + 273.15) * 100000), dm1)  )
 #print("N2: ", N(k, (2.9 + 1.0) * 100000, (8,5 + 1.0) * 100000, 5.51 * 273.15 * (2.9 + 1) * 100000 / ((12.5 + 273.15) * 100000), dm2))
 #print("N3: ", N(k, (2.5 + 1.0) * 100000, (10.0 + 1.0) * 100000, 5.51 * 273.15 * (2.5 + 1) * 100000 / ((8.2 + 273.15) * 100000), dm3))
 #print("N4: ", (k, (2.2 + 1.0) * 100000, (11.5 + 1.0) * 100000, 5.51 * 273.15 * (2.2 + 1) * 100000 / ((4.8 + 273.15) * 100000), dm4))
 
 
 # Ausgleichskurve berechnen
-#params1,pcov = curve_fit(p2,1/T1,np.log(pb))
-#a = params1[0]
-#b = params1[1]
+params1,pcov = curve_fit(p2,1/T1,np.log(pb))
+a = params1[0]
+b = params1[1]
 
 
 #Fehler berechnen
-#a_err = np.absolute(pcov[0][0])**0.5
-#b_err = np.absolute(pcov[1][1])**0.5
+a_err = np.absolute(pcov[0][0])**0.5
+b_err = np.absolute(pcov[1][1])**0.5
 
 # Aufgabe c
 # Ableitungen

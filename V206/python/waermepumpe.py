@@ -80,8 +80,8 @@ ddT1_4 = np.array([0.0003,0.0004,0.0004,0.0005])
 n = 117.68 
 dn = 4.46
 
-print("Die 4 Werte für nü: ", v(v_w, c_w, dichte_w, cm_k, dT1_4, n))
-print("Die 4 Werte für dnü: ", dv(v_w, c_w, dichte_w, cm_k, dT1_4, ddT1_4, n, dn))
+#print("Die 4 Werte für nü: ", v(v_w, c_w, dichte_w, cm_k, dT1_4, n))
+#print("Die 4 Werte für dnü: ", dv(v_w, c_w, dichte_w, cm_k, dT1_4, ddT1_4, n, dn))
 
 
 
@@ -116,6 +116,8 @@ plt.plot(t_linspace, T(t_linspace,*params2), 'b-', label='Ausgleichskurve für T
 # Plot der Daten
 plt.plot(t, T1, 'ro', label='Verlauf von T1')
 plt.plot(t, T2, 'bo', label='Verlauf von T2')
+
+
 
 # Achsenbeschriftung
 plt.xlabel(r'$t \:/\: \si{\second}$')

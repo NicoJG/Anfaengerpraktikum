@@ -57,8 +57,8 @@ Da nicht anzunehmen ist, dass der Stab an jeder Stelle den gleichen Durchmesser 
 
 \begin{table}
   \centering
-  \caption{Gemessene Werte für R}
-  \label{tab:werte_rund_einseitig}
+  \caption{Gemessene Werte für 2R}
+  \label{tab:r_1}
   \begin{tabular}{c}
     \toprule 
     \tableSI{2R}{\meter} \\ 
@@ -162,7 +162,7 @@ Die Querschnittsfläche ist ein Quadrat, sodass die Seitenlänge $R = \SI{0.0100
 \begin{table}
   \centering
   \caption{Gemessene Werte für R}
-  \label{tab:werte_rund_einseitig}
+  \label{tab:r_2}
   \begin{tabular}{c}
     \toprule 
     \tableSI{R}{\meter} \\ 
@@ -330,13 +330,13 @@ Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
     b &= -0.00033 \pm \SI{0.00004}{\meter}
 \end{align}
 
-Durch den Curve Fit ergibt sich der Plot \autoref{}
+Durch den Curve Fit ergibt sich der Plot \autoref{fig:zweiseitg_rund_plot_links}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig_links.pdf}
-    \caption{Graph der Werte links von \frac{L}{2}}
-    \label{fig:zweiseitg_rund_plot_links}
+    \caption{Graph der Werte links von $\frac{L}{2}$.}
+    \label{fig:zweiseitg_eckig_plot_links}
 \end{figure}
 
 Über die Beziehung 
@@ -362,20 +362,25 @@ durchgeführt, wobei hier
     x =& 4x^3 - 12Lx^2 + 9L^2x - L^3.
 \end{align}
 
-Die Werte werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
+Die Werte werden aus \autoref{tab:werte_eckig_beidseitig} entnommen, wobei hier nur die $x > \frac{L}{2}$ berücksichtigt werden.
 Aus \autoref{tab:beidseitig_eckig} werden alle Auslenkungen $x > \frac{L}{2}$ verwendet.
-Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus.
+Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus und erzeugt den Plot \autoref{fig:zweiseitg_eckig_plot_rechts}.
 
 \begin{align}
     a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
     b &= 0.00007 \pm \SI{0.00008}{\meter}
 \end{align}
 
-Wie zuvor wird \autoref{eq:e} verwendet, um den Elastizitätsmodul zu berechnen, damit ergibt sich $E_\text{links} = 201 \pm \SI{20}{\giga\pascal}$.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig_rechts.pdf}
+    \caption{Graph der Werte links von $\frac{L}{2}$.}
+    \label{fig:zweiseitg_eckig_plot_rechts}
+\end{figure}
+
+Wie zuvor wird \autoref{eq:e} verwendet, um den Elastizitätsmodul zu berechnen, damit ergibt sich $E_\text{rechts} = 201 \pm \SI{20}{\giga\pascal}$.
 Über die Mittelwertsformel \autoref{eq:mittel} und die Mittelwertsabweichung \autoref{eq:mittelab} wird ein Wert für $E$ gemittelt.
-Mittelwert und Abweichung von $E$ betragen $E = $
-
-
+Mittelwert und Abweichung von $E$ betragen $E = 176 \pm \SI{11}{\giga\pascal}$.
 
 \subsection{Biegung eines beidseitig eingespannten zylindrischen Stabes}
 \label{Biegung eines beidseitig eingespannten zylindrischen Stabes}
@@ -429,7 +434,35 @@ Die Masse $m = \SI{4.7188}{\newton}$ wurde im Abstand $\frac{L}{2}$ vom Einspann
 \end{table}
 
 Nun wird wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} ein Plot mit den Funktionen aus \autoref{eq:durchbiegung_beidseitig} mit den Messwerten angefertigt, aus dem der Elastizitätsmodul $E$ mit SciPy bestimmt werden kann. 
-Die Werte aus \autoref{tab:werte_rund_beidseitig} werden für die Berechnung benötigt, dabei ist $R$ der Radius der Querschnittsfläche und $I$, der über \autoref{eq:flächentragheitsmoment_kreis} berechnete Flächenträgheitsmoment.
+Die Werte aus \autoref{tab:werte_rund_beidseitig} werden für die Berechnung benötigt, dabei ist $R$ der Radius der Querschnittsfläche. 
+
+\begin{table}
+  \centering
+  \caption{Gemessene Werte für 2R}
+  \label{tab:r_3}
+  \begin{tabular}{c}
+    \toprule 
+    \tableSI{2R}{\meter} \\ 
+    \midrule 
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0105 \\
+     0.0100 \\
+     0.0105 \\
+     0.0100 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Über \autoref{eq:mittel} und \autoref{eq:mittelab} wird ein $2R$ gemittelt und daraus ein $R$ Wert, sowie seine Abweichung, $R$ ist dann 
+\begin{equation}
+    2R = 0.0101 \pm \SI{0.0002}{\meter}.
+\end{equation}
+$I$ ist der über \autoref{eq:flächentragheitsmoment_kreis} berechnete Flächenträgheitsmoment.
 Für $m$ wird die gleiche Masse, wie in \autoref{sec:Biegung eines beidseitig eingespannten rechteckigen Stabes} verwendet, somit ist $m = \SI{4.7188}{\kilogram}$.
 
 \begin{table}
@@ -445,17 +478,72 @@ Für $m$ wird die gleiche Masse, wie in \autoref{sec:Biegung eines beidseitig ei
   \end{tabular}
 \end{table}
 
-Aus \autoref{tab:werte_rund_beidseitig} ergibt sich dann \autoref{fig:zweiseitg_rund_plot} mit Curve Fit aus SciPy und den Messwerten aus \autoref{tab:beidseitig_rund}.\cite{scipy}
+Wie zuvor auch, muss der Curve Fit aufgeteilt werden, sodass am Ende zwei Fits erstellt werden müssen.
+Der Fit für die linke Seite, also werden die Werte $x < \frac{L}{2}$ aus \autoref{tab:beidseitig_rund} genommen, wird mit die Funktion
+
+\begin{equation}
+    D(x) = a \cdot x + b \\
+    \label{eq:durchbiegung_beidseitig1}
+\end{equation}
+
+durchgeführt, der Parameter $a$ und die Variable $x$ sind
+
+\begin{align}
+    a =& \frac{F}{48EI} \\
+    x =& 3L^2x - 4x^3.
+\end{align}
+
+Als nötigen Werte werden aus \autoref{tab:werte_rund_beidseitig} entnommen.
+Aus \autoref{tab:beidseitig_rund} werden alle Auslenkungen $x < \frac{L}{2}$ verwendet.
+Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
+
+\begin{align}
+    a &= 0.0127 \pm \SI{0.0008}{\per \meter\squared}\\
+    b &= -0.0005 \pm \SI{0.0001}{\meter}
+\end{align}
+
+Der Plot mit der Ausgleichsgeraden ist in \autoref{fig:zweiseitg_rund_plot_links} aufgetragen.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/plot_zweiseitig_rund.pdf}
-    \caption{Graph der Werte aus \autoref{tab:beidseitig_rund}}
-    \label{fig:zweiseitg_rund_plot}
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_rund_links.pdf}
+    \caption{Graph der Werte links von $\frac{L}{2}$.}
+    \label{fig:zweiseitg_rund_plot_links}
 \end{figure}
 
-Aus \autoref{fig:zweiseitg_rund_plot} ergibt sich
+Über den bereits bekannten Zusammenhang \autoref{eq:e} wird der Elastizitätsmodul $E$ berechnet, $E_\text{links} = 155 \pm \SI{9}{\giga\pascal}$.
+
+Die Auswertung der rechten wird erneut mit einem Curve Fit der Funktion
+
 \begin{equation}
-    E = 197,86 \pm \SI{6.84}{\giga\pascal}.
-    \label{eq:E_beidseitig_rund}
-\end{equation}.
+    D(x) = a \cdot x + b \\
+    \label{eq:durchbiegung_beidseitig2}
+\end{equation} 
+
+durchgeführt, wobei $a$ und $x$ als  
+
+\begin{align}
+    a =& \frac{F}{48EI} \\
+    x =& 4x^3 - 12Lx^2 + 9L^2x - L^3
+\end{align}
+
+definiert sind.
+Die Werte für $x > \frac{L}{2}$ werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
+Aus \autoref{tab:beidseitig_rund} werden alle Auslenkungen $x > \frac{L}{2}$ verwendet.
+Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus und erzeugt den Plot \autoref{fig:zweiseitg_rund_plot_rechts}.
+
+\begin{align}
+    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
+    b &= 0.00007 \pm \SI{0.00008}{\meter}
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_rund_rechts.pdf}
+    \caption{Graph der Werte rechts von $\frac{L}{2}$.}
+    \label{fig:zweiseitg_rund_plot_rechts}
+\end{figure}
+
+Der Wert von $E$ ergibt sich aus \autoref{eq:e} zu $E_\text{rechts} = 191 \pm \SI{6}{\giga\pascal}$.
+Wie zuvor, werden die beiden berechneten Werte für $E$ gemittelt, dafür werden \autoref{eq:mittel} und \autoref{eq:mittelab}. 
+Der gemittelte Elastizitätsmodul beträgt $E = 173 \pm \SI{5}{\giga\pascal}$

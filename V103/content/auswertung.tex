@@ -186,7 +186,6 @@ Mit den Formeln \autoref{eq:mittel} und \autoref{eq:mittelab} wird erneut ein We
     R = 0.0102 \pm \SI{0.0003}{\meter}
 \end{equation} 
 
-
 Die Dichte der Stange mit wird mit $\rho = m/R^2L_\text{gesamt}$ bestimmt. 
 Es ergibt sich die Dichte $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$.
 Da die Querschnittsfläche dieser Stange ein Quadrat ist, muss das Flächenträgheitsmoment $I$ nun mit 
@@ -288,9 +287,7 @@ Für die rechteckige Stange beträgt $L = \SI{0.555}{\meter}$, wobei $L$ der Abs
 \end{table}
 
 Für diesen Teil des Experimentes wurde die Stange aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} erneut genutzt, Dichte und Kantenlänge bleiben also gleich. 
-Die Dichte wurde bereits bestimmt und beträgt $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$. 
-Mithilfe von \autoref{eq:durchbiegung_beidseitig} lässt sich eine Curve Fit Funktion mit Scipy aufstellen, sodass $E$ bestimmt werden kann. 
-Die Werte aus \autoref{tab:werte_eckig_beidseitig} werden für das Aufstellen der Funktion benötigt. 
+Die Dichte wurde bereits bestimmt und beträgt $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$.  
 Das Flächenträgheitsmoment $I$ kann mit \autoref{eq:flächentragheitsmoment_quadrat} berechnet werden. 
 $R$ ist dabei die Seitenlänge des Querschnitts und $F$ ist die Gewichtskraft, die bei $\frac{L}{2}$ wirkt und durch $F=mg$ gegeben ist. 
 Die Erdbeschleunigung ist durch die Konstante $g=\SI{9.81}{\meter\per\second\squared}$ bekannt und die Masse $m$ ist in diesem Fall $m = \SI{4.7188}{\kilogram}$.\cite{physics_constants}
@@ -307,21 +304,63 @@ Die Erdbeschleunigung ist durch die Konstante $g=\SI{9.81}{\meter\per\second\squ
     \bottomrule
   \end{tabular}
 \end{table} 
+ 
+Die Werte aus \autoref{tab:werte_eckig_beidseitig} werden für das Aufstellen der Funktion benötigt.
+In diesem Fall müssen zwei Fits durchgeführt werden, da die Funktion mit der, Fit gemacht werden muss, zweigeteilt ist.
+Für die linke Seite wird der Fit mit der Funktion
 
-Die Messwerte aus \autoref{tab:beidseitig_eckig} werden wie oben beschrieben mit einer Ausgleichskurve geplottet. 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig.pdf}
-    \caption{Graph der Werte aus \autoref{tab:beidseitig_eckig}}
-    \label{fig:zweiseitg_eckig_plot}
-\end{figure}
-
-SciPy berechntet einen Elastizitätsmodul
 \begin{equation}
-    E = 202,04 \pm \SI{6.54}{\giga\pascal}. \: \text{\cite{scipy}}
-    \label{eq:E_beidseitig_eckig}
+    D(x) = a \cdot x + b \\
+    \label{eq:durchbiegung_beidseitig1}
+\end{equation}
+
+durchgeführt, wobei 
+
+\begin{align}
+    a =& \frac{F}{48EI} \\
+    x =& 3L^2x - 4x^3.
+\end{align}
+
+Als nötigen Werte werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
+Aus \autoref{tab:beidseitig_eckig} werden alle Auslenkungen $x < \frac{L}{2}$ verwendet.
+Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
+
+\begin{align}
+    a &= 0.0076 \pm \SI{0.0003}{\per \meter\squared}\\
+    b &= -0.00033 \pm \SI{0.00004}{\meter}
+\end{align}
+
+Über die Beziehung 
+
+\begin{equation}
+    E = \frac{F}{48aI}
+    \label{eq:e}
+\end{equation}
+
+ergibt sich der Wert für den Elastizitätsmodul $E_\text{links} = 152 \pm \SI{6}{\giga\pascal}$.
+Der Fit für die rechte Seite wird auch mit der Funktion
+
+\begin{equation}
+    D(x) = a \cdot x + b \\
+    \label{eq:durchbiegung_beidseitig2}
 \end{equation} 
+
+durchgeführt, wobei hier 
+
+\begin{align}
+    a =& \frac{F}{48EI} \\
+    x =& 4x^3 - 12Lx^2 + 9L^2x - L^3.
+\end{align}
+
+Es werden erneut die Werte aus \autoref{tab:werte_eckig_beidseitig} genommen.
+Damit ergibt sich dann der Plot in \autoref{fig:zweiseitg_eckig_plot}.
+
+\begin{align}
+    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
+    b &= 0.00007 \pm \SI{0.00008}{\meter}
+\end{align}
+
+Wie zuvor wird \autoref{eq:e} verwendet, um den Elastizitätsmodul zu berechnen, damit ergibt sich $E_\text{links} = 201 \pm \SI{20}{\giga\pascal}$.
 
 \subsection{Biegung eines beidseitig eingespannten zylindrischen Stabes}
 \label{Biegung eines beidseitig eingespannten zylindrischen Stabes}

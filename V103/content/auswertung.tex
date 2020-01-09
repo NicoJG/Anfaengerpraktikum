@@ -46,26 +46,54 @@ $\Delta x$ ist als die Differenz von $D_0$ und $D_m$ definiert, gibt also die ei
 Zunächst muss die Dichte $\rho$ des benutzten Stabs mithilfe von $\rho = m/\pi R^2 L$ berechnet werden. 
 Die Stange besitzt insgesamt die Länge $L_\text{gesamt} = \SI{0.55}{\meter}$ und die Masse $m_1$ = $\SI{0.1213}{\kilo\gram}$. 
 Der Radius beträgt $R$ = $\SI{5}{\milli\meter}$, somit ergibt sich die Dichte $\rho = \SI{2808.07}{\kilogram \per \cubic\meter}$.
-
-Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $x$ aufgetragen.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plot_einseitig_rund.pdf}
-    \caption{Graph der Werte aus \autoref{tab:einseitig_rund}}
-    \label{fig:einseitig_rund_plot}
-\end{figure}
-
-Außerdem wurde ein Curve Fit mit SciPy \cite{scipy} und der Funktion aus \autoref{eq:durchbiegung_einseitig} durchgeführt. 
-Wobei die folgenden Werte verwendet wurden. 
-$F=mg$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt wird, wobei $g=\SI{9.81}{\meter\per\second\squared}$ die Erdbeschleunigung ist.\cite{physics_constants} 
+$F=mg$ ist die Kraft mit der das Gewicht die Stange nach unten verbiegt, wobei $g=\SI{9.81}{\meter\per\second\squared}$ die Erdbeschleunigung ist.\cite{physics_constants} 
 $L$ ist die Länge der Stange vom Einspannungspunkt aus gemssen, also nicht die gesamte Länge. $R$ ist der Radius der Querschnittsfläche und $I$ ist das Flächenträgheitsmoment, das sich aus \autoref{eq:flächentragheitsmoment} ergibt. 
 Im Falle eines Kreises ist das Flächenträgheitsmoment
 \begin{equation}
     I_\text{Kreis} = \frac{\pi}{4} \cdot R^4. \: \text{\cite{flaechentraegheitsmomente}}
     \label{eq:flächentragheitsmoment_kreis}
 \end{equation}
-Da nicht anzunehmen ist, dass der Stab an jeder Stelle den gleichen Durchmesser $2R$ besitzt, wurde an zehn Stellen der Durchmesser gemessen, die Werte weichen nur sehr geringfügig ab. In \autoref{tab:werte_rund_einseitig} wurde der gemittelte Wert für $R$ eingetragen.
+Da nicht anzunehmen ist, dass der Stab an jeder Stelle den gleichen Durchmesser $2R$ besitzt, wurde an zehn Stellen der Durchmesser gemessen, die Messungen sind nachfolgend notiert.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Werte für R}
+  \label{tab:werte_rund_einseitig}
+  \begin{tabular}{c}
+    \toprule 
+    \tableSI{2R}{\meter} \\ 
+    \midrule 
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0105 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mithilfer der Mittelwertsformel
+\begin{equation}
+    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+    \label{eq:mittel}
+\end{equation}
+und der Formel für die Abweichung des Mittelwertes
+\begin{equation}
+    \Delta\bar{x} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i - \bar{x})^2}
+    \label{eq:mittelab}
+\end{equation}
+wird der Wert für $R$ bestimmt.
+Es ergibt sich
+\begin{equation}
+    R = 0.00502 \pm \SI{0.00008}{\meter}
+\end{equation}
+Da die Abweichung kaum einen Einfluss hat, wird sie in allen folgenden Rechnungen nicht weiter beachtet.
+In \autoref{tab:werte_rund_einseitig} wurde der gemittelte Wert für $R$, sowie alle anderen für den Curve Fit benötigten Werte eingetragen. 
 
 \begin{table}
   \centering
@@ -78,7 +106,16 @@ Da nicht anzunehmen ist, dass der Stab an jeder Stelle den gleichen Durchmesser 
      7,332 & 0,450 & 0,005 & $4,910 \cdot 10^{-10}$\\
     \bottomrule
   \end{tabular}
-\end{table}  
+\end{table}
+
+Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $x$ aufgetragen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_einseitig_rund.pdf}
+    \caption{Graph der Werte aus \autoref{tab:einseitig_rund}}
+    \label{fig:einseitig_rund_plot}
+\end{figure}
 
 Aus der Ausgleichskurve wird der Parameter $E$ bestimmt. Für diesen ergibt sich dann
 \begin{equation}
@@ -120,25 +157,45 @@ Genau wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen St
 
 Die Berechnung von $E$ wird hier genau so durchgeführt wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes}. 
 Im Folgenden sind alle notwendigen Werte aufgelistet, die für die Berechnung nötig sind. Die Gesamtlänge $L_\text{gesamt}$ des rechteckigen Stabes beträgt $L_\text{gesamt} = \SI{0.6000}{\meter}$, mit einer Masse $m = \SI{0.5023}{\kilogram}$. 
-Die Querschnittsfläche ist ein Quadrat, sodass die Seitenlänge $R = \SI{0.0100}{\meter}$ an allen Seiten gleich ist. Aus diesem Informationen kann die Dichte der Stange mit $\rho = m/R^2L_\text{gesamt}$ bestimmt werden. 
-Dafür wird exakt wie in \autoref{sec:Biegung eines einseitig eingespannten zylindrischen Stabes} vorgegangen. 
+Die Querschnittsfläche ist ein Quadrat, sodass die Seitenlänge $R = \SI{0.0100}{\meter}$ an allen Seiten gleich ist.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Werte für R}
+  \label{tab:werte_rund_einseitig}
+  \begin{tabular}{c}
+    \toprule 
+    \tableSI{R}{\meter} \\ 
+    \midrule 
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0100 \\
+     0.0105 \\
+     0.0105 \\
+     0.0105 \\
+     0.0105 \\
+     0.0100 \\
+     0.0105 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mit den Formeln \autoref{eq:mittel} und \autoref{eq:mittelab} wird erneut ein Wert für $R$ gemittelt und die Abweichung bestimmt. Für $R$ ergibt sich dann
+\begin{equation}
+    R = 0.0102 \pm \SI{0.0003}{\meter}
+\end{equation} 
+
+
+Die Dichte der Stange mit wird mit $\rho = m/R^2L_\text{gesamt}$ bestimmt. 
 Es ergibt sich die Dichte $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$.
-Wie zuvor wird nun $E$ bestimmt. 
-Zunächst werden die Ergebnisse geplottet und mit SciPy und Curve Fit ergänzt. \cite{scipy}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plot_einseitig_eckig.pdf}
-    \caption{Graph der Werte aus \autoref{tab:einseitig_eckig}}
-    \label{fig:einseitig_eckig_plot}
-\end{figure}
-
 Da die Querschnittsfläche dieser Stange ein Quadrat ist, muss das Flächenträgheitsmoment $I$ nun mit 
 
 \begin{equation}
     I_\text{Quadtrat} = \frac{R^4}{12}
     \label{eq:flächentragheitsmoment_quadrat}
 \end{equation} 
+
 berechnet werden. \cite{flaechentraegheitsmomente}
 Damit ergeben sich erneut alle Werte, die zur Berechnung von $E$ und zum Erstellen des Plots gebraucht werden. 
 Diese sind in \autoref{tab:werte_eckig_einseitig} aufgelistet.
@@ -154,7 +211,22 @@ Diese sind in \autoref{tab:werte_eckig_einseitig} aufgelistet.
      11,85 & 0,446 & 0,01 & $8,33 \cdot 10^{-10}$\\
     \bottomrule
   \end{tabular}
-\end{table} 
+\end{table}
+
+Wie zuvor wird nun $E$ mit Curve Fit bestimmt, dafür wurde die Funktion 
+
+\begin{equation}
+    D(x) = \frac{F}{2EI} \left( Lx^2 - \frac{x^3}{3} \right)
+\end{equation}
+
+verwendet, der Plot ist in \autoref {fig:einseitig_eckig_plot} aufgetragen. \cite{scipy}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_einseitig_eckig.pdf}
+    \caption{Graph der Werte aus \autoref{tab:einseitig_eckig}}
+    \label{fig:einseitig_eckig_plot}
+\end{figure}
 
 Für $E$ ergibt sich dann durch die Ausgleichskurve der Elastizitätsmodul
 \begin{equation}
@@ -215,7 +287,7 @@ Für die rechteckige Stange beträgt $L = \SI{0.555}{\meter}$, wobei $L$ der Abs
     }
 \end{table}
 
-Für diesen Teil des Experimentes wurde die Stange aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} erneut genutzt. 
+Für diesen Teil des Experimentes wurde die Stange aus \autoref{sec:Biegung eines einseitig eingespannten rechteckigen Stabes} erneut genutzt, Dichte und Kantenlänge bleiben also gleich. 
 Die Dichte wurde bereits bestimmt und beträgt $\rho = \SI{8371.67}{\kilogram \per \cubic\meter}$. 
 Mithilfe von \autoref{eq:durchbiegung_beidseitig} lässt sich eine Curve Fit Funktion mit Scipy aufstellen, sodass $E$ bestimmt werden kann. 
 Die Werte aus \autoref{tab:werte_eckig_beidseitig} werden für das Aufstellen der Funktion benötigt. 

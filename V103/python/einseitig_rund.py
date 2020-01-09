@@ -53,6 +53,6 @@ plt.savefig('build/plot_einseitig_rund.pdf')
 #print('E1:',E*10**(-9))
 #print('Fehler von E1',E_err*10**(-9))
 
-r = np.array([0.01,0.01,0.01,0.01,0.0105,0.0105,0.0105,0.0105,0.01,0.01,])
+r = np.array([0.01,0.01,0.01,0.01,0.0105,0.0105,0.010,0.010,0.01,0.01])
 print("Mittelwert: ", np.mean(r))
 print("Abweichung: ", np.std(r,ddof=1))

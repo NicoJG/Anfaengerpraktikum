@@ -330,6 +330,15 @@ Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
     b &= -0.00033 \pm \SI{0.00004}{\meter}
 \end{align}
 
+Durch den Curve Fit ergibt sich der Plot \autoref{}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig_links.pdf}
+    \caption{Graph der Werte links von \frac{L}{2}}
+    \label{fig:zweiseitg_rund_plot_links}
+\end{figure}
+
 Über die Beziehung 
 
 \begin{equation}
@@ -338,6 +347,7 @@ Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
 \end{equation}
 
 ergibt sich der Wert für den Elastizitätsmodul $E_\text{links} = 152 \pm \SI{6}{\giga\pascal}$.
+
 Der Fit für die rechte Seite wird auch mit der Funktion
 
 \begin{equation}
@@ -352,8 +362,9 @@ durchgeführt, wobei hier
     x =& 4x^3 - 12Lx^2 + 9L^2x - L^3.
 \end{align}
 
-Es werden erneut die Werte aus \autoref{tab:werte_eckig_beidseitig} genommen.
-Damit ergibt sich dann der Plot in \autoref{fig:zweiseitg_eckig_plot}.
+Die Werte werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
+Aus \autoref{tab:beidseitig_eckig} werden alle Auslenkungen $x > \frac{L}{2}$ verwendet.
+Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus.
 
 \begin{align}
     a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
@@ -361,6 +372,10 @@ Damit ergibt sich dann der Plot in \autoref{fig:zweiseitg_eckig_plot}.
 \end{align}
 
 Wie zuvor wird \autoref{eq:e} verwendet, um den Elastizitätsmodul zu berechnen, damit ergibt sich $E_\text{links} = 201 \pm \SI{20}{\giga\pascal}$.
+Über die Mittelwertsformel \autoref{eq:mittel} und die Mittelwertsabweichung \autoref{eq:mittelab} wird ein Wert für $E$ gemittelt.
+Mittelwert und Abweichung von $E$ betragen $E = $
+
+
 
 \subsection{Biegung eines beidseitig eingespannten zylindrischen Stabes}
 \label{Biegung eines beidseitig eingespannten zylindrischen Stabes}

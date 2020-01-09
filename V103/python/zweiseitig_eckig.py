@@ -3,6 +3,7 @@ import numpy as np
 import json
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
+from scipy import stats
 
 F = 4.7188 * 9.81 #Gewichtskraft
 L = 0.555 #Meter
@@ -138,3 +139,8 @@ print('E3 links[GP]: ',E_links*10**(-9))
 print('a rechts: ',a_rechts_ufloat)
 print('b rechts: ',b_rechts,'+-',b_rechts_err)
 print('E3 rechts[GP]: ',E_rechts*10**(-9))
+
+# gemittelt
+E_gemittelt = (E_rechts+E_links)/2
+
+print('E3 gemittelt[GP]: ',E_gemittelt*10**(-9))

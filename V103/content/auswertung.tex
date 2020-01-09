@@ -77,7 +77,7 @@ Da nicht anzunehmen ist, dass der Stab an jeder Stelle den gleichen Durchmesser 
   \end{tabular}
 \end{table}
 
-Mithilfer der Mittelwertsformel
+Mithilfe der Mittelwertsformel
 \begin{equation}
     \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
     \label{eq:mittel}
@@ -90,7 +90,7 @@ und der Formel für die Abweichung des Mittelwertes
 wird der Wert für $R$ bestimmt.
 Es ergibt sich
 \begin{equation}
-    R = 0.00502 \pm \SI{0.00008}{\meter}
+    R = 0.00502 \pm \SI{0.00008}{\meter}.
 \end{equation}
 Da die Abweichung kaum einen Einfluss hat, wird sie in allen folgenden Rechnungen nicht weiter beachtet.
 In \autoref{tab:werte_rund_einseitig} wurde der gemittelte Wert für $R$, sowie alle anderen für den Curve Fit benötigten Werte eingetragen. 
@@ -108,7 +108,7 @@ In \autoref{tab:werte_rund_einseitig} wurde der gemittelte Wert für $R$, sowie 
   \end{tabular}
 \end{table}
 
-Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $x$ aufgetragen.
+Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $Lx^2 - \frac{x^3}{3}$ aufgetragen.
 
 \begin{figure}
     \centering
@@ -117,7 +117,11 @@ Für die Bestimmung des Elastizitätsmoduls wird $\Delta x$ gegen $x$ aufgetrage
     \label{fig:einseitig_rund_plot}
 \end{figure}
 
-Aus der Ausgleichskurve wird der Parameter $E$ bestimmt. Für diesen ergibt sich dann
+Aus der Ausgleichskurve wird der Parameter $E$ über
+\begin{equation}
+    D(x) = \frac{F}{2EI} \left( Lx^2 - \frac{x^3}{3} \right)
+\end{equation}
+bestimmt. Für diesen ergibt sich dann
 \begin{equation}
     E = 70,40 \pm \SI{0.36}{\giga\pascal}.
     \label{eq:E_einseitig_rund}
@@ -306,7 +310,7 @@ Die Erdbeschleunigung ist durch die Konstante $g=\SI{9.81}{\meter\per\second\squ
 \end{table} 
  
 Die Werte aus \autoref{tab:werte_eckig_beidseitig} werden für das Aufstellen der Funktion benötigt.
-In diesem Fall müssen zwei Fits durchgeführt werden, da die Funktion mit der, Fit gemacht werden muss, zweigeteilt ist.
+In diesem Fall müssen zwei Fits durchgeführt werden, da die Funktion, mit der der Fit gemacht werden muss, zweigeteilt ist.
 Für die linke Seite wird der Fit mit der Funktion
 
 \begin{equation}
@@ -323,14 +327,13 @@ durchgeführt, wobei
 
 Als nötigen Werte werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
 Aus \autoref{tab:beidseitig_eckig} werden alle Auslenkungen $x < \frac{L}{2}$ verwendet.
-Der Curve Fit gibt die beiden Parameter $a$ und $b$ aus.
-
+Der Curve Fit gibt die beiden Parameter $a$ und $b$
 \begin{align}
     a &= 0.0076 \pm \SI{0.0003}{\per \meter\squared}\\
-    b &= -0.00033 \pm \SI{0.00004}{\meter}
+    b &= -0.00033 \pm \SI{0.00004}{\meter}.
 \end{align}
 
-Durch den Curve Fit ergibt sich der Plot \autoref{fig:zweiseitg_rund_plot_links}
+Durch den Curve Fit ergibt sich der Plot \autoref{fig:zweiseitg_rund_plot_links}.
 
 \begin{figure}
     \centering
@@ -355,7 +358,7 @@ Der Fit für die rechte Seite wird auch mit der Funktion
     \label{eq:durchbiegung_beidseitig2}
 \end{equation} 
 
-durchgeführt, wobei hier 
+durchgeführt, wobei hier folgende Definition verwendet wird 
 
 \begin{align}
     a =& \frac{F}{48EI} \\
@@ -367,14 +370,14 @@ Aus \autoref{tab:beidseitig_eckig} werden alle Auslenkungen $x > \frac{L}{2}$ ve
 Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus und erzeugt den Plot \autoref{fig:zweiseitg_eckig_plot_rechts}.
 
 \begin{align}
-    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
+    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}\\
     b &= 0.00007 \pm \SI{0.00008}{\meter}
 \end{align}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_zweiseitig_eckig_rechts.pdf}
-    \caption{Graph der Werte links von $\frac{L}{2}$.}
+    \caption{Graph der Werte rechts von $\frac{L}{2}$.}
     \label{fig:zweiseitg_eckig_plot_rechts}
 \end{figure}
 
@@ -513,7 +516,7 @@ Der Plot mit der Ausgleichsgeraden ist in \autoref{fig:zweiseitg_rund_plot_links
 
 Über den bereits bekannten Zusammenhang \autoref{eq:e} wird der Elastizitätsmodul $E$ berechnet, $E_\text{links} = 155 \pm \SI{9}{\giga\pascal}$.
 
-Die Auswertung der rechten wird erneut mit einem Curve Fit der Funktion
+Die Auswertung der rechten Seite wird erneut mit einem Curve Fit der Funktion
 
 \begin{equation}
     D(x) = a \cdot x + b \\
@@ -526,14 +529,14 @@ durchgeführt, wobei $a$ und $x$ als
     a =& \frac{F}{48EI} \\
     x =& 4x^3 - 12Lx^2 + 9L^2x - L^3
 \end{align}
-
 definiert sind.
+
 Die Werte für $x > \frac{L}{2}$ werden aus \autoref{tab:werte_eckig_beidseitig} entnommen.
 Aus \autoref{tab:beidseitig_rund} werden alle Auslenkungen $x > \frac{L}{2}$ verwendet.
 Der Curve Fit gibt wieder die beiden Parameter $a$ und $b$ aus und erzeugt den Plot \autoref{fig:zweiseitg_rund_plot_rechts}.
 
 \begin{align}
-    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared}
+    a &= 0.0058 \pm \SI{0.0006}{\per \meter\squared} \\
     b &= 0.00007 \pm \SI{0.00008}{\meter}
 \end{align}
 

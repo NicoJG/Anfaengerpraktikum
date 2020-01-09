@@ -30,11 +30,11 @@ E = params[0]
 E_err = np.absolute(pcov[0][0])**0.5
 
 
-# Plot der Daten
-plt.plot(X, D*10**3, 'o', label='Auslenkung')
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(X),np.max(X),100)
-plt.plot(x_linspace, D_fit(x_linspace,*params)*10**3, 'r-', label='Ausgleichskurve')
+plt.plot(x_linspace, D_fit(x_linspace,*params)*10**3, 'k-', label='Ausgleichsgerade')
+# Plot der Daten
+plt.plot(X, D*10**3, 'ro', label='Auslenkung')
 
 # Achsenbeschriftung
 plt.xlabel(r'$Lx^2 - \frac{x^3}{3} \:/\: \si{\cubic\meter}$')

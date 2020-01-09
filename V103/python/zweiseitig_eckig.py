@@ -50,7 +50,7 @@ E_err = np.absolute(pcov[0][0])**0.5
 
 
 # Plot der Daten
-plt.plot(x*10**(3), D*10**(3), 'rx', label='Auslenkung')
+plt.plot((3*L**2*x-4*x**3)*10**(3), D*10**(3), 'rx', label='Auslenkung')
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(x),np.max(x),100)
 plt.plot(x_linspace*10**(3), D_fit(x_linspace,*params)*10**3, 'k-', label='Ausgleichskurve')

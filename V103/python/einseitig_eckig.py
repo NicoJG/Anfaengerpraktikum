@@ -3,43 +3,41 @@ import numpy as np
 import json
 from scipy.optimize import curve_fit
 
-F = 1.2077 * 9.81 #Gewichtskraft
-L = 0.446 #Meter
-I= (0.010**4)/12 #Meter^4
 
 # Funktion für Curve Fit:
 
-def D_Theorie(x,F,E,I,L):
-    return F/(2* E * I)* (L*x**2 - (x**3)/3)
+def D_Theorie(x,E):
+    return (1.2077 * 9.81)/(2* E * ((0.010**4)/12))* x
 
 def D_fit(x,E):
-    return D_Theorie(x,F,E,I,L)
+    return D_Theorie(x,E)
 
 # Daten einlesen
 x,D0,DM = np.genfromtxt('data/einseitig_eckig.csv',delimiter=',',unpack=True)
 
 #Berechnungen
-x = x*10**(-3)
-D0 = D0*10**(-3)
-DM = DM*10**(-3)
-D= D0-DM
+x = x*10**(-3) #in meter
+D0 = D0*10**(-3) #in meter
+DM = DM*10**(-3) #meter
+D= D0-DM #meter 
 
+X = 0.446*x**2 - (x**3)/3 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(D_fit,x,D)
-a = params[0]
+params,pcov = curve_fit(D_fit,X,D)
+E = params[0]
 
 #Fehler berechnen
 E_err = np.absolute(pcov[0][0])**0.5
 
 
 # Plot der Daten
-plt.plot(x*10**(3), D*10**(3), 'rx', label='Auslenkung')
+plt.plot(X, D*10**3, 'o', label='Auslenkung')
 # Plot der Ausgleichskurve
-x_linspace = np.linspace(np.min(x),np.max(x),100)
-plt.plot(x_linspace*10**(3), D_fit(x_linspace,*params)*10**(3), 'k-', label='Ausgleichskurve')
+x_linspace = np.linspace(np.min(X),np.max(X),100)
+plt.plot(x_linspace, D_fit(x_linspace,*params)*10**3, 'r-', label='Ausgleichskurve')
 
 # Achsenbeschriftung
-plt.xlabel(r'$x \:/\: \si{\milli\meter}$')
+plt.xlabel(r'$Lx^2 - \frac{x^3}{3} \:/\: \si{\cubic\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 
 # in matplotlibrc leider (noch) nicht möglich
@@ -50,5 +48,5 @@ plt.grid(True,which="both", linestyle='--')
 # Speicherort
 plt.savefig('build/plot_einseitig_eckig.pdf')
 
-print('E2:',a*10**(-9))
+print('E2:',E*10**(-9))
 print('Fehler von E2',E_err*10**(-9))

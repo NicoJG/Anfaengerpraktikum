@@ -27,7 +27,7 @@ a = ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
 # L berechnen
-L = -a*R # J/mol
+L = -1*a*R # J/mol
 
 # La berechnen
 La = R*373 # J/mol

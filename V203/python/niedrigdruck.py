@@ -27,7 +27,13 @@ a = ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
 # L berechnen
-L = -a*R
+L = -a*R # J/mol
+
+# La berechnen
+La = R*373 # J/mol
+
+# Li berechnen
+Li = L - La
 
 # Ergebnisse laden
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
@@ -42,6 +48,9 @@ Ergebnisse['niedrigdruck']['b'] = b.n
 Ergebnisse['niedrigdruck']['b_err'] = b.s
 Ergebnisse['niedrigdruck']['L'] = L.n
 Ergebnisse['niedrigdruck']['L_err'] = L.s
+Ergebnisse['niedrigdruck']['La'] = La
+Ergebnisse['niedrigdruck']['Li'] = Li.n
+Ergebnisse['niedrigdruck']['Li_err'] = Li.s
 
 # Ergebnisse Speichern
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)

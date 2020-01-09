@@ -139,3 +139,8 @@ print('E4 links[GP]: ',E_links*10**(-9))
 print('a rechts: ',a_rechts_ufloat)
 print('b rechts: ',b_rechts,'+-',b_rechts_err)
 print('E4 rechts[GP]: ',E_rechts*10**(-9))
+
+# gemittelt
+E_gemittelt = (E_rechts+E_links)/2
+
+print('E4 gemittelt[GP]: ',E_gemittelt*10**(-9))

@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_niedrigdruck.pdf
+plots: build/plot_niedrigdruck.pdf build/plot_hochdruck.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -11,6 +11,11 @@ build/plot_niedrigdruck.pdf: python/niedrigdruck.py data/*.csv ../default/matplo
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/niedrigdruck.py
+
+build/plot_hochdruck.pdf: python/hochdruck.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/hochdruck.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

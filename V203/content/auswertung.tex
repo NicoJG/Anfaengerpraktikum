@@ -8,3 +8,149 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+Aus den gemessenen Werten in \autoref{tab:niedrigdruck_messwerte} und \autoref{tab:hochdruck_messwerte} wird nun die Verdampfungswärme von Wasser abgeschätzt.
+
+\subsection{Messung im Druckbereich unterhalb 1 bar}
+\label{sec:Auswertung_niedrigdruck}
+
+Die Durchführung wie in \autoref{sec:Durchführung_niedrigdruck} beschrieben ergab die Messwerte in \autoref{tab:niedrigdruck_messwerte}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        29 & 68 \\
+        30 & 72 \\
+        31 & 75 \\
+        32 & 77 \\
+        33 & 79 \\
+        34 & 80 \\
+        35 & 83 \\
+        36 & 86 \\
+        37 & 88 \\
+        38 & 91 \\
+        39 & 94 \\
+        40 & 97 \\
+        41 & 101 \\
+        42 & 111 \\
+        43 & 113 \\
+        44 & 115 \\
+        45 & 119 \\
+        46 & 124 \\
+        47 & 129 \\
+        48 & 133 \\
+        49 & 140 \\
+        50 & 147 \\
+        51 & 152 \\
+        52 & 159 \\
+        53 & 166 \\
+        54 & 172 \\
+        55 & 180 \\
+        56 & 188 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        57 & 195 \\
+        58 & 204 \\
+        59 & 212 \\
+        60 & 221 \\
+        61 & 229 \\
+        62 & 238 \\
+        63 & 249 \\
+        64 & 258 \\
+        65 & 269 \\
+        66 & 276 \\
+        67 & 289 \\
+        68 & 299 \\
+        69 & 304 \\
+        70 & 315 \\
+        71 & 330 \\
+        72 & 342 \\
+        73 & 355 \\
+        74 & 366 \\
+        75 & 379 \\
+        76 & 394 \\
+        77 & 405 \\
+        78 & 419 \\
+        79 & 430 \\
+        80 & 447 \\
+        82 & 477 \\
+        84 & 502 \\
+        85 & 516 \\
+        86 & 527 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        87 & 539 \\
+        88 & 552 \\
+        89 & 565 \\
+        90 & 580 \\
+        91 & 595 \\
+        92 & 611 \\
+        93 & 623 \\
+        94 & 643 \\
+        95 & 651 \\
+        96 & 665 \\
+        97 & 681 \\
+        98 & 690 \\
+        99 & 702 \\
+        100 & 720 \\
+        101 & 733 \\
+        102 & 749 \\
+        103 & 770 \\
+        104 & 786 \\
+        105 & 809 \\
+        106 & 831 \\
+        107 & 857 \\
+        108 & 874 \\
+        109 & 910 \\
+        110 & 940 \\
+        111 & 970 \\
+        112 & 996 \\
+        & \\
+        & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messwerte im Druckbereich unterhalb \SI{1}{bar}}
+    \label{tab:niedrigdruck_messwerte}
+\end{table}
+
+Mithilfe dieser Messwerte wird nun ein Plot angefertig, in dem, auf Grundlage von \autoref{eq:druck}, $\ln(p)$ gegen $1/T$ aufgetragen wird.
+Dieser Plot ist in \autoref{fig:plot_niedrigdruck} zu sehen.
+
+Dann wird mit der Gleichung
+\begin{equation}
+    \ln(p) = \frac{a}{T} + b
+\end{equation}
+und der Python Bibliothek SciPy eine Ausgleichsgerade für die Parameter $a$ und $b$ erstellt.\cite{scipy} Hierdurch ergeben sich die Parameter
+\begin{align*}
+    a =& \SI{-881+-21}{\kelvin} \\
+    b =& \SI{14.40+-0.06}{}.
+    \label{eq:niedrigdruck_parameter}
+\end{align*}
+
+Nach \autoref{eq:Druck} wird nun die Verdampfungswärme $L$ über
+\begin{equation}
+    L = -R \cdot a
+\end{equation}
+berechnet und ergibt
+\begin{equation*}
+    L = \SI{7327+-177}{\joule\per\mol}.
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_niedrigdruck.pdf}
+    \caption{Plot des Messergebnisses im Niedrigdruckbereich mit dem Druck $p$ und der Temperatur $T$}
+    \label{fig:plot_niedrigdruck}
+\end{figure}
+

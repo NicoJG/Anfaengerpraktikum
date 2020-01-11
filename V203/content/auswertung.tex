@@ -11,6 +11,7 @@
 
 Aus den gemessenen Werten in \autoref{tab:niedrigdruck_messwerte} und \autoref{tab:hochdruck_messwerte} wird nun die Verdampfungswärme von Wasser abgeschätzt.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Messung im Druckbereich unterhalb 1 bar}
 \label{sec:Auswertung_niedrigdruck}
 
@@ -144,8 +145,9 @@ Nach \autoref{eq:Druck} wird nun die Verdampfungswärme $L$ über
 \end{equation}
 berechnet und ergibt
 \begin{equation*}
-    L = \SI{7327+-177}{\joule\per\mol}.
+    L = \SI{7327+-177}{\joule\per\mol}
 \end{equation*}
+wobei $R=\SI{8.314}{\joule\per\mol\kelvin}$ die allgemeine Gaskonstante ist.\cite{physics_constants}
 
 \begin{figure}
     \centering
@@ -154,3 +156,29 @@ berechnet und ergibt
     \label{fig:plot_niedrigdruck}
 \end{figure}
 
+Um nun die innere Verdampfungswärme $L_\text{i}$, also die benötigte Arbeit um bei der Verdampfung die Anziehungskräfte der Teilchen zu überwinden, bei einer Temperatur $T=373$ abschätzen zu können wird
+\begin{equation}
+    L_\text{i} = L - L_\text{a}
+\end{equation}
+verwendet. 
+Hier ist $L_\text{a}$ die äußere Verdampfungswärme, also die Arbeit, die benötigt wird um das Volumen im flüssigen Zustand auf das Volumen um gasförmigen Zustand auszudehnen.\cite{V203}
+
+Diese Arbeit entspricht $pV$ und ergibt über die Allgemeine Gasgleichung
+\begin{equation*}
+    L_\text{a} = R \cdot T = \SI{3101.122}{\joule\per\mol}.
+\end{equation*}
+
+Hieraus ergibt sich die innere Verdampfungswärme
+\begin{equation*}
+    L_\text{i} = \SI{4226+-176}{\joule\per\mol}.
+\end{equation*}
+Um diese Größe besser darstellen zu können wird pro Molekül und in Elektronenvolt angegeben.
+Diese Umrechnung geschieht mit der Avogadrokonstante $N_\text{a} = \SI{6.022e23}{\per\mol}$ und dem Elektronenvolt $1 eV = \SI{1.602e-19}{\joule}$ und ergibt
+\begin{equation*}
+    L_\text{i} = \SI{0.044+-0.002}{\electronvolt}. \: \text{\cite{physics_constants}}
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Messung im Druckbereich oberhalb 1 bar}
+\label{sec:Auswertung_hochdruck}

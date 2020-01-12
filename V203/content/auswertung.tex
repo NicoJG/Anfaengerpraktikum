@@ -11,6 +11,13 @@
 
 Aus den gemessenen Werten in \autoref{tab:niedrigdruck_messwerte} und \autoref{tab:hochdruck_messwerte} wird nun die Verdampfungswärme von Wasser abgeschätzt.
 
+Zur Fehlerfortpflanzung wird 
+\begin{equation}
+    \Delta y = \sum_{i=1}^n \left| \frac{\delta f(x_1,...,x_n)}{\delta x_i} \right| \Delta x_i
+    \label{eq:fehlerrechnung}
+\end{equation}
+bzw. die Python Bibliothek Uncertainties verwendet.\cite{uncertainties}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Messung im Druckbereich unterhalb 1 bar}
 \label{sec:Auswertung_niedrigdruck}

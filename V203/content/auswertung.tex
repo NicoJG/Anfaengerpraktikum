@@ -8,3 +8,295 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+Aus den gemessenen Werten in \autoref{tab:niedrigdruck_messwerte} und \autoref{tab:hochdruck_messwerte} wird nun die Verdampfungswärme von Wasser abgeschätzt.
+
+Zur Fehlerfortpflanzung wird 
+\begin{equation}
+    \Delta y = \sum_{i=1}^n \left| \frac{\delta f(x_1,...,x_n)}{\delta x_i} \right| \Delta x_i
+    \label{eq:fehlerrechnung}
+\end{equation}
+bzw. die Python Bibliothek Uncertainties verwendet.\cite{uncertainties}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Messung im Druckbereich unterhalb 1 bar}
+\label{sec:Auswertung_niedrigdruck}
+
+Die Durchführung wie in \autoref{sec:Durchführung_niedrigdruck} beschrieben ergab die Messwerte in \autoref{tab:niedrigdruck_messwerte}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        29 & 68 \\
+        30 & 72 \\
+        31 & 75 \\
+        32 & 77 \\
+        33 & 79 \\
+        34 & 80 \\
+        35 & 83 \\
+        36 & 86 \\
+        37 & 88 \\
+        38 & 91 \\
+        39 & 94 \\
+        40 & 97 \\
+        41 & 101 \\
+        42 & 111 \\
+        43 & 113 \\
+        44 & 115 \\
+        45 & 119 \\
+        46 & 124 \\
+        47 & 129 \\
+        48 & 133 \\
+        49 & 140 \\
+        50 & 147 \\
+        51 & 152 \\
+        52 & 159 \\
+        53 & 166 \\
+        54 & 172 \\
+        55 & 180 \\
+        56 & 188 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        57 & 195 \\
+        58 & 204 \\
+        59 & 212 \\
+        60 & 221 \\
+        61 & 229 \\
+        62 & 238 \\
+        63 & 249 \\
+        64 & 258 \\
+        65 & 269 \\
+        66 & 276 \\
+        67 & 289 \\
+        68 & 299 \\
+        69 & 304 \\
+        70 & 315 \\
+        71 & 330 \\
+        72 & 342 \\
+        73 & 355 \\
+        74 & 366 \\
+        75 & 379 \\
+        76 & 394 \\
+        77 & 405 \\
+        78 & 419 \\
+        79 & 430 \\
+        80 & 447 \\
+        82 & 477 \\
+        84 & 502 \\
+        85 & 516 \\
+        86 & 527 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\milli\bar} \\
+        \midrule
+        87 & 539 \\
+        88 & 552 \\
+        89 & 565 \\
+        90 & 580 \\
+        91 & 595 \\
+        92 & 611 \\
+        93 & 623 \\
+        94 & 643 \\
+        95 & 651 \\
+        96 & 665 \\
+        97 & 681 \\
+        98 & 690 \\
+        99 & 702 \\
+        100 & 720 \\
+        101 & 733 \\
+        102 & 749 \\
+        103 & 770 \\
+        104 & 786 \\
+        105 & 809 \\
+        106 & 831 \\
+        107 & 857 \\
+        108 & 874 \\
+        109 & 910 \\
+        110 & 940 \\
+        111 & 970 \\
+        112 & 996 \\
+        & \\
+        & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messwerte im Druckbereich unterhalb \SI{1}{bar}}
+    \label{tab:niedrigdruck_messwerte}
+\end{table}
+
+Mithilfe dieser Messwerte wird nun ein Plot angefertig, in dem, auf Grundlage von \autoref{eq:druck}, $\ln(p)$ gegen $1/T$ aufgetragen wird.
+Dieser Plot ist in \autoref{fig:plot_niedrigdruck} zu sehen.
+
+Dann wird mit der Gleichung
+\begin{equation}
+    \ln(p) = \frac{a}{T} + b
+\end{equation}
+und der Funktion curve\_fit aus der Python Bibliothek SciPy eine Ausgleichsgerade für die Parameter $a$ und $b$ erstellt.\cite{scipy} Hierdurch ergeben sich die Parameter
+\begin{align*}
+    a =& \SI{-881+-21}{\kelvin} \\
+    b =& \SI{14.40+-0.06}{}.
+    \label{eq:niedrigdruck_parameter}
+\end{align*}
+
+Nach \autoref{eq:Druck} wird nun die Verdampfungswärme $L$ über
+\begin{equation}
+    L = -R \cdot a
+\end{equation}
+berechnet und ergibt
+\begin{equation*}
+    L = \SI{7327+-177}{\joule\per\mol}
+\end{equation*}
+wobei $R=\SI{8.314}{\joule\per\mol\kelvin}$ die allgemeine Gaskonstante ist.\cite{physics_constants}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_niedrigdruck.pdf}
+    \caption{Plot des Messergebnisses im Niedrigdruckbereich mit dem Druck $p$ und der Temperatur $T$}
+    \label{fig:plot_niedrigdruck}
+\end{figure}
+
+Um nun die innere Verdampfungswärme $L_\text{i}$, also die benötigte Arbeit um bei der Verdampfung die Anziehungskräfte der Teilchen zu überwinden, bei einer Temperatur $T=373$ abschätzen zu können wird
+\begin{equation}
+    L_\text{i} = L - L_\text{a}
+\end{equation}
+verwendet. 
+Hier ist $L_\text{a}$ die äußere Verdampfungswärme, also die Arbeit, die benötigt wird um das Volumen im flüssigen Zustand auf das Volumen um gasförmigen Zustand auszudehnen.\cite{V203}
+
+Diese Arbeit entspricht $pV$ und ergibt über die Allgemeine Gasgleichung
+\begin{equation*}
+    L_\text{a} = R \cdot T = \SI{3101.122}{\joule\per\mol}.
+\end{equation*}
+
+Hieraus ergibt sich die innere Verdampfungswärme
+\begin{equation*}
+    L_\text{i} = \SI{4226+-176}{\joule\per\mol}.
+\end{equation*}
+Um diese Größe besser darstellen zu können wird pro Molekül und in Elektronenvolt angegeben.
+Diese Umrechnung geschieht mit der Avogadrokonstante $N_\text{a} = \SI{6.022e23}{\per\mol}$ und dem Elektronenvolt $1 eV = \SI{1.602e-19}{\joule}$ und ergibt
+\begin{equation*}
+    L_\text{i} = \SI{0.044+-0.002}{\electronvolt}. \: \text{\cite{physics_constants}}
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Messung im Druckbereich oberhalb 1 bar}
+\label{sec:Auswertung_hochdruck}
+
+Die Messung im Hochdruckbereich, wie in \autoref{sec:Durchführung_hochdruck} beschrieben, ergab die Messergebnisse in \autoref{tab:hochdruck_messwerte}.
+Aus diesen Werten wird nun eine Abhängigkeit der Verdampfungswärme zur Temperatur bestimmt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.1]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\bar} \\
+        \midrule
+        103 & 0.5 \\
+        118 & 1.0 \\
+        125 & 1.5 \\
+        130 & 2.0 \\
+        136 & 2.5 \\
+        141 & 3.0 \\
+        145 & 3.5 \\
+        149 & 4.0 \\
+        153 & 4.5 \\
+        156 & 5.0 \\
+        159 & 5.5 \\
+        162 & 6.0 \\
+        164 & 6.5 \\
+        167 & 7.0 \\
+        170 & 7.5 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.1]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\bar} \\
+        \midrule
+        172 & 8.0 \\
+        174 & 8.5 \\
+        176 & 9.0 \\
+        178 & 9.5 \\
+        180 & 10.0 \\
+        182 & 10.5 \\
+        184 & 11.0 \\
+        186 & 11.5 \\
+        188 & 12.0 \\
+        189 & 12.5 \\
+        190 & 13.0 \\
+        192 & 13.5 \\
+        193 & 14.0 \\
+        195 & 14.5 \\
+        197 & 15.0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messergebnisse im Hochdruckbereich}
+    \label{tab:hochdruck_messwerte}
+\end{table}
+
+Dafür wird zunächst aus den Messwerten ein Plot angefertigt und mit
+\begin{equation}
+    p = a \cdot T^3 + b \cdot T^2 + c \cdot T + d
+    \label{eq:hochdruck_fit}
+\end{equation}
+und der Funktion curve\_fit aus der Python Bibliothek ScyPi eine Ausgleichskurve erstellt.\cite{scipy}
+Der Plot ist in \autoref{fig:plot_hochdruck} zu sehen.
+Hier ergeben sich die Parameter
+\begin{align*}
+    a =& \SI{0.8+-0.1}{\pascal\per\kelvin\cubed} \\
+    b =& \SI{-862+-130}{\pascal\per\kelvin\squared} \\
+    c =& \SI{3.1+-0.6e5}{\pascal\per\kelvin} \\
+    d =& \SI{-3.7+-0.8e7}{\pascal}.
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_hochdruck.pdf}
+    \caption{Plot des Messergebnisses im Hochdruckbereich mit dem Druck $p$ und der Temperatur $T$}
+    \label{fig:plot_hochdruck}
+\end{figure}
+
+Die Abhängigkeit der Verdampfungswärme zur Temperatur ergibt sich über \autoref{eq:clapeyron} zu
+\begin{equation}
+    L = (V_\text{D}-V_\text{F}) \cdot T \cdot \frac{\dif{p}}{\dif{T}}.
+    \label{eq:hochdruck_ergebnis}
+\end{equation}
+Hierbei ergibt sich $\dif{p}/\dif{T}$ aus \autoref{eq:hochdruck_fit} zu
+\begin{equation}
+    \frac{\dif{p}}{\dif{T}} = 3 \cdot a \cdot T^2 + 2 \cdot b \cdot T + c.
+    \label{eq:ableitung}
+\end{equation}
+
+Wie auch in der Theorie beschrieben kann $V_\text{F}$ vernachlässigt werden. 
+Nun muss allerdings $V_\text{D}$ über eine Erweiterung der idealen Gasgleichung
+\begin{equation}
+    \left( p + \frac{A}{V^2} \right) \cdot V = R \cdot T
+\end{equation}
+mit $A = \SI{0.9}{\joule\meter\cubed\per\mol\squared}$ bestimmt werden und ergibt die zwei Lösungen
+\begin{equation}
+    V_{\text{D},\pm} = \frac{R \cdot T}{2 \cdot p} \pm \sqrt{\frac{R^2 \cdot T^2}{4 \cdot p^2} - \frac{A}{p}}
+\end{equation}
+wobei für $p$ \autoref{eq:hochdruck_fit} verwendet wird.
+
+\autoref{fig:plot_hochdruck_plus} und \autoref{fig:plot_hochdruck_minus} zeigen \autoref{eq:hochdruck_ergebnis} eingesetzt mit allen benannten Werten und Gleichungen.
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot_hochdruck_plus.pdf}
+    \caption{Plot der Temperaturabhängigkeit im Falle von $V_{\text{D},+}$}
+    \label{fig:plot_hochdruck_plus}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot_hochdruck_minus.pdf}
+    \caption{Plot der Temperaturabhängigkeit im Falle von $V_{\text{D},-}$}
+    \label{fig:plot_hochdruck_minus}
+\end{figure}

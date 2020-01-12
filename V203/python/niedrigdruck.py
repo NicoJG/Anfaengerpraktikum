@@ -27,7 +27,18 @@ a = ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
 # L berechnen
-L = -a*R
+L = -1*a*R # J/mol
+
+# La berechnen
+La = R*373 # J/mol
+
+# Li berechnen
+Li = L - La # J/mol
+
+# Li in eV umrechnen
+Avogadro = 6.02214*10**(23) # 1/mol
+eV = 1.60218*10**(-19) # J 
+LieV = Li/(Avogadro * eV)
 
 # Ergebnisse laden
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
@@ -42,6 +53,11 @@ Ergebnisse['niedrigdruck']['b'] = b.n
 Ergebnisse['niedrigdruck']['b_err'] = b.s
 Ergebnisse['niedrigdruck']['L'] = L.n
 Ergebnisse['niedrigdruck']['L_err'] = L.s
+Ergebnisse['niedrigdruck']['La'] = La
+Ergebnisse['niedrigdruck']['Li'] = Li.n
+Ergebnisse['niedrigdruck']['Li_err'] = Li.s
+Ergebnisse['niedrigdruck']['LieV'] = LieV.n
+Ergebnisse['niedrigdruck']['LieV_err'] = LieV.s
 
 # Ergebnisse Speichern
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)

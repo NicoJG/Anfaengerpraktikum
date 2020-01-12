@@ -88,12 +88,12 @@ E_rechts = F/(48* a_rechts_ufloat * I)
 ###########################
 #linker Plot
 
-# Plot der Daten
-plt.plot(x_links, D_links*10**(3), 'ro', label='gemessene Auslenkung')
 
 # Plot der Ausgleichskurve
 x_links_linspace = np.linspace(np.min(x_links),np.max(x_links),100)
-plt.plot(x_links_linspace, D_gerade(x_links_linspace,*params_links)*10**3, 'g-', label='Ausgleichsgerade')
+plt.plot(x_links_linspace, D_gerade(x_links_linspace,*params_links)*10**3, 'k-', label='Ausgleichsgerade')
+# Plot der Daten
+plt.plot(x_links, D_links*10**(3), 'ro', label='gemessene Auslenkung')
 
 
 # Achsenbeschriftung
@@ -113,12 +113,12 @@ plt.clf()
 ###########################
 #rechter Plot
 
+# Plot der Ausgleichskurve
+x_rechts_linspace = np.linspace(np.min(x_rechts),np.max(x_rechts),100)
+plt.plot(x_rechts_linspace, D_gerade(x_rechts_linspace,*params_rechts)*10**3, 'k-', label='Ausgleichsgerade')
 # Plot der Daten
 plt.plot(x_rechts, D_rechts*10**(3), 'ro', label='gemessene Auslenkung')
 
-# Plot der Ausgleichskurve
-x_rechts_linspace = np.linspace(np.min(x_rechts),np.max(x_rechts),100)
-plt.plot(x_rechts_linspace, D_gerade(x_rechts_linspace,*params_rechts)*10**3, 'g-', label='Ausgleichsgerade')
 
 
 # Achsenbeschriftung

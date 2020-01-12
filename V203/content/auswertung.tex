@@ -231,11 +231,13 @@ Aus diesen Werten wird nun eine Abhängigkeit der Verdampfungswärme zur Tempera
         \bottomrule
     \end{tabular}
     \caption{Messergebnisse im Hochdruckbereich}
+    \label{tab:hochdruck_messwerte}
 \end{table}
 
 Dafür wird zunächst aus den Messwerten ein Plot angefertigt und mit
 \begin{equation}
     p = a \cdot T^3 + b \cdot T^2 + c \cdot T + d
+    \label{eq:hochdruck_fit}
 \end{equation}
 und der Funktion curve\_fit aus der Python Bibliothek ScyPi eine Ausgleichskurve erstellt.\cite{scipy}
 Der Plot ist in \autoref{fig:plot_hochdruck} zu sehen.
@@ -252,4 +254,42 @@ Hier ergeben sich die Parameter
     \includegraphics[width=\textwidth]{build/plot_hochdruck.pdf}
     \caption{Plot des Messergebnisses im Hochdruckbereich mit dem Druck $p$ und der Temperatur $T$}
     \label{fig:plot_hochdruck}
+\end{figure}
+
+Die Abhängigkeit der Verdampfungswärme zur Temperatur ergibt sich über \autoref{eq:clapeyron} zu
+\begin{equation}
+    L = (V_\text{D}-V_\text{F}) \cdot T \cdot \frac{\dif{p}}{\dif{T}}.
+    \label{eq:hochdruck_ergebnis}
+\end{equation}
+Hierbei ergibt sich $\dif{p}/\dif{T}$ aus \autoref{eq:hochdruck_fit} zu
+\begin{equation}
+    \frac{\dif{p}}{\dif{T}} = 3 \cdot a \cdot T^2 + 2 \cdot b \cdot T + c.
+    \label{eq:ableitung}
+\end{equation}
+
+Wie auch in der Theorie beschrieben kann $V_\text{F}$ vernachlässigt werden. 
+Nun muss allerdings $V_\text{D}$ über eine Erweiterung der idealen Gasgleichung
+\begin{equation}
+    \left( p + \frac{A}{V^2} \right) \cdot V = R \cdot T
+\end{equation}
+mit $A = \SI{0.9}{\joule\meter\cubed\per\mol\squared}$ bestimmt werden und ergibt die zwei Lösungen
+\begin{equation}
+    V_{\text{D},\pm} = \frac{R \cdot T}{2 \cdot p} \pm \sqrt{\frac{R^2 \cdot T^2}{4 \cdot p^2} - \frac{A}{p}}
+\end{equation}
+wobei für $p$ \autoref{eq:hochdruck_fit} verwendet wird.
+
+\autoref{fig:plot_hochdruck_plus} und \autoref{fig:plot_hochdruck_minus} zeigen \autoref{eq:hochdruck_ergebnis} eingesetzt mit allen benannten Werten und Gleichungen.
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot_hochdruck_plus.pdf}
+    \caption{Plot der Temperaturabhängigkeit im Falle von $V_{\text{D},+}$}
+    \label{fig:plot_hochdruck_plus}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot_hochdruck_minus.pdf}
+    \caption{Plot der Temperaturabhängigkeit im Falle von $V_{\text{D},-}$}
+    \label{fig:plot_hochdruck_minus}
 \end{figure}

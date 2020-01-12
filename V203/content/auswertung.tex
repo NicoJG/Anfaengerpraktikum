@@ -132,7 +132,7 @@ Dann wird mit der Gleichung
 \begin{equation}
     \ln(p) = \frac{a}{T} + b
 \end{equation}
-und der Python Bibliothek SciPy eine Ausgleichsgerade für die Parameter $a$ und $b$ erstellt.\cite{scipy} Hierdurch ergeben sich die Parameter
+und der Funktion curve\_fit aus der Python Bibliothek SciPy eine Ausgleichsgerade für die Parameter $a$ und $b$ erstellt.\cite{scipy} Hierdurch ergeben sich die Parameter
 \begin{align*}
     a =& \SI{-881+-21}{\kelvin} \\
     b =& \SI{14.40+-0.06}{}.
@@ -182,3 +182,74 @@ Diese Umrechnung geschieht mit der Avogadrokonstante $N_\text{a} = \SI{6.022e23}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Messung im Druckbereich oberhalb 1 bar}
 \label{sec:Auswertung_hochdruck}
+
+Die Messung im Hochdruckbereich, wie in \autoref{sec:Durchführung_hochdruck} beschrieben, ergab die Messergebnisse in \autoref{tab:hochdruck_messwerte}.
+Aus diesen Werten wird nun eine Abhängigkeit der Verdampfungswärme zur Temperatur bestimmt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.1]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\bar} \\
+        \midrule
+        103 & 0.5 \\
+        118 & 1.0 \\
+        125 & 1.5 \\
+        130 & 2.0 \\
+        136 & 2.5 \\
+        141 & 3.0 \\
+        145 & 3.5 \\
+        149 & 4.0 \\
+        153 & 4.5 \\
+        156 & 5.0 \\
+        159 & 5.5 \\
+        162 & 6.0 \\
+        164 & 6.5 \\
+        167 & 7.0 \\
+        170 & 7.5 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=2.1]}
+        \toprule
+        \tableSI{T}{\celsius} & \tableSI{p}{\bar} \\
+        \midrule
+        172 & 8.0 \\
+        174 & 8.5 \\
+        176 & 9.0 \\
+        178 & 9.5 \\
+        180 & 10.0 \\
+        182 & 10.5 \\
+        184 & 11.0 \\
+        186 & 11.5 \\
+        188 & 12.0 \\
+        189 & 12.5 \\
+        190 & 13.0 \\
+        192 & 13.5 \\
+        193 & 14.0 \\
+        195 & 14.5 \\
+        197 & 15.0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messergebnisse im Hochdruckbereich}
+\end{table}
+
+Dafür wird zunächst aus den Messwerten ein Plot angefertigt und mit
+\begin{equation}
+    p = a \cdot T^3 + b \cdot T^2 + c \cdot T + d
+\end{equation}
+und der Funktion curve\_fit aus der Python Bibliothek ScyPi eine Ausgleichskurve erstellt.\cite{scipy}
+Der Plot ist in \autoref{fig:plot_hochdruck} zu sehen.
+Hier ergeben sich die Parameter
+\begin{align*}
+    a =& \SI{0.8+-0.1}{\pascal\per\kelvin\cubed} \\
+    b =& \SI{-862+-130}{\pascal\per\kelvin\squared} \\
+    c =& \SI{3.1+-0.6e5}{\pascal\per\kelvin} \\
+    d =& \SI{-3.7+-0.8e7}{\pascal}.
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_hochdruck.pdf}
+    \caption{Plot des Messergebnisses im Hochdruckbereich mit dem Druck $p$ und der Temperatur $T$}
+    \label{fig:plot_hochdruck}
+\end{figure}

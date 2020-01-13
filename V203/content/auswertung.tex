@@ -141,8 +141,8 @@ Dann wird mit der Gleichung
 \end{equation}
 und der Funktion curve\_fit aus der Python Bibliothek SciPy eine Ausgleichsgerade für die Parameter $a$ und $b$ erstellt.\cite{scipy} Hierdurch ergeben sich die Parameter
 \begin{align*}
-    a =& \SI{-881+-21}{\kelvin} \\
-    b =& \SI{14.40+-0.06}{}.
+    a =& \SI{-3859+-23}{\kelvin} \\
+    b =& \SI{21.57+-0.07}{}.
     \label{eq:niedrigdruck_parameter}
 \end{align*}
 
@@ -152,9 +152,9 @@ Nach \autoref{eq:druck} wird nun die Verdampfungswärme $L$ über
 \end{equation}
 berechnet und ergibt
 \begin{equation*}
-    L = \SI{7327+-177}{\joule\per\mol}
+    L = \SI{32083+-192}{\joule\per\mol}
 \end{equation*}
-wobei $R=\SI{8.314}{\joule\per\mol\kelvin}$ die allgemeine Gaskonstante ist.\cite{physics_constants}
+wobei $R=\SI{8.314}{\joule\per{\mol\kelvin}}$ die allgemeine Gaskonstante ist.\cite{physics_constants}
 
 \begin{figure}
     \centering
@@ -163,7 +163,7 @@ wobei $R=\SI{8.314}{\joule\per\mol\kelvin}$ die allgemeine Gaskonstante ist.\cit
     \label{fig:plot_niedrigdruck}
 \end{figure}
 
-Um nun die innere Verdampfungswärme $L_\text{i}$, also die benötigte Arbeit um bei der Verdampfung die Anziehungskräfte der Teilchen zu überwinden, bei einer Temperatur $T=373$ abschätzen zu können wird
+Um nun die innere Verdampfungswärme $L_\text{i}$, also die benötigte Arbeit um bei der Verdampfung die Anziehungskräfte der Teilchen zu überwinden, bei einer Temperatur $T=\SI{373}{\kelvin}$ abschätzen zu können wird
 \begin{equation}
     L_\text{i} = L - L_\text{a}
 \end{equation}
@@ -177,12 +177,12 @@ Diese Arbeit entspricht $pV$ und ergibt über die Allgemeine Gasgleichung
 
 Hieraus ergibt sich die innere Verdampfungswärme
 \begin{equation*}
-    L_\text{i} = \SI{4226+-176}{\joule\per\mol}.
+    L_\text{i} = \SI{28982+-192}{\joule\per\mol}.
 \end{equation*}
 Um diese Größe besser darstellen zu können wird sie pro Molekül und in Elektronenvolt angegeben.
 Diese Umrechnung geschieht mit der Avogadrokonstante $N_\text{a} = \SI{6.022e23}{\per\mol}$ und dem Elektronenvolt $1 eV = \SI{1.602e-19}{\joule}$ und ergibt
 \begin{equation*}
-    L_\text{i} = \SI{0.044+-0.002}{\electronvolt}. \: \text{\cite{physics_constants}}
+    L_\text{i} = \SI{0.300+-0.002}{\electronvolt}. \: \text{\cite{physics_constants}}
 \end{equation*}
 
 
@@ -251,7 +251,7 @@ Der Plot ist in \autoref{fig:plot_hochdruck} zu sehen.
 Hier ergeben sich die Parameter
 \begin{align*}
     a =& \SI{0.8+-0.1}{\pascal\per\kelvin\cubed} \\
-    b =& \SI{-862+-130}{\pascal\per\kelvin\squared} \\
+    b =& \SI{-863+-130}{\pascal\per\kelvin\squared} \\
     c =& \SI{3.1+-0.6e5}{\pascal\per\kelvin} \\
     d =& \SI{-3.7+-0.8e7}{\pascal}.
 \end{align*}

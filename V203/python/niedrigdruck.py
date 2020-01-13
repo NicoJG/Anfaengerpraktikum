@@ -14,7 +14,7 @@ T,p = np.genfromtxt('data/niedrigdruck.csv',delimiter=',',unpack=True)
 
 #Berechnungen
 T = T + 273.15 #Kelvin
-p = p*10**(-3) + 1 #bar
+p = p*10**(-3) #+ 1 #bar
 p = p*10**5 #Pascal
 
 #Konstanten

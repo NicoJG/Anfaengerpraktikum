@@ -17,7 +17,7 @@ Uh = Uh #MilliVolt
 
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(f,Ib,Uh)
+params,pcov = curve_fit(f,245.96969785945868*Ib+66.23332959411104,Uh)
 a = params[0]
 b = params[1]
 
@@ -26,13 +26,13 @@ a_err = np.absolute(pcov[0][0])**0.5
 b_err = np.absolute(pcov[1][1])**0.5
 
 # Plot der Ausgleichskurve
-x_linspace = np.linspace(np.min(Ib),np.max(Ib),100)
+x_linspace = np.linspace(np.min(245.96969785945868*Ib+66.23332959411104),np.max(245.96969785945868*Ib+66.23332959411104),100)
 plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
 # Plot der Daten
-plt.plot(Ib, Uh, 'ro', label='Hall-Spannung bei Variation von Ib')
+plt.plot(245.96969785945868*Ib+66.23332959411104, Uh, 'ro', label='Hall-Spannung bei Variation von Ib')
 
 # Achsenbeschriftung
-plt.xlabel(r'$I_B \:/\: \si{\ampere}$')
+plt.xlabel(r'$B \:/\: \si{\milli\tesla}$')
 plt.ylabel(r'$U_H \:/\: \si{\milli\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich

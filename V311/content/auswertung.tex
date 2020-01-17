@@ -8,3 +8,140 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+\subsection{Bestimmung der Hysteresekurve}
+\label{ssec:a}
+
+Bevor die eigentliche Auswertung beginnt, wird das B-Feld im Verhältnis zu der $I_\text{B}$ Spannung, also die Spannung, die das B-Feld erzeugt, gemessen.
+Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird ein aufsteigendes, $B_1$ Feld und ein abfallendes, $B_2$ Feld betrachtet.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse der Hysteresekurve}
+    \label{tab:hysterese}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.0] S[table-format=3.0] S[table-format=4.2+-2.2]}
+        \toprule
+        \tableSI{I_\text{B}}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \tableSI{B}{\milli\tesla} \\
+        \midrule
+        0.5 & 145 & 150 & 66.23+-30.45 \\
+        1.0 & 287 & 290 & 312.20+-31.99\\
+        1.5 & 426 & 431 & 435.19+-33.82\\
+        2.0 & 567 & 580 & 558.17+-36.22\\
+        2.5 & 706 & 719 & 681.16+-39.09\\
+        3.0 & 836 & 855 & 804.14+-42.35\\
+        3.5 & 966 & 985 & 927.13+-45.89\\
+        4.0 & 1076 & 1092 & 1050.11+-49.67\\
+        4.5 & 1154 & 1162 & 1173.10+-53.63\\
+        5.0 & 1213 & 1213 & 1296.08+-57.73\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Da es nicht sinnvoll ist mit beiden Werten zu rechnen, wird die Hysteresekurve durch eine Ausgleichsgeradem der Form
+
+\begin{equation}
+    f = a \cdot x + b
+    \label{eq:gerade}
+\end{equation}
+
+angenähert.
+Dabei ergeben sich folgende Parameter für $a$ und $b$,
+
+\begin{align*}
+    a =& \SI{245.97+-9.81}{} \\
+    b =& \SI{66.23+-30.45}{}.
+    \label{eq:params1}
+\end{align*}
+
+Über diese Parameter werden im folgenden alle Werte von $I_\text{B}$ in $B$ übersetzt.
+Durch die Unsicherheiten der Parameter ergibt sich auf eine Ungenauigkeit in $B$.
+Diese lässt sich über
+
+\begin{equation}
+    \sigma _B = \sqrt{\left(I_B \sigma _a \right)^2 + \left(\sigma _b \right)^2}
+    \label{eq:B_fehler}
+\end{equation}
+
+berechnen.
+Der durch die Ausgleichsgeraden errechnete Wert, sowie die Unsicheheit, werden in \autoref{tab:hysterese} notiert.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_hysterese.pdf}
+    \caption{Hysteresekurve von $B_1$ und $B_2$ mit Ausgleichsgeraden.\cite{numpy}}
+    \label{fig:hysterese_plot}
+\end{figure}
+
+\subsection{Leitfähigkeit von Kupfer}
+\label{ssec:b}
+
+In \autoref{tab:werte_kupfer_B} wird neben $I_\text{B}$ auch das daraus resultierende B-Feld angegeben, sowie die erzeugte Hall-Spannung $U_\text{H}$.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse der Variation des Magnetfeldes bei Kupfer}
+    \label{tab:werte_kupfer_B}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.2+-2.2] S[table-format=-1.3]}
+        \toprule
+        \tableSI{I_\text{B}}{\ampere} & \tableSI{B}{\milli\tesla} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \midrule
+        0.0 & 66.23+-30.45 & -0.009\\
+        0.5 & 189.22+-30.84 & -0.007\\
+        1.0 & 312.20+-31.99 & -0.005\\
+        1.5 & 435.19+-33.82 & -0.003\\
+        2.0 & 558.17+-36.22 & -0.001\\
+        2.5 & 681.16+-39.09 & 0.001\\
+        3.0 & 804.14+-42.35 & 0.003\\
+        3.5 & 927.13+-45.89 & 0.005\\
+        4.0 & 1050.11+-49.67 & 0.006\\
+        4.5 & 1173.10+-53.63 & 0.007\\
+        5.0 & 1296.08+-57.73 & 0.008\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Die Werte von $B$ und $U_\text{H}$ werden in \autoref{fig:kupfer_Ib_plot} geplottet und es wird eine Ausgleichsgerade der Form \autoref{eq:gerade} genutzt um einen Curve Fit durchzuführen.
+Die Parameter dieses Fits sind dann
+
+\begin{align*}
+    a =& \SI{0.0143+-0.0006}{\per\second\meter} \\
+    b =& \SI{-0.0093+-0.0004}{\volt}.
+    \label{eq:params_Ib}
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_kupfer_Ib.pdf}
+    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_\text{B}$ mit Ausgleichsgeraden.\cite{numpy}}
+    \label{fig:kupfer_Ib_plot}
+\end{figure}
+
+Dabei ist das $b$ nicht für die weiteren Rechnungen relevant, aber das $a$, also die Steigung der Ausgleichgeraden ist definiert als
+
+\begin{equation}
+    a = \frac{-I_\text{q}}{n e_0 d}.
+    \label{eq:gleichung1}
+\end{equation}
+
+$n$ ist dabei die Anzahl an Elektronen pro Volumen und $e_0$ die Elektronenladung $e_0 = \SI{1.602e-19}{\coulomb}$. $d$ ist die Dicke der verwendeten Platte, im Falle der Kupferplatte begrägt $d = \SI{18}{\micro\meter}$
+Das Experiment wird bei der maximal möglichen Querspannung $I_\text{q} = \SI{10}{\ampere}$ durchgeführt.
+Über den Zusammenhang aus \autoref{eq:gleichung1} wird die Anzahl der Ladungsträger pro Volumen berechnet, dafür wird die Gleichung nach 
+
+\begin{equation}
+    n = \frac{-I_\text{q}}{a e_0 d}.
+    \label{eq:gleichung2}
+\end{equation}
+
+umgestellt und eine Fehlerformel aufgestellt
+
+\begin{equation}
+    \sigma _\text{n} = \sqrt{\frac {I_\text{q}^{2} d^{2} e^{2} \sigma_{a}^{2} }{a^{4}}}.
+    \label{eq:gleichung3}
+\end{equation}
+
+Daraus ergibt sich dann
+
+\begin{equation}
+    n = \SI{2.43(10)e26}{\cubic\meter}
+    \label{eq:gleichung4}
+\end{equation}

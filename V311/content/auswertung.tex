@@ -178,3 +178,52 @@ Nun werden alle nötigen Größen in \autoref{eq:tau} und \autoref{eq:tau_fehler
     \bar{\tau} = \SI{1.85(8)e-11}{\second}.
     \label{eq:Tau1}
 \end{equation}
+
+Zur Berechnung der mittleren Driftgeschwindigkeit wird FORMEL FÜR J verwendet.
+Diese wird nach $\bar{v_\text{d}}$ umgeformt.
+$n$ und $e_0$ sind bekannte Größen, die Stromdichte $j$ ist vorgeben und beträgt $j = \SI{1e-6}{\ampere\per\squared\meter}$.
+Dann ergibt sich 
+
+\begin{equation}
+    \bar{v_\text{d}} = \frac{-j}{n e_0}.
+    \label{eq:vd}
+\end{equation}
+
+Die Fehlerfortpflanzungsformel wird verwendet um die Fehlerformel
+
+\begin{equation}
+    \sigma _{\bar{v_\text{d}}} = \sqrt{\frac{j \sigma _n}{n^2 e_0}}.
+    \label{eq:vd_fehler}
+\end{equation}
+
+für $n$ aufzustellen.
+Dann ergibt sich ein Ergebnis für die mittlere Driftgeschwindigkeit 
+
+\begin{equation}
+    \bar{v_\text{d}} = \SI{2.57(11)e-14}{\meter\per\second}.
+    \label{eq:vd1}
+\end{equation}
+
+Die Beweglichkeit $\mu$ wird über FORMEL AUS THEORIE HOLEN bestimmt.
+Nachdem die Formel nach der gesuchten Größe $\mu$ umgestellt wurde, ergibt sich
+
+\begin{equation}
+    \mu = \frac{{e_0}^2 n \bar{\tau} \bar{v_\text{d}}}{2 m_0 j}.
+    \label{eq:bewegl}
+\end{equation}
+
+Für die Beweglichkeit wird ebenfalls eine Fehlerformel aufgestellt, diese wird dann
+
+\begin{equation}
+    \sigma _{\mu} = \sqrt{\frac{e_{0}^{4} \sigma_{n}^{2} \tau^{2} {\bar{v_\text{d}}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\tau}^{2} n^{2} {\bar{v_\text{d}}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\bar{v_\text{d}}}^{2} n^{2} \tau^{2}}{4 j^{2} m_{0}^{2}}}.
+    \label{eq:bewegl_fehler}
+\end{equation}
+
+Zuletzt werden alle benötigten Werte in beide Formeln eingesetzt.
+Die Beweglichkeit $\mu$ beträgt
+
+\begin{equation}
+    \mu = \SI{1.63(12)}{\squared\meter\per\volt\second}.
+    \label{eq:bewegl1}
+\end{equation}
+

@@ -143,5 +143,38 @@ Daraus ergibt sich dann
 
 \begin{equation}
     n = \SI{2.43(10)e26}{\cubic\meter}
-    \label{eq:gleichung4}
+    \label{eq:n1}
+\end{equation}
+
+Zur Berechnung der mittleren Flugzeit $\bar{\tau}$ wird THEORIEFORMEL FÜR R VERLINKEN nach
+
+\begin{equation}
+    \bar{\tau} = \frac{2m_0 L}{{e_0}^2 n R Q}
+    \label{eq:tau}
+\end{equation}
+
+umgeformt.
+$R = \SI{2.76}{\ohm}$ ist der Widerstand von Kupfer, $L = \SI{1.37}{\meter}$ die Länge des Drahtes und $Q$ der Querschnitt des verwendeten Drahtes, der zur Bestimmung von $R$ verwendet wurde.
+$Q$ wird aus der gegebenen Dicke des Drahtes berechnet, $Q$ ist dann
+
+\begin{equation}
+    Q = \pi \left(\frac{d_2}{2}\right)^2.
+    \label{eq:Q}
+\end{equation}
+
+Dabei ist $d_2 = \SI{0.1}{\milli\meter}$ der Durchmesser des Drahtes.
+Die Ruhemasse eines Elektrons $m_0$ und die Elektronenmasse $e_0$ sind Naturkonstanten.\cite{physics_constants}
+Es wird ebenfalls eine Fehlerformel für $\bar{\tau}$ aufgestellt, diese ist durch 
+
+\begin{equation}
+    \sigma _{\bar{\tau}} = \sqrt{\frac{4 L^{2} \sigma_{n}^{2} m_{0}^{2}}{Q^{2} R^{2} e_{0}^{4} n^{4}}}
+    \label{eq:tau_fehler}
+\end{equation}
+
+gegeben. 
+Nun werden alle nötigen Größen in \autoref{eq:tau} und \autoref{eq:tau_fehler} eingesetzt, dadurch ergibt sich
+
+\begin{equation}
+    \bar{\tau} = \SI{1.85(8)e-11}{\second}.
+    \label{eq:Tau1}
 \end{equation}

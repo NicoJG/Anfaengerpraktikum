@@ -18,6 +18,9 @@ def n(Iq,e,d,a):
 def B(x):
     return 245.97*x+66.23
 
+def T(m0,L,e0,n,R,Q):
+    return 2*m0*L /( (e0)**2 * n * R * Q)
+
 def error(f, err_vars=None):
     from sympy import Symbol, latex
     s = 0
@@ -33,9 +36,9 @@ def error(f, err_vars=None):
         
     return latex(sympy.sqrt(s), symbol_names=latex_names)
 
-Iq, e, d, a = sympy.var('Iq e d a')
+m0, L, e0, n, R, Q = sympy.var('m_0 L e_0 n R Q')
 
-f = -Iq / a * e * d 
+f = 2*m0*L /( (e0)**2 * n * R * Q)
 
 #print(f)
 #print(error(f))
@@ -53,9 +56,15 @@ e_neu = -1.602*10**-19 #coulomb
 d_neu = 18 *10**-6 #meter
 a_neu = ufloat(0.0143,0.0006)
 Iq_neu = 10 #ampere
+m_neu = 9.11*10**-31 #kg
+L_neu = 1.37 #meter
+Q_neu = np.pi * ((0.1*10**-3)/2)**2
+R_neu = 2.76 #ohm
+n_neu = ufloat(2.43*10**26, 0.1*10**26) # 1/meter^3
 
-print("n und n error: ", n(Iq_neu,e_neu,d_neu,a_neu))
 
+#print("n und n error: ", n(Iq_neu,e_neu,d_neu,a_neu))
+print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
 #A = ufloat(245.97,9.81)
 #B = ufloat(66.23,30.45)
 
@@ -84,10 +93,10 @@ plt.ylabel(r'$U_H \:/\: \si{\milli\volt}$')
 plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
-print("a: ", a)
-print("Fehler von a: ", a_err)
-print("b: ", b)
-print("Fehler von b: ", b_err)
+#print("a: ", a)
+#print("Fehler von a: ", a_err)
+#print("b: ", b)
+#print("Fehler von b: ", b_err)
 
 # Speicherort
 plt.savefig('build/plot_kupfer_Ib.pdf')

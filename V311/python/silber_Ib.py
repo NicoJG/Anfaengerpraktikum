@@ -35,31 +35,19 @@ Ib,Uh = np.genfromtxt('data/silber_Ib.csv',delimiter=',',unpack=True)
 
 #Berechnungen
 Ib = Ib #Ampere
-Uh = Uh #MilliVolt
+Uh = Uh *10**-3 #MilliVolt
 
 B = np.array([66.23,189.22,312.20,435.19,558.17,681.16,804.14,927.13,1050.11,1173.10,1296.08]) * 10**-3
 
 e_neu = -1.602*10**-19 #coulomb
-d_neu = 18*10**-6 #meter
-a_neu = ufloat(0.0143,0.0006)
+d_neu = 0.026*10**-3 #meter
 Iq_neu = 10 #ampere
 m_neu = 9.11*10**-31 #kg
-L_neu = 1.37 #meter
+L_neu = 1.73 #meter
 Q_neu = np.pi * 2*10**-9 #meter^2
-R_neu = 2.76 #ohm
-n_neu = ufloat(2.43*10**26, 0.1*10**26) # 1/meter^3
+R_neu = 0.58 #ohm
 j_neu = 1*10**6 #Ampere pro Meter^3
-tau_neu = ufloat(1.85*10**-11, 0.08*10**-11)
-vd_neu = ufloat(0.0257,0.0011)
 h_neu = 6.63*10**-34 
-vtotal_neu = ufloat(2.236*10**5,0.031*10**5)
-
-#print("n und n error: ", n(Iq_neu,e_neu,d_neu,a_neu))
-#print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
-#print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
-#print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
-#print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
-#print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 # Ausgleichskurve berechnen
 params,pcov = curve_fit(f,B,Uh)
@@ -78,16 +66,30 @@ plt.plot(B, Uh, 'ro', label='Hall-Spannung bei Variation von Ib')
 
 # Achsenbeschriftung
 plt.xlabel(r'$B \:/\: \si{\tesla}$')
-plt.ylabel(r'$U_H \:/\: \si{\milli\volt}$')
+plt.ylabel(r'$U_H \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
-print("a: ", a)
-print("Fehler von a: ", a_err)
-print("b: ", b)
-print("Fehler von b: ", b_err)
+#print("a2: ", a)
+#print("Fehler von a2: ", a_err)
+#print("b2: ", b)
+#print("Fehler von b2: ", b_err)
+
+a_neu = ufloat(a,a_err)
+n_neu = ufloat(9.58*10**28,0.34*10**28) # 1/meter^3
+tau_neu = ufloat(3.52*10**-13,0.12*10**-13)
+vd_neu = ufloat(6.52*10**-5,0.23*10**-5)
+vtotal_neu = ufloat(1.640*10**6,0.019*10**6)
+
+
+#print("n2 und n2 error: ", n(Iq_neu,e_neu,d_neu,a_neu))
+#print("Tau2 und Tau2 error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
+#print("Vdrift2 und Error: ", V(j_neu,e_neu,n_neu))
+#print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
+#print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
+print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 # Speicherort
 plt.savefig('build/plot_silber_Ib.pdf')

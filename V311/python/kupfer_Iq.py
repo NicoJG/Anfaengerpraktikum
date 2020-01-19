@@ -37,30 +37,19 @@ Iq,Uh = np.genfromtxt('data/kupfer_Iq.csv',delimiter=',',unpack=True)
 
 #Berechnungen
 Iq = Iq #Ampere
-Uh = Uh #MilliVolt
+Uh = Uh *10**-3 #Volt
 
 B_neu = 1296.08*10**-3 #tesla
 e_neu = -1.602*10**-19 #coulomb
 d_neu = 18*10**-6 #meter
-a_neu = ufloat(0.00137,0.00004)
 Iq_neu = 10 #ampere
 m_neu = 9.11*10**-31 #kg
 L_neu = 1.37 #meter
 Q_neu = np.pi * 2*10**-9 #meter^2
 R_neu = 2.76 #ohm
-n_neu = ufloat(3.28*10**26, 0.10*10**26) # 1/meter^3
 j_neu = 1*10**6 #Ampere pro Meter^3
-tau_neu = ufloat(1.71*10**-11, 0.05*10**-11)
-vd_neu = ufloat(0.0190,0.0006)
 h_neu = 6.63*10**-34 
-vtotal_neu = ufloat(2.471*10**5,0.025*10**5)
 
-#print("n und n error: ", n(B_neu,e_neu,d_neu,a_neu))
-#print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
-#print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
-#print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
-#print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
-#print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 
 # Ausgleichskurve berechnen
@@ -80,7 +69,7 @@ plt.plot(Iq, Uh, 'ro', label='Hall-Spannung bei Variation von Iq')
 
 # Achsenbeschriftung
 plt.xlabel(r'$I_Q \:/\: \si{\ampere}$')
-plt.ylabel(r'$U_H \:/\: \si{\milli\volt}$')
+plt.ylabel(r'$U_H \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()
@@ -91,6 +80,19 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #print("Fehler von a: ", a_err)
 #print("b: ", b)
 #print("Fehler von b: ", b_err)
+
+a_neu = ufloat(a,a_err)
+n_neu = ufloat(3.27*10**29,0.09*10**29) # 1/meter^3
+tau_neu = ufloat(1.72*10**-14,0.05*10**-14)
+vd_neu = ufloat(1.91*10**-5,0.05*10**-5)
+vtotal_neu = ufloat(2.469*10**6,0.023*10**6)
+
+#print("n und n error: ", n(B_neu,e_neu,d_neu,a_neu))
+#print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
+#print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
+#print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
+#print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
+print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 # Speicherort
 plt.savefig('build/plot_kupfer_Iq.pdf')

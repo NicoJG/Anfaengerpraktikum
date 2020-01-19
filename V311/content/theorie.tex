@@ -33,18 +33,24 @@ So entsteht die elektrische Leitfähigkeit von Metallen. \cite{V311}
 Allerdings bedeutet dies nicht, dass ein Metall perfekt leitend ist und die Elektronen ungehindert fließen können.
 Die Elektronen stoßen ständig mit anderen Teilchen zusammen und werden so verlangsamt.
 Die gemittelte Zeit zwischen diesen Zusammenstößen heißt mittlere Flugzeit $\bar{\tau}$ und die gemittelte zurückgelegte Distanz heißt mittlere freie Weglänge $\bar{l}$.
-Eine Materialkonstante, welche besagt wie gut ein Leiter leitet ist der elektrische Widerstand $R$.
-Dieser kann über
+
+Wie gut ein Stück Metall leitet beschreibt der sogenannte elektrische Widerstand.
+Dieser ist über 
 \begin{equation}
     R = 2\frac{m_0}{e_0}\frac{1}{n \cdot \bar{\tau}}\frac{L}{Q}
     \label{eq:widerstand}
 \end{equation}
-bestimmt werden. 
+definiert.
+Das geometrieunabhängige Äquivalent dazu ist der spezifische Widerstand
+\begin{equation}
+    \rho = R\frac{Q}{L}.
+    \label{eq:spezwiderstand}
+\end{equation}
 Hier ist $m_0$ die Ruhemasse eines Elektrons, $e_0$ dessen Ladung, $n$ die Ladungsträgerdichte, $L$ die Länge des Leiters und $Q$ die Querschnittsfläche des Leiters. \cite{V311}
 
 Somit kann die mittlere Flugzeit über 
 \begin{equation}
-    \bar{\tau} = 2\frac{m_0}{e_0}\frac{1}{n \cdot R}\frac{L}{Q}
+    \bar{\tau} = 2\frac{m_0}{e_0}\frac{1}{n \cdot R}\frac{L}{Q} = 2\frac{m_0}{e_0}\frac{1}{n \cdot \rho}
 \end{equation}
 berechnet werden. \cite{V311}
 

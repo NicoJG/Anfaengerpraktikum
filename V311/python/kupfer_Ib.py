@@ -25,7 +25,13 @@ def V(j,e0,n):
     return -j/(n * e0)
 
 def M(e0,n,tau,vd,m0,j):
-    return ((e0)**2 *n * tau * vd )/(2 * m0 * j)
+    return ((e0)**2 * n * tau * vd )/(2 * m0 * j)
+
+def VT(h,m0,n):
+    return ((  (h**2/m0)  *  (((3*n)/(8*np.pi))**2)**(1/3)   )  /m0  )**(1/2)
+
+def L(tau, vd):
+    return tau*vd
 
 def error(f, err_vars=None):
     from sympy import Symbol, latex
@@ -42,12 +48,12 @@ def error(f, err_vars=None):
         
     return latex(sympy.sqrt(s), symbol_names=latex_names)
 
-m0, e0, n, tau, vd, j  = sympy.var('m_0 e_0 n tau vd j')
+tau, vd = sympy.var('tau vd')
 
-f = ((e0)**2 *n * tau * vd )/(2 * m0 * j)
+f = tau * vd
 
 #print(f)
-#print(error(f,err_vars=[n,tau,vd]))
+#print(error(f,err_vars=[tau,vd]))
 #print()
 
 # Daten einlesen
@@ -59,22 +65,26 @@ Uh = Uh #MilliVolt
 #Iq = np.array([0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5])
 
 e_neu = -1.602*10**-19 #coulomb
-d_neu = 18 *10**-6 #meter
+d_neu = 18*10**-6 #meter
 a_neu = ufloat(0.0143,0.0006)
 Iq_neu = 10 #ampere
 m_neu = 9.11*10**-31 #kg
 L_neu = 1.37 #meter
-Q_neu = np.pi * ((0.1*10**-3)/2)**2
+Q_neu = np.pi * 2*10**-9 #meter^2
 R_neu = 2.76 #ohm
 n_neu = ufloat(2.43*10**26, 0.1*10**26) # 1/meter^3
-j_neu = 1*10**-6 #Ampere pro Meter^3
+j_neu = 1*10**6 #Ampere pro Meter^3
 tau_neu = ufloat(1.85*10**-11, 0.08*10**-11)
-vd_neu = ufloat(2.57*10**-14,0.11*10**-14)
+vd_neu = ufloat(0.0257,0.0011)
+h_neu = 6.63*10**-34 
+vtotal_neu = ufloat(2.236*10**5,0.031*10**5)
 
 #print("n und n error: ", n(Iq_neu,e_neu,d_neu,a_neu))
 #print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
 #print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
-print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
+#print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
+print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
+print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 #A = ufloat(245.97,9.81)
 #B = ufloat(66.23,30.45)

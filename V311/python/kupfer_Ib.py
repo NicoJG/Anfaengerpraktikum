@@ -80,7 +80,7 @@ h_neu = 6.63*10**-34
 
 B = np.array([66.23,189.22,312.20,435.19,558.17,681.16,804.14,927.13,1050.11,1173.10,1296.08]) * 10**-3
 
-# Ausgleichskurve berechnen
+# Ausgleichsgerade berechnen
 params,pcov = curve_fit(g,B,Uh)
 a = params[0]
 b = params[1]
@@ -89,9 +89,9 @@ b = params[1]
 a_err = np.absolute(pcov[0][0])**0.5
 b_err = np.absolute(pcov[1][1])**0.5
 
-# Plot der Ausgleichskurve
+# Plot der Ausgleichsgerade
 x_linspace = np.linspace(np.min(B),np.max(B),100)
-plt.plot(x_linspace, g(x_linspace,*params), 'k-', label='Ausgleichskurve')
+plt.plot(x_linspace, g(x_linspace,*params), 'k-', label='Ausgleichsgerade')
 # Plot der Daten
 plt.plot(B, Uh, 'ro', label='Hall-Spannung bei Variation von Ib')
 

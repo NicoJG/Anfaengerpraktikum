@@ -14,6 +14,9 @@ def g(x,a,b):
 def n(B,e,d,a):
     return -B /(a * e * d)
 
+def z(rho,n,m):
+    return rho/(n * m)
+    
 def B(x):
     return 245.97*x+66.23
 
@@ -87,12 +90,16 @@ tau_neu = ufloat(1.72*10**-14,0.05*10**-14)
 vd_neu = ufloat(1.91*10**-5,0.05*10**-5)
 vtotal_neu = ufloat(2.469*10**6,0.023*10**6)
 
+m_atom = 63.5*1.67*10**-27 #kilogram
+rho = 8.96 *1000 #kilogram pro m^3
+print("z1 und z Fehler: ", z(rho,n_neu,m_atom))
+
 #print("n und n error: ", n(B_neu,e_neu,d_neu,a_neu))
 #print("Tau und Tau error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
 #print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
 #print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
 #print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
-print("L und L Fehler: ", L(tau_neu, vtotal_neu))
+#print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 # Speicherort
 plt.savefig('build/plot_kupfer_Iq.pdf')

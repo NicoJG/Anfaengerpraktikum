@@ -14,6 +14,9 @@ def g(x,a,b):
 def n(B,e,d,a):
     return -B /(a * e * d)
 
+def z(rho,n,m):
+    return rho/(n * m)
+
 def B(x):
     return 245.97*x+66.23
 
@@ -84,12 +87,16 @@ tau_neu = ufloat(2.345*10**-13,0.009*10**-13)
 vd_neu = ufloat(0.001237,0.000005)
 vtotal_neu = ufloat(6.146*10**5,0.008*10**5)
 
+m_atom = 65.4*1.67*10**-27 #kilogram
+rho = 7.134 *1000 #kilogram pro m^3
+print("z3 und z Fehler: ", z(rho,n_neu,m_atom))
+
 #print("n und n error: ", n(B_neu,e_neu,d_neu,a_neu))
 #print("Tau und Tau error: ", T(m_neu,e_neu,n_neu,rho_neu))
 #print("Vdrift und Error: ", V(j_neu,e_neu,n_neu))
 #print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
 #print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
-print("L und L Fehler: ", L(tau_neu, vtotal_neu))
+#print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 
 # Speicherort

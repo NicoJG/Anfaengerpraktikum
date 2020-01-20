@@ -40,10 +40,10 @@ plt.ylabel(r'$B \:/\: \si{\milli\tesla}$')
 plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
-print("a: ", a)
-print("Fehler von a: ", a_err)
-print("b: ", b)
-print("Fehler von b: ", b_err)
+#print("a: ", a)
+#print("Fehler von a: ", a_err)
+#print("b: ", b)
+#print("Fehler von b: ", b_err)
 
 # Speicherort
 plt.savefig('build/plot_hysterese.pdf')

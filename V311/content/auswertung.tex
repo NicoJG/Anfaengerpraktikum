@@ -14,7 +14,7 @@
 
 
 
-Bevor die eigentliche Auswertung beginnt, wird das B-Feld im Verhältnis zu der $I_\text{B}$ Spannung, also die Spannung, die das B-Feld erzeugt, gemessen.
+Bevor die eigentliche Auswertung beginnt, wird das B-Feld im Verhältnis zu der $I_B$ Spannung, also die Spannung, die das B-Feld erzeugt, gemessen.
 Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird ein aufsteigendes $B_1$ Feld und ein abfallendes $B_2$ Feld betrachtet.
 
 \begin{table}
@@ -23,7 +23,7 @@ Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird 
     \label{tab:hysterese}
     \begin{tabular}{S[table-format=1.1] S[table-format=4.0] S[table-format=3.0] S[table-format=4.2] S[table-format=-2.2]}
         \toprule
-        \tableSI{I_\text{B}}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} \\
+        \tableSI{I_B}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} \\
         \midrule
         0.5 & 145 & 150 & 66 & +-30 \\
         1.0 & 287 & 290 & 312 & +-32 \\
@@ -47,8 +47,8 @@ Da es nicht sinnvoll ist mit beiden Werten zu rechnen, wird die Hysteresekurve d
 angenähert.
 Dabei ergeben sich die Parameter
 \begin{align}
-    a =& \SI{245.97+-9.81}{\tesla\per\ampere} \\
-    b =& \SI{66.23+-30.45}{\tesla}.
+    a =& \SI{246+-10}{\tesla\per\ampere} \\
+    b =& \SI{66+-30}{\tesla}.
     \label{eq:params1}
 \end{align}
 
@@ -76,7 +76,7 @@ Der durch die Ausgleichsgerade errechnete Wert, sowie dessen Unsicherheit, sind 
 
 Zunächst werden die Messwerte von Kupfer, Silber und Zink in Tabellen festgehalten.
 In \autoref{tab:werte_kupfer_B} werden die Messwerte von Kupfer eingetragen.
-Dort wird neben $I_\text{B}$ auch das daraus resultierende B-Feld angegeben, sowie die erzeugte Hall-Spannung $U_\text{H}$.
+Dort wird neben $I_B$ auch das daraus resultierende B-Feld angegeben, sowie die erzeugte Hall-Spannung $U_\text{H}$.
 
 \begin{table}
     \centering
@@ -84,24 +84,29 @@ Dort wird neben $I_\text{B}$ auch das daraus resultierende B-Feld angegeben, sow
     \label{tab:werte_kupfer_B}
     \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_\text{B}}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
-        0.0 & 66.23 & +-30.45 & -0.009\\
-        0.5 & 189.22 & +-30.84 & -0.007\\
-        1.0 & 312.20 & +-31.99 & -0.005\\
-        1.5 & 435.19 & +-33.82 & -0.003\\
-        2.0 & 558.17 & +-36.22 & -0.001\\
-        2.5 & 681.16 & +-39.09 & 0.001\\
-        3.0 & 804.14 & +-42.35 & 0.003\\
-        3.5 & 927.13 & +-45.89 & 0.005\\
-        4.0 & 1050.11 & +-49.67 & 0.006\\
-        4.5 & 1173.10 & +-53.63 & 0.007\\
-        5.0 & 1296.08 & +-57.73 & 0.008\\
+        0.0 & 66 & +-30 & -0.009\\
+        0.5 & 189 & +-31 & -0.007\\
+        1.0 & 312 & +-32 & -0.005\\
+        1.5 & 435 & +-34 & -0.003\\
+        2.0 & 558 & +-36 & -0.001\\
+        2.5 & 681 & +-39 & 0.001\\
+        3.0 & 804 & +-42 & 0.003\\
+        3.5 & 927 & +-46 & 0.005\\
+        4.0 & 1050 & +-50 & 0.006\\
+        4.5 & 1173 & +-54 & 0.007\\
+        5.0 & 1296 & +-58 & 0.008\\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Die Werte von $B$ und $U_\text{H}$ werden in \autoref{fig:kupfer_Ib_plot} geplottet und es wird eine Ausgleichsgerade der Form \autoref{eq:gerade} genutzt um einen Curve Fit durchzuführen.
+Die Werte von $B$ und $U_\text{H}$ werden in \autoref{fig:kupfer_Ib_plot} geplottet und es wird eine Ausgleichsgerade der Form
+\begin{equation}
+    U_\text{H} = a \cdot B + b
+    \label{eq:ugerade}
+\end{equation}
+genutzt um einen Curve Fit durchzuführen.
 Die Parameter dieses Fits sind dann
 
 \begin{align}
@@ -113,11 +118,11 @@ Die Parameter dieses Fits sind dann
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_kupfer_Ib.pdf}
-    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_\text{B}$ mit Ausgleichsgeraden.\cite{numpy}}
+    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_B$ mit Ausgleichsgeraden.\cite{numpy}}
     \label{fig:kupfer_Ib_plot}
 \end{figure}
 
-Für die Messreihe in der Silber verwendet wurde werden ebenfalls die Messwerte notiert.
+Für die Messreihe, in der Silber verwendet wurde, werden ebenfalls die Messwerte in \autoref{tab:werte_silber_B} notiert.
 
 \begin{table}
     \centering
@@ -125,25 +130,25 @@ Für die Messreihe in der Silber verwendet wurde werden ebenfalls die Messwerte 
     \label{tab:werte_silber_B}
     \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_\text{B}}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
-        0.0 & 66.23 & +-30.45 & -0.178\\
-        0.5 & 189.22 & +-30.84 & -0.174\\
-        1.0 & 312.20 & +-31.99 & -0.171\\
-        1.5 & 435.19 & +-33.82 & -0.167\\
-        2.0 & 558.17 & +-36.22 & -0.164\\
-        2.5 & 681.16 & +-39.09 & -0.161\\
-        3.0 & 804.14 & +-42.35 & -0.157\\
-        3.5 & 927.13 & +-45.89 & -0.154\\
-        4.0 & 1050.11 & +-49.67 & -0.151\\
-        4.5 & 1173.10 & +-53.63 & -0.150\\
-        5.0 & 1296.08 & +-57.73 & -0.148\\
+        0.0 & 66 & +-30 & -0.178\\
+        0.5 & 189 & +-31 & -0.174\\
+        1.0 & 312 & +-32 & -0.171\\
+        1.5 & 435 & +-34 & -0.167\\
+        2.0 & 558 & +-36 & -0.164\\
+        2.5 & 681 & +-39 & -0.161\\
+        3.0 & 804 & +-42 & -0.157\\
+        3.5 & 927 & +-46 & -0.154\\
+        4.0 & 1050 & +-50 & -0.151\\
+        4.5 & 1173 & +-54 & -0.150\\
+        5.0 & 1296 & +-58 & -0.148\\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Durch diese Werte wird ebenfalls eine Funktion der Form \autoref{eq:gerade} gelegt.
-Es werden wieder zwei Parameter 
+Durch diese Werte wird ebenfalls eine Funktion der Form \autoref{eq:ugerade} gelegt.
+Es werden wieder die zwei Parameter 
 
 \begin{align}
     a =& \SI{2.51(9)e-5}{\meter\squared\per\second} \\
@@ -151,13 +156,13 @@ Es werden wieder zwei Parameter
     \label{eq:params_Ib2}
 \end{align}
 
-definiert.
+bestimmt.
 Der Plot ist dann in \autoref{fig:silber_Ib_plot} zu sehen.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_silber_Ib.pdf}
-    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_\text{B}$ mit Ausgleichsgeraden.\cite{numpy}}
+    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_B$ mit Ausgleichsgeraden.\cite{numpy}}
     \label{fig:silber_Ib_plot}
 \end{figure}
 
@@ -169,7 +174,7 @@ Für Zink werden ebenfalls alle Werte in einer Tabelle dokumentiert.
     \label{tab:werte_zink_B}
     \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_\text{B}}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
         0.0 & 66.23 & +-30.45 & -0.338\\
         0.5 & 189.22 & +-30.84 & -0.340\\
@@ -186,7 +191,7 @@ Für Zink werden ebenfalls alle Werte in einer Tabelle dokumentiert.
     \end{tabular}
 \end{table}
 
-Hier ist ebenfalls ein linearer Zusammenhang erkennbar, daher wird eine Funktion \autoref{eq:gerade} durch die Messwerte gelegt.
+Hier ist ebenfalls ein linearer Zusammenhang erkennbar, daher wird wieder \autoref{eq:ugerade} für eine Ausgleichsgerade durch die Messwerte verwendet.
 Folgende Parameter ergeben sich aus dem Curve Fit,
 
 \begin{align}
@@ -200,14 +205,14 @@ Der Plot wird dann in \autoref{fig:zink_Ib_plot} angezeigt.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_zink_Ib.pdf}
-    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_\text{B}$ mit Ausgleichsgeraden.\cite{numpy}}
+    \caption{Gemessene Werte von $U_\text{H}$ bei Variation von $I_B$ mit Ausgleichsgeraden.\cite{numpy}}
     \label{fig:zink_Ib_plot}
 \end{figure}
 
 \subsection{Leitfähigkeit von Metallen durch Variation des B-Feldes}
 \label{ssec:b}
 
-Aus \autoref{ssec:mess} werden die Parameter $a$, also die Steigungen der Ausgleichsgeraden, definiert als
+Aus \autoref{ssec:mess} werden die Parameter $a$, also die Steigungen der Ausgleichsgeraden, nach \autoref{eq:hallspannung} definiert als
 
 \begin{equation}
     a = \frac{-I_\text{q}}{n e_0 d}.
@@ -233,7 +238,7 @@ umgestellt und eine Fehlerformel
 \end{equation}
 
 aufgestellt.
-Daraus ergibt sich dann drei verschiedene Werte für $n$,
+Daraus ergeben sich dann drei verschiedene Werte für $n$,
 
 \begin{align}
     n_\text{K} =& \SI{2.42(9)e29}{\per\cubic\meter} \\
@@ -243,15 +248,8 @@ Daraus ergibt sich dann drei verschiedene Werte für $n$,
 \end{align}
 
 Das negative Vorzeichen bei $n_\text{Z}$ wird im folgenden weggelassen, da es physikalisch nicht sinnvoll ist.
-Zur Berechnung der mittleren Flugzeit $\bar{\tau}$ wird \autoref{eq:widerstand} nach
-
-\begin{equation}
-    \bar{\tau} = \frac{2m_0 L}{{e_0}^2 n R Q}
-    \label{eq:tau}
-\end{equation}
-
-umgeformt.
-$R = \SI{2.76}{\ohm}$ ist der Widerstand von Kupfer, $L = \SI{1.37}{\meter}$ die Länge des Kupferdrahtes und $Q$ der Querschnitt des verwendeten Drahtes, der zur Bestimmung von $R$ verwendet wurde.
+Zur Berechnung der mittleren Flugzeit $\bar{\tau}$ wird \autoref{eq:tau} verwendet.
+$R = \SI{2.76}{\ohm}$ ist der gemessene Widerstand von Kupfer, $L = \SI{1.37}{\meter}$ die Länge des Kupferdrahtes und $Q$ der Querschnitt des verwendeten Drahtes, der zur Bestimmung von $R$ verwendet wurde.
 $Q$ wird aus der gegebenen Dicke des Drahtes berechnet, $Q$ ist dann
 
 \begin{equation}
@@ -260,21 +258,13 @@ $Q$ wird aus der gegebenen Dicke des Drahtes berechnet, $Q$ ist dann
 \end{equation}
 
 Dabei ist $d_2 = \SI{0.1}{\milli\meter}$ der Durchmesser des Drahtes.
-Der Widerstand von Silber ist $R = \SI{0.58}{\ohm}$ und $L = \SI{1.73}{\meter}$.
+Der gemessene Widerstand von Silber ist $R = \SI{0.58}{\ohm}$ und $L = \SI{1.73}{\meter}$.
 $Q$ ist bei Silber der selbe, wie bei Kupfer.
-Für Zink kann diese Formel nicht genutzt werden, da keine Widerstandsmessung durchgeführt werden konnte.
+Für Zink konnte keine Widerstandsmessung durchgeführt werden.
 Daher wird der spezifische Widerstand $\rho$ von Zink aus einer externen Quelle entnommen.
-Dann kann über 
-
-\begin{equation}
-    \bar{\tau} = \frac{2m_0}{{e_0}^2 n \rho}
-    \label{eq:tau2}
-\end{equation}
-
-$\bar{\tau}$ ebenso bestimmt werden.
 Der spezifische Widerstand von Zink ist $\rho = \SI{0.06}{\micro\ohm\meter}$.\cite{zink}
 Die Ruhemasse eines Elektrons $m_0$ und die Elektronenmasse $e_0$ sind Naturkonstanten.\cite{physics_constants}
-Es wird ebenfalls zwei Fehlerformeln für $\bar{\tau}$ aufgestellt, die für Kupfer und Silber, 
+Es werden ebenfalls zwei Fehlerformeln für $\bar{\tau}$ aufgestellt, die für Kupfer und Silber, 
 
 \begin{equation}
     \sigma _{\bar{\tau}} = \sqrt{\frac{4 L^{2} \sigma_{n}^{2} m_{0}^{2}}{Q^{2} R^{2} e_{0}^{4} n^{4}}}
@@ -289,7 +279,7 @@ und die Fehlerfortpflanzungsformel für Zink ist durch
 \end{equation}
 
 gegeben. 
-Dadurch ergibt sich folgende drei Werte für die mittlere freie Flugzeit
+Dadurch ergeben sich folgende drei Werte für die mittlere freie Flugzeit
 
 \begin{align}
     \bar{\tau}_\text{K} =& \SI{2.32(9)e-14}{\second} \\
@@ -299,21 +289,21 @@ Dadurch ergibt sich folgende drei Werte für die mittlere freie Flugzeit
 \end{align}
 
 Zur Berechnung der mittleren Driftgeschwindigkeit wird \autoref{eq:driftgeschwindigkeit} verwendet.
-$n$ und $e_0$ sind bekannte Größen, die Stromdichte $j$ ist vorgeben und beträgt $j = \SI{1e6}{\ampere\per\meter\squared}$.
+$n$ und $e_0$ sind bekannte Größen, die Stromdichte $j$ ist vorgegeben und beträgt $j = \SI{1e6}{\ampere\per\meter\squared}$.
 Die Fehlerfortpflanzungsformel wird verwendet um die Fehlerformel
 
 \begin{equation}
-    \sigma _{\bar{v_\text{d}}} = \sqrt{\frac{j \sigma _n}{n^2 e_0}}.
+    \sigma _{\bar{v}_\text{d}} = \sqrt{\frac{j \sigma _n}{n^2 e_0}}.
     \label{eq:vd_fehler}
 \end{equation}
 
-für $\bar{v_\text{d}}$ aufzustellen.
+für $\bar{v}_\text{d}$ aufzustellen.
 Dann ergibt sich ein Ergebnis für die mittlere Driftgeschwindigkeit 
 
 \begin{align}
-    \bar{v_\text{d}}_\text{K} =& \SI{2.58(10)e-5}{\meter\per\second} \\
-    \bar{v_\text{d}}_\text{S} =& \SI{6.52(23)e-5}{\meter\per\second} \\
-    \bar{v_\text{d}}_\text{Z} =& \SI{8.38(33)e-5}{\meter\per\second}.
+    \bar{v}_\text{d,K} =& \SI{2.58(10)e-5}{\meter\per\second} \\
+    \bar{v}_\text{d,S} =& \SI{6.52(23)e-5}{\meter\per\second} \\
+    \bar{v}_\text{d,Z} =& \SI{8.38(33)e-5}{\meter\per\second}.
     \label{eq:vd1}
 \end{align}
 
@@ -321,7 +311,7 @@ Die Beweglichkeit $\mu$ wird über \autoref{eq:beweglichkeit} bestimmt.
 Für die Beweglichkeit wird ebenfalls eine Fehlerformel aufgestellt, diese wird dann
 
 \begin{equation}
-    \sigma _{\mu} = \sqrt{\frac{e_{0}^{4} \sigma_{n}^{2} \tau^{2} {\bar{v_\text{d}}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\tau}^{2} n^{2} {\bar{v_\text{d}}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\bar{v_\text{d}}}^{2} n^{2} \tau^{2}}{4 j^{2} m_{0}^{2}}}.
+    \sigma _{\mu} = \sqrt{\frac{e_{0}^{4} \sigma_{n}^{2} \tau^{2} {\bar{v}_\text{d}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\tau}^{2} n^{2} {\bar{v}_\text{d}}^{2}}{4 j^{2} m_{0}^{2}} + \frac{e_{0}^{4} \sigma_{\bar{v}_\text{d}}^{2} n^{2} \tau^{2}}{4 j^{2} m_{0}^{2}}}.
     \label{eq:bewegl_fehler}
 \end{equation}
 
@@ -344,7 +334,7 @@ Beide Formeln werden verbunden und zu einer endgültigen Formel
 \end{equation}
 
 zusammengefügt.
-Die einzige neu auftauchende Größe ist die Naturkonstante $h = \SI{6.63e-34}{\joule\per\hertz}$, das Plancksche Wirkungsquantum.\cite{physics_constants}
+Die einzige neu auftauchende Größe ist die Naturkonstante $\hbar = \SI{6.63e-34}{\joule\per\hertz}$, das Plancksche Wirkungsquantum.\cite{physics_constants}
 Die Fehlerformel für $\bar{v}_\text{total}$ wird durch 
 
 \begin{equation}
@@ -371,12 +361,12 @@ Die Fehlerformel wird dann zu
     \label{eq:weglaenge_fehler}
 \end{equation}
 
-Die mittlere freie Weglänge ist dann
+Für die mittlere freie Weglänge ergibt sich dann
 
 \begin{align}
     \bar{l}_\text{K} = \SI{5.18(21)e-8}{\meter}\\
     \bar{l}_\text{S} = \SI{5.77(21)e-7}{\meter}\\
-    \bar{l}_\text{Z} = \SI{2.40(10)e-8}{\meter}
+    \bar{l}_\text{Z} = \SI{2.40(10)e-8}{\meter}.
     \label{eq:weglaenge1}
 \end{align}
 
@@ -565,14 +555,14 @@ Für Zink wird wieder \autoref{eq:tau2} genutzt, wobei der spezifische Widerstan
 
 berechnet.
 
-An der Berechnung der Driftgeschwindigkeit $\bar{v_\text{d}}$ hat sich nichts geändert, es wird \autoref{eq:driftgeschwindigkeit} zur Berechnug des eigentlichen Wertes genommen und \autoref{eq:vd_fehler} für die Berechnung des Fehlers.
+An der Berechnung der Driftgeschwindigkeit $\bar{v}_\text{d}$ hat sich nichts geändert, es wird \autoref{eq:driftgeschwindigkeit} zur Berechnug des eigentlichen Wertes genommen und \autoref{eq:vd_fehler} für die Berechnung des Fehlers.
 
 Somit ergibt sich die Driftgeschwindigkeit
 
 \begin{align}
-    \bar{v_\text{d}}_\text{K} =& \SI{1.91(5)e-5}{\meter\per\second} \\
-    \bar{v_\text{d}}_\text{S} =& \SI{29.10(9)e-5}{\meter\per\second} \\
-    \bar{v_\text{d}}_\text{Z} =& \SI{12.37(5)e-4}{\meter\per\second}.
+    \bar{v}_\text{d,K} =& \SI{1.91(5)e-5}{\meter\per\second} \\
+    \bar{v}_\text{d,S} =& \SI{29.10(9)e-5}{\meter\per\second} \\
+    \bar{v}_\text{d,Z} =& \SI{12.37(5)e-4}{\meter\per\second}.
     \label{eq:vd2}
 \end{align}
 

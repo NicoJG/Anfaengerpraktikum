@@ -13,6 +13,8 @@ def g(x,a,b):
 def n(Iq,e,d,a):
     return -Iq /(a * e * d)
 
+def z(rho,n,m):
+    return rho/(n * m)
 def B(x):
     return 245.97*x+66.23
 
@@ -83,13 +85,16 @@ tau_neu = ufloat(3.52*10**-13,0.12*10**-13)
 vd_neu = ufloat(6.52*10**-5,0.23*10**-5)
 vtotal_neu = ufloat(1.640*10**6,0.019*10**6)
 
+m_atom = 107.9*1.67*10**-27 #kilogram
+rho = 10.5 *1000 #kilogram pro m^3
+print("z2 und z Fehler: ", z(rho,n_neu,m_atom))
 
 #print("n2 und n2 error: ", n(Iq_neu,e_neu,d_neu,a_neu))
 #print("Tau2 und Tau2 error: ", T(m_neu,L_neu,e_neu,n_neu,R_neu,Q_neu))
 #print("Vdrift2 und Error: ", V(j_neu,e_neu,n_neu))
 #print("Mü und Mü Fehler: ", M(e_neu,n_neu,tau_neu,vd_neu,m_neu,j_neu))
 #print("Vtotal und Fehler: ", VT(h_neu,m_neu,n_neu))
-print("L und L Fehler: ", L(tau_neu, vtotal_neu))
+#print("L und L Fehler: ", L(tau_neu, vtotal_neu))
 
 # Speicherort
 plt.savefig('build/plot_silber_Ib.pdf')

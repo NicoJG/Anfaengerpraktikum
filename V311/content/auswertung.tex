@@ -243,6 +243,50 @@ Daraus ergibt sich dann drei verschiedene Werte für $n$,
 \end{align}
 
 Das negative Vorzeichen bei $n_\text{Z}$ wird im folgenden weggelassen, da es physikalisch nicht sinnvoll ist.
+$n$ gibt die Ladungsträger pro Volumen an, $z$ hingegen gibt die Anzahl der freien Ladungsträger pro dem jeweiligen Atom an. 
+Für die Berechnung werden die Dichten $\rho$ der drei Metalle benötigt, sowie die atomaren Massen $m$.
+Über 
+
+\begin{equation}
+    z = \frac{\rho}{n \cdot u}
+    \label{eq:nproatom}
+\end{equation}
+
+Die Dichten sind
+
+\begin{align}
+    \rho _\text{K} =& \SI{8.96}{\gram\per\cubic\centi\meter} \\
+    \rho _\text{S} =& \SI{10.50}{\gram\per\cubic\centi\meter} \\
+    \rho _\text{Z} =& \SI{7.134}{\gram\per\cubic\centi\meter}.\:\text{\cite{kupfer}, \cite{silber}, \cite{zink}}
+    \label{eq:rho}
+\end{align}
+
+Die atomaren Massen werden in $u$ angegeben, damit sie in Basiseinheiten verwendet werden können, werden sie mit der Definition von $u = \SI{1.67e-27}{\kilo\gram}$ multipliziert.\cite{physics_constants}
+
+\begin{align}
+    m_\text{K} =& \SI{63.5}{} \cdot \SI{1.67e-27}{\kilo\gram} \\
+    m_\text{S} =& \SI{107.9}{} \cdot \SI{1.67e-27}{\kilo\gram} \\
+    m_\text{Z} =& \SI{65.4}{} \cdot \SI{1.67e-27}{\kilo\gram}.\:\text{\cite{kupfer}, \cite{silber}, \cite{zink}}
+    \label{eq:m}
+\end{align}
+
+Für $z$ wird außerdem eine Fehlerfortpflanzungsformel
+
+\begin{equation}
+   \sigma _z = \sqrt{\left(\frac{-\rho \sigma _n}{n^2 \cdot u}\right)}
+    \label{eq:nproatom_fehler}
+\end{equation}
+
+aufgestellt.
+Damit werden die freien Ladungsträger pro Atom
+
+\begin{align}
+    z_\text{K} =& \SI{0.349(13)}{} \\
+    z_\text{S} =& \SI{0.608(22)}{} \\
+    z_\text{Z} =& \SI{0.877(34)}{}.
+    \label{eq:z1}
+\end{align}
+
 Zur Berechnung der mittleren Flugzeit $\bar{\tau}$ wird \autoref{eq:widerstand} nach
 
 \begin{equation}
@@ -551,6 +595,18 @@ Damit wird der Wert
 \end{align}
 
 berechnet.
+
+Die Berechnung der Anzahl der freien Ladungsträger pro Atom wird wie zuvor durchgeführt.
+Dafür werden \autoref{eq:rho} und \autoref{eq:nproatom_fehler} verwendet.
+Sowohl die Dichten aus \autoref{eq:rho}, als auch die Masse des Atomkerns \autoref{eq:m} werden übernommen.
+Damit ergibt sich dann 
+
+\begin{align}
+    z_\text{K} =& \SI{0.258(7)}{} \\
+    z_\text{S} =& \SI{2.717(9)}{} \\
+    z_\text{Z} =& \SI{12.95(5)}{}.
+    \label{eq:z1}
+\end{align}
 
 Für die Berechnung der mittleren freien Flugzeit $\bar{\tau}$ wird erneut \autoref{eq:tau} verwendet, allerdings nur für Kupfer und Silber, als Fehlerformel wird \autoref{eq:tau_fehler} genutzt.
 Für Zink wird wieder \autoref{eq:tau2} genutzt, wobei der spezifische Widerstand $\rho$ als Materialkonstante gleich bleibt, für Zink wird \autoref{eq:tau_fehler2} als Fehlerfortpflanzungsformel verwendet.

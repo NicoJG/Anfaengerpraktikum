@@ -69,7 +69,7 @@ plt.plot(Iq, Uh, 'ro', label='Hall-Spannung bei Variation von Iq')
 
 # Achsenbeschriftung
 plt.xlabel(r'$I_Q \:/\: \si{\ampere}$')
-plt.ylabel(r'$U_H \:/\: \si{\milli\volt}$')
+plt.ylabel(r'$U_H \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

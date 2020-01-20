@@ -21,20 +21,20 @@ Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird 
     \centering
     \caption{Messergebnisse der Hysteresekurve}
     \label{tab:hysterese}
-    \begin{tabular}{S[table-format=1.1] S[table-format=4.0] S[table-format=3.0] S[table-format=4.2] S[table-format=-2.2]}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.0] S[table-format=3.0] S[table-format=4.0,table-figures-uncertainty = 1]}
         \toprule
-        \tableSI{I_B}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} \\
+        \tableSI{I_B}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \tableSI{B}{\milli\tesla} \\
         \midrule
-        0.5 & 145 & 150 & 66 & +-30 \\
-        1.0 & 287 & 290 & 312 & +-32 \\
-        1.5 & 426 & 431 & 435 & +-34 \\
-        2.0 & 567 & 580 & 558 & +-36 \\
-        2.5 & 706 & 719 & 681 & +-39 \\
-        3.0 & 836 & 855 & 804 & +-42 \\
-        3.5 & 966 & 985 & 927 & +-46 \\
-        4.0 & 1076 & 1092 & 1050 & +-50 \\
-        4.5 & 1154 & 1162 & 1173 & +-54 \\
-        5.0 & 1213 & 1213 & 1296 & +-58 \\
+        0.5 & 145 & 150 & 66+-30 \\
+        1.0 & 287 & 290 & 312+-32 \\
+        1.5 & 426 & 431 & 435+-34 \\
+        2.0 & 567 & 580 & 558+-36 \\
+        2.5 & 706 & 719 & 681+-39 \\
+        3.0 & 836 & 855 & 804+-42 \\
+        3.5 & 966 & 985 & 927+-46 \\
+        4.0 & 1076 & 1092 & 1050+-50 \\
+        4.5 & 1154 & 1162 & 1173+-54 \\
+        5.0 & 1213 & 1213 & 1296+-58 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -82,21 +82,21 @@ Dort wird neben $I_B$ auch das daraus resultierende B-Feld angegeben, sowie die 
     \centering
     \caption{Messergebnisse der Variation des Magnetfeldes bei Kupfer}
     \label{tab:werte_kupfer_B}
-    \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.0,table-figures-uncertainty = 1] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \tableSI{B}{\milli\tesla} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
-        0.0 & 66 & +-30 & -0.009\\
-        0.5 & 189 & +-31 & -0.007\\
-        1.0 & 312 & +-32 & -0.005\\
-        1.5 & 435 & +-34 & -0.003\\
-        2.0 & 558 & +-36 & -0.001\\
-        2.5 & 681 & +-39 & 0.001\\
-        3.0 & 804 & +-42 & 0.003\\
-        3.5 & 927 & +-46 & 0.005\\
-        4.0 & 1050 & +-50 & 0.006\\
-        4.5 & 1173 & +-54 & 0.007\\
-        5.0 & 1296 & +-58 & 0.008\\
+        0.0 & 66+-30 & -0.009\\
+        0.5 & 189+-31 & -0.007\\
+        1.0 & 312+-32 & -0.005\\
+        1.5 & 435+-34 & -0.003\\
+        2.0 & 558+-36 & -0.001\\
+        2.5 & 681+-39 & 0.001\\
+        3.0 & 804+-42 & 0.003\\
+        3.5 & 927+-46 & 0.005\\
+        4.0 & 1050+-50 & 0.006\\
+        4.5 & 1173+-54 & 0.007\\
+        5.0 & 1296+-58 & 0.008\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -128,21 +128,21 @@ Für die Messreihe, in der Silber verwendet wurde, werden ebenfalls die Messwert
     \centering
     \caption{Messergebnisse der Variation des Magnetfeldes bei Silber}
     \label{tab:werte_silber_B}
-    \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.0,table-figures-uncertainty = 1] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \tableSI{B}{\milli\tesla} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
-        0.0 & 66 & +-30 & -0.178\\
-        0.5 & 189 & +-31 & -0.174\\
-        1.0 & 312 & +-32 & -0.171\\
-        1.5 & 435 & +-34 & -0.167\\
-        2.0 & 558 & +-36 & -0.164\\
-        2.5 & 681 & +-39 & -0.161\\
-        3.0 & 804 & +-42 & -0.157\\
-        3.5 & 927 & +-46 & -0.154\\
-        4.0 & 1050 & +-50 & -0.151\\
-        4.5 & 1173 & +-54 & -0.150\\
-        5.0 & 1296 & +-58 & -0.148\\
+        0.0 & 66+-30 & -0.178\\
+        0.5 & 189+-31 & -0.174\\
+        1.0 & 312+-32 & -0.171\\
+        1.5 & 435+-34 & -0.167\\
+        2.0 & 558+-36 & -0.164\\
+        2.5 & 681+-39 & -0.161\\
+        3.0 & 804+-42 & -0.157\\
+        3.5 & 927+-46 & -0.154\\
+        4.0 & 1050+-50 & -0.151\\
+        4.5 & 1173+-54 & -0.150\\
+        5.0 & 1296+-58 & -0.148\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -172,21 +172,21 @@ Für Zink werden ebenfalls alle Werte in einer Tabelle dokumentiert.
     \centering
     \caption{Messergebnisse der Variation des Magnetfeldes bei Zink}
     \label{tab:werte_zink_B}
-    \begin{tabular}{S[table-format=1.1] S[table-format=4.2] S[table-format=-2.2] S[table-format=-1.3]}
+    \begin{tabular}{S[table-format=1.1] S[table-format=4.0,table-figures-uncertainty = 1] S[table-format=-2.2] S[table-format=-1.3]}
         \toprule
-        \tableSI{I_B}{\ampere} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} & \tableSI{U_\text{H}}{\milli\volt} \\
+        \tableSI{I_B}{\ampere} & \tableSI{B}{\milli\tesla} & \tableSI{U_\text{H}}{\milli\volt} \\
         \midrule
-        0.0 & 66.23 & +-30.45 & -0.338\\
-        0.5 & 189.22 & +-30.84 & -0.340\\
-        1.0 & 312.20 & +-31.99 & -0.342\\
-        1.5 & 435.19 & +-33.82 & -0.344\\
-        2.0 & 558.17 & +-36.22 & -0.347\\
-        2.5 & 681.16 & +-39.09 & -0.349\\
-        3.0 & 804.14 & +-42.35 & -0.352\\
-        3.5 & 927.13 & +-45.89 & -0.355\\
-        4.0 & 1050.11 & +-49.67 & -0.357\\
-        4.5 & 1173.10 & +-53.63 & -0.357\\
-        5.0 & 1296.08 & +-57.73 & -0.359\\
+        0.0 & 66+-30 & -0.338\\
+        0.5 & 189+-31 & -0.340\\
+        1.0 & 312+-32 & -0.342\\
+        1.5 & 435+-34 & -0.344\\
+        2.0 & 558+-36 & -0.347\\
+        2.5 & 681+-39 & -0.349\\
+        3.0 & 804+-42 & -0.352\\
+        3.5 & 927+-46 & -0.355\\
+        4.0 & 1050+-50 & -0.357\\
+        4.5 & 1173+-54 & -0.357\\
+        5.0 & 1296+-58 & -0.359\\
         \bottomrule
     \end{tabular}
 \end{table}

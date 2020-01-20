@@ -399,7 +399,12 @@ Angefangen mit Kupfer, werden die eingestellten Werte von $I_\text{q}$ zusammen 
     \end{tabular}
 \end{table}
 
-Durch diese Messwerte wird wieder eine Ausgleichsgerade der Form \autoref{eq:gerade} gelegt, dadurch gibt es zwei Parameter $a$ und $b$, die sich von Curve Fit berechnen lassen.
+Durch diese Messwerte wird wieder eine Ausgleichsgerade der Form 
+\begin{equation}
+    U_\text{H} = a \cdot I_\text{q} + b
+    \label{eq:u2gerade}
+\end{equation}
+gelegt, dadurch gibt es zwei Parameter $a$ und $b$, die sich durch Curve Fit berechnen lassen.
 Bei Kupfer sind diese Parameter
 
 \begin{align}
@@ -442,7 +447,7 @@ Die Messergebnisse für Silber werden ebenso wie die von Kupfer in einer Tabelle
     \end{tabular}
 \end{table}
 
-Eine Ausgleichsgerade der Form \autoref{eq:gerade} hätte bei diesen Messwerten die Parameter 
+Eine Ausgleichsgerade der Form \autoref{eq:u2gerade} hat bei diesen Messwerten die Parameter 
 
 \begin{align}
     a =& \SI{-1.451(5)e-5}{\volt\second\per\coulomb} \\
@@ -450,7 +455,7 @@ Eine Ausgleichsgerade der Form \autoref{eq:gerade} hätte bei diesen Messwerten 
     \label{eq:params_Iq2}
 \end{align}
 
-Der Plot mit der Ausgleichgeraden wird dann in \autoref{fig:silber_Iq_plot} dargestellt.
+Der Plot mit der Ausgleichgerade wird dann in \autoref{fig:silber_Iq_plot} dargestellt.
 
 \begin{figure}
     \centering
@@ -484,7 +489,7 @@ Zuletzt wird noch die Messreihe von Zink in einer Tabelle festgehalten.
     \end{tabular}
 \end{table}
 
-Es wird eine Ausgleichsgerade der Form \autoref{eq:gerade} durch die Werte gelegt, Curve Fit liefert folgende Werte für die Parameter $a$ und $b$
+Es wird eine Ausgleichsgerade der Form \autoref{eq:u2gerade} durch die Werte gelegt, Curve Fit liefert folgende Werte für die Parameter $a$ und $b$
 
 \begin{align}
     a =& \SI{-4.33(2)e-5}{\volt\second\per\coulomb} \\
@@ -504,7 +509,7 @@ Diese Parameter liefern die Ausgleichsgerade in \autoref{fig:zink_Iq_plot}.
 \subsection{Leitfähigkeit von Metallen durch Variation des Querstroms}
 \label{ssec:d}
 
-Der Parameter $a$, also die jeweils die Steigung der Ausgleichgeraden, wird im weiteren für alle Berechnungen benötigt, $a$ ist als 
+Der Parameter $a$, also die jeweilige Steigung der Ausgleichgerade, wird im weiteren für alle Berechnungen benötigt, $a$ ist nach \autoref{eq:hallspannung} als 
 
 \begin{equation}
     a = \frac{-B}{n e_0 d}
@@ -513,7 +518,7 @@ Der Parameter $a$, also die jeweils die Steigung der Ausgleichgeraden, wird im w
 
 definiert.
 Alle Größen, die nicht mehr expilizit genannt werden, sind identisch mit den Größen aus \autoref{ssec:b}, $e_0$ und die Dicke $d$ bleiben also gleich.
-Die Dicke der Kupferplatte begrägt also $d_\text{K} = \SI{18}{\micro\meter}$, bei Silber $d_\text{S} = \SI{0.026}{\milli\meter}$ und bei Zink $d_\text{Z} = \SI{0.037}{\milli\meter}$.
+Die Dicke der Kupferplatte begträgt also $d_\text{K} = \SI{18}{\micro\meter}$, bei Silber $d_\text{S} = \SI{0.026}{\milli\meter}$ und bei Zink $d_\text{Z} = \SI{0.037}{\milli\meter}$.
 Das Experiment wurde bei einem konstanten B-Feld der Stärke $B = \SI{1296.08}{\milli\tesla}$ durchgeführt.
 \autoref{eq:a2} wird nach der Anzahl der Ladungsträger $n$ umgeformt.
 Damit ergibt sich dann
@@ -543,7 +548,7 @@ Damit wird der Wert
 berechnet.
 
 Für die Berechnung der mittleren freien Flugzeit $\bar{\tau}$ wird erneut \autoref{eq:tau} verwendet, allerdings nur für Kupfer und Silber, als Fehlerformel wird \autoref{eq:tau_fehler} genutzt.
-Für Zink wird wieder \autoref{eq:tau2} genutzt, wobei der spezifische Widerstand $\rho$ als Materialkonstante gleich bleibt, für Zink wird \autoref{eq:tau_fehler2} als Fehlerfortpflanzungsformel verwendet.
+Für Zink wird auch \autoref{eq:tau} genutzt, wobei der spezifische Widerstand $\rho$ als Materialkonstante gleich bleibt, für Zink wird \autoref{eq:tau_fehler2} als Fehlerfortpflanzungsformel verwendet.
 Über alle Formeln wird dann 
 
 \begin{align}

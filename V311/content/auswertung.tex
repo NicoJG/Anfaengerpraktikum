@@ -15,7 +15,7 @@
 
 
 Bevor die eigentliche Auswertung beginnt, wird das B-Feld im Verhältnis zu der $I_\text{B}$ Spannung, also die Spannung, die das B-Feld erzeugt, gemessen.
-Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird ein aufsteigendes, $B_1$ Feld und ein abfallendes, $B_2$ Feld betrachtet.
+Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird ein aufsteigendes $B_1$ Feld und ein abfallendes $B_2$ Feld betrachtet.
 
 \begin{table}
     \centering
@@ -25,38 +25,35 @@ Da die Stärke des Feldes von dem Zustand vor Beginn der Messung abhängt, wird 
         \toprule
         \tableSI{I_\text{B}}{\ampere} & \tableSI{B_1}{\milli\tesla} & \tableSI{B_2}{\milli\tesla} & \multicolumn{2}{c}{\tableSI{B}{\milli\tesla}} \\
         \midrule
-        0.5 & 145 & 150 & 66.23 & +-30.45 \\
-        1.0 & 287 & 290 & 312.20 & +-31.99\\
-        1.5 & 426 & 431 & 435.19 & +-33.82\\
-        2.0 & 567 & 580 & 558.17 & +-36.22\\
-        2.5 & 706 & 719 & 681.16 & +-39.09\\
-        3.0 & 836 & 855 & 804.14 & +-42.35\\
-        3.5 & 966 & 985 & 927.13 & +-45.89\\
-        4.0 & 1076 & 1092 & 1050.11 & +-49.67\\
-        4.5 & 1154 & 1162 & 1173.10 & +-53.63\\
-        5.0 & 1213 & 1213 & 1296.08 & +-57.73\\
+        0.5 & 145 & 150 & 66 & +-30 \\
+        1.0 & 287 & 290 & 312 & +-32 \\
+        1.5 & 426 & 431 & 435 & +-34 \\
+        2.0 & 567 & 580 & 558 & +-36 \\
+        2.5 & 706 & 719 & 681 & +-39 \\
+        3.0 & 836 & 855 & 804 & +-42 \\
+        3.5 & 966 & 985 & 927 & +-46 \\
+        4.0 & 1076 & 1092 & 1050 & +-50 \\
+        4.5 & 1154 & 1162 & 1173 & +-54 \\
+        5.0 & 1213 & 1213 & 1296 & +-58 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Da es nicht sinnvoll ist mit beiden Werten zu rechnen, wird die Hysteresekurve durch eine Ausgleichsgeradem der Form
-
+Da es nicht sinnvoll ist mit beiden Werten zu rechnen, wird die Hysteresekurve durch eine Ausgleichsgerade der Form
 \begin{equation}
-    f = a \cdot x + b
+    B = a \cdot I_B + b
     \label{eq:gerade}
 \end{equation}
-
 angenähert.
-Dabei ergeben sich folgende Parameter für $a$ und $b$,
-
+Dabei ergeben sich die Parameter
 \begin{align}
-    a =& \SI{245.97+-9.81}{} \\
-    b =& \SI{66.23+-30.45}{}.
+    a =& \SI{245.97+-9.81}{\tesla\per\ampere} \\
+    b =& \SI{66.23+-30.45}{\tesla}.
     \label{eq:params1}
 \end{align}
 
-Über diese Parameter werden im folgenden alle Werte von $I_\text{B}$ in $B$ übersetzt.
-Durch die Unsicherheiten der Parameter ergibt sich auf eine Ungenauigkeit in $B$.
+Über diese Parameter werden im Folgenden alle Werte von $I_B$ in $B$ übersetzt.
+Durch die Unsicherheiten der Parameter ergibt sich eine Ungenauigkeit in $B$.
 Diese lässt sich über
 
 \begin{equation}
@@ -65,7 +62,7 @@ Diese lässt sich über
 \end{equation}
 
 berechnen.
-Der durch die Ausgleichsgeraden errechnete Wert, sowie die Unsicheheit, werden in \autoref{tab:hysterese} notiert.
+Der durch die Ausgleichsgerade errechnete Wert, sowie dessen Unsicherheit, sind in \autoref{tab:hysterese} notiert.
 
 \begin{figure}
     \centering

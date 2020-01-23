@@ -6,13 +6,13 @@ from uncertainties import ufloat
 
 # Funktion für Curve Fit:
 def U_fit(phi,a,b):
-    return 2/np.pi * a * np.cos(phi+b)
+    return 2/np.pi * a * np.cos(np.radians(phi+b))
 
 # Daten einlesen
 phi,U,U_noise = np.genfromtxt('data/phasen.csv',delimiter=',',unpack=True)
 
 #Berechnungen
-phi = np.radians(phi) #rad
+#phi = np.radians(phi) #rad
 
 # Ausgleichskurven berechnen
 params,pcov = curve_fit(U_fit,phi,U)
@@ -36,12 +36,12 @@ if not 'phase' in Ergebnisse:
 
 Ergebnisse['phase']['a[V]'] = a
 Ergebnisse['phase']['a_err[V]'] = a_err
-Ergebnisse['phase']['b[V]'] = b
-Ergebnisse['phase']['b_err[V]'] = b_err
+Ergebnisse['phase']['b[°]'] = b
+Ergebnisse['phase']['b_err[°]'] = b_err
 Ergebnisse['phase']['a_noise[V]'] = a_noise
 Ergebnisse['phase']['a_noise_err[V]'] = a_noise_err
-Ergebnisse['phase']['b_noise[V]'] = b_noise
-Ergebnisse['phase']['b_noise_err[V]'] = b_noise_err
+Ergebnisse['phase']['b_noise[°]'] = b_noise
+Ergebnisse['phase']['b_noise_err[°]'] = b_noise_err
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # linspace
@@ -57,7 +57,7 @@ plt.plot(phi, U, 'ro', label='Messdaten')
 
 # Achsenbeschriftung
 plt.xlabel(r'$\varphi \:/\: \si{\radian}$')
-plt.ylabel(r'$U_\text{out} \:/\: \si{\volt}$')
+plt.ylabel(r'$U \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()
@@ -78,8 +78,8 @@ plt.plot(phi_linspace, U_fit(phi_linspace,*params_noise), 'k-', label='Ausgleich
 plt.plot(phi, U_noise, 'ro', label='Messdaten')
 
 # Achsenbeschriftung
-plt.xlabel(r'$\varphi \:/\: \si{\radian}$')
-plt.ylabel(r'$U_\text{out} \:/\: \si{\volt}$')
+plt.xlabel(r'$\varphi \:/\: \si{\degree}$')
+plt.ylabel(r'$U_\text{Noise} \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

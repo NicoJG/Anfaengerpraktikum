@@ -16,9 +16,9 @@ r = r * 10**(-2) #m
 r_gut = r[5:]
 U_gut = U[5:]
 
-print(r)
-print(U)
-print(U_gut)
+#print(r)
+#print(U)
+#print(U_gut)
 
 # Curve Fit
 params,pcov = curve_fit(U_fit,r_gut,-U_gut)
@@ -42,11 +42,11 @@ r_linspace = np.linspace(np.min(r),np.max(r),100)
 #plt.plot(r_linspace, U_fit(r_linspace,*params), 'k-', label='Ausgleichskurve')
 # Plot der Daten
 plt.plot(r, -U, 'ro', label='Messdaten')
-plt.plot(r_gut, -U_gut, 'bo', label='Messdaten')
+#plt.plot(r_gut, -U_gut, 'bo', label='Messdaten')
 
 # Achsenbeschriftung
 plt.xlabel(r'$r \:/\: \si{\meter}$')
-plt.ylabel(r'$|U_\text{out}| \:/\: \si{\volt}$')
+plt.ylabel(r'$|U| \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

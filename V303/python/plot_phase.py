@@ -30,14 +30,18 @@ b_noise_err = np.absolute(pcov_noise[1][1])**0.5
 
 # Einzelne Daten Speichern
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-Ergebnisse['a[V]'] = a
-Ergebnisse['a_err[V]'] = a_err
-Ergebnisse['b[V]'] = b
-Ergebnisse['b_err[V]'] = b_err
-Ergebnisse['a_noise[V]'] = a_noise
-Ergebnisse['a_noise_err[V]'] = a_noise_err
-Ergebnisse['b_noise[V]'] = b_noise
-Ergebnisse['b_noise_err[V]'] = b_noise_err
+
+if not 'phase' in Ergebnisse:
+    Ergebnisse['phase'] = {}
+
+Ergebnisse['phase']['a[V]'] = a
+Ergebnisse['phase']['a_err[V]'] = a_err
+Ergebnisse['phase']['b[V]'] = b
+Ergebnisse['phase']['b_err[V]'] = b_err
+Ergebnisse['phase']['a_noise[V]'] = a_noise
+Ergebnisse['phase']['a_noise_err[V]'] = a_noise_err
+Ergebnisse['phase']['b_noise[V]'] = b_noise
+Ergebnisse['phase']['b_noise_err[V]'] = b_noise_err
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # linspace

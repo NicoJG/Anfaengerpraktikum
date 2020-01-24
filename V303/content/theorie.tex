@@ -8,7 +8,7 @@
 % Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
 
 Ein Lock-In-Verstärker wird verwendet um stark verrauschte Signale und Spannungen zu messen.
-Zuvor werden die  sehr hohen und sehr niedrigen Frequenzen des Eingangssignals durch einen Bandpassfilter geschwächt beziehungsweise ganz entfernt.
+Zuvor werden die sehr hohen und sehr niedrigen Frequenzen des Eingangssignals durch einen Bandpassfilter geschwächt bzw. ganz entfernt.
 Eine Referenzspannung $U_\text{ref}$, mit der Frequenz der Eingangspannung $U_\text{sig}$, wird mit der Eingangspannung multipliziert.
 Dadurch wird das zu messende Signal zwischen dem Rauschen stärker hervorgehoben.
 In \autoref{fig:bild1} ist das Prinzip dieser Mulitplikation verdeutlicht.
@@ -42,7 +42,7 @@ die durch eine Fourierreihe angenähert wird, ergibt sich für die Mulitplikatio
 \end{equation}
 
 $U_0$ ist dabei die Amplitude des Eingangssignals und $\omega$ die abgestimmte Frequenz der beiden Signale.
-Das daraus entstehene Signal wird zuletzt durch einen Tiefpassfilter geschickt.
+Das daraus entstandene Signal wird zuletzt durch einen Tiefpassfilter geschickt.
 Dieser Tiefpassfilter besteht aus einer Kapazität $C$ und einem Widerstand $R$, diese sind über die Zeitkonstene $\tau$ verbunden und definierten zusammen die Bandbreite
 
 \begin{equation}
@@ -51,12 +51,11 @@ Dieser Tiefpassfilter besteht aus einer Kapazität $C$ und einem Widerstand $R$,
 \end{equation}
 
 dieses Filters.
-Dadurch filtern sich alle unerwünschten Anteile heraus und es bleibt nur eine Gleichspannung $U_\text{out}$ 
+Dadurch filtern sich alle unerwünschten Anteile heraus und es bleibt nur eine Gleichspannung $U_\text{out}$ mit 
 
 \begin{equation}
     U_\text{out} = \frac{2}{\pi} U_0 \cdot \cos{\left(\phi\right)}
     \label{eq:u_out}
 \end{equation}
-
 übrig.
 Die Ausgangspannung ist proportional zur Eingangssignals und hängt von der Phasendifferenz $\phi$ ab. 

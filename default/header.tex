@@ -3,6 +3,7 @@
   captions=tableheading,  % Tabellenüberschriften
   titlepage=firstiscover, % Titelseite ist Deckblatt
   parskip=half,
+  ngerman
 ]{scrartcl}
 
 % Paket float verbessern
@@ -33,6 +34,9 @@
 % deutsche Spracheinstellungen
 \usepackage[main=ngerman]{babel}
 
+% Übersetzungen
+%\usepackage{translator}
+
 
 \usepackage[
   math-style=ISO,    % ┐
@@ -59,8 +63,18 @@
   locale=DE,                   % deutsche Einstellungen
   separate-uncertainty=true,   % immer Fehler mit \pm
   per-mode=symbol-or-fraction, % / in inline math, fraction in display math
-  list-final-separator = {\:und\:}, % und statt and bei \SIlist
+  %list-final-separator = {\:und\:}, % und statt and bei \SIlist
+  % Übersetzungen für Listen, Range
+  % list-final-separator = { \translate{and} },
+  % list-pair-separator  = { \translate{and} },
+  % range-phrase         = { \translate{to (numerical range)} },
 ]{siunitx}
+
+% \sisetup{
+%   list-final-separator = { \translate{and} },
+%   list-pair-separator  = { \translate{and} },
+%   range-phrase         = { \translate{to (numerical range)} },
+% }
 
 % chemische Formeln
 \usepackage[

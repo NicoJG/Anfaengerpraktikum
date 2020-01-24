@@ -5,3 +5,20 @@
 % -Vergleich mit Literaturwerten
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
+
+Im Folgenden wird diskutiert ob die Ergebnisse in \autoref{sec:Auswertung} mit der Theorie vereinbar sind und ob der Lock-In Verstärker das gewünschte Verhalten zeigt.
+
+Vergleich von \autoref{fig:1} und \autoref{fig:2} lässt sich hier nicht interpretieren.
+Die Unterschiede in der Amplitude lassen sich allerdings auf eine verstellte Signalspannung zurückführen.
+Außerdem zeigt \autoref{fig:2}, dass ein verrauschtes Signal mithilfe des Lock-In Verstärkers bereinigt werden und vermessen werden kann.
+
+\autoref{fig:plot_phase} und \autoref{fig:plot_phase_noise} zeigen, dass abgesehen von einer leichten Phasenverschiebung des Kosinus und eines umgedrehten Vorzeichens in \autoref{fig:plot_phase_noise} die gemessenen Werte der Theorie wie in \autoref{eq:u_out} folgen.
+
+Die Vermessung der Lichtintensität der LED zeigt erneut die Funktion des Lock-In Verstärkers.
+Die Messergebnisse in \autoref{fig:plot_led} zeigen, dass ein Abfall der Lichtintensität gemessen werden konnte, obwohl das Eingangssignal aufgrund von Umgebungslicht verrauscht war.
+
+Die Unstimmigkeiten der Messwerte für kleine Abstände lassen sich auf eine nicht gut ausgerichtete Photodiode zurückführen.
+Da die Photodiode vermutlich nicht parallel zur LED ausgerichtet war, hat das Licht erst ab einem Abstand von $\SI{14}{\centi\meter}$ seine Maximale Intensität auf der Photodiode abgebildet. 
+Bei größeren Abständen war anscheinend die Drehung der Diode nicht wichtig, da der Lichtstrahl nicht stark gebündelt war. 
+
+Die Ausgleichsrechnung in \autoref{fig:plot_led} zeigt die erwartete $1/r^2$ Abhängigkeit der Intensität und somit scheint die Messung der Lichtintensität erfolgreich gewesen zu sein.

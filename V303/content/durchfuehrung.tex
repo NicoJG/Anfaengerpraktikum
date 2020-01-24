@@ -5,7 +5,9 @@
 
 Die Spannung wird an beiden Ausgängen des Funktionsgenerators abgegriffen und auf dem Oszilloskop angezeigt.
 Es wird untersucht, welche der beiden Spannungen in ihrer Amplitude variierbar ist und welche der beiden in ihrer Freuquenz einstellbar ist.
-Der Lock-In-Verstärker wird für die eigentliche Messung nach 
+
+Der Lock-In-Verstärker wird für die eigentliche Messung nach \autoref{fig:bild3} verkabelt.
+Der Noise Generator wird im Gegensatz zur Abbildung aber überbrückt und nicht nur ausgeschaltet.
 
 \begin{figure}
     \centering
@@ -14,10 +16,8 @@ Der Lock-In-Verstärker wird für die eigentliche Messung nach
     \label{fig:bild3}
 \end{figure}
 
-verkabelt.
-Der Noise Generator wird im Gegensatz zur Abbildung aber überbrückt und nicht nur ausgeschaltet.
-$U_\text{sig}$ wird als sinusförmiges Signal mit einer Freuquenz von etwa $\SI{1}{\kilo\hertz}$ und etwa $\SI{10}{\milli\volt}$ verstärkt und zusammen mit einem sinusförmigen Referenzspannung auf den Mischer gegeben.
-Es sind fünf verschiedene Phasen $\phi$ einzustellen und von den entstehenden Ausgaben des Oszilloskops wird ein Screenshot angefertigt.
+$U_\text{sig}$ wird als sinusförmiges Signal verstärkt und zusammen mit einer sinusförmigen Referenzspannung auf den Mischer gegeben.
+Es sind fünf verschiedene Phasen $\phi$ am Phase Shifter einzustellen und von den entstehenden Ausgaben des Oszilloskops wird ein Screenshot angefertigt.
 Danach wird die Spannung $U_\text{out}$ nach dem Tiefpassfilter abgegriffen und auf dem Oszilloskop angezeigt.
 $U_\text{out}$ wird für zehn verschiedene Phasen $\phi$ notiert.
 
@@ -26,7 +26,7 @@ Es werden zehn Phasenverschiebungen $phi$ eingestellt.
 Die Spannung $U_\text{out}$ wird erneut nach dem Tiefpassfilter abgegriffen und notiert.
 
 
-Es wird eine Photodiodenschaltung nach \autoref{fig:bild4} 
+Es wird eine Photodiodenschaltung nach \autoref{fig:bild4} aufgebaut.
 
 \begin{figure}
     \centering
@@ -35,7 +35,6 @@ Es wird eine Photodiodenschaltung nach \autoref{fig:bild4}
     \label{fig:bild4}
 \end{figure}
 
-aufgebaut.
 Der Abstand $r$ zwischen der LED und der Photodiode, mit der das ausgesendete Licht gemessen wird, wird variiert.
-Die Lichtintensität wird in Abhängigkeit des Abstandes $r$ notiert.
-Außerdem wird der maximale Abstand bestimmt an dem die Photodiode das Licht noch erkennt.
+Die Spannung $U_\text{out}$ wird in Abhängigkeit des Abstandes $r$ notiert.
+Außerdem wird der maximale Abstand bestimmt, an dem die gemessene Spannung der Photodiode auf das Licht der LED zurückzuführen ist.

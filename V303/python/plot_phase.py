@@ -45,7 +45,8 @@ Ergebnisse['phase']['b_noise_err[°]'] = b_noise_err
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # linspace
-phi_linspace = np.linspace(np.min(phi),np.max(phi),100)
+#phi_linspace = np.linspace(np.min(phi),np.max(phi),100)
+phi_linspace = np.linspace(-10,370,100)
 #################
 # Plot ohne Noise
 #################
@@ -56,7 +57,7 @@ plt.plot(phi_linspace, U_fit(phi_linspace,*params), 'k-', label='Ausgleichskurve
 plt.plot(phi, U, 'ro', label='Messdaten')
 
 # Achsenbeschriftung
-plt.xlabel(r'$\varphi \:/\: \si{\radian}$')
+plt.xlabel(r'$\varphi \:/\: \si{\degree}$')
 plt.ylabel(r'$U \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich

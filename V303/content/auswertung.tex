@@ -119,7 +119,7 @@ $U$ entspricht hier der Messung bei überbrücktem Noise-Generator und für $U_\
 \end{table}
 
 Mithilfe dieser Messwerte wird jeweils ein Plot erstellt.
-Dann wird mithilfe von der Python Bibliothek SciPy und der Funktion curve\_fit jeweils eine Ausgleichskurve erstellt.
+Dann wird mithilfe von der Python Bibliothek SciPy und der Funktion curve\_fit jeweils eine Ausgleichskurve erstellt.\cite{scipy}
 
 Hierfür wird nach \autoref{eq:u_out} die Gleichung
 \begin{equation}
@@ -129,10 +129,10 @@ mit den Parametern $a$ und $b$ verwendet.
 
 Damit ergeben sich die Parameter
 \begin{align*}
-    a =& \SI{6+-100}{\volt} \\
-    b =& \SI{6+-100}{\degree} \\
-    a_\text{Noise} =& \SI{6+-100}{\volt} \\
-    b_\text{Noise} =& \SI{6+-100}{\degree}.
+    a =& \SI{6.6+-0.1}{\volt} \\
+    b =& \SI{-33+-1}{\degree} \\
+    a_\text{Noise} =& \SI{-13.9+-0.7}{\volt} \\
+    b_\text{Noise} =& \SI{-5+-3}{\degree}.
 \end{align*}
 Die entsprechenden Plots sind in \autoref{fig:plot_phase} und in \autoref{fig:plot_phase_noise} zu sehen.
 
@@ -190,7 +190,18 @@ In \autoref{tab:led} sind die entsprechenden Messergebnisse gelistet.
 \end{table}
 
 Auch diese Messergebnisse sind in einem Plot (\autoref{fig:plot_led}) dargestellt.
-Hier war eine Ausgleichsrechnung aufgrund der Messergebnisse nicht sinnvoll und wurde daher weggelassen.
+
+Die Ausgleichskurve wird mit 
+\begin{equation}
+    U = \frac{a}{r^2} + b
+\end{equation}
+bestimmt. Da schon an den Werten in \autoref{tab:led} zu sehen ist, dass die Werte von $r =$ \SIrange{4}{12}{\centi\meter} nicht mit $1/r^2$ abfallen,
+werden für die Ausgleichsrechnung nur die Werte von $r =$ \SIrange{14}{30}{\centi\meter} verwendet.
+Dadurch ergeben sich die Parameter
+\begin{align*}
+    a =& \SI{0.059+-0.004}{\volt\meter\squared} \\
+    b =& \SI{0.6+-0.1}{\volt}.
+\end{align*}
 
 \begin{figure}
     \centering
@@ -198,3 +209,5 @@ Hier war eine Ausgleichsrechnung aufgrund der Messergebnisse nicht sinnvoll und 
     \caption{Plot der Daten aus \autoref{tab:led}}
     \label{fig:plot_led}
 \end{figure}
+
+Als maximale Distanz, bei der die Lichtintensität noch gemessen werden konnte, wurde ungefähr $r=\SI{80}{\centi\meter}$ beobachtet.

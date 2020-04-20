@@ -1,16 +1,17 @@
 all: build/main.pdf
 
-plots: # build/plot_NAME.pdf
+plots: #build/plot_regression.pdf
+	python python/hohlzylinder.py
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
 # das Beispiel kopieren und NAME ersetzen
 # Außerdem muss in plots und in build/main.pdf
 # die jeweilige Abhängigkeit hinzugefügt werden
-build/plot_NAME.pdf: python/NAME.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_regression.pdf: python/regression.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
-	python python/NAME.py
+	python python/regression.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

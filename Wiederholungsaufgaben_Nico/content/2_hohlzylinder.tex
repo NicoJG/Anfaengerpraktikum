@@ -1,2 +1,30 @@
 \section{Volumen eines Hohlzylinders}
 \label{sec:Hohlzylinder}
+
+Im Folgenden wird das Volumen eines Hohlzylinders mit den Maßen
+\begin{align*}
+    R_\text{innen} = R_\text{i} &= \SI{10+-1}{\centi\metre} \\
+    R_\text{außen} = R_\text{a} &= \SI{15+-1}{\centi\metre} \\
+    h &= \SI{20+-1}{\centi\metre}
+\end{align*}
+berechnet. Dieses lässt sich durch Subtraktion des inneren Zylinders vom äußeren Zylinder berechnen.
+Das Volumen eines Zylinders wird über
+\begin{equation}
+    V_\text{Zylinder} = \pi h R^2
+\end{equation}
+berechnen.
+Also kann das Volumen des Hohlzylinders über
+\begin{align*}
+    V &= V_\text{außen} - V_\text{innen} \\
+    &= \pi h (R_\text{a}^2 - R_\text{i}^2) 
+\end{align*}
+berechnet werden.
+Die zugehörige Gaußsche Fehlerfortpflanzung ergibt
+\begin{align*}
+    \Delta V &= \sqrt{\left(\frac{\partial V}{\partial h} \Delta h \right)^2 + \left(\frac{\partial V}{\partial R_\text{a}} \Delta R_\text{a} \right)^2 + \left(\frac{\partial V}{\partial R_\text{i}} \Delta R_\text{i} \right)^2} \\
+    &= \pi \sqrt{ (R_\text{a}^2 - R_\text{i}^2)^2 \Delta h^2 + 4 h^2 R_\text{a}^2 \Delta R_\text{a}^2 + 4 h^2 R_\text{i}^2 \Delta R_\text{i}^2 } \; .
+\end{align*}
+Somit ergibt sich das Volumen des Holzylinders zu
+\begin{equation}
+    V = \SI{7854+-2299}{\centi\metre\cubed} \; .
+\end{equation}

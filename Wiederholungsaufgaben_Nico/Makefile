@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: #build/plot_regression.pdf
+plots: build/plot_regression.pdf
 	python python/hohlzylinder.py
  
 # hier Python-Skripte: 

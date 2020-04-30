@@ -1,0 +1,66 @@
+\section{Lineare Regression}
+\label{sec:3}
+
+3) Führen Sie eine lineare Regression durch. In der Anlage Regression.pdf befinden sich Daten und eine Anleitung, wie die Daten ausgewertet werden sollen.
+Die Graphik und die Auswertung kann natürlich mit jedem beliebigen Programm
+durchgeführt werden. Für diejenigen, die Python verwenden oder die Auswertung
+mit Python ausprobieren wollen ist eine detaillierte Arbeitsanweisung beigefügt.
+
+In diesem Versuch wurden an verschiedenen Linien $N$ Spannungen $U$ gemessen, die Ergebnisse dieser Messung wurden in der nachfolgenen Tabelle notiert.
+Für die lineare Regression wird die Linienzahl $N$ zunächst in einen Abstand $D$ umgerechnet.
+Dafür wird die Formel
+
+\begin{equation}
+    D = (N_\text{Linie} - 1) \cdot \SI{6}{\milli\meter}
+\end{equation}
+
+verwendet.
+
+\begin{table}
+    \centering
+    \label{tab:werte}
+    \begin{tabular}{S S S}
+        \toprule
+        {$N_{\text{Linie}}$} & \tableSI{D}{\milli\metre} & \tableSI{U}{\volt} \\
+        \midrule
+        1 & 0 & -19.5 \\
+        2 & 6 & -16.1 \\
+        3 & 12 & -12.4 \\
+        4 & 18 & -9.6 \\
+        5 & 24 & -6.2 \\
+        6 & 30 & -2.4 \\
+        7 & 36 & 1.2 \\
+        8 & 42 & 5.1 \\
+        9 & 48 & 8.3 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gegebene Messwerte $N_\text{Linie}$, $U$ und berechnete Abstände $D$}
+\end{table}
+
+In einem Diagramm wird der Abstand $D$ gegen die Spannung $U$ aufgetragen, dadurch wird ein linearer Zusammenhang deutlich.
+Deswegen wird die Regression mit einer linearen Funktion der Form
+
+\begin{equation}
+    f = ax + b
+\end{equation}
+
+durchgeführt. 
+Es entsteht der Plot aus \autoref{fig:werte_plot}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_werte.pdf}
+    \caption{Berechnete Werte von $D$ gegen $U$ aufgetragen mit Ausgleichsgeraden.}
+    \label{fig:werte_plot}
+\end{figure}
+
+Der Plot wurde mit den beiden Parametern $a$ und $b$ gebildet, dessen Werte und ihre Unsicherheit sind durch
+
+\begin{equation}
+    a = 0.581 \pm \SI{0.006}{\volt\per\milli\meter}
+\end{equation}
+\begin{equation}
+    b = -19.444 \pm \SI{0.173}{\volt}
+\end{equation}
+
+gegeben.

@@ -1,0 +1,43 @@
+\section{Hohlzylinder}
+\label{sec:2}
+
+2) Berechnen Sie das Volumen eines Hohlzylinders, mit $R_\text{innen} = \SI{10 \pm 1}{\centi\meter}$, $R_\text{außen} = \SI{15 \pm 1}{\centi\meter}$ und $h = \SI{20 \pm 1}{\centi\meter}$.
+
+Das Volumen eines Hohlzylinders wird über 
+
+\begin{equation}
+    V = \pi \cdot h \cdot \left(R_\text{außen}^2 - R_\text{innen}^2\right)
+\end{equation}
+
+bestimmt. 
+
+Zunächst wird diese Rechnung ohne Beachten der Unsicherheit durchgeführt.
+
+\begin{equation}
+    \pi \cdot \SI{20 \pm 1}{\centi\meter} \cdot \left((\SI{15 \pm 1}{\centi\meter})^2 - (\SI{10 \pm 1}{\centi\meter})^2\right) = \SI{2500 \pi}{\cubic\centi\meter}.
+\end{equation}
+
+Mithilfe der Gaußschen Fehlerfortpflanzungsformel
+
+\begin{equation}
+    \Delta f = \sqrt{\sum_{i = 1}^{n} \left(\frac{\dif{f}}{\dif{y_\text{i}}} \cdot \Delta y_\text{i}\right)^2}, 
+\end{equation}
+
+wird die Unsicherheit dieses berechneten Ergebnisses bestimmt.
+Wobei $y_\text{i}$ die Anzahl der verschiedenen Größen mit Untersicherheit ist.
+
+\begin{equation*}
+    \Delta V = \sqrt{\left(2 \pi \cdot h \cdot R_\text{außen} \cdot \Delta R_\text{außen}\right)^2 + \left(-2 \pi \cdot h \cdot R_\text{innen} \cdot \Delta R_\text{innen}\right)^2 + \left(\pi \left(R_\text{außen}^2 - R_\text{innen}^2\right) \cdot \Delta h\right)^2} 
+\end{equation*}
+\begin{equation*}
+    \Delta V = \sqrt{\left(2 \pi \cdot 20 \cdot 15 \cdot 1 \right)^2 + \left(-2 \pi \cdot 20 \cdot 10 \cdot 1\right)^2 + \left(\pi \left(15^2 - 10^2\right) \cdot 1\right)^2} \si{\cubic\centi\meter}
+\end{equation*}
+\begin{equation*}
+    \Delta V = \SI{2299}{\cubic\centi\meter} 
+\end{equation*}
+
+Damit beträgt das Volumen des Hohlzylinders 
+
+\begin{equation*}
+    V = 2500 \pi \pm \SI{2299}{\cubic\centi\meter}.
+\end{equation*}

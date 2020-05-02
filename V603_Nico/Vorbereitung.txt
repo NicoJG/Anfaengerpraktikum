@@ -1,0 +1,109 @@
+1)
+Kupfer:
+K_alpha1 =  8048 eV
+K_beta1 = 8905 eV
+
+https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html
+
+https://physics.nist.gov/cuu/Constants/index.html 
+
+E = h*c / lambda
+lambda = h*c / E
+E entspricht K
+
+1 eV = 1.602*10^(-19) J
+h = 6.626*10^(-34) J s
+h = 4.136*10^(-15) eV s
+c = 2.998*10^(8) m/s
+
+lambda_alpha = 1.5407*10^(-10) m
+lambda_beta = 1.3924*10^(-10) m
+
+2*d*sin(alpha) = n*lambda
+alpha = arcsin(n*lambda/(2*d))
+
+d = 2.014*10^(-10) m
+n = 1
+
+alpha_alpha = 0.3925 rad = 22.49 Grad
+alpha_beta = 0.3530 rad = 20.23 Grad
+
+2)
+Compton-Wellenlänge:
+lambda_c = h/(m_e*c)
+m_e = 0.5110*10^(6) eV
+
+lambda_c = 2.6998*10^(-29) m
+
+
+
+
+Console-Output:
+
+(base) nico@DESKTOP-N64AUL6:/mnt/c/Users/Nico$ ipython
+Python 3.7.6 (default, Jan  8 2020, 19:59:22)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.13.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: k_a = 8048
+
+In [2]: k_b = 8905
+
+In [3]: eV = 1.602*10^(-19)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-3-87a898a762a4> in <module>
+----> 1 eV = 1.602*10^(-19)
+
+TypeError: unsupported operand type(s) for ^: 'float' and 'int'
+
+In [4]: eV = 1.602*10**(-19)
+
+In [5]: h = 4.136**(-15)
+
+In [6]: c = 2.998*10**(8)
+
+In [7]: h = 4.136*10**(-15)
+
+In [8]: lambda_a = h*c/k_a
+
+In [9]: lambda_b = h*c/k_b
+
+In [10]: print(lambda_a)
+1.5407216699801193e-10
+
+In [11]: print(lambda_b)
+1.3924455923638405e-10
+
+In [12]: d = 2.014*10**(-10)
+
+In [13]: n = 1
+
+In [14]: import numpy as np
+
+In [15]: alpha_alpha = np.arcsin(n*lambda_a/(2*d))
+
+In [16]: alpha_b = np.arcsin(n*lambda_b/(2*d))
+
+In [17]: print(alpha_alpha)
+0.3925036797663677
+
+In [18]: print(alpha_b)
+0.3529756793486482
+
+In [19]: m_e = 0.5110*10**6
+
+In [20]: lambda_c = h/(m_e*c)
+
+In [21]: print(lamda_c)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-21-c47ff691f6ba> in <module>
+----> 1 print(lamda_c)
+
+NameError: name 'lamda_c' is not defined
+
+In [22]: print(lambda_c)
+2.699777673047524e-29
+
+In [23]:

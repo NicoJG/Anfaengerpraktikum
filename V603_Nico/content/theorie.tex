@@ -18,18 +18,27 @@ Wenn $\lambda_1$ die Wellenlänge vor dem Stoß und $\lambda_2$ die Wellenlänge
 \end{equation}
 berechnen.
 Der Vorfaktor ist proportional zu den Naturkonstanten der Lichtgeschwindigkeit $c$, dem Planckschen Wirkungsquantum $h$ und der Elektronenmasse $m_e$.
-Dieser Konstante Vorfaktor 
+Dieser konstante Vorfaktor 
 \begin{equation}
     \lambda_c = \frac{h}{m_e c}
     \label{eq:compton-wellenlänge}
 \end{equation}
 heißt Compton Wellenlänge.
 
-Um den Effekt beobachten zu können wird hier Röntgenstrahlung an Plexiglas gestreut und die ausfallende Strahlung wird über ein Geiger-Müller-Zählrohr mit der einfallenden Strahlung verglichen.
-Diese Röntgenstrahlung wird in einer Röntgenröhre erzeugt, in der Elektronen von einer Glühkathode auf eine Anode beschleunigt werden und der Zusammenstoß auf der Anode erzeugt $\gamma$-Strahlung.
+Um den Effekt beobachten zu können wird hier Röntgenstrahlung an Plexiglas gestreut. 
+Die ausfallende Strahlung wird über ein Geiger-Müller-Zählrohr und über die Transmission durch eine Aluminiumplatte mit der einfallenden Strahlung verglichen.
+Diese Röntgenstrahlung wird in einer Röntgenröhre erzeugt, in der Elektronen von einer Glühkathode auf eine Anode beschleunigt werden. 
+Der Zusammenstoß auf der Anode erzeugt $\gamma$-Strahlung.
 
 Das Spektrum dieser Strahlung hängt vom Material der Anode ab.
-Dieses ist zwar kontinuierlich, allerdings Maxima in der Intensität deutlich zu erkennen, da diese Photonenenergien gerade der Energiedifferenz der Energieniveaus eines Anodenatoms entspricht.
+Dieses ist zwar kontinuierlich, allerdings sind zwei Maxima in der Intensität deutlich zu erkennen, da diese Photonenenergien gerade der Energiedifferenz der Energieniveaus eines Anodenatoms entspricht.
+
+Um die Wellenlänge $\lambda$ mit einer Photonenenergie in Verbindung zu bringen wird 
+\begin{equation}
+    E = \frac{h c}{\lambda}
+    \label{eq:photonenenergie}
+\end{equation} 
+verwendet.
 
 Um das charakteristische Spektrum der hier verwendeten Kupferanode zu bestimmen, wird die Röntgenstrahlung an einem LiF-Kristall gebeugt.
 Hierbei entsteht beim Glanzwinkel $\alpha$ eine konstruktive Interferenz, welche von der Wellenlänge der Röntgenstrahlung abhängt. 
@@ -40,3 +49,11 @@ Die zugehörige Wellenlänge zum Winkel $\alpha$ kann über
 \end{equation}
 bestimmt werden. 
 Hier ist $d$ die Gitterkonstante des Kristalls und $n$ die Beugungsordnung.
+
+Der Geiger-Müller-Zähler kann die Strahlung nicht kontinuierlich messen, sondern hat eine Totzeit $\tau$.
+Daher muss dies über
+\begin{equation}
+    I = \frac{N}{1 - \tau N}
+    \label{eq:totzeit}
+\end{equation}
+korrigiert werden. Hier ist $N$ die Anzahl der Anschläge des Geiger-Müller-Zählers und $I$ die Intensität der Strahlung.

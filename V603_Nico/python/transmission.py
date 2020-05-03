@@ -25,9 +25,12 @@ N_Al = N_Al_per_s*t # Absolute Anzahl der Impulse
 N_0 = N_0_per_s*t
 N_Al = uarray(N_Al,np.sqrt(N_Al)) # Anzahl mit Unsicherheit
 N_0 = uarray(N_0,np.sqrt(N_0))
+N_Al /= t
+N_0 /= t
+
 l = 2*d/n * np.sin(alpha) # m Wellenlänge
-I_Al = N_Al/1-tau*N_Al # Intensität
-I_0 = N_0/1-tau*N_0 # Intensität
+I_Al = N_Al/(1-tau*N_Al) # Intensität
+I_0 = N_0/(1-tau*N_0) # Intensität
 T = I_Al/I_0 # Transmission
 
 
@@ -74,9 +77,6 @@ Ergebnisse['Transmission']['l_2_err'] = l_2.s
 Ergebnisse['Transmission']['l_c'] = l_c.n
 Ergebnisse['Transmission']['l_c_err'] = l_c.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
-
-# print(unp.std_devs(T))
-# print(N_Al)
 
 # Plot der Ausgleichsgerade
 l_linspace = np.linspace(np.min(l),np.max(l),100)

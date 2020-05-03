@@ -21,7 +21,7 @@ c = 2.998*10**(8) # m/s
 # Berechnungen
 l = 2*d/n * np.sin(alpha) # m Wellenlänge
 E = h*c/l # eV Photonenenergie
-I = N/1-t*N # Intensität
+I = N/(1-t*N) # Intensität
 
 # Maxima finden
 i_max = argrelextrema(N, np.greater, order=20)[0] # Indices der relativen Maxima von N

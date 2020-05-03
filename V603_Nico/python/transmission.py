@@ -82,7 +82,7 @@ json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 l_linspace = np.linspace(np.min(l),np.max(l),100)
 plt.plot(l_linspace,T_fit(l_linspace,*params), 'k-', label='Ausgleichsgerade')
 # Plot der Daten
-plt.errorbar(l, unp.nominal_values(T), yerr=unp.std_devs(T), fmt='ro', label='Messdaten')
+plt.errorbar(l, unp.nominal_values(T), yerr=unp.std_devs(T), fmt='r,', label='Messdaten')
 
 # Achsenbeschriftung
 plt.xlabel(r'$\lambda \:/\: \si{\metre}$')

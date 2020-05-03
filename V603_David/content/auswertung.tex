@@ -226,12 +226,14 @@ Die Werte aus \autoref{tab:werte_emissionCu} werden anschließend geplottet, dor
 \end{figure}
 
 Bei den Winkeln 
+
 \begin{equation}
     \theta _1 = 20.2 \circ
 \end{equation}
 \begin{equation}
     \theta _2 = 22.5 \circ
 \end{equation}
+
 sind die Maxima des Spektrums, aus diesen kann über die Formel 
 
 \begin{equation}
@@ -239,7 +241,7 @@ sind die Maxima des Spektrums, aus diesen kann über die Formel
 \end{equation}
 
 die Energie $E$ berechnet werden.
-Dabei ist $h$ das Planksche Wirkungsquantum und $c$ die Lichtgeschwindigkeit.
+Dabei ist $h$ das Planksche Wirkungsquantum und $c$ die Lichtgeschwindigkeit. \cite{physics_constants}
 Die Gitterkonstante des verwendeten LiF-Kristalls beträgt $d = \SI{201.4}{\pico\meter}$ mit der Ordnung $n = 1$.
 
 Dadurch betragen die beiden Energien für die $K_\alpha$ und $K_\beta$ Linien
@@ -251,7 +253,7 @@ Dadurch betragen die beiden Energien für die $K_\alpha$ und $K_\beta$ Linien
     E_\beta = \SI{1.4265e-15}{\joule}
 \end{equation}
 
-In der Literatur wird selten die Einheit $\si{joule}$ für diese Größenordnung verwendet, daher werden die Energien für den Vergleich in $\si{electronvolt}$ umgerechnen.
+In der Literatur wird selten die Einheit $\si{\joule}$ für diese Größenordnung verwendet, daher werden die Energien für den Vergleich in $\si{\electronvolt}$ umgerechnen.
 Dafür werden die Größen durch die Elektronenladung $e$ geteilt.
 
 \begin{equation}
@@ -260,18 +262,6 @@ Dafür werden die Größen durch die Elektronenladung $e$ geteilt.
 \begin{equation}
     E_\beta = \SI{8.903}{\kilo\electronvolt}
 \end{equation}
-
-Nun werden die berechneten Werte mit den Literaturwerten
-
-\begin{equation}
-    E_{\alpha,lit} = \SI{8.048}{\kilo\electronvolt}
-\end{equation}
-\begin{equation}
-    E_{\beta,lit} = \SI{8.905}{\kilo\electronvolt}
-\end{equation}
-
-verglichen. \cite{emissionslinien}
-Die Abweichungen sind dabei minimal.
 
 \subsection{Bestimmung der Transmission als Funktion der Wellenlänge}
 \label{ssec:2}
@@ -326,3 +316,92 @@ Die Abweichungen sind dabei minimal.
     \end{tabular}
 \end{table}
 
+Die Werte von $N_0$ und $N_\text{Al}$ geben jeweils nur die Impulse pro Sekunde an, daher werden sie mit der Messzeit $t = \SI{200}{\second}$ multipliziert, um die Gesamtanzahl der Impulse zu erhalten.
+Nun wird noch die Totzeit des Geiger-Müller Zählers miteinberechnet. 
+Über 
+
+\begin{equation}
+    I = \frac{N}{\left(1 - \tau \cdot N\right)}
+    \label{eq:totzeit}
+\end{equation}
+
+Dabei ist $\tau = \SI{90}{\micro\second}$ die Totzeit des verwendeten Geiger-Müller Zählrohres.
+Diese Rechnung wird für $N_0$ und $N_\text{Al}$ durchgeführt, dadurch ergeben sich $I_0$ und $I_\text{Al}$.
+Aus diesen beiden Größen kann dann über 
+
+\begin{equation}
+    T = \frac{I_\text{Al}}{I_0}
+\end{equation}
+
+die Transmission $T$ berechnet werden, die für die Bestimmung der Compton-Wellenlänge benötigt wird.
+
+Zuletzt werden aus den Winkeln $\alpha$ die Wellenlängen $\lambda$ bestimmt.
+Das gelingt über \autoref{eq:lambda}.
+
+Nun kann $\lambda$ gegen die Transmission $T$ geplottet werden, dann ergibt sich der Plot in \autoref{fig:compton_plot}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_compton.pdf}
+    \caption{Darstellung der Abhängigkeit von $\lambda$ und $T$}
+    \label{fig:compton_plot}
+\end{figure}
+
+Die beiden Parameter für die Ausgleichs gerade sind mit 
+
+\begin{align}
+    a &= -15194732415 \pm \SI{239100069}{\per\meter} \label{eq:parameter1} \\
+    b &= 1.23 \pm 0.01 \label{eq:parameter2}  
+\end{align}
+
+gegeben.
+
+\subsection{Bestimmung der Compton-Wellenlänge}
+\label{ssec:c}
+
+Die drei Messungen für $I_0$, $I_1$ und $I_2$ ergeben folgende Werte
+
+\begin{align*}
+    I_0 &= 2731 \; \text{Impulse}\\
+    I_1 &= 1180 \; \text{Impulse}\\
+    I_2 &= 1024 \; \text{Impulse}.
+\end{align*}
+
+Verglichen mit den vorherigen Messungen ist hier keine Miteinberechnung der Totzeit notwendig, da vergeleichsweise wenig Impulse pro Sekunde gemessen wurden.
+Aus diesen Intensitäten können nun die beiden Transmissionen $T_1$ und $T_2$
+
+\begin{align*}
+    T_1 &= \frac{I_1}{I_0} &= 0.432\\
+    T_2 &= \frac{I_2}{I_0} &= 0.375
+\end{align*}
+
+berechnet werden.
+In \autoref{ssec:b} wurde der linerare Zusammenhang zwischen $T$ und $\lambda$ deutlich.
+Wird die Gleichung 
+
+\begin{equation}
+    T = a \cdot \lambda + b
+\end{equation}
+
+nach $\lambda$ umgestellt, können die entsprechenden Wellenlängen der Transmissionen berechnet werden.
+Die Parameter $a$ und $b$ werden aus \autoref{eq:parameter1} und \autoref{eq:parameter2} genommen.
+Damit ergeben sich durch die Formel 
+
+\begin{equation}
+    \lambda = \frac{T + b}{a}
+\end{equation}
+
+die beiden Wellenlängen
+
+\begin{align*}
+    \lambda _1 &= \num{5.25(11)e-11}\\
+    \lambda _2 &= \num{5.63(11)e-11}.
+\end{align*}
+
+Mit \label{eq:deltalambda} kann dann die Compton-Wellenlänge des Elektrons
+
+\begin{equation}
+    \lambda _\text{C} = \num{3.76(6)e-12}
+\end{equation}
+
+berechnet werden.

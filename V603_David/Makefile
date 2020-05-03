@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_emissionCu.pdf
+plots: build/plot_emissionCu.pdf build/plot_compton.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -12,6 +12,10 @@ build/plot_emissionCu.pdf: python/emissionCu.py data/*.csv ../default/matplotlib
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/emissionCu.py
 
+build/plot_compton.pdf: python/compton.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/compton.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots
 

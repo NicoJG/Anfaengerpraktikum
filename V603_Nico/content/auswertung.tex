@@ -8,3 +8,83 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+\subsection{Bestimmung des Emissionsspektrums der Cu-Röntgenröhre}
+\label{ss:Emission}
+
+Die erste in \autoref{sec:Durchführung} beschriebene Messung ergibt die Messwerte in \autoref{tab:emission}.
+In \autoref{fig:plot_emission} werden die Messwerte nun als $\lambda-N$ Diagramm dargestellt indem \autoref{eq:glanzwinkel} verwendet wird.
+Dabei wird die Gitterkonstante $d=\SI{201.4e-12}{\metre}$ des LiF-Kristall und die Beugungsordnung $n=1$ angenommen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_emission.pdf}
+    \caption{Plot des Emissionspektrums der Röntgenröhre}
+    \label{fig:plot_emission}
+\end{figure}
+
+Hier werden die Stellen der relativen Maxima abgelesen und über \autoref{eq:photonenenergie} in eine Photonenenergie übertragen.
+Als Naturkonstanten werden hier
+\begin{align*}
+    c &= \SI{2.998e8}{\metre\per\second} \\
+    h &= \SI{4.136e-15}{\electronvolt\second}
+\end{align*}
+verwendet. \cite{physics_constants}
+Damit ergeben sich 
+\begin{align*}
+    E(K_\alpha) &= \SI{8044}{\electronvolt} \\
+    E(K_\beta) &= \SI{8915}{\electronvolt} .
+\end{align*}
+
+\subsection{Bestimmung der Transmission vom Aluminiumabsorber}
+\label{ssec:transmission}
+
+Die zweite in \autoref{sec:Durchführung} beschriebene Messung ergibt die Messwerte in \autoref{tab:transmission}.
+Ziel ist es nun aus diesen Ergebnissen eine Funktion $T(\lambda)$ zu Ermitteln, die die Transmission der Röntgenstrahlung durch die Aluminiumplatte beschreibt.
+Dafür wird zuerst mithilfe von \autoref{eq:glanzwinkel}, \autoref{eq:totzeit} und $T=\frac{I_\text{Al}}{I_\text{Ohne}}$ ein $\lambda-T$ Diagramm erstellt.
+Dieses ist in \autoref{fig:plot_transmission} zu sehen.
+Die Totzeit des Geiger-Müller Zählers wird als $\tau = \SI{90e-6}{\second}$ angenommen und die Integrationszeit der einzelnen Messungen beträgt $t=\SI{200}{\second}$.
+Hierbei wird für $N$ ein Fehler $\Delta N = \sqrt{N*t}/t$ verwendet und es wird mit der Python Bibliothek uncertainties gerechnet.\cite{uncertainties}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_transmission.pdf}
+    \caption{Plot der Transmission von Röntgenstrahlung durch einen Aluminiumabsorber}
+    \label{fig:plot_transmission}
+\end{figure}
+
+Eine Ausgleichsgerade wird über die Python Funktion curve\_fit der Bibliothek SciPy erstellt. \cite{scipy}
+Als Gleichung wird hierfür
+\begin{equation}
+    T(\lambda) = a \cdot \lambda + b
+\end{equation}
+verwendet und die Ausgleichsrechnung ergibt die Parameter
+\begin{align*}
+    a &= \SI{-1.461+-0.025e10}{\per\metre} \\
+    b &= \SI{1.189+-0.016}{} \,.
+\end{align*}
+
+\subsection{Bestimmung der Compton-Wellenlänge}
+\label{ssec:compton-wellenlänge}
+
+Der letzte Teil der Messung ergibt die insgesamt gemessenen Impulse in einer Integrationszeit von $t=\SI{300}{\second}$ für drei verschiedene Szenarien
+\begin{align*}
+    I_0 &= \SI{2731}{Impulse} \\
+    I_1 &= \SI{1180}{Impulse} \\
+    I_2 &= \SI{1024}{Impulse} \,.
+\end{align*}
+Hier steht $I_0$ für die Messung ohne Aluminiumabsorber, $I_1$ für die Messung mit Aluminiumabsorber zwischen Blende und Plexiglasstreuer und $I_2$ für die Messung mit Aluminiumabsorber zwischen Plexiglasstreuer und Geiger-Müller Zählrohr.
+
+Mithilfe der Ausgleichsrechnung aus \autoref{ssec:transmission}, $T_i=I_i/I_0$ und
+\begin{equation}
+    \lambda_i = \frac{T_i - b}{a}
+\end{equation}
+ergeben sich die Wellenlängen
+\begin{align*}
+    \lambda_1 &= \SI{5.18+-0.14e-11}{\metre} \\
+    \lambda_2 &= \SI{5.57+-0.14e-11}{\metre} \,.
+\end{align*}
+Damit ergibt sich die Compton-Wellenlänge zu
+\begin{equation*}
+    \lambda_\text{C} = \lambda_2 - \lambda_1 = \SI{3.910+-0.067e-12}{\metre} \,.
+\end{equation*}

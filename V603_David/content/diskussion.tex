@@ -12,7 +12,7 @@ Nun werden die berechneten Werte für $E$ mit den Literaturwerten verglichen.
   \centering
   \caption{Vergleich der Energien des charakteristischen Spektrums. \cite{emissionslinien}}
   \label{tab:ergebnisse}
-  \begin{tabular}{c S c S}
+  \begin{tabular}{S[table-format=1.3] S[table-format=1.3] S}
     \toprule 
    \tableSI{E_\text{gemessen}}{\kilo\electronvolt} & \tableSI{E_\text{Literatur}}{\kilo\electronvolt} & \text{Abweichungen} \\ 
     \midrule 
@@ -24,3 +24,22 @@ Nun werden die berechneten Werte für $E$ mit den Literaturwerten verglichen.
 
 Die Abweichungen sind dabei minimal.
 
+
+Die Berechnung der Compton-Wellenlänge benötigte viele Zwischenschritte und kleinere Rundungen.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der gemessenen mit der theoretischen Compton-Wellenlänge. \cite{physics_constants}}
+  \label{tab:ergebnisse2}
+  \begin{tabular}{S[table-format=1.2,table-figures-uncertainty = 1] S[table-format=1.3] S}
+    \toprule 
+   \tableSI{\lambda _C / \text{gemessen}}{\pico\meter} & \tableSI{\lambda _C / \text{Literatur}}{\pico\meter} & \text{Abweichungen} \\ 
+    \midrule 
+    3.76 +- 0.06 & 2.43 & 34.32 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Abweichung ist damit um einiges größer als bei den Energien zuvor.
+Im Zuge der Rechnungen wurde einige male gerundet, was das Ergebnis abfälschen kann.
+Zudem basiert ein Großteil der Rechnung auf einer linearen Regression, die ebenfalls sehr stark von Messffehler beeinflusst wird.

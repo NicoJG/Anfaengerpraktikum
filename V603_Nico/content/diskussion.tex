@@ -5,3 +5,29 @@
 % -Vergleich mit Literaturwerten
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
+
+Die Betrachtung des Emissionsspektrums der Kuper Röntgenröhre ergibt die Energielevel der $K_\alpha$ und $K_\beta$ Linien in \autoref{tab:ergebnisse}. Der Vergleich mit den Literaturwerten zeigt, dass diese hier ausreichend genau bestimmt werden konnten.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse und Literaturwerte der $K$-Linien und der Compton-Wellenlänge.}
+    \begin{tabular}{c S[table-format=4.0] S[table-format=4.0] S[table-format=1.3e-2]}
+        \toprule
+        & \tableSI{K_\alpha}{\electronvolt} & \tableSI{K_\beta}{\electronvolt} & \tableSI{\lambda_\text{C}}{m}\\
+        \midrule
+        Gemessen & 8044 & 8915 & 3.910e-12 \\
+        Literatur\cite{xray}\cite{physics_constants} & 8048 & 8905 & 2.426e-12 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ergebnisse}
+\end{table}
+
+Auch die hier bestimmte Compton-Wellenlänge ist in \autoref{tab:ergebnisse} mit entsprechendem Vergleichswert gelistet.
+Hier lässt sich eine größere Abweichung vom Literaturwert erkennen, auch wenn die Größenordnung übereinstimmt.
+
+Diese Abweichung kann mehrere Ursachen haben.
+Zum Einen wurden keine Ungenauigkeiten der Messgeräte oder verwendeten Materialien beachtet.
+Zum Anderen wurden die Messgeräte eventuell nicht ausreichend genug von Strahlung der Umgebung abgeschirmt.
+Weitere Fehlerquellen sind denkbar.
+
+Eine Messung des Compton Effekts muss mit Rötgenstrahlung statt sichtbarem Licht geschehen, da sichtbares Licht nicht genügend Energie besitzt um die Bindungsenergie des Elektrons in den meisten Materialien überwinden zu können.

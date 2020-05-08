@@ -26,9 +26,9 @@ Nal2 = Nal * t
 alpha = np.radians(alpha)
 T = I(Nal2)/I(N02)
 
-I0 = 2731
-I1 = 1180
-I2 = 1024
+I0 = ufloat(2731,52)
+I1 = ufloat(1180,34)
+I2 = ufloat(1024,32)
 
 T1 = I1/I0
 T2 = I2/I0
@@ -72,6 +72,6 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #print(T2)
 #print(X(T1,a1,b1))
 #print(X(T2,a1,b1))
-print(X(T2,a1,b1) - X(T1,a1,b1))
+#print(X(T2,a1,b1) - X(T1,a1,b1))
 # Speicherort
 plt.savefig('build/plot_compton.pdf')

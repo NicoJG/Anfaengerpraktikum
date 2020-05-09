@@ -66,23 +66,30 @@ hbreite_2 = np.abs(g(N[i_max[2]]/2,a3,b3) - g(N[i_max[2]]/2,a4,b4))
 # Auflösungsvermögen berechnen
 deltaE1 = h*c/hbreite_1
 deltaE2 = h*c/hbreite_2
-A1 = E[i_max[1]]/deltaE1
-A2 = E[i_max[2]]/deltaE2
+E1 = E[i_max[1]] # beta
+E2 = E[i_max[2]] # alpha
+A1 = E1/deltaE1
+A2 = E2/deltaE2
+
+# Absorbtionsenergie
+E_abs = 8987 # eV
 
 # Abschirmkonstanten
-sigma_beta = Z - np.sqrt(E[i_max[1]]/R_inf - alpha**2*Z**4/4)
-sigma_alpha = Z - np.sqrt(E[i_max[2]]/R_inf - alpha**2*Z**4/4)
+sigma_abs = Z - np.sqrt(E_abs/R_inf)
+sigma_alpha = Z - np.sqrt(4*((Z-sigma_abs)**2-E2/R_inf))
+sigma_beta = Z - np.sqrt(9*((Z-sigma_abs)**2-E1/R_inf))
 
 # Ergebnisse Speichern
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Emission' in Ergebnisse:
     Ergebnisse['Emission'] = {}
-Ergebnisse['Emission']['K_alpha[eV]'] = E[i_max[2]]
-Ergebnisse['Emission']['K_beta[eV]'] = E[i_max[1]]
+Ergebnisse['Emission']['K_alpha[eV]'] = E2
+Ergebnisse['Emission']['K_beta[eV]'] = E1
 Ergebnisse['Emission']['HBreite_alpha[m]'] = hbreite_2
 Ergebnisse['Emission']['HBreite_beta[m]'] = hbreite_1
 Ergebnisse['Emission']['A_alpha'] = deltaE2
 Ergebnisse['Emission']['A_beta'] = deltaE1
+Ergebnisse['Emission']['sigma_abs'] = sigma_abs
 Ergebnisse['Emission']['sigma_alpha'] = sigma_alpha
 Ergebnisse['Emission']['sigma_beta'] = sigma_beta
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
@@ -99,7 +106,7 @@ x1 = np.array([l[i1],l[i2]])
 x2 = np.array([l[i3],l[i4]])
 x3 = np.array([l[i5],l[i6]])
 x4 = np.array([l[i7],l[i8]])
-plt.plot(x1, f(x1,a1,b1), 'g-', linewidth=0.7)
+plt.plot(x1, f(x1,a1,b1), 'g-', linewidth=0.7, label='Hilfsgeraden')
 plt.plot(x2, f(x2,a2,b2), 'g-', linewidth=0.7)
 plt.plot(x3, f(x3,a3,b3), 'g-', linewidth=0.7)
 plt.plot(x4, f(x4,a4,b4), 'g-', linewidth=0.7)
@@ -108,7 +115,7 @@ y5 = np.array([N[i_max[1]]/2,N[i_max[1]]/2])
 x5 = np.array([g(y5[0],a1,b1),g(y5[0],a2,b2)])
 y6 = np.array([N[i_max[2]]/2,N[i_max[2]]/2])
 x6 = np.array([g(y6[0],a3,b3),g(y6[0],a4,b4)])
-plt.plot(x5, y5, 'b:', linewidth=1)
+plt.plot(x5, y5, 'b:', linewidth=1, label='Halbwertsbreiten')
 plt.plot(x6, y6, 'b:', linewidth=1)
 # Plot der Daten
 plt.plot(l, N, 'k.', label='Messdaten')

@@ -30,9 +30,15 @@ print("theta_a: ", theta_a)
 print("theta_b: ", theta_b)
 
 # 2)
-#data = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True,dtype=None,encoding=None)
+#data = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True,dtype=['U8',np.int,np.float])
 #print(data)
-Elem,Z,E = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True)
+#print(type(data[5]))
+#print(type(np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True)[1][1]))
+# Elem,Z,E = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True)
+#Elem,Z,E = data
+
+Elem = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True,usecols=0,dtype='<U2')
+Z,E = np.genfromtxt('data/Vorbereitung.csv',delimiter=',',unpack=True,usecols=(1,2))
 
 # Berechnungen
 E = E*10**3 # eV
@@ -43,5 +49,6 @@ theta = np.degrees(np.arcsin(n*l/(2*d))) # °
 sigma_K = Z - np.sqrt(E/R_inf - alpha**2*Z**4/4)
 
 # Ergebnisse Speichern
-data = list(zip(Elem,Z,E*10**(-3),theta,sigma_K))
-np.savetxt('data/Vorbereitung_Ergebnis.csv', data, header='Material,Z,E_K[keV],theta[°],sigma_K # Element', fmt='%s,%i,%2.2f,%2.1f,%1.2f')
+dtype = [('Material','<U2'),('Z',np.int32),('E',np.float64),('theta',np.float64),('sigma',np.float64)]
+data = np.array(list(zip(Elem,Z,E*10**(-3),theta,sigma_K)),dtype=dtype)
+np.savetxt('data/Vorbereitung_Ergebnis.csv', data, header='Material,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.1f,%1.2f')

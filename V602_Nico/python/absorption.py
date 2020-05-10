@@ -17,6 +17,7 @@ np.set_printoptions(threshold=sys.maxsize)
 theta = np.zeros([6,21]) 
 N = np.zeros([6,21]) 
 name = ['Zink','Gallium','Brom','Rubidium','Strontium','Zirkonium']
+kurz = ['Zn','Ga','Br','Rb','Sr','Zr']
 size = [16,21,16,14,16,16]
 Z = np.array([30,31,35,37,38,40]) # Ordnungszahl
 
@@ -57,21 +58,11 @@ E_K = h*c/l_K # eV Photonenenergie
 sigma_K = Z - np.sqrt(E_K/R_inf - alpha**2*Z**4/4)
 
 ###############################
-## Ergebnisse speichern JSON
+## Ergebnisse speichern Tabelle
 ###############################
-Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-if not 'Absorption' in Ergebnisse:
-    Ergebnisse['Absorption'] = {}
-
-for i in range(0,6):
-    if not name[i] in Ergebnisse['Absorption']:
-        Ergebnisse['Absorption'][name[i]] = {}
-    Ergebnisse['Absorption'][name[i]]['theta_K'] = theta_K[i]
-    Ergebnisse['Absorption'][name[i]]['l_K'] = l_K[i]
-    Ergebnisse['Absorption'][name[i]]['E_K'] = E_K[i]
-    Ergebnisse['Absorption'][name[i]]['sigma_K'] = sigma_K[i]
-
-json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+dtype = [('Element','<U2'),('Z',np.int32),('E_K',np.float64),('theta_K',np.float64),('sigma_K',np.float64)]
+data = np.array(list(zip(kurz,Z,E_K*10**(-3),theta_K,sigma_K)),dtype=dtype)
+np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.1f,%1.2f')
 
 
 ###############################

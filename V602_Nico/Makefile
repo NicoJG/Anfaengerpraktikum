@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_emission.pdf
+plots: build/plot_emission.pdf build/plot_bragg.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -11,6 +11,9 @@ build/plot_emission.pdf: python/emission.py data/*.csv ../default/matplotlibrc .
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/emission.py
+
+build/plot_bragg.pdf: python/bragg.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	python python/bragg.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

@@ -49,6 +49,6 @@ theta = np.degrees(np.arcsin(n*l/(2*d))) # °
 sigma_K = Z - np.sqrt(E/R_inf - alpha**2*Z**4/4)
 
 # Ergebnisse Speichern
-dtype = [('Material','<U2'),('Z',np.int32),('E',np.float64),('theta',np.float64),('sigma',np.float64)]
+dtype = [('Element','<U2'),('Z',np.int32),('E',np.float64),('theta',np.float64),('sigma',np.float64)]
 data = np.array(list(zip(Elem,Z,E*10**(-3),theta,sigma_K)),dtype=dtype)
-np.savetxt('data/Vorbereitung_Ergebnis.csv', data, header='Material,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.1f,%1.2f')
+np.savetxt('data/Vorbereitung_Ergebnis.csv', data, header='Element,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.1f,%1.2f')

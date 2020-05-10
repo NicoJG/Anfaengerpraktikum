@@ -4,26 +4,22 @@ import pathlib
 os.environ['MATPLOTLIBRC'] = (pathlib.Path(__file__).absolute().parent.parent.parent / 'default' / 'matplotlibrc').__str__()
 os.environ['TEXINPUTS'] =  (pathlib.Path(__file__).absolute().parent.parent.parent / 'default').__str__() + ':'
 #######
-import sys
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 import json
-
-# Print the full matrix
-np.set_printoptions(threshold=sys.maxsize)
 
 # Matrizen initialisieren var[Element][0:Element_size]
 theta = np.zeros([6,21]) 
 N = np.zeros([6,21]) 
 name = ['Zink','Gallium','Brom','Rubidium','Strontium','Zirkonium']
 kurz = ['Zn','Ga','Br','Rb','Sr','Zr']
-size = [16,21,16,14,16,16]
+size = [16,21,16,14,16,16] # Anzahl an Messwerte-Paaren
 Z = np.array([30,31,35,37,38,40]) # Ordnungszahl
 
 ## Messwerte einlesen
 for i in range(0,6):
-    theta[i][0:size[i]],N[i][0:size[i]] = np.genfromtxt('data/'+name[i]+'.dat',delimiter=',',unpack=True)
+    theta[i][0:size[i]], N[i][0:size[i]] = np.genfromtxt('data/'+name[i]+'.dat',delimiter=',',unpack=True)
 
 # Naturkonstanten
 h = 4.136*10**(-15) # eV s
@@ -66,7 +62,7 @@ np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],th
 
 
 ###############################
-## Plots
+## Plots der Messwerte
 ###############################
 for i in range(0,6):
     print('Plot: '+name[i])

@@ -64,8 +64,8 @@ hbreite_2 = np.abs(g(N[i_max[2]]/2,a3,b3) - g(N[i_max[2]]/2,a4,b4))
 ##############################################
 
 # Auflösungsvermögen berechnen
-deltaE1 = h*c/hbreite_1
-deltaE2 = h*c/hbreite_2
+deltaE1 = np.abs(h*c/g(N[i_max[1]]/2,a1,b1) - h*c/g(N[i_max[1]]/2,a2,b2))
+deltaE2 = np.abs(h*c/g(N[i_max[2]]/2,a3,b3) - h*c/g(N[i_max[2]]/2,a4,b4))
 E1 = E[i_max[1]] # beta
 E2 = E[i_max[2]] # alpha
 A1 = E1/deltaE1
@@ -87,8 +87,11 @@ Ergebnisse['Emission']['K_alpha[eV]'] = E2
 Ergebnisse['Emission']['K_beta[eV]'] = E1
 Ergebnisse['Emission']['HBreite_alpha[m]'] = hbreite_2
 Ergebnisse['Emission']['HBreite_beta[m]'] = hbreite_1
-Ergebnisse['Emission']['A_alpha'] = deltaE2
-Ergebnisse['Emission']['A_beta'] = deltaE1
+Ergebnisse['Emission']['deltaE_alpha'] = deltaE2
+Ergebnisse['Emission']['deltaE_beta'] = deltaE1
+Ergebnisse['Emission']['A_alpha'] = A2
+Ergebnisse['Emission']['A_beta'] = A1
+Ergebnisse['Emission']['deltaE_beta'] = deltaE1
 Ergebnisse['Emission']['sigma_abs'] = sigma_abs
 Ergebnisse['Emission']['sigma_alpha'] = sigma_alpha
 Ergebnisse['Emission']['sigma_beta'] = sigma_beta

@@ -99,6 +99,8 @@ np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],th
 ## Plots der Messwerte
 for i in range(0,6):
     print('Plot: '+name[i])
+    # Plot des theta_K Winkels
+    plt.axvline(theta_K[i], color='k', linestyle='--',ymin=0,ymax=1000)
     # Plot der Messwerte
     plt.plot(theta[i][0:size[i]],N[i][0:size[i]], 'ro', label='Messwerte')
 

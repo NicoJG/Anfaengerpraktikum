@@ -26,7 +26,7 @@ Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Bragg' in Ergebnisse:
     Ergebnisse['Bragg'] = {}
 Ergebnisse['Bragg']['N_Max'] = N_Max
-Ergebnisse['Bragg']['theta_Max'] = theta_Max
+Ergebnisse['Bragg']['theta_Max[°]'] = np.rad2deg(theta_Max)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # Plot der Messdaten

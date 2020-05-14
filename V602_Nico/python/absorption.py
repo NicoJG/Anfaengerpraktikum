@@ -58,7 +58,7 @@ sigma_K = Z - np.sqrt(E_K/R_inf - alpha**2*Z**4/4)
 ###############################
 dtype = [('Element','<U2'),('Z',np.int32),('E_K',np.float64),('theta_K',np.float64),('sigma_K',np.float64)]
 data = np.array(list(zip(kurz,Z,E_K*10**(-3),theta_K,sigma_K)),dtype=dtype)
-np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.1f,%1.2f')
+np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.2f,%1.2f')
 
 
 ###############################

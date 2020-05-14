@@ -1,0 +1,41 @@
+1)
+Kupfer:
+K_alpha1 =  8048 eV
+K_beta1 = 8905 eV
+
+https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html
+
+https://physics.nist.gov/cuu/Constants/index.html 
+
+E = h*c / lambda
+lambda = h*c / E
+E entspricht K
+
+1 eV = 1.602*10^(-19) J
+h = 6.626*10^(-34) J s
+h = 4.136*10^(-15) eV s
+c = 2.998*10^(8) m/s
+
+lambda_alpha = 1.5407*10^(-10) m
+lambda_beta = 1.3924*10^(-10) m
+
+2*d*sin(alpha) = n*lambda
+alpha = arcsin(n*lambda/(2*d))
+
+d = 2.014*10^(-10) m
+n = 1
+
+alpha_alpha = 0.3925 rad = 22.49 Grad
+alpha_beta = 0.3530 rad = 20.23 Grad
+
+2)
+http://skuld.bmsc.washington.edu/scatter/AS_periodic.html
+
+K-Kanten:
+# Material,Ordnungszahl Z,E[keV],theta[°],sigma_K
+Zn,30,9.65,18.6,3.56 # Zink
+Ge,32,11.10, # Germanium
+Br,35,13.47, # Brom
+Rb,37,15.20, # Rubidium
+Sr,38,16.10, # Strontium
+Zr,40,18.00, # Zirconium

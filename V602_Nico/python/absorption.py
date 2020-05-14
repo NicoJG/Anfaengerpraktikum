@@ -24,6 +24,7 @@ for i in range(0,6):
     theta[i][0:size[i]], N[i][0:size[i]] = np.genfromtxt('data/'+name[i]+'.dat',delimiter=',',unpack=True)
 
 # Naturkonstanten
+eV = 1.602*10**(-19) #J
 h = 4.136*10**(-15) # eV s
 c = 2.998*10**(8) # m/s
 R_inf = 13.6 # eV Rydbergkonstante
@@ -80,6 +81,7 @@ Ergebnisse['Rydberg']['a_err'] = a.s
 Ergebnisse['Rydberg']['b'] = b.n
 Ergebnisse['Rydberg']['b_err'] = b.s
 Ergebnisse['Rydberg']['R_inf'] = R_inf.n
+Ergebnisse['Rydberg']['R_inf[J]'] = (R_inf*eV).n
 Ergebnisse['Rydberg']['R_inf_err'] = R_inf.s
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 

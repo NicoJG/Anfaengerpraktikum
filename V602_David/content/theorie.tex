@@ -31,6 +31,15 @@ Der zweite Bestandteil der Strahlung ist das charakteristische Spektrum.
 Wegen der Ionisation des Anodenmaterials entsteht eine Leerstelle, die von einem Elektron einer höheren Schale wieder besetzt wird.
 Rückt ein Elektron nach so wird ein Röntenquant mit exakt der Energiedifferenz der beiden Schalen abgegeben.
 Diese Energien sind dadurch diskret und sorgen für stark ausgeprägte Linien im Spektrum.
+Über das Moseley'sche Gesetz kann die Energie der $K_\alpha$-Strahlung als 
+
+\begin{equation}
+    E_\text{K} = R \cdot h \cdot \left(Z - \sigma\right)
+    \label{eq:moseley}
+\end{equation}
+
+berechnet werden.
+$R_\infty$ ist dabei die Rydbergenergie, $Z$ die Ordnungszahl und $\sigma$ ist die Abschirmkonstante.
 Es muss noch berücksichtigt werden, dass in einem Mehrelektronenatom die äußeren Elektronen leicht von den Inneren abgeschirmt werden, sie sind also weniger fest gebunden.
 Die Energie eines solchen Elektrons auf der n-ten Schale kann über 
 
@@ -40,16 +49,12 @@ Die Energie eines solchen Elektrons auf der n-ten Schale kann über
 \end{equation}
 
 berechnet werden.
-$R_\infty$ ist dabei die Rydbergenergie und $z_\text{eff}$ die effektive Kernladung.
-Wobei diese wiederum über
+$z_\text{eff}$ die effektive Kernladung und ist definiert als
 
 \begin{equation}
-    z_\text{eff} = z - \sigma
+    z_\text{eff} = z - \sigma.
     \label{eq:z}
 \end{equation}
-
-definiert ist.
-$\sigma$ ist die Abschirmkonstante.
 
 Streng genommen unterscheiden sich die Elektronen auf den Schalen durch verschiedene Bahndrehimpulse und Spins, daher kann die Bindungsenergie $E_\text{n,j}$ der Elektronen genau über die sommerfeldsche Strukturformel
 
@@ -63,7 +68,7 @@ $n$ steht hier für die Hauptquantenzahl, $\alpha$ für die Sommerfeldsche Feins
 Für Elektronen auf der K-Schale ist die Abschirmkonstante über 
 
 \begin{equation}
-    \sigma _\text{K} = Z - \sqrt{\frac{E_\text{K}}{R_\infty} - \frac{\alpha ^2 z_\text{eff,2}^4}{4}}
+    \sigma _\text{K} = Z - \sqrt{\frac{E_\text{K}}{R_\infty} - \frac{\alpha ^2 Z^4}{4}}
     \label{eq:sigma}
 \end{equation}
 

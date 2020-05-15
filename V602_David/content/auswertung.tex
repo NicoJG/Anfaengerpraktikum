@@ -124,11 +124,11 @@ Die anderen Konstanten sind gegeben durch
 $R_\infty$ ist die Rydbergenergie und $E_\text{K,abs}$ ist die Absorptionsenergie von Kupfer. \cite{V602} \cite{absorption}
 Durch alle obigen Informationen lassen sich dann alle drei Werte als 
 
-\begin{align*}
+\begin{align}
     \sigma_1 &= 3.305\\
     \sigma_2 &= 12.537\\
     \sigma_3 &= 21.937
-\end{align*}
+\end{align}
 
 berechnen.
 
@@ -154,22 +154,59 @@ Die Bestimmung der Mitte der K-Kante, also dem Wert $I_\text{K}$, gelingt über
 
 Diese Rechnung wird jeweils für alle sechs Elemente durchgeführt, die Intensitätmaxima $I^{\text{max}}_\text{K}$ und -minima $I^{\text{min}}_\text{K}$ der  wurden in allen Fällen numerisch bestimmt.
 Über \eqref{eq:IK} werden dann die benötigten Werte für $I_\text{K}$ berechnet.
-Zusätzlich werden noch die zugehörigen $\theta$ bestimmt, die für die nachfolgenden Rechnungen benötigt werden.
+$\theta$ kann dann im Plot oder aus den Tabellen dirkt zugeorndet werden.
+Aus $\theta$ wiederum wird über \eqref{eq:energie} die Absorptionsenergie $E_\text{K,abs}$ bestimmt.
+
 
 \begin{table}
     \centering
-    \caption{Berechnete Werte für $I_\text{K}$ mit zugehörigen $\theta$.}
+    \caption{Berechnete Werte für $I_\text{K}$ mit zugehörigen $\theta$ und $E_\text{K,abs}$.}
     \label{tab:IK}
-    \begin{tabular}{c S[table-format=3.1] S[table-format=2.2]}
+    \begin{tabular}{c S[table-format=3.1] S[table-format=2.2] S[table-format=2.2]}
         \toprule
-        \text{Element}  & \tableSI{I_\text{K}}{\frac{\text{Imp}}{\si{\second}}} & \tableSI{\theta}{\degree}\\
+        \text{Element}  & \tableSI{I_\text{K}}{\frac{\text{Imp}}{\si{\second}}} & \tableSI{\theta}{\degree} & \tableSI{E_\text{K,abs}}{\kilo\electronvolt}\\
         \midrule
-        Brom & 18.0 & 13.20\\
-        Gallium & 94.0 & 17.35\\
-        Rubidium & 37.0 & 11.80\\
-        Strontium & 118.0 & 11.10\\
-        Zink & 78.0 & 18.70\\
-        Zirkonium & 206.5 & 9.95\\
+        Brom & 18.0 & 13.20 & 13.48\\
+        Gallium & 94.0 & 17.35 & 10.32\\
+        Rubidium & 37.0 & 11.80 & 15.05\\
+        Strontium & 118.0 & 11.10 & 15.99\\
+        Zink & 78.0 & 18.70 & 9.60\\
+        Zirkonium & 206.5 & 9.95 & 17.81\\
         \bottomrule
     \end{tabular}
 \end{table}
+
+Dann wird aus all diesen bestimmten und gemessenen Werte über \eqref{eq:sigma} die Abschirmkonstante berechnet.
+$Z$ ist die jeweilige Ordnungszahl des Elements, diese in der nachfolgend aufgelistet,
+
+\begin{align*}
+    Z_\text{Zn} &= 30\\
+    Z_\text{Ga} &= 31\\
+    Z_\text{Br} &= 35\\
+    Z_\text{Rb} &= 37\\
+    Z_\text{Sr} &= 38\\
+    Z_\text{Zr} &= 40.
+\end{align*}
+
+Zusätzlich werden zwei Naturkonstanten benötigt, die Rydbergenergie $R_\infty$ und die Sommerfeldsche Feinstrukturkonstante $\alpha$. \cite{physics_constants}
+Dann wird die Abschirmkonstante $\sigma _\text{K}$ für alle sechs Elemente berechnet.
+Und die Berechnung ergibt die Werte
+
+\begin{align*}
+    \sigma_\text{K,Br} &= 3.84\\
+    \sigma_\text{K,Ga} &= 3.67\\
+    \sigma_\text{K,Rb} &= 4.11\\
+    \sigma_\text{K,St} &= 4.12\\
+    \sigma_\text{K,Zn} &= 3.63\\
+    \sigma_\text{K,Zr} &= 4.28.
+\end{align*}
+
+Um schlussendlich die Rydbergkonstante zu erhalten, wird das Moseley'schen Gesetz \eqref{eq:moseley} in eine Geradengleichung umgeformt.
+Damit erhält sie die Form 
+
+\begin{equation}
+    \sqrt{E_\text{K,abs}} = \sqrt{R \, h} \cdot Z - \sqrt{R \, h \, \sigma_\text{K}}.
+\end{equation}
+
+Um den Wert für die Rydberdfrequenz $R$ zu erhalten, wird zu nächst die Gerade geplottet.
+Dafür werden die Werte für $Z$, $E_\text{K,abs}$ und $\sigma_\text{K}$ aus den vorherigen Berechnungen verwendet.

@@ -1,0 +1,87 @@
+\section{Theorie}
+\label{sec:Theorie}
+
+% In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
+
+% (eventuell die Aufgaben)
+
+% Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+
+Um die Absorption und Emission von Röntgenstrahlung zu untersuchen, wird zunächst die Strahlung an sich in ihre Bestandteile zerlegt.
+Die Erzeugung von Röntgenstrahlung gelingt über eine Glühkathode, dabei werden Elektronen freigesetzt.
+Diese werden bei ihrem Durchlauf in einer evakuierten Röhre auf eine Anode hin beschleunigt.
+Die Elektronen werden im Coulomb-Feld des Atoms abgebremst und geben im Zuge dessen ein Röntenquant ab.
+Dabei ist die Energie dieses Quants genau die Energie, die das Elektron verloren hat, dadurch entsteht das kontinuierliche Bremsspektrum.
+Die kinetische Energie eines Elektrons lässt sich über 
+
+\begin{equation}
+    E_\text{kin} = U \cdot e_0
+    \label{eq:ekin}
+\end{equation}
+
+berechnen. $U$ ist die angelegte Spannung und $e$ die Elementarladung.
+Gibt ein Elektron seine gesamte Energie ab, entsteht ein Photon mit der minimalen Wellenlänge 
+
+\begin{equation}
+    \lambda _\text{min} = \frac{h \cdot c}{U \cdot e_0}.
+    \label{eq:lambdamin}
+\end{equation}
+
+Der zweite Bestandteil der Strahlung ist das charakteristische Spektrum.
+Wegen der Ionisation des Anodenmaterials entsteht eine Leerstelle, die von einem Elektron einer höheren Schale wieder besetzt wird.
+Rückt ein Elektron nach so wird ein Röntenquant mit exakt der Energiedifferenz der beiden Schalen abgegeben.
+Diese Energien sind dadurch diskret und sorgen für stark ausgeprägte Linien im Spektrum.
+Es muss noch berücksichtigt werden, dass in einem Mehrelektronenatom die äußeren Elektronen leicht von den Inneren abgeschirmt werden, sie sind also weniger fest gebunden.
+Die Energie eines solchen Elektrons auf der n-ten Schale kann über 
+
+\begin{equation}
+    E_\text{n} = - R_\infty \cdot z_\text{eff}^2 \cdot \frac{1}{n^2}
+    \label{eq:en}
+\end{equation}
+
+berechnet werden.
+$R_\infty$ ist dabei die Rydbergenergie und $z_\text{eff}$ die effektive Kernladung.
+Wobei diese wiederum über
+
+\begin{equation}
+    z_\text{eff} = z - \sigma
+    \label{eq:z}
+\end{equation}
+
+definiert ist.
+$\sigma$ ist die Abschirmkonstante.
+
+Streng genommen unterscheiden sich die Elektronen auf den Schalen durch verschiedene Bahndrehimpulse und Spins, daher kann die Bindungsenergie $E_\text{n,j}$ der Elektronen genau über die sommerfeldsche Strukturformel
+
+\begin{equation}
+    E_\text{n,j} = - R_\infty \left(z_\text{eff,1}^2 \cdot \frac{1}{n^2} + \alpha ^2 z_\text{eff,2}^4  \cdot \frac{1}{n^3} \left(\frac{1}{j + 0.5} - \frac{3}{4 n}   \right)\right)
+    \label{eq:sommerfeld}
+\end{equation}
+
+berechnet werden.
+$n$ steht hier für die Hauptquantenzahl, $\alpha$ für die Sommerfeldsche Feinstrukturkonstante und $j$ für den Gesamtdrehimpuls.
+Für Elektronen auf der K-Schale ist die Abschirmkonstante über 
+
+\begin{equation}
+    \sigma _\text{K} = Z - \sqrt{\frac{E_\text{K}}{R_\infty} - \frac{\alpha ^2 z_\text{eff,2}^4}{4}}
+    \label{eq:sigma}
+\end{equation}
+
+definiert.
+
+Damit die Röntgenstrahlung hinsichtlich ihrer Energie und Wellenlänge untersucht werden kann wird die Bragg'sche Reflexion verwendet.
+Photonen werden an einem LiF-Kristalls um den Winkel $\alpha$ gebrochen.
+Daraus ergibt sich dann folgender Zusammenhang,
+
+\begin{equation}
+    2 d \sin{\alpha} = n \cdot \lambda.
+    \label{eq:bragg}
+\end{equation}
+
+$n$ ist der Brechungsgrad des Kristalls und $d$ hier die Gitterkonstante.
+Wird \eqref{eq:bragg} nach $\lambda$ umgestellt, ergibt sich 
+
+\begin{equation}
+   \lambda = \frac{2 d \sin{\alpha}}{n}.
+   \label{eq:lambda}
+\end{equation}

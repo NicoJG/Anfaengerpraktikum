@@ -81,7 +81,7 @@ A1 = E1/deltaE1
 A2 = E2/deltaE2
 
 # Absorbtionsenergie
-E_abs = 8987 # eV
+E_abs = 8979 # eV
 
 # Abschirmkonstanten
 sigma_abs = Z - np.sqrt(E_abs/R_inf)
@@ -92,6 +92,8 @@ sigma_beta = Z - np.sqrt(9*((Z-sigma_abs)**2-E1/R_inf))
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Emission' in Ergebnisse:
     Ergebnisse['Emission'] = {}
+Ergebnisse['Emission']['K_alpha[Grad]'] = theta[i_max[2]]
+Ergebnisse['Emission']['K_beta[Grad]'] = theta[i_max[1]]
 Ergebnisse['Emission']['K_alpha[eV]'] = E2
 Ergebnisse['Emission']['K_beta[eV]'] = E1
 Ergebnisse['Emission']['HBreite_alpha[m]'] = hbreite_theta_2

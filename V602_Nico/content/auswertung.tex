@@ -1,3 +1,4 @@
+\newpage
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -9,14 +10,159 @@
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
 
-Auch die Auswertung ist ähnlich wie die Durchführung in 4 Teile aufgeteilt:
+Auch die Auswertung ist, ähnlich wie die Durchführung, in 4 Teile aufgeteilt:
 \begin{itemize}
-    \item Überprüfung des Bragg'schen Gesetzes
+    \item Überprüfung der Bragg Bedingung
     \item Untersuchung des Emissionsspektrums von Kuper
     \item Untersuchung der Absorptionsspektren verschiedener Materialien
     \item Bestimmung der Rydbergenergie
 \end{itemize}
 
-\subsection{Überprüfung des Bragg'schen Gesetzes}
+
+
+\subsection{Überprüfung der Bragg Bedingung}
 \label{ssec:bragg_auswertung}
 
+Die Messergebnisse aus Teil 1 der Durchführung sind in \autoref{tab:bragg} aufgelistet und in \autoref{fig:plot_bragg} dargestellt.
+Die Maximale Intensität ergibt sich bei einem Winkel $\theta=\SI{28.2+-0.1}{\degree}$, wobei der Sollwinkel $\SI{28}{\degree}$ beträgt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_bragg.pdf}
+    \caption{Plot der Messergebnisse aus Abschnitt \ref{ssec:bragg}}
+    \label{fig:plot_bragg}
+\end{figure}
+
+
+
+\subsection{Untersuchung des Emissionsspektrums von Kuper}
+\label{ssec:emission_auswertung}
+
+Die Messergebnisse aus Teil 2 der Durchführung sind in \autoref{tab:emission} aufgelistet und in \autoref{fig:plot_emission} dargestellt.
+Hier lassen sich die $K$-Linien bei
+\begin{align*}
+    \theta(K_\alpha) &= \SI{22.5}{\degree} \\
+    \theta(K_\beta) &= \SI{20.2}{\degree}
+\end{align*}
+ablesen und ergeben über \autoref{eq:bragg} und \ref{eq:energie} die Bindungsenergien
+\begin{align*}
+    E(K_\alpha) &= \SI{8044.2}{\electronvolt} \\
+    E(K_\beta) &= \SI{8915.1}{\electronvolt} \,.
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_emission.pdf}
+    \caption{Plot der Messergebnisse aus Abschnitt \ref{ssec:emission}}
+    \label{fig:plot_emission}
+\end{figure}
+
+Nun soll das Auflösungsvermögen $A(K)=E(K)/H(K)$ der Röntgenstrahlung bestimmt werden, wobei $H(K)$ die Halbwärtsbreite der $K$-Linie ist.
+Diese Halbwärtsbreite wird aufgrund der beschränkten Anzahl an Messpunkten um die $K$-Linien folgendermaßen bestimmt.
+Zuerst werden die Messwerte gesucht, dessen Intensitätswerte am nächsten an $N(K)/2$ liegen.
+Zwischen diesen Punkten wird jeweils eine Gerade gelegt.
+Für diese Geraden wird der passende $\theta$ Wert für $N(K)/2$ bestimmt und wie zuvor über \autoref{eq:bragg} und \autoref{eq:energie} in eine Energie umgerechnet.
+Die Differenzen dieser Energien ergeben somit die Halbwärtsbreiten
+\begin{align*}
+    H(K_\alpha) &= \SI{165.8}{\electronvolt} \\
+    H(K_\beta) &= \SI{207.0}{\electronvolt}
+\end{align*}
+und die Auflösungsvermögen
+\begin{align*}
+    A(K_\alpha) &= \num{48.5} \\
+    A(K_\beta) &= \num{43.1} \,.
+\end{align*}
+
+Außerdem werden aus den Energien $E(K)$ die Abschirmkonstanten $\sigma_1$ der Absorptionsenergie von Kupfer, $\sigma_2$ der $K_\alpha$-Linie und $\sigma_3$ der $K_\beta$-Linie bestimmt.
+Da die Absorptionsenergie von Kuper hier nicht gemessen wurde, wird diese aus entsprechender Literatur zu $E_\text{abs}=\SI{8979}{\electronvolt}$ gewählt.\cite{absorption}
+Abschätzungen der Abschirmkonstanten lassen sich über 
+\begin{align}
+    \sigma_1 &= Z - \sqrt{\frac{E_\text{abs}}{R_\infty}} \\
+    \sigma_2 &= Z - \sqrt{4(Z-\sigma_1)^2-\frac{E(K_\alpha)}{R_\infty}} \\
+    \sigma_3 &= Z - \sqrt{9(Z-\sigma_1)^2-\frac{E(K_\beta)}{R_\infty}}
+\end{align}
+ermitteln.\cite[Gleichungen (8),(9),(10)]{V602} 
+Die Ordnungszahl von Kupfer ist $Z=29$.
+Damit ergeben sich die Abschirmkonstanten zu
+\begin{align*}
+    \sigma_1 &= \num{3.3} \\
+    \sigma_2 &= \num{12.4} \\
+    \sigma_3 &= \num{22.5} \, .
+\end{align*}
+
+
+
+\subsection{Untersuchung der Absorptionsspektren verschiedener Materialien}
+\label{ssec:absorption_auswertung}
+
+Die Messergebnisse aus Teil 3 der Durchführung sind in den Tabellen \ref{tab:zink}-\ref{tab:zirconium} aufgelistet und in \autoref{fig:plot_absorption} dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_absorption.pdf}
+    \caption{Plot der Messergebnisse aus Abschnitt \ref{ssec:absorption}, mit Markierungen der bestimmten $K$-Kanten}
+    \label{fig:plot_absorption}
+\end{figure}
+
+Aus den Messdaten kann nun jeweils die Absorptionsenergie bestimmt werden.
+Dazu wird die $K$-Kante näherungsweise auf die Mitte der Kante festgelegt.
+Also wird der nächstbeste $\theta$ Wert zu $N=N_\text{min} + \frac{1}{2}(N_\text{max}-N_\text{min})$ bestimmt bzw. die Mitte zweier Messwerte falls die Gesuchte Intensität ungefähr in der Mitte dieser Messpunkte liegt.
+Die so gefundenen $K$-Kanten sowie deren Energieäquivalent aus \autoref{eq:bragg} und \ref{eq:energie} sind in \autoref{tab:absorption} aufgelistet.
+
+Nun kann aus den Absorptionsenergien über \autoref{eq:abschirm} die Abschirmkonstanten der Absorbermaterialien bestimmt werden.
+
+Um die bestimmten Werte vergleichen zu können, werden über Absorptionsenergien aus externer Literatur und die gleichen drei Gleichungen wie zuvor Abschirmkonstanten und die Bragg-Winkel berechnet.
+Auch diese Werte sind in \autoref{tab:absorption} aufgelistet.
+
+\begin{table}
+    \centering
+    \caption{Ergebnisse und Literaturwerte der Absorptionsenergie, des Bragg-Winkels und der Abschirmkonstante.\cite{absorption}}
+    \sisetup{
+        table-format=2.2
+    }
+    \begin{tabular}{c S[table-format=1.0] S S S S S S}
+        \toprule
+        Element & $Z$ & \tableSI{E}{\kilo\electronvolt} & \tableSI{E_\text{Lit}}{\kilo\electronvolt} & \tableSI{\theta}{\degree} & \tableSI{\theta_\text{Lit}}{\degree} & $\sigma$ & $\sigma_\text{Lit}$ \\
+        \midrule
+        Zn & 30 & 9.60 & 9.65 & 18.70 & 18.60 & 3.63 & 3.57 \\
+        Ga & 31 & 10.32 & 10.37 & 17.35 & 17.30 & 3.67 & 3.61 \\
+        Br & 35 & 13.43 & 13.47 & 13.25 & 13.20 & 3.89 & 3.85 \\
+        Rb & 37 & 15.05 & 15.20 & 11.80 & 11.70 & 4.11 & 3.94 \\
+        Sr & 38 & 15.99 & 16.10 & 11.10 & 11.00 & 4.12 & 4.00 \\
+        Zr & 40 & 17.73 & 18.00 & 10.00 & 9.80 & 4.37 & 4.09 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:absorption}
+\end{table}
+
+
+
+\subsection{Bestimmung der Rydbergenergie}
+\label{ssec:rydberg}
+
+Nun lässt sich aus den im vorherigen Abschnitt berechneten Absorptionsenergien sowie Abschirmkonstanten die Rydbergenergie über \autoref{eq:moseley} ermitteln.
+Dazu wird ein Plot aus den Werten aus \autoref{tab:absorption} angefertigt und eine passende Ausgleichsgerade mit
+\begin{equation*}
+    \sqrt{E} = aZ+b
+\end{equation*}
+über die Python Funktion curve\_fit aus der Bibliothek Scipy bestimmt.
+Somit ergeben sich die Parameter
+\begin{align*}
+    a &= \SI{3.52+-0.02}{\sqrt{\electronvolt}} \\
+    b &= \SI{-7.6+-0.7}{\sqrt{\electronvolt}} \,.
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_rydberg.pdf}
+    \caption{Plot der Ergebnisse aus \autoref{tab:absorption} mit passender Ausgleichsgerade.}
+    \label{fig:plot_rydberg}
+\end{figure}
+
+Die Rydbergenergie wird über $R_\infty=a^2$ zu 
+\begin{equation*}
+    R_\infty = \SI{12.4+-0.1}{\electronvolt}
+\end{equation*}
+bestimmt.
+
+Ein Literaturwert der Rydbergenergie lautet $R_\infty=\SI{13.6}{\electronvolt}$.\cite{V602}

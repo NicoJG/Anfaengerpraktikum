@@ -100,6 +100,20 @@ np.savetxt('data/Absorption_mit_Lit.csv', data,
     header='Element,Z,E_K[keV],E_lit[keV],theta[°],theta_lit[°],sigma_K,sigma_lit', 
     fmt='%s,%1.0f,%2.2f,%2.2f,%2.2f,%2.2f,%1.2f,%1.2f')
 
+# Prozentuale Abweichung berechnen
+def pdev(exact,approx):
+    return np.abs(exact-approx)/exact*100
+
+dE = pdev(E_lit,E_K*10**(-3))
+dtheta = pdev(theta_lit,theta_K)
+dsigma = pdev(sigma_lit,sigma_K)
+#Speichern
+dtype = [('Element','<U2'),('dE',np.float64),('dtheta',np.float64),('dsigma',np.float64)]
+data = np.array(list(zip(kurz,dE,dtheta,dsigma)),dtype=dtype)
+np.savetxt('data/Absorpiton_abweichung.csv', data, 
+    header='Element,dE[%],dtheta[%],dsigma[%]', 
+    fmt='%s,%2.2f,%2.2f,%2.2f')
+
 ###############################
 ## Plots
 ###############################

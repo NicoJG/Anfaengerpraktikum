@@ -1,7 +1,53 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-% Kurze Zusammenfassung der Ergebnisse
-% -Vergleich mit Literaturwerten
-% -Vergleich mit verschiedenen Messverfahren
-% -bei Abweichungen mögliche Ursachen finden
+Um eine Aussage über die Genauigkeit aller hier ermittelten Grö0en treffen zu können,
+muss zunächst die Genauigkeit der Bragg Bedingung betrachtet werden.
+Hier ergab die Messung zu Anfang des Versuchs eine Abweichung vom Sollwinkel von
+\begin{equation*}
+    \Delta\theta = \SI{0.7}{\percent} \, .
+\end{equation*}
+Diese Abweichung scheint zwar ausreichend gering, allerdings sind durch diese Ungenauigkeit alle weiteren ermittelten auch ungenau.
+
+Der Plot des Röntgenemissionsspektrums von Kupfer zeigt ein erwartetes Bild.
+Die ermittelten $K_\alpha$ und $K_\beta$ Energien bestätigen dies und zeigen eine Abweichung 
+\begin{align*}
+    \Delta E(K_\alpha) &= \SI{0.05}{\percent} \\
+    \Delta E(K_\beta) &= \SI{0.11}{\percent}
+\end{align*}
+von den angegebenen Literaturwerten.
+Eine minimale bzw. maximale Wellenlänge des Bremsberges konnte nicht ermittelt werden, da hierfür zu wenig Messwerte aufgenommen wurden und der Apperat nicht gut von äußerer Strahlung abgeschirmt wurde.
+
+%%%%%%%%%%%% Auflösungsvermögen und Abschirmkonstanten
+
+Betrachtet man nun die Ergebnisse der Absorptionsuntersuchung stellt man ähnlich geringe Abweichungen fest.
+Diese Abweichungen sind in \autoref{tab:absorption_abweichung} aufgelistet.
+\begin{table}
+    \centering
+    \caption{Abweichungen der in Abschnitt \ref{ssec:absorption_auswertung} berechneten Werte zum Literaturwert}
+    \begin{tabular}{c S S S}
+        \toprule
+        Element & \tableSI{\Delta E}{\percent} & \tableSI{\Delta\theta}{\percent} & \tableSI{\Delta\sigma}{\percent} \\
+        \midrule
+        Zn & 0.50 & 0.54 & 1.77 \\
+        Ga & 0.45 & 0.29 & 1.75 \\
+        Br & 0.29 & 0.38 & 1.14 \\
+        Rb & 0.96 & 0.85 & 4.25 \\
+        Sr & 0.68 & 0.91 & 2.96 \\
+        Zr & 1.51 & 2.04 & 6.87 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Auch die Plots der Absorptionskurven in \autoref{fig:plot_absorption} zeigen das erwartete Bild.
+
+Als letztes wurde die Rydbergenergie aus den Ergebnissen ermittelt und diese zeigt eine Abweichung
+\begin{equation*}
+    \Delta R_\infty = \SI{8.8}{\percent}
+\end{equation*}
+vom Vergleichswert. 
+Diese Abweichung ist somit die Größte der hier ermittelten Wert, was allerdings nicht verwunderlich ist, da alle Abweichungen der vorherigen Messungen hier einen Beitrag leisten.
+
+Alle Abweichungen scheinen angemessen, da viele systematische Fehlerquellen nicht beachtet wurden.
+Z.B. wurde der Messapperat nicht sonderlich gut von äußerer Strahlung abgeschirmt und die Bragg Bedingung hätte noch besser erfüllt gewesen sein können.
+Außerdem wurden die einzelnen Messwert nur mit einer Integrationszeit von 5 Sekunden und in Schritten von $\SI{0.1}{\degree}$ gemessen ohne dabei die Totzeit des Geiger-Müller Zählers zu beachten.
+Zudem kommen die in der Theorie gemachten Näherungen hinzu.

@@ -13,7 +13,7 @@ Nun führen zwei Vorgänge zur Aussendung von Röntgenstrahlung.
 
 Beim Ersten wird das Elektron durch das elektrische Feld der Elekronen im Anodenmaterial abgebremst.
 Hierbei verliert das Elektron Energie, welche in From von Photonen ausgesendet wird.
-Dieser Vorgang führt zum Kontinuierlichen Spektrum, welches auch Bremsberg genannt wird und auf \autoref{fig:bremsberg} dargestellt ist.
+Dieser Vorgang führt zum kontinuierlichen Spektrum, welches auch Bremsberg genannt wird und auf \autoref{fig:bremsberg} dargestellt ist.
 
 \begin{figure}
     \centering
@@ -23,32 +23,32 @@ Dieser Vorgang führt zum Kontinuierlichen Spektrum, welches auch Bremsberg gena
 \end{figure}
 
 Der zweite Vorgang ist der Stoßprozess vom eintreffenden Elektron mit einem Elektron im Anodenatom.
-Durch diesen Stoß wird ein Elektron aus einer inneren Schale aus dem Atom gelöst und hinterlässt eine Leerstelle.
-Ein Elektron aus einer äußeren Schale wird nun die innere Schale besetzen und sendet hierbei ebenfall ein Photon aus.
+Durch diesen Stoß wird ein Elektron aus einer der inneren Schalen aus dem Atom gelöst und hinterlässt eine Leerstelle.
+Ein Elektron aus einer äußeren Schale wird nun die innere Schale besetzen und sendet hierbei ebenfalls ein Photon aus.
 Dieses Photon hat gerade die Energie der Energiedifferenz der beiden Energieniveaus.
 Durch die diskreten Energiedifferenzen ensteht somit ein diskretes Spektrum, welches als charakteristisches Spektrum bezeichnet wird.
 Im charakteristischen Spektrum werden die einzelnen Linien mit Buchstaben wie $K_\alpha,K_\beta,L_\alpha,...$ bezeichnet.
-Hier entspricht der Buchstabe der inneren Schale und das Griechische Symbol der äußeren Schale.
+Hier entspricht der Buchstabe der inneren Schale und das griechische Symbol der äußeren Schale.
 
 Die Bindungsenergie auf der n-ten Schale $E_n$ hängt in einem Atom mit mehreren Elektronen unter Anderem von Abschirmeffekten des Kerns ab und kann mit
 \begin{equation}
-    E_n = -\frac{R_\infty(Z-\sigma)}{n^2}
+    E_n = -\frac{R_\infty(Z-\sigma)^2}{n^2}
 \end{equation}
 berechnet werden. 
 $R_\infty=\SI{13.6}{\electronvolt}$ ist die Rydbergenergie, $Z$ die Ordnungszahl und $\sigma$ die Abschirmkonstante.\cite{V602}
 Nach dem Moseley'schen Gesetz wird z.B die $K_\alpha$ Linie näherungsweise bei
 \begin{equation}
-    \sqrt{E_K} = \sqrt{R_\infty}(Z-\sigma)
+    E_K = R_\infty(Z-\sigma)^2
     \label{eq:moseley}
 \end{equation}
 erwartet.
-Allerdings führen weitere Quantenmechanische Effekte wie z.B. der Spin zu weiteren Variationen dieser Bindungsenergie.
+Allerdings führen weitere quantenmechanische Effekte wie z.B. der Spin zu Variationen dieser Bindungsenergie.
 Dadurch sind die charakteristischen Linien noch detaillierter unterteilt und das Spektrum innerhalb einer Linie erscheind annähernd kontinuierlich.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{images/absorption.png}
-    \caption{Skizze des Röntgenspektrums bei Absorption.\cite{V602}}
+    \caption{Skizze des Absorptionsspektrums bei Röntgenstrahlung.\cite{V602}}
     \label{fig:absorption}
 \end{figure}
 
@@ -73,8 +73,9 @@ Somit kann die Wellenlänge $\lambda$ zum Winkel $\theta$ über
 \end{equation}
 bestimmt werden, wobei $n$ der Beugungsordnung entspricht.
 Als 3 dimensionales Gitter wird hier ein LiF-Kristall mit einer Gitterkonstante $d=\SI{2.014e-12}{m}$ verwendet.
+Außerdem wird nur die erste Beugungsordnung($n=1$) beachtet.
 
-Aus der Wellenlänge lässt sich die Photonenenergie über
+Aus der Wellenlänge der Strahlung lässt sich die Photonenenergie über
 \begin{equation}
     E = \frac{hc}{\lambda}
     \label{eq:energie}

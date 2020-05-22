@@ -10,7 +10,7 @@
 Um die Absorption und Emission von Röntgenstrahlung zu untersuchen, wird zunächst die Strahlung an sich in ihre Bestandteile zerlegt.
 Die Erzeugung von Röntgenstrahlung gelingt über eine Glühkathode, dabei werden Elektronen freigesetzt.
 Diese werden bei ihrem Durchlauf in einer evakuierten Röhre auf eine Anode hin beschleunigt.
-Die Elektronen werden im Coulomb-Feld des Atoms abgebremst und geben im Zuge dessen ein Röntenquant ab.
+Die Elektronen werden im Coulomb-Feld des Atoms abgebremst und geben im Zuge dessen einen Röntenquant ab.
 Dabei ist die Energie dieses Quants genau die Energie, die das Elektron verloren hat, dadurch entsteht das kontinuierliche Bremsspektrum.
 Die kinetische Energie eines Elektrons lässt sich über 
 
@@ -34,12 +34,12 @@ Diese Energien sind dadurch diskret und sorgen für stark ausgeprägte Linien im
 Über das Moseley'sche Gesetz kann die Energie der $K_\alpha$-Strahlung als 
 
 \begin{equation}
-    E_\text{K} = R \cdot h \cdot \left(Z - \sigma\right)
+    E_\text{K} = R \cdot h \cdot \left(Z - \sigma\right)^2
     \label{eq:moseley}
 \end{equation}
 
 berechnet werden.
-$R_\infty$ ist dabei die Rydbergenergie, $Z$ die Ordnungszahl und $\sigma$ ist die Abschirmkonstante.
+$R$ ist dabei die Rydbergfrequenz, $Z$ die Ordnungszahl und $\sigma$ ist die Abschirmkonstante.
 Es muss noch berücksichtigt werden, dass in einem Mehrelektronenatom die äußeren Elektronen leicht von den Inneren abgeschirmt werden, sie sind also weniger fest gebunden.
 Die Energie eines solchen Elektrons auf der n-ten Schale kann über 
 
@@ -49,7 +49,7 @@ Die Energie eines solchen Elektrons auf der n-ten Schale kann über
 \end{equation}
 
 berechnet werden.
-$z_\text{eff}$ die effektive Kernladung und ist definiert als
+$z_\text{eff}$ ist die effektive Kernladung und ist definiert als
 
 \begin{equation}
     z_\text{eff} = z - \sigma.
@@ -65,17 +65,17 @@ Streng genommen unterscheiden sich die Elektronen auf den Schalen durch verschie
 
 berechnet werden.
 $n$ steht hier für die Hauptquantenzahl, $\alpha$ für die Sommerfeldsche Feinstrukturkonstante und $j$ für den Gesamtdrehimpuls.
-Für Elektronen auf der K-Schale ist die Abschirmkonstante über 
+$z_\text{eff,1}$ und $z_\text{eff,2}$ lassen sich über \eqref{eq:z} berechnen, die entsprechenden $\sigma$ lassen sich für Elektronen auf der K-Schale über 
 
 \begin{equation}
     \sigma _\text{K} = Z - \sqrt{\frac{E_\text{K}}{R_\infty} - \frac{\alpha ^2 Z^4}{4}}
     \label{eq:sigma}
 \end{equation}
 
-definiert.
+bestimmen.
 
 Damit die Röntgenstrahlung hinsichtlich ihrer Energie und Wellenlänge untersucht werden kann wird die Bragg'sche Reflexion verwendet.
-Photonen werden an einem LiF-Kristalls um den Winkel $\alpha$ gebrochen.
+Photonen werden an einem LiF-Kristall um den Winkel $\alpha$ gebrochen.
 Daraus ergibt sich dann folgender Zusammenhang,
 
 \begin{equation}

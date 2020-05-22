@@ -99,7 +99,16 @@ Ergebnisse['Moseley']['a'] = a
 Ergebnisse['Moseley']['a_err'] = a_err
 Ergebnisse['Moseley']['b'] = b
 Ergebnisse['Moseley']['b_err'] = b_err
+Ergebnisse['Moseley']['a^2'] = a**2
+Ergebnisse['Moseley']['a_err^2'] = a_err**2
+Ergebnisse['Moseley']['a^2'] = a**2/e
+Ergebnisse['Moseley']['a_err^2'] = a_err**2/e
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+
+ryd = ufloat(a,a_err)
+print(((ufloat(a,a_err))**2)/e)
+print(((ufloat(a,a_err))**2))
+
 
 # Plot der Daten
 plt.plot(thetagrad1, N1, '.', label='Brom')
@@ -121,11 +130,11 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_absorption.pdf')
 plt.clf()
 
-# Plot der Ausgleichskurve
-x_linspace = np.linspace(np.min(Z),np.max(Z),100)
+## Plot der Ausgleichskurve
+x_linspace = np.linspace(np.min(Zgesamt),np.max(Zgesamt),100)
 plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
 
-plt.plot(Zgesamt, np.sqrt(Egesamt), '.', label='Messwerte')
+plt.plot(Zgesamt, np.sqrt(Egesamt), 'o', label='Messwerte')
 
 plt.xlabel(r'$Z$')
 plt.ylabel(r'$\sqrt{E_\text{K,abs} \:/\: \si{\joule}}$')
@@ -134,4 +143,4 @@ plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
 # Speicherort
-plt.savefig('build/plot_ryberg.pdf')
+plt.savefig('build/plot_rydberg.pdf')

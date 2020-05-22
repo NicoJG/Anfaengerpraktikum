@@ -5,3 +5,87 @@
 % -Vergleich mit Literaturwerten
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
+
+\subsection{Vergleich der Ergebnisse mit den Literaturwerten}
+\label{ssec:vergleich}
+
+Das Maximum der Intensität bei \autoref{ssec:1} wurde bei
+
+\begin{equation}
+    \theta _\text{max} = \SI{28.2}{\degree}
+\end{equation}
+
+festgestellt.
+Da der Kristallwinkel, also der Einfallswinkel, $\SI{14}{\degree}$ beträgt, ist das Maximum bei $\SI{28}{\degree}$ zu erwarten, da zustätzlich noch der Ausfallswinkel dazu addiert wird.
+Beide Winkel sind nach dem Prinzip der Reflexion gleich groß.
+Damit weicht der gemessene Wert um $0.71\%$ ab.
+Auch wenn das Ergebnis sehr präszise ist, könnte diese geringe Abweichung an möglichen Ungenauigkeit beim justieren liegen, auch wenn es maschinell geschehen ist.
+So könnte die Linse oder LiF-Kristall ebenfalls leicht versetzt montiert worden sein.
+
+In \autoref{ssec:2} konnte die minimale Wellenlänge bzw. die maximale Energie des Bremsberges nicht berechnet werden, da das vorhandene Spektrum dafür nicht genügt.
+Um diese Stelle zu finden wurde nicht weit genug gemessen, der entsprechende Teil ist gar nicht zu sehen, vermutlich ist er bei niedrigeren Winkeln zu finden.
+
+In \autoref{ssec:3} wurden die sechs Absorptionsenergien und Abschirmkonstanten berechnet, auch diese werden mit den Literaturwerten verglichen.
+ 
+\begin{table}
+  \centering
+  \caption{Vergleich der experimentellen und der theoretischen Absorptionsenergien. \cite{absorption}}
+  \label{tab:e_lit}
+  \begin{tabular}{c S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
+    \toprule 
+   \text{Element} & \tableSI{E_\text{K}}{\kilo\electronvolt} & \tableSI{E_\text{K,Lit}}{\kilo\electronvolt} & \text{Abweichungen} \\ 
+    \midrule 
+    Brom & 13.48 & 13.47 & 0.07 \% \\
+    Gallium & 10.32 & 10.37 & 0.48 \% \\
+    Rubidium & 15.05 & 15.20 & 0.97 \% \\
+    Strontium & 15.99 & 16.10 & 0.68 \% \\
+    Zink & 9.60 & 9.65 & 0.52 \% \\
+    Zirkonium & 17.81 & 18.00 & 1.06 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table} 
+
+Die Abweichungen zeigen, dass die Ergenisse alle sehr genau bestimmt wurden.
+Das ist durchaus überraschend, da im Laufe der Auswertung einige Näherungen getroffen wurden.
+Bei der Bestimmung der Halbwertsbreite wurden durch recht ungenaue Geradennäherungen Werte ermittelt.
+Außerdem wurde bei der Zuordnung der Intensitäten $I_\text{K}$ zu ihren zugehörigen Winkeln $\theta$ sehr stark gerundet.
+Oft lagen Werte genau zwischen den diskreten Messwerten, die zu verfügung standen. 
+Dort wurde es nötig nach Augenmaß einen Winkel festzulegen.  
+
+\begin{table}
+  \centering
+  \caption{Vergleich der berechneten und theoretischen Abschirmkonstanten. \cite{absorption}}
+  \label{tab:sigma_lit}
+  \begin{tabular}{c S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
+    \toprule 
+   \text{Element} & $\sigma _\text{K}$ & $\sigma _\text{K,Lit}$ & \text{Abweichungen} \\ 
+    \midrule 
+    Brom & 3.84 & 3.84 & 0.00 \% \\
+    Gallium & 3.67 & 3.61 & 1.63 \% \\
+    Rubidium & 4.11 & 3.94 & 4.13 \% \\
+    Strontium & 4.12 & 3.99 & 3.15 \% \\
+    Zink & 3.63 & 3.56 & 1.93 \% \\
+    Zirkonium & 4.28 & 4.09 & 4.44 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Literaturwerte von $\sigma$ wurden über die Literaturwerte der $E_\text{K}$-Kanten bestimmt. Daher sind die Verhältnisse gleich. 
+
+
+Das Ziel der Auswertung war die Bestimmung der Rydbergenergie, dieser Wert wird ebenfalls mit dem Wert aus der Literatur verglichen.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der ausgerechneten Rydbergenergie mit dem Literaturwert. \cite{physics_constants}}
+  \label{tab:rydberg_lit}
+  \begin{tabular}{S[table-format=2.2,table-figures-uncertainty = 1] S[table-format=1.2] S[table-format=1.2]}
+    \toprule 
+   \tableSI{R_\infty}{\electronvolt} & \tableSI{R_{\infty, Lit}}{\electronvolt} & \text{Abweichungen} \\ 
+    \midrule 
+    12.56+-0.15 & 13.61 & 6.61 \% \\
+  \end{tabular}
+\end{table}
+
+Obwohl die vorherigen Werte alle eine recht geringe Abweichung besitzen, weicht die Rydbergenergie etwas deutlicher ab, allerdings ist die as Ergebnis dennoch unter $10 \%$ Abweichung.
+Eine Erklärung wäre, dass die Rydbergenergie über die Steigung der Ausgleichsgeraden berechnet wurde und diese schon durch einen Ausreißer im Plot leicht verändert werden kann.

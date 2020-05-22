@@ -12,7 +12,7 @@
 \subsection{Überprüfung der Bragg-Bedingung}
 \label{ssec:1}
 
-Die Messdaten aus \label{tab:bragg} werden nun geplottet.
+Die Messdaten aus \label{tab:bragg} werden geplottet.
 
 \begin{figure}
     \centering
@@ -45,14 +45,14 @@ Das Ergebnis ist in \autoref{fig:kupfer} dargestellt.
 
 Aus dem Spektrum lassen sich die beiden Winkel der K-Alpha und K-Beta Linien bestimmen, diese befinden sich bei den Winkeln
 
-\begin{align}
-    \theta _\text{beta} = \ang{20.2}\\
-    \theta _\text{alpha} = \ang{22.5}.
-\end{align}
+\begin{align*}
+    \theta _\text{beta} &= \ang{20.2}\\
+    \theta _\text{alpha} &= \ang{22.5}.
+\end{align*}
 
 Für die Berechnung der Halbwertsbreiten wurde eine Nullebene durch den niedrigsten N-Wert gelegt.
 Die Halbwertsbreite kann nur grob berechnet werden, da in den notwendigen Bereichen nur wenige Werte vorliegen.
-Es werden Geraden zwischen die beiden nächsten Punkte gelegt und von dort aus, die viel benötigten Winkel.
+Es werden Geraden zwischen die beiden nächsten Punkte gelegt und von dort aus, die vier benötigten Winkel.
 Damit ergeben sich je zwei Winkel für beide Linien
 
 \begin{align*}
@@ -73,7 +73,8 @@ Dann ergibt sich der Zusammenhang
     \label{eq:energie}
 \end{equation}
 
-Über diesen werden die vier Energien berechnet und jeweils ihren entsprechenden Linien nach substrahiert,
+Über diesen werden die vier Energien berechnet und jeweils ihren entsprechenden Linien nach substrahiert.
+Dann ergeben sich die beiden Halbwertsbreiten
 
 \begin{align*}
     H_ \beta = \SI{1.4380e-15}{\joule} - \SI{1.4042e-15}{\joule} &= \SI{3.38e-17}{\joule}\\
@@ -91,15 +92,15 @@ das Auflösevermögen berechnet werden.
 Dabei ist $E_\text{K}$ die Energie der jeweiligen Kante, 
 
 \begin{align*}
-    E_ \beta  = \SI{1.4265e-15}{\joule} = \SI{8.903}{\kilo\electronvolt}\\
-    E_ \alpha = \SI{1.2877e-15}{\joule} = \SI{8.037}{\kilo\electronvolt}.
+    E_ \beta  &= \SI{1.4265e-15}{\joule} = \SI{8.903}{\kilo\electronvolt}\\
+    E_ \alpha &= \SI{1.2877e-15}{\joule} = \SI{8.037}{\kilo\electronvolt}.
 \end{align*}
 
 Dann werden die jeweiligen Werte in \eqref{eq:aufloes} eingesetzt, daraus ergeben sich dann die beiden Auflösevermögen
 
 \begin{align*}
-    A_ \beta  = 42.18\\
-    A_ \alpha = 48.23.
+    A_ \beta  &= 42.18\\
+    A_ \alpha &= 48.23.
 \end{align*}
 
 Die drei Abschirmkonstanten $\sigma_1$, $\sigma_2$ und $\sigma_3$ berechnen sich über die folgenden drei Formeln
@@ -124,11 +125,11 @@ Die anderen Konstanten sind gegeben durch
 $R_\infty$ ist die Rydbergenergie und $E_\text{K,abs}$ ist die Absorptionsenergie von Kupfer. \cite{V602} \cite{absorption}
 Durch alle obigen Informationen lassen sich dann alle drei Werte als 
 
-\begin{align}
+\begin{align*}
     \sigma_1 &= 3.305\\
     \sigma_2 &= 12.537\\
     \sigma_3 &= 21.937
-\end{align}
+\end{align*}
 
 berechnen.
 
@@ -154,7 +155,7 @@ Die Bestimmung der Mitte der K-Kante, also dem Wert $I_\text{K}$, gelingt über
 
 Diese Rechnung wird jeweils für alle sechs Elemente durchgeführt, die Intensitätmaxima $I^{\text{max}}_\text{K}$ und -minima $I^{\text{min}}_\text{K}$ der  wurden in allen Fällen numerisch bestimmt.
 Über \eqref{eq:IK} werden dann die benötigten Werte für $I_\text{K}$ berechnet.
-$\theta$ kann dann im Plot oder aus den Tabellen dirkt zugeorndet werden.
+$\theta$ kann dann im Plot oder aus den Tabellen direkt zugeorndet werden.
 Aus $\theta$ wiederum wird über \eqref{eq:energie} die Absorptionsenergie $E_\text{K,abs}$ bestimmt.
 
 
@@ -177,7 +178,7 @@ Aus $\theta$ wiederum wird über \eqref{eq:energie} die Absorptionsenergie $E_\t
 \end{table}
 
 Dann wird aus all diesen bestimmten und gemessenen Werte über \eqref{eq:sigma} die Abschirmkonstante berechnet.
-$Z$ ist die jeweilige Ordnungszahl des Elements, diese in der nachfolgend aufgelistet,
+$Z$ ist die jeweilige Ordnungszahl des Elements, diese sind nachfolgend aufgelistet,
 
 \begin{align*}
     Z_\text{Zn} &= 30\\
@@ -206,7 +207,50 @@ Damit erhält sie die Form
 
 \begin{equation}
     \sqrt{E_\text{K,abs}} = \sqrt{R \, h} \cdot Z - \sqrt{R \, h \, \sigma_\text{K}}.
+    \label{eq:ding}
 \end{equation}
 
-Um den Wert für die Rydberdfrequenz $R$ zu erhalten, wird zu nächst die Gerade geplottet.
+Um den Wert für die Rydberdfrequenz $R$ zu erhalten, wird zunächst die Gerade in \autoref{fig:rydberg} geplottet.
 Dafür werden die Werte für $Z$, $E_\text{K,abs}$ und $\sigma_\text{K}$ aus den vorherigen Berechnungen verwendet.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_rydberg.pdf}
+    \caption{Plot der berechneten Messwerte zur Ermittlung der Rydbergenergie}
+    \label{fig:rydberg}
+\end{figure}
+
+Es wird eine Ausgleichsgerade der Art 
+
+\begin{equation}
+    \sqrt{E_\text{K,abs}} = a \cdot Z + b
+\end{equation}
+
+durch die Werte gelegt.
+Die Funktionsparamter sind dann gegeben mit 
+
+\begin{align*}
+    a &= \SI{1.482(8)e-9}{\sqrt{\joule}}\\
+    b &= \SI{-3.3(3)e-9}{\sqrt{\joule}}.
+\end{align*}
+
+Wird die Funktion mit \eqref{eq:ding} verglichen, kann der Parameter $a$ als 
+
+\begin{equation}
+    a = \sqrt{R \cdot h}
+\end{equation}
+
+identifiziert werden. 
+Über den Zusammenhang 
+
+\begin{equation}
+    R_\infty = R \cdot h
+\end{equation}
+
+wird also nun der Parameter $a$ quadriert, um daraus die Rydbergenergie zu erhalten.
+Damit ergibt sich schlussendlich
+
+\begin{equation}
+    R_\infty = a^2 = \SI{2.012(24)e-18}{\joule} = \SI{12.56(15)}{\electronvolt}.
+\end{equation}
+

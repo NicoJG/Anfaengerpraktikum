@@ -27,5 +27,5 @@ T = (N1+N2-N12)/(2*N1*N2)
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Totzeit' in Ergebnisse:
     Ergebnisse['Totzeit'] = {}
-Ergebnisse['Totzeit']['T'] = '{:1.7f}'.format(T)
+Ergebnisse['Totzeit']['T[micro s]'] = '{:3.1f}'.format(T*10**6)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)

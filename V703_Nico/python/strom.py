@@ -53,17 +53,23 @@ Ergebnisse['Strom']['b'] = '{}'.format(b)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 ###############################
+## Ergebnisse Speichern Tabelle
+###############################
+data = list(zip(noms(N),stds(N),noms(I*10**(6)),stds(I*10**(6)),noms(Z/10**10),stds(Z/10**10)))
+np.savetxt('data/strom_ergebnisse.csv', data, header='N[Imp/s],I[A],Z[10^10]', fmt='%.1f+-%.1f,%.1f+-%.1f,%.1f+-%.1f')
+
+###############################
 ## Plots
 ###############################
 # Plot der Ausgleichsgerade
 I_linspace = np.linspace(np.min(noms(I)),np.max(noms(I)),100)
-plt.plot(I_linspace*10**(6),Z_fit(I_linspace,*params),'k-', label='Ausgleichsgerade')
+# plt.plot(I_linspace*10**(6),Z_fit(I_linspace,*params)/10**10,'k-', label='Ausgleichsgerade')
 # Plot der Messdaten
-plt.errorbar(noms(I*10**(6)), noms(Z), yerr=stds(Z),xerr=stds(I*10**(6)), fmt='ro', label='Messdaten')
+plt.errorbar(noms(I*10**(6)), noms(Z/10**10), yerr=stds(Z/10**10), fmt='ro', label='Messdaten')
 
 # Achsenbeschriftung
-plt.xlabel(r'$I \:/\: \si{\micro\coulomb}$')
-plt.ylabel(r'$Z$')
+plt.xlabel(r'$I \:/\: \si{\micro\ampere}$')
+plt.ylabel(r'$Z \:/\: 10^{10}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

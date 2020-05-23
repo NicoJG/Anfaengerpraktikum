@@ -36,6 +36,10 @@ params,pcov = curve_fit(N_fit,U[i1:i2],noms(N[i1:i2]),sigma=stds(N[i1:i2]))
 a = ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
+# Plateauanstieg
+deltaN =  N_fit(U[i2-1],a,b) - N_fit(U[i1],a,b) #Impulse pro Sekunde
+percent = (N_fit(U[i2-1],a,b)/N_fit(U[i1],a,b) - 1)*100 #%
+
 ###############################
 ## Ergebnisse Speichern JSON
 ###############################
@@ -44,6 +48,9 @@ if not 'Charakteristik' in Ergebnisse:
     Ergebnisse['Charakteristik'] = {}
 Ergebnisse['Charakteristik']['a'] = '{:1.5f}'.format(a)
 Ergebnisse['Charakteristik']['b'] = '{:1.5f}'.format(b)
+Ergebnisse['Charakteristik']['Anstieg[Imp/s]'] = '{}'.format(deltaN)
+Ergebnisse['Charakteristik']['Anstieg[%]'] = '{}'.format(percent)
+
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 ###############################

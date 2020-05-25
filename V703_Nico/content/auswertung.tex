@@ -68,12 +68,12 @@
 \end{table}
 
 Die Charakteristik des benutzten Zählrohrs ist in \autoref{fig:plot_charakteristik} dargestellt.
-Um den Plateauanstieg zu bestimmen wird eine Ausgleichsgerade durch das Plateau (also von $U=$\SIrange{370}{640}{\volt}) gelegt.
+Um den Plateauanstieg zu bestimmen wird eine Ausgleichsgerade durch das Plateau (also von $U=$ \SIrange{370}{640}{\volt}) gelegt.
 Dazu wird 
 \begin{equation*}
     N(U) = aU + b
 \end{equation*}
-und die Funktion Curve Fit der Python Bibliothek SciPy verwendet.\cite{scipy}
+und die Funktion curve\_fit der Python Bibliothek SciPy verwendet.\cite{scipy}
 Damit ergeben sich die Parameter
 \begin{align*}
     a &= \SI{0.019+-0.004}{\per\volt} \\
@@ -86,8 +86,8 @@ Nun kann der Plateauanstieg zu
 \end{align*}
 bzw.
 \begin{align*}
-    \Delta N &= \left( \frac{N(U=\SI{640}{\volt})}{N(U=\SI{370}{\volt})} - 1 \right) 100 \\
-             &= \SI{3.1+-0.6}{\percent}
+    \Delta N &= \left( \frac{N(U=\SI{640}{\volt})}{N(U=\SI{370}{\volt})} - 1 \right) \cdot \frac{\SI{100}{\volt}}{(640-370)\:\si{\volt}} \cdot 100 \\
+             &= \SI{1.15+-0.21}{\percent\per100\volt}
 \end{align*}
 bestimmt werden.
 
@@ -105,9 +105,9 @@ bestimmt werden.
 Wie in Abschnitt \ref{ssec:totzeit_durchführung} beschrieben wurde zunächst die Zwei-Quellen-Methode zur untersuchung der Totzeit verwendet.
 Hier ergab die Messung
 \begin{align*}
-    N_1 &= \,\SI{96041}{\frac{Imp}{120\second}} \\
+    N_1 &= \:\:\SI{96041}{\frac{Imp}{120\second}} \\
     N_{1+2} &= \SI{158479}{\frac{Imp}{120\second}} \\
-    N_2 &= \,\SI{76518}{\frac{Imp}{120\second}} \, .
+    N_2 &= \:\:\SI{76518}{\frac{Imp}{120\second}} \, .
 \end{align*}
 
 Nun kann wegen der Totzeitkorrektur
@@ -135,7 +135,7 @@ Die zweite in Abschnitt \ref{ssec:totzeit_durchführung} beschriebene Methode f�
     \caption{Oszillogram zur Schätzung der Totzeit wobei ein Kästchen horizontal $\SI{100}{\micro\second}$ entspricht}
     \label{fig:oszilloskop}
 \end{figure}
-Hier kann die Zeitdifferenz des ersten zum zweiten Puls abgelesen werden.
+Hier kann die Zeitdifferenz des ersten zum zweiten Puls sehr grob abgelesen werden.
 So ergibt sich eine Totzeit von
 \begin{equation*}
     T = \SI{100+-100}{\micro\second} \, .
@@ -165,7 +165,7 @@ So ergibt sich eine Totzeit von
     \label{tab:strom}
 \end{table}
 
-Beim aufnehmen der Charakteristik wurde zusätzlich noch im Abstand von $\SI{50}{\volt}$ die Ionisierungsstromstärke $I$ gemessen.
+Beim Aufnehmen der Charakteristik wurde zusätzlich noch im Abstand von $\SI{50}{\volt}$ die Ionisierungsstromstärke $I$ gemessen.
 Aus den gemessenen Werten kann die Zahl der freigesetzten Ladungen pro detektiertem Teilchen über
 \begin{equation}
     Z = \frac{I}{e \cdot N}

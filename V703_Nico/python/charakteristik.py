@@ -39,6 +39,7 @@ b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 # Plateauanstieg
 deltaN =  N_fit(U[i2-1],a,b) - N_fit(U[i1],a,b) #Impulse pro Sekunde
 percent = (N_fit(U[i2-1],a,b)/N_fit(U[i1],a,b) - 1)*100 #%
+per100V = percent*100/(U[i2-1]-U[i1]) #% pro 100 V
 
 ###############################
 ## Ergebnisse Speichern JSON
@@ -50,6 +51,7 @@ Ergebnisse['Charakteristik']['a'] = '{:1.5f}'.format(a)
 Ergebnisse['Charakteristik']['b'] = '{:1.5f}'.format(b)
 Ergebnisse['Charakteristik']['Anstieg[Imp/s]'] = '{}'.format(deltaN)
 Ergebnisse['Charakteristik']['Anstieg[%]'] = '{}'.format(percent)
+Ergebnisse['Charakteristik']['Anstieg[%/100V]'] = '{}'.format(per100V)
 
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 

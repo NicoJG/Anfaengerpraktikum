@@ -71,16 +71,16 @@ Ergebnisse['Parameter']['b[V]'] = b
 Ergebnisse['Parameter']['b_err[V]'] = b_err
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
-print("Steigung pro 100V: ",((a1*100 + b1) - b1)/b1 )
-print("Totzeit:",tau(N1,N2,N1_2))
-print("Z1: ",Z(I_neu[0],N_t[3])) 
-print("Z2: ",Z(I_neu[1],N_t[8]))
-print("Z3: ",Z(I_neu[2],N_t[13]))
-print("Z4: ",Z(I_neu[3],N_t[18]))
-print("Z5: ",Z(I_neu[4],N_t[23]))
-print("Z6: ",Z(I_neu[5],N_t[28]))
-print("Z7: ",Z(I_neu[6],N_t[33]))
-print("Z8: ",Z(I_neu[7],N_t[38]))
+#print("Steigung pro 100V: ",((a1*100 + b1) - b1)/b1 )
+#print("Totzeit:",tau(N1,N2,N1_2))
+#print("Z1: ",Z(I_neu[0],N_t[3])) 
+#print("Z2: ",Z(I_neu[1],N_t[8]))
+#print("Z3: ",Z(I_neu[2],N_t[13]))
+#print("Z4: ",Z(I_neu[3],N_t[18]))
+#print("Z5: ",Z(I_neu[4],N_t[23]))
+#print("Z6: ",Z(I_neu[5],N_t[28]))
+#print("Z7: ",Z(I_neu[6],N_t[33]))
+#print("Z8: ",Z(I_neu[7],N_t[38]))
 
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(U[5:33]),np.max(U[5:33]),100)

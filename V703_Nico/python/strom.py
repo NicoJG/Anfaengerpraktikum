@@ -56,7 +56,7 @@ json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 ## Ergebnisse Speichern Tabelle
 ###############################
 data = list(zip(noms(N),stds(N),noms(I*10**(6)),stds(I*10**(6)),noms(Z/10**10),stds(Z/10**10)))
-np.savetxt('data/strom_ergebnisse.csv', data, header='N[Imp/s],I[A],Z[10^10]', fmt='%.1f+-%.1f,%.1f+-%.1f,%.1f+-%.1f')
+np.savetxt('data/strom_ergebnisse.csv', data, header='N[Imp/s],I[A],Z[10^10]', fmt='%.1f+-%.1f,%.1f+-%.2f,%.1f+-%.1f')
 
 ###############################
 ## Plots

@@ -7,67 +7,68 @@
 \begin{table}
     \centering
     \caption{Messergebnisse der Charakteristik des Zählrohrs}
-    \begin{tabular}{S[table-format=3.0] S[table-format=5.0]}
+    \begin{tabular}{S[table-format=3.0] S[table-format=5.0(3)]}
         \toprule
         \tableSI{U}{\volt} & \tableSI{N}{\frac{Imp}{60\second}} \\
         \midrule
-        320 & 9672 \\
-        330 & 9689 \\
-        340 & 9580 \\
-        350 & 9837 \\
-        360 & 9886 \\
-        370 & 10041 \\
-        380 & 9996 \\
-        390 & 9943 \\
-        400 & 9995 \\
-        410 & 9980 \\
-        420 & 9986 \\
-        430 & 9960 \\
-        440 & 10219 \\
+        320 & 9672+-98 \\
+        330 & 9689+-98 \\
+        340 & 9580+-98 \\
+        350 & 9837+-99 \\
+        360 & 9886+-99 \\
+        370 & 10041+-100 \\
+        380 & 9996+-100 \\
+        390 & 9943+-100 \\
+        400 & 9995+-100 \\
+        410 & 9980+-100 \\
+        420 & 9986+-100 \\
+        430 & 9960+-100 \\
+        440 & 10219+-101 \\
         \bottomrule
     \end{tabular}
-    \begin{tabular}{S[table-format=3.0] S[table-format=5.0]}
+    \begin{tabular}{S[table-format=3.0] S[table-format=5.0(3)]}
         \toprule
         \tableSI{U}{\volt} & \tableSI{N}{\frac{Imp}{60\second}} \\
         \midrule
-        450 & 10264 \\
-        460 & 10174 \\
-        470 & 10035 \\
-        480 & 10350 \\
-        490 & 10290 \\
-        500 & 10151 \\
-        510 & 10110 \\
-        520 & 10255 \\
-        530 & 10151 \\
-        540 & 10351 \\
-        550 & 10184 \\
-        560 & 10137 \\
-        570 & 10186 \\
+        450 & 10264+-101 \\
+        460 & 10174+-101 \\
+        470 & 10035+-100 \\
+        480 & 10350+-102 \\
+        490 & 10290+-101 \\
+        500 & 10151+-101 \\
+        510 & 10110+-101 \\
+        520 & 10255+-101 \\
+        530 & 10151+-101 \\
+        540 & 10351+-102 \\
+        550 & 10184+-101 \\
+        560 & 10137+-101 \\
+        570 & 10186+-101 \\
         \bottomrule
     \end{tabular}
-    \begin{tabular}{S[table-format=3.0] S[table-format=5.0]}
+    \begin{tabular}{S[table-format=3.0] S[table-format=5.0(3)]}
         \toprule
         \tableSI{U}{\volt} & \tableSI{N}{\frac{Imp}{60\second}} \\
         \midrule
-        580 & 10171 \\
-        590 & 10171 \\
-        600 & 10253 \\
-        610 & 10368 \\
-        620 & 10365 \\
-        630 & 10224 \\
-        640 & 10338 \\
-        650 & 10493 \\
-        660 & 10467 \\
-        670 & 10640 \\
-        680 & 10939 \\
-        690 & 11159 \\
-        700 & 11547 \\
+        580 & 10171+-101 \\
+        590 & 10171+-101 \\
+        600 & 10253+-101 \\
+        610 & 10368+-102 \\
+        620 & 10365+-102 \\
+        630 & 10224+-101 \\
+        640 & 10338+-102 \\
+        650 & 10493+-102 \\
+        660 & 10467+-102 \\
+        670 & 10640+-103 \\
+        680 & 10939+-105 \\
+        690 & 11159+-106 \\
+        700 & 11547+-107 \\
         \bottomrule
     \end{tabular}
     \label{tab:charakteristik}
 \end{table}
 
-Die Charakteristik des benutzten Zählrohrs ist in \autoref{fig:plot_charakteristik} dargestellt.
+Die Charakteristik des benutzten Zählrohrs ist in \autoref{fig:plot_charakteristik} dargestellt. 
+Hierbei wurden allerdings die Zählraten in Impulse pro Sekunde aufgetragen, also mit $N_\text{Plot} = N_\text{Tabelle}/60$, wobei $\SI{60}{\second}$ hier gerade der Messzeit entspricht.
 Um den Plateauanstieg zu bestimmen wird eine Ausgleichsgerade durch das Plateau (also von $U=$ \SIrange{370}{640}{\volt}) gelegt.
 Dazu wird 
 \begin{equation*}
@@ -79,14 +80,14 @@ Damit ergeben sich die Parameter
     a &= \SI{0.019+-0.004}{\per\volt} \\
     b &= \SI{160+-2}{} \, .
 \end{align*}
-Nun kann der Plateauanstieg zu
+Nun kann der absolute Plateauanstieg zu
 \begin{align*}
-    \Delta N &= N(U=\SI{640}{\volt}) - N(U=\SI{370}{\volt}) \\
+    \Delta N_\text{abs} &= N(U=\SI{640}{\volt}) - N(U=\SI{370}{\volt}) \\
              &= \SI{5.2+-1.0}{\frac{Imp}{\second}}
 \end{align*}
-bzw.
+bzw. der relative Plateauanstieg zu
 \begin{align*}
-    \Delta N &= \left( \frac{N(U=\SI{640}{\volt})}{N(U=\SI{370}{\volt})} - 1 \right) \cdot \frac{\SI{100}{\volt}}{(640-370)\:\si{\volt}} \cdot 100 \\
+    \Delta N_\text{rel} &= \left( \frac{N(U=\SI{640}{\volt})}{N(U=\SI{370}{\volt})} - 1 \right) \cdot \frac{\SI{100}{\volt}}{(640-370)\:\si{\volt}} \cdot 100 \\
              &= \SI{1.15+-0.21}{\percent\per100\volt}
 \end{align*}
 bestimmt werden.

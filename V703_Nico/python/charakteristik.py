@@ -18,6 +18,10 @@ U,N,I = np.genfromtxt('data/Kennlinie.dat',delimiter=',',unpack=True)
 # Konstanten der Messung
 t = 60 #s Integrationszeit
 
+# Kennlinie mit Fehlern speichen
+data = list(zip(U,N,np.sqrt(N)))
+np.savetxt('data/Kennlinie_mit_Fehler.csv', data, header='U[V], N[Imp]', fmt='%3.0f,%4.0f+-%2.0f')
+
 # Fehler berechnen
 N = uarray(N,np.sqrt(N))
 

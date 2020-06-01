@@ -31,6 +31,7 @@ lnN = unp.log(N)
 def lnN_fit(t,a,b):
     return a*t+b
 params,pcov = curve_fit(lnN_fit,t,noms(lnN),sigma=stds(lnN))
+params,pcov = curve_fit(lnN_fit,t,noms(lnN),sigma=stds(lnN))
 a = ufloat(params[0],np.absolute(pcov[0][0])**0.5) # a=-lambda
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 

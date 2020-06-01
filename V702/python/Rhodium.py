@@ -33,6 +33,7 @@ lnN = unp.log(N)
 def lnN_fit(t,a,b):
     return a*t+b
 i_l = np.where(t == 300)[0][0]
+i_l = 17
 params_l,pcov_l = curve_fit(lnN_fit,t[i_l:],noms(lnN[i_l:]),sigma=stds(lnN[i_l:]))
 a_l = ufloat(params_l[0],np.absolute(pcov_l[0][0])**0.5) # a=-lambda
 b_l = ufloat(params_l[1],np.absolute(pcov_l[1][1])**0.5)
@@ -46,7 +47,9 @@ T_l_sec = (T_l/60 - T_l_min)*60
 
 ############################
 ## Kurzlebig
-i_k = np.where(t == 210)[0][0]
+i_k = np.where(t == 210)[0][0]+1
+i_k = 14
+print(i_k)
 # Messdaten korrigieren
 lnN_k = unp.log(N[:i_k] - unp.exp(lnN_fit(t[:i_k],a_l,b_l)))
 
@@ -67,7 +70,7 @@ if not 'Rhodium' in Ergebnisse:
     Ergebnisse['Rhodium'] = {}
 Ergebnisse['Rhodium']['a_l'] = '{}'.format(a_l)
 Ergebnisse['Rhodium']['b_l'] = '{}'.format(b_l)
-Ergebnisse['Rhodium']['T_l[s]'] = '{}'.format(T_l)
+Ergebnisse['Rhodium']['T_l[s]'] = '{:3.1f}'.format(T_l)
 Ergebnisse['Rhodium']['T_l[min]'] = '{} min + '.format(T_l_min) + '({:2.0f}) sec'.format(T_l_sec)
 Ergebnisse['Rhodium']['a_k'] = '{}'.format(a_k)
 Ergebnisse['Rhodium']['b_k'] = '{}'.format(b_k)
@@ -84,7 +87,7 @@ t_l_linspace = np.linspace(t[i_l],np.max(t))
 plt.plot(t_l_linspace,lnN_fit(t_l_linspace,*params_l),'k-', label='Ausgleichsgerade (langlebig)')
 
 # Plot der Ausgleichsgerade kurzlebig
-t_k_linspace = np.linspace(np.min(t),t[i_k])
+t_k_linspace = np.linspace(np.min(t),t[i_k-1])
 plt.plot(t_k_linspace,lnN_fit(t_k_linspace,*params_k),'k--', label='Ausgleichsgerade (kurzlebig)')
 
 # Plot der korrigierten Messwerte

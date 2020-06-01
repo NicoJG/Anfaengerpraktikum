@@ -32,3 +32,7 @@ Blut: 1657110
 Knochen(Cancellous/innen): 2494415
 Knochen(Cortical/außen): 6706429.2
 Acryl: 1701700
+
+
+Schwächungskoeffizient[dB/cm] ungefähr:
+Acryl: 3

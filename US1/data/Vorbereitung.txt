@@ -1,0 +1,34 @@
+Schallgeschwindigkeiten[m/s]:
+https://itis.swiss/virtual-population/tissue-properties/database/acoustic-properties/speed-of-sound/
+Luft: 343.0
+destilliertes Wasser: 1482.3
+Blut: 1578.2
+Knochen(Cancellous/innen): 2117.5
+Knochen(Cortical/außen): 3514.9
+https://www.rshydro.co.uk/sound-speeds/
+Luft: 331.5 + 0.6*T[°C]
+destilliertes Wasser: 1498
+Acryl: 1430
+
+
+
+Dichte[kg/m^3]:
+https://itis.swiss/virtual-population/tissue-properties/database/density/
+Luft: 1
+destilliertes Wasser: 994
+Blut: 1050
+Knochen(Cancellous/innen): 1178
+Knochen(Cortical/außen): 1908
+https://www.engineeringtoolbox.com/density-solids-d_1265.html , https://www.engineeringtoolbox.com/density-materials-d_1652.html
+Luft: 1.2
+destilliertes Wasser: 993
+Acryl: 1190
+
+
+Also Schallimpedanz Z=c*p [kg/(m^2*s)]:
+Luft: 343.0
+destilliertes Wasser: 1487514
+Blut: 1657110
+Knochen(Cancellous/innen): 2494415
+Knochen(Cortical/außen): 6706429.2
+Acryl: 1701700

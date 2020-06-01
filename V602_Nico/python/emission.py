@@ -32,6 +32,9 @@ l = 2*d/n * np.sin(theta) # m Wellenlänge
 E = h*c/l # eV Photonenenergie
 I = N/(1-t*N) # Intensität
 
+# Winkel wieder umrechnen
+theta = np.rad2deg(theta)
+
 # Maxima finden
 i_max = argrelextrema(N, np.greater, order=20)[0] # Indices der relativen Maxima von N
 
@@ -53,32 +56,32 @@ i1 = i_max[1]-2
 i2 = i_max[1]-1
 i3 = i_max[1]+3
 i4 = i_max[1]+4
-a1,b1 = ab(l[i1],N[i1],l[i2],N[i2])
-a2,b2 = ab(l[i3],N[i3],l[i4],N[i4])
+a1,b1 = ab(theta[i1],N[i1],theta[i2],N[i2])
+a2,b2 = ab(theta[i3],N[i3],theta[i4],N[i4])
 
 # K_alpha:
 i5 = i_max[2]-2
 i6 = i_max[2]-1
 i7 = i_max[2]+3
 i8 = i_max[2]+4
-a3,b3 = ab(l[i5],N[i5],l[i6],N[i6])
-a4,b4 = ab(l[i7],N[i7],l[i8],N[i8])
+a3,b3 = ab(theta[i5],N[i5],theta[i6],N[i6])
+a4,b4 = ab(theta[i7],N[i7],theta[i8],N[i8])
 
 # Breite
-hbreite_1 = np.abs(g(N[i_max[1]]/2,a1,b1) - g(N[i_max[1]]/2,a2,b2))
-hbreite_2 = np.abs(g(N[i_max[2]]/2,a3,b3) - g(N[i_max[2]]/2,a4,b4))
+hbreite_theta_1 = np.abs(g(N[i_max[1]]/2,a1,b1) - g(N[i_max[1]]/2,a2,b2))
+hbreite_theta_2 = np.abs(g(N[i_max[2]]/2,a3,b3) - g(N[i_max[2]]/2,a4,b4))
 ##############################################
 
 # Auflösungsvermögen berechnen
-deltaE1 = np.abs(h*c/g(N[i_max[1]]/2,a1,b1) - h*c/g(N[i_max[1]]/2,a2,b2))
-deltaE2 = np.abs(h*c/g(N[i_max[2]]/2,a3,b3) - h*c/g(N[i_max[2]]/2,a4,b4))
+deltaE1 = np.abs(h*c/(2*d/n * np.sin(np.deg2rad(g(N[i_max[1]]/2,a1,b1)))) - h*c/(2*d/n * np.sin(np.deg2rad(g(N[i_max[1]]/2,a2,b2)))))
+deltaE2 = np.abs(h*c/(2*d/n * np.sin(np.deg2rad(g(N[i_max[2]]/2,a3,b3)))) - h*c/(2*d/n * np.sin(np.deg2rad(g(N[i_max[2]]/2,a4,b4)))))
 E1 = E[i_max[1]] # beta
 E2 = E[i_max[2]] # alpha
 A1 = E1/deltaE1
 A2 = E2/deltaE2
 
 # Absorbtionsenergie
-E_abs = 8987 # eV
+E_abs = 8979 # eV
 
 # Abschirmkonstanten
 sigma_abs = Z - np.sqrt(E_abs/R_inf)
@@ -89,10 +92,12 @@ sigma_beta = Z - np.sqrt(9*((Z-sigma_abs)**2-E1/R_inf))
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Emission' in Ergebnisse:
     Ergebnisse['Emission'] = {}
+Ergebnisse['Emission']['K_alpha[Grad]'] = theta[i_max[2]]
+Ergebnisse['Emission']['K_beta[Grad]'] = theta[i_max[1]]
 Ergebnisse['Emission']['K_alpha[eV]'] = E2
 Ergebnisse['Emission']['K_beta[eV]'] = E1
-Ergebnisse['Emission']['HBreite_alpha[m]'] = hbreite_2
-Ergebnisse['Emission']['HBreite_beta[m]'] = hbreite_1
+Ergebnisse['Emission']['HBreite_alpha[m]'] = hbreite_theta_2
+Ergebnisse['Emission']['HBreite_beta[m]'] = hbreite_theta_1
 Ergebnisse['Emission']['deltaE_alpha'] = deltaE2
 Ergebnisse['Emission']['deltaE_beta'] = deltaE1
 Ergebnisse['Emission']['A_alpha'] = A2
@@ -104,17 +109,17 @@ Ergebnisse['Emission']['sigma_beta'] = sigma_beta
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # Plot der K-Linien
-plt.axvline(l[i_max[2]],-1000,6000, color='r', linestyle='--', linewidth=1, label=r'$K_\alpha$ Linie')
-plt.axvline(l[i_max[1]],-1000,6000, color='r', linestyle=':', linewidth=1, label=r'$K_\beta$ Linie')
+plt.axvline(theta[i_max[2]],-1000,6000, color='r', linestyle='--', linewidth=1, label=r'$K_\alpha$ Linie')
+plt.axvline(theta[i_max[1]],-1000,6000, color='r', linestyle=':', linewidth=1, label=r'$K_\beta$ Linie')
 # Plot Bremsberg Kommentar
-plt.annotate('Bremsberg', xy=(l[i_max[0]],500),xycoords='data',
+plt.annotate('Bremsberg', xy=(theta[i_max[0]],500),xycoords='data',
                 xytext=(-50, 30), textcoords='offset points',
                 arrowprops=dict(arrowstyle="->"))
 # Plot der Geraden für die Halbwärtsbreite
-x1 = np.array([l[i1],l[i2]])
-x2 = np.array([l[i3],l[i4]])
-x3 = np.array([l[i5],l[i6]])
-x4 = np.array([l[i7],l[i8]])
+x1 = np.array([theta[i1],theta[i2]])
+x2 = np.array([theta[i3],theta[i4]])
+x3 = np.array([theta[i5],theta[i6]])
+x4 = np.array([theta[i7],theta[i8]])
 plt.plot(x1, f(x1,a1,b1), 'g-', linewidth=0.7, label='Hilfsgeraden')
 plt.plot(x2, f(x2,a2,b2), 'g-', linewidth=0.7)
 plt.plot(x3, f(x3,a3,b3), 'g-', linewidth=0.7)
@@ -127,7 +132,7 @@ x6 = np.array([g(y6[0],a3,b3),g(y6[0],a4,b4)])
 plt.plot(x5, y5, 'b:', linewidth=1, label='Halbwertsbreiten')
 plt.plot(x6, y6, 'b:', linewidth=1)
 # Plot der Daten
-plt.plot(l, N, 'k.', label='Messdaten')
+plt.plot(theta, N, 'k.', label='Messdaten')
 
 # Achsenbeschriftung
 plt.xlabel(r'$\lambda \:/\: \si{\metre}$')

@@ -26,11 +26,14 @@ Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 if not 'Bragg' in Ergebnisse:
     Ergebnisse['Bragg'] = {}
 Ergebnisse['Bragg']['N_Max'] = N_Max
-Ergebnisse['Bragg']['theta_Max[°]'] = np.rad2deg(theta_Max)
+Ergebnisse['Bragg']['theta_Max[Grad]'] = np.rad2deg(theta_Max)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
+# Plot des Erwarteten Maximums
+plt.axvline(28,0,1000,color='r', linestyle='--',label='Erwartetes Maximum')
+
 # Plot der Messdaten
-plt.plot(np.rad2deg(theta),N,'k.',label='Messwerte')
+plt.plot(np.rad2deg(theta),N,'ko',label='Messwerte')
 
 # Achsenbeschriftung
 plt.xlabel(r'$\theta \:/\: \si{\degree}$')

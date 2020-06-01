@@ -10,9 +10,9 @@
 % Graphische Darstellung der Ergebnisse
 
 \subsection{Überprüfung der Bragg-Bedingung}
-\label{sec:1}
+\label{ssec:1}
 
-Die Messdaten aus \label{tab:bragg} werden nun geplottet.
+Die Messdaten aus \label{tab:bragg} werden geplottet.
 
 \begin{figure}
     \centering
@@ -29,9 +29,228 @@ Aus dem Plot und den Daten kann entnommen werden, dass das Maximum der Intensit�
 
 liegt.
 
+\subsection{Analyse eines Emessionsspektrums der Kuper-Röntgenröhre}
+\label{ssec:2}
+
+Die Messwerte befinden sich im Anhang in \autoref{tab:werte_emissionCu}.
+Dann werden die Ergebnisse geplottet.
+Das Ergebnis ist in \autoref{fig:kupfer} dargestellt.
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_emissionCu.pdf}
     \caption{Plot der Emission der Cu-Röntgenröhre}
     \label{fig:kupfer}
 \end{figure}
+
+Aus dem Spektrum lassen sich die beiden Winkel der K-Alpha und K-Beta Linien bestimmen, diese befinden sich bei den Winkeln
+
+\begin{align*}
+    \theta _\text{beta} &= \ang{20.2}\\
+    \theta _\text{alpha} &= \ang{22.5}.
+\end{align*}
+
+Für die Berechnung der Halbwertsbreiten wurde eine Nullebene durch den niedrigsten N-Wert gelegt.
+Die Halbwertsbreite kann nur grob berechnet werden, da in den notwendigen Bereichen nur wenige Werte vorliegen.
+Es werden Geraden zwischen die beiden nächsten Punkte gelegt und von dort aus, die vier benötigten Winkel.
+Damit ergeben sich je zwei Winkel für beide Linien
+
+\begin{align*}
+    \theta _\text{beta,1} &= \ang{20.0559}\\
+    \theta _\text{beta,2} &= \ang{20.5605}.
+\end{align*}
+
+\begin{align*}
+    \theta _\text{alpha,1} &= \ang{22.3542}\\
+    \theta _\text{alpha,2} &= \ang{22.8505}.
+\end{align*}
+
+\eqref{eq:lambda} wird mit der Energie eines Photons gleichgesetzt und dann nach der Energie $E$ umgeformt.
+Dann ergibt sich der Zusammenhang
+
+\begin{equation}
+    E = \frac{h \cdot c \cdot n}{2d \cdot \sin{\theta}}.
+    \label{eq:energie}
+\end{equation}
+
+Über diesen werden die vier Energien berechnet und jeweils ihren entsprechenden Linien nach substrahiert.
+Dann ergeben sich die beiden Halbwertsbreiten
+
+\begin{align*}
+    H_ \beta = \SI{1.4380e-15}{\joule} - \SI{1.4042e-15}{\joule} &= \SI{3.38e-17}{\joule}\\
+    H_ \alpha = \SI{1.2966e-15}{\joule} - \SI{1.2699e-15}{\joule} &= \SI{2.67e-17}{\joule}.
+\end{align*}
+
+Aus diesen wiederum  wird über 
+
+\begin{equation}
+    A = \frac{E_\text{K}}{\Delta E_ \text{F\,W\,H\,M}}
+    \label{eq:aufloes}
+\end{equation}
+
+das Auflösevermögen berechnet werden.
+Dabei ist $E_\text{K}$ die Energie der jeweiligen Kante, 
+
+\begin{align*}
+    E_ \beta  &= \SI{1.4265e-15}{\joule} = \SI{8.903}{\kilo\electronvolt}\\
+    E_ \alpha &= \SI{1.2877e-15}{\joule} = \SI{8.037}{\kilo\electronvolt}.
+\end{align*}
+
+Dann werden die jeweiligen Werte in \eqref{eq:aufloes} eingesetzt, daraus ergeben sich dann die beiden Auflösevermögen
+
+\begin{align*}
+    A_ \beta  &= 42.18\\
+    A_ \alpha &= 48.23.
+\end{align*}
+
+Die drei Abschirmkonstanten $\sigma_1$, $\sigma_2$ und $\sigma_3$ berechnen sich über die folgenden drei Formeln
+
+\begin{align*}
+    \sigma_1 &= Z - \sqrt{\frac{E_\text{K,abs}}{R_\infty}}\\
+    \sigma_2 &= Z - \sqrt{\frac{m^2}{n^2} \cdot \left(Z - \sigma_1\right)^2 - \frac{E_ \alpha ^2 m^2}{R_\infty}}\\
+    \sigma_3 &= Z - \sqrt{\frac{l^2}{n^2} \cdot \left(Z - \sigma_1\right)^2 - \frac{E_ \beta ^2 m^2}{R_\infty}}.
+\end{align*}
+
+$Z = 29$ ist dabei die Ordnungszahl von Kupfer.
+Die anderen Konstanten sind gegeben durch
+
+\begin{align*}
+    n &= 1\\
+    m &= 2\\
+    l &= 3\\
+    R_\infty &= \SI{13.6}{\electronvolt}\\
+    E_\text{K,abs} &= \SI{8.978}{\kilo\electronvolt}.
+\end{align*}
+
+$R_\infty$ ist die Rydbergenergie und $E_\text{K,abs}$ ist die Absorptionsenergie von Kupfer. \cite{V602} \cite{absorption}
+Durch alle obigen Informationen lassen sich dann alle drei Werte als 
+
+\begin{align*}
+    \sigma_1 &= 3.305\\
+    \sigma_2 &= 12.537\\
+    \sigma_3 &= 21.937
+\end{align*}
+
+berechnen.
+
+\subsection{Analyse der Absorptionsspektren}
+\label{ssec:3}
+
+Die Messwerte der sechs Messungen wurden alle im Anhang hinterlegt.
+Zunächst werden alle Messreihen geplottet, dann ergibt sich folgender Plot in \autoref{fig:absorption}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_absorption.pdf}
+    \caption{Plot der Messwerte aller Absorptionsspektren}
+    \label{fig:absorption}
+\end{figure}
+
+Die Bestimmung der Mitte der K-Kante, also dem Wert $I_\text{K}$, gelingt über 
+
+\begin{equation}
+    I_\text{K} = I^\text{min}_\text{K} + \frac{I^\text{max}_\text{K} - I^\text{min}_\text{K}}{2}.
+    \label{eq:IK}
+\end{equation}
+
+Diese Rechnung wird jeweils für alle sechs Elemente durchgeführt, die Intensitätmaxima $I^{\text{max}}_\text{K}$ und -minima $I^{\text{min}}_\text{K}$ der  wurden in allen Fällen numerisch bestimmt.
+Über \eqref{eq:IK} werden dann die benötigten Werte für $I_\text{K}$ berechnet.
+$\theta$ kann dann im Plot oder aus den Tabellen direkt zugeorndet werden.
+Aus $\theta$ wiederum wird über \eqref{eq:energie} die Absorptionsenergie $E_\text{K,abs}$ bestimmt.
+
+
+\begin{table}
+    \centering
+    \caption{Berechnete Werte für $I_\text{K}$ mit zugehörigen $\theta$ und $E_\text{K,abs}$.}
+    \label{tab:IK}
+    \begin{tabular}{c S[table-format=3.1] S[table-format=2.2] S[table-format=2.2]}
+        \toprule
+        \text{Element}  & \tableSI{I_\text{K}}{\frac{\text{Imp}}{\si{\second}}} & \tableSI{\theta}{\degree} & \tableSI{E_\text{K,abs}}{\kilo\electronvolt}\\
+        \midrule
+        Brom & 18.0 & 13.20 & 13.48\\
+        Gallium & 94.0 & 17.35 & 10.32\\
+        Rubidium & 37.0 & 11.80 & 15.05\\
+        Strontium & 118.0 & 11.10 & 15.99\\
+        Zink & 78.0 & 18.70 & 9.60\\
+        Zirkonium & 206.5 & 9.95 & 17.81\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Dann wird aus all diesen bestimmten und gemessenen Werte über \eqref{eq:sigma} die Abschirmkonstante berechnet.
+$Z$ ist die jeweilige Ordnungszahl des Elements, diese sind nachfolgend aufgelistet,
+
+\begin{align*}
+    Z_\text{Zn} &= 30\\
+    Z_\text{Ga} &= 31\\
+    Z_\text{Br} &= 35\\
+    Z_\text{Rb} &= 37\\
+    Z_\text{Sr} &= 38\\
+    Z_\text{Zr} &= 40.
+\end{align*}
+
+Zusätzlich werden zwei Naturkonstanten benötigt, die Rydbergenergie $R_\infty$ und die Sommerfeldsche Feinstrukturkonstante $\alpha$. \cite{physics_constants}
+Dann wird die Abschirmkonstante $\sigma _\text{K}$ für alle sechs Elemente berechnet.
+Und die Berechnung ergibt die Werte
+
+\begin{align*}
+    \sigma_\text{K,Br} &= 3.84\\
+    \sigma_\text{K,Ga} &= 3.67\\
+    \sigma_\text{K,Rb} &= 4.11\\
+    \sigma_\text{K,St} &= 4.12\\
+    \sigma_\text{K,Zn} &= 3.63\\
+    \sigma_\text{K,Zr} &= 4.28.
+\end{align*}
+
+Um schlussendlich die Rydbergkonstante zu erhalten, wird das Moseley'schen Gesetz \eqref{eq:moseley} in eine Geradengleichung umgeformt.
+Damit erhält sie die Form 
+
+\begin{equation}
+    \sqrt{E_\text{K,abs}} = \sqrt{R \, h} \cdot Z - \sqrt{R \, h \, \sigma_\text{K}}.
+    \label{eq:ding}
+\end{equation}
+
+Um den Wert für die Rydberdfrequenz $R$ zu erhalten, wird zunächst die Gerade in \autoref{fig:rydberg} geplottet.
+Dafür werden die Werte für $Z$, $E_\text{K,abs}$ und $\sigma_\text{K}$ aus den vorherigen Berechnungen verwendet.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_rydberg.pdf}
+    \caption{Plot der berechneten Messwerte zur Ermittlung der Rydbergenergie}
+    \label{fig:rydberg}
+\end{figure}
+
+Es wird eine Ausgleichsgerade der Art 
+
+\begin{equation}
+    \sqrt{E_\text{K,abs}} = a \cdot Z + b
+\end{equation}
+
+durch die Werte gelegt.
+Die Funktionsparamter sind dann gegeben mit 
+
+\begin{align*}
+    a &= \SI{1.482(8)e-9}{\sqrt{\joule}}\\
+    b &= \SI{-3.3(3)e-9}{\sqrt{\joule}}.
+\end{align*}
+
+Wird die Funktion mit \eqref{eq:ding} verglichen, kann der Parameter $a$ als 
+
+\begin{equation}
+    a = \sqrt{R \cdot h}
+\end{equation}
+
+identifiziert werden. 
+Über den Zusammenhang 
+
+\begin{equation}
+    R_\infty = R \cdot h
+\end{equation}
+
+wird also nun der Parameter $a$ quadriert, um daraus die Rydbergenergie zu erhalten.
+Damit ergibt sich schlussendlich
+
+\begin{equation}
+    R_\infty = a^2 = \SI{2.012(24)e-18}{\joule} = \SI{12.56(15)}{\electronvolt}.
+\end{equation}
+

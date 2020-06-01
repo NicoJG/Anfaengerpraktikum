@@ -92,17 +92,39 @@ dtype = [('Element','<U2'),('Z',np.int32),('E_K',np.float64),('theta_K',np.float
 data = np.array(list(zip(kurz,Z,E_K*10**(-3),theta_K,sigma_K)),dtype=dtype)
 np.savetxt('data/Absorption_Ergebnisse.csv', data, header='Element,Z,E_K[keV],theta[°],sigma_K', fmt='%s,%1.0f,%2.2f,%2.2f,%1.2f')
 
+# Zusammenführen mit den Literaturwerten
+E_lit,theta_lit,sigma_lit = np.genfromtxt('data/Vorbereitung_Ergebnis.csv',delimiter=',',unpack=True,usecols=(2,3,4))
+dtype = [('Element','<U2'),('Z',np.int32),('E_K',np.float64),('E_lit',np.float64),('theta_K',np.float64),('theta_lit',np.float64),('sigma_K',np.float64),('sigma_lit',np.float64)]
+data = np.array(list(zip(kurz,Z,E_K*10**(-3),E_lit,theta_K,theta_lit,sigma_K,sigma_lit)),dtype=dtype)
+np.savetxt('data/Absorption_mit_Lit.csv', data, 
+    header='Element,Z,E_K[keV],E_lit[keV],theta[°],theta_lit[°],sigma_K,sigma_lit', 
+    fmt='%s,%1.0f,%2.2f,%2.2f,%2.2f,%2.2f,%1.2f,%1.2f')
+
+# Prozentuale Abweichung berechnen
+def pdev(exact,approx):
+    return np.abs(exact-approx)/exact*100
+
+dE = pdev(E_lit,E_K*10**(-3))
+dtheta = pdev(theta_lit,theta_K)
+dsigma = pdev(sigma_lit,sigma_K)
+#Speichern
+dtype = [('Element','<U2'),('dE',np.float64),('dtheta',np.float64),('dsigma',np.float64)]
+data = np.array(list(zip(kurz,dE,dtheta,dsigma)),dtype=dtype)
+np.savetxt('data/Absorpiton_abweichung.csv', data, 
+    header='Element,dE[%],dtheta[%],dsigma[%]', 
+    fmt='%s,%2.2f,%2.2f,%2.2f')
 
 ###############################
 ## Plots
 ###############################
 ## Plots der Messwerte
+color = ['b','c','g','r','m','brown']
 for i in range(0,6):
     print('Plot: '+name[i])
-    # Plot des theta_K Winkels
-    plt.axvline(theta_K[i], color='k', linestyle='--',ymin=0,ymax=1000)
+    # Plot der K-Kante
+    plt.axvline(theta_K[i],0,1000,color=color[i], linestyle='--', linewidth=0.7)
     # Plot der Messwerte
-    plt.plot(theta[i][0:size[i]],N[i][0:size[i]], 'ro', label='Messwerte')
+    plt.plot(theta[i][0:size[i]],N[i][0:size[i]], 'o', color=color[i], label=''+name[i])
 
     # Achsenbeschriftung
     plt.xlabel(r'$\theta \:/\: \si{\degree}$')
@@ -112,9 +134,9 @@ for i in range(0,6):
     plt.legend()
     plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
-    # Plot speichern
-    plt.savefig('build/plot_'+name[i]+'.pdf')
-    plt.clf()
+# Plot speichern
+plt.savefig('build/plot_absorption.pdf')
+plt.clf()
 
 ## Plot für Rydbergkonstante
 print('Plot: Rydberg')

@@ -39,10 +39,12 @@ b_err = np.absolute(pcov[1][1])**0.5
 
 # Einzelne Daten Speichern
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-Ergebnisse['a[A]'] = a
-Ergebnisse['a_err[A]'] = a_err
-Ergebnisse['b[V]'] = b
-Ergebnisse['b_err[V]'] = b_err
+if not 'Kategorie' in Ergebnisse:
+    Ergebnisse['Kategorie'] = {}
+Ergebnisse['Kategorie']['a[A]'] = a
+Ergebnisse['Kategorie']['a_err[A]'] = a_err
+Ergebnisse['Kategorie']['b[V]'] = b
+Ergebnisse['Kategorie']['b_err[V]'] = b_err
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 

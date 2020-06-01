@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-plots: build/plot_spektrum.pdf build/plot_emissionCu.pdf
+plots: build/plot_spektrum.pdf build/plot_emissionCu.pdf build/plot_absorption.pdf
  
 # hier Python-Skripte: 
 # für weitere Skripte, die einen Plot erstellen
@@ -16,6 +16,11 @@ build/plot_emissionCu.pdf: python/emissionCu.py data/*.csv ../default/matplotlib
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python python/emissionCu.py
+
+build/plot_absorption.pdf: python/absorption.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python python/absorption.py	
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots
 

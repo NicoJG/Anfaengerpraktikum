@@ -99,12 +99,12 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 # Speicherort
 plt.savefig('build/plot_kennlinie.pdf')
 plt.clf()
-#
+
 #x_linspace2 = np.linspace(np.min(),np.max(),100)
 #plt.plot(x_linspace2, f(x_linspace2,*params), 'k-', label='Ausgleichskurve')
 
-plt.plot(I,Z_ges_wert, 'o', label='Messwerte')
-plt.errorbar(I, noms(Z_ges), yerr=stds(Z_ges), fmt='ro', label='Messdaten')
+#plt.plot(I,Z_ges_wert, 'bo', label='Messwerte')
+plt.errorbar(I, noms(Z_ges), yerr=stds(Z_ges), fmt='ro', label='Messwerte mit Unsicherheit')
 plt.xlabel(r'$I \:/\: \si{\micro\ampere}$')
 plt.ylabel(r'$Z$')
 

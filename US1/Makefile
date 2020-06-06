@@ -7,7 +7,7 @@ build/plot_NAME.pdf: python/NAME.py data/*.csv ../default/matplotlibrc ../defaul
 	python python/NAME.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: plots
+#build/main.pdf: plots
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

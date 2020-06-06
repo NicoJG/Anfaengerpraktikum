@@ -16,5 +16,7 @@ N_per_s = N_mean/t
 # Ergebnisse Speichern Json
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 Ergebnisse['Untergrundrate[Imp/300s]'] = '{}'.format(N_mean)
-Ergebnisse['Untergrundrate[Imp/s]'] = '{:1.7f}'.format(N_per_s)
+Ergebnisse['Untergrundrate[Imp/30s]'] = '{}'.format(N_per_s*30)
+Ergebnisse['Untergrundrate[Imp/15s]'] = '{}'.format(N_per_s*15)
+Ergebnisse['Untergrundrate[Imp/s]'] = '{}'.format(N_per_s)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)

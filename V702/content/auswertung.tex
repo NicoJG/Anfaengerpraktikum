@@ -1,10 +1,91 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-% Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
+\subsection{Bestimmung der Untergrundrate}
+\label{ssec:auswertung_untergrund}
 
-% Auswertung:
-% Berechnung der geforderten Endergebnisse
-% mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-% Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-% Graphische Darstellung der Ergebnisse
+Die Messung der einfallenden Strahlung ohne eine vor den Zähler gestellte Probe ergab die Messwerte
+\begin{equation*}
+    N_0 = \{129, 143, 144, 136, 139, 126, 158\} \si{\frac{Imp}{300\second}} \, .
+\end{equation*}
+Nun wird der Mittelwert und der Fehler des Mittelwerts berechnet und ergibt eine durchschnittliche Untergrundrate von
+\begin{align*}
+    \bar{N}_0 &= \SI{139+-4}{\frac{Imp}{300\second}} \\
+              &= \SI{0.46+-0.01}{\frac{Imp}{\second}} \, .
+\end{align*}
+
+\subsection{Bestimmung der Halbwertszeit von Vanadium}
+\label{ssec:auswertung_vanadium}
+
+Die Messreihe der Intensität der zerfallenden Vanadiumprobe ($ ^{52}_{23}V$) ergab die Messwerte in \autoref{tab:vanadium}. 
+Von diesen Werten wird für alle folgenden Berechnungen die Untergrundrate $N_0=\SI{13.9+-0.4}{\frac{Imp}{30\second}}$ abgezogen.
+Diese korrigierten Werte sind außerdem in \autoref{fig:plot_vanadium} logarithmisch dargestellt.
+Als Fehler wird hier aufgrund der Poissonverteilung $\Delta N = \sqrt{N}$ angenommen.
+
+Nun wird nach \autoref{eq:lambda} eine Ausgleichsgerade mit 
+\begin{equation}
+    \ln(N(t)) = \lambda*t+b
+    \label{eq:ausgleichsgerade}
+\end{equation}
+über die Funktion curve\_fit der Python Bibliothek SciPy bestimmt und ebenfalls in \autoref{fig:plot_vanadium} dargestellt.\cite{scipy}
+Die Bestimmung der Parameter ergibt
+\begin{align*}
+    \lambda &= \SI{-0.0032+-0.0001}{\per\second} \\
+    b &= \num{5.32+-0.04} \, .
+\end{align*}
+Über \autoref{eq:lambda2} lässt sich nun die Halbwertszeit zu
+\begin{equation*}
+    T = \SI{215+-0.04}{\second}
+\end{equation*}
+berechnen.
+Ein Vergleichswert aus der Literatur ist
+\begin{equation*}
+    T_\text{lit} = \SI{224.58}{\second} \, .\text{\cite{periodic_table}}
+\end{equation*}
+
+
+\subsection{Bestimmung der Halbwertszeit von Rhodium}
+\label{ssec:auswertung_rhodium}
+
+Die Messreihe der Intensität der zerfallenden Rhodiumprobe (ca. $\SI{10}{\percent}$ $ ^{104i}_{45}Rh$ und $\SI{90}{\percent}$ $ ^{104}_{45}Rh$) ergab die Messwerte in \autoref{tab:rhodium}.
+Auch hier wird für die weiteren Berechnungen die Untergrundrate $N_0=\SI{6.96+-0.20}{\frac{Imp}{15\second}}$ abgezogen und der Fehler $\Delta N = \sqrt{N}$ angenommen.
+Diese korrigierten Werte sind außerdem in \autoref{fig:plot_rhodium} logarithmisch dargestellt.
+
+Hier sind allerdings im Vergleich zu Vanadium zwei Zerfallsprozesse zu beobachten. 
+Die Halbwertszeit von $ ^{104i}_{45}Rh$ ist deutlich geringer und liefert wie in \autoref{fig:plot_rhodium} zu sehen ab einem gewissen Zeitpunkt nahezu keinen Beitrag zur Intensität mehr.
+Um also die Halbwertszeit vom langlebigeren $ ^{104}_{45}Rh$ zu bestimmen, wird eine Ausgleichsgerade durch alle Messwerte ab $t=\SI{270}{\second}$ gelegt, da hier der Übergang vom kurzlebigen zum langlebigen Zerfallsprozess nahezu vorüber ist.
+Somit ergeben sich nach \autoref{eq:ausgleichsgerade} die Parameter zu 
+\begin{align*}
+    \lambda_\text{lang} &= \SI{-0.0027+-0.0004}{\per\second} \\
+    b_\text{lang} &= \num{4.35+-0.17}
+\end{align*}
+und über \autoref{eq:lambda2} eine Halbwertszeit von 
+\begin{equation*}
+    T_\text{lang} = \SI{257+-37}{\second} \, .
+\end{equation*}
+Der entsprechende Vergleichswert aus der Literatur ist 
+\begin{equation*}
+    T_\text{lang,lit} = \SI{260.4}{\second} \, .\text{\cite{periodic_table}}
+\end{equation*}
+
+In der Zeit bis $t=\SI{210}{\second}$ ist analog nahezu nur der kurzlebige Zerfall zu beobachten, allerdings müssen hier die Messwerte über die extrapolierte Ausgleichsgerade des langlebigen Prozesses korrigiert werden.
+Also werden die in blau dargestellten Messwerte über
+\begin{equation}
+    N_\text{korrigiert}(t) = N(t) - \exp(\lambda_\text{lang} * t + b_\text{lang})
+\end{equation}
+berechnet und für die Ausgleichsgerade des kurzlebigen Prozesses verwendet.
+Damit ergeben sich die Parameter zu
+\begin{align*}
+    \lambda_\text{kurz} &= \SI{-0.0161+-0.0004}{\per\second} \\
+    b_\text{kurz} &= \num{6.68+-0.03}
+\end{align*}
+und über \autoref{eq:lambda2} eine Halbwertszeit von 
+\begin{equation*}
+    T = \SI{43+-1}{\second} \, .
+\end{equation*}
+Der entsprechende Vergleichswert aus der Literatur ist 
+\begin{equation*}
+    T_\text{kurz,lit} = \SI{42.3}{\second} \, .\text{\cite{periodic_table}}
+\end{equation*}
+
+%%%%%%%%%%%%%%%%%% Tabellen und Plots fehlen

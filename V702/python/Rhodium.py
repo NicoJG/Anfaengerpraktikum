@@ -13,18 +13,18 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 # Messdaten einlesen
-t,N = np.genfromtxt('data/Rhodium.dat',delimiter=',',unpack=True)
+t,N_mess = np.genfromtxt('data/Rhodium.dat',delimiter=',',unpack=True)
 
 # Untergrundrate einlesen
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-N_U = ufloat_fromstr(Ergebnisse['Untergrundrate[Imp/s]'])
+N_U = ufloat_fromstr(Ergebnisse['Untergrundrate[Imp/15s]'])
 
 # Messkonstanten
 dt = 15 #s Integrationszeit
 
 # Umrechnungen
-N = unp.uarray(N,np.sqrt(N))
-N = N - N_U*dt # Imp/30s Untergrund abgezogen
+N = unp.uarray(N_mess,np.sqrt(N_mess))
+N = N - N_U # Imp/15s Untergrund abgezogen
 lnN = unp.log(N)
 
 ###################################
@@ -77,6 +77,10 @@ Ergebnisse['Rhodium']['b_k'] = '{}'.format(b_k)
 Ergebnisse['Rhodium']['T_k[s]'] = '{}'.format(T_k)
 Ergebnisse['Rhodium']['T_k[min]'] = '{} min + '.format(T_k_min) + '({:2.0f}) sec'.format(T_k_sec)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+
+# Messdaten mit Fehler in Tabelle speichern
+data = list(zip(t,N_mess,np.sqrt(N_mess)))
+np.savetxt('data/Rhodium_mit_Fehler.csv', data, header='t[s],N[Imp/15s]', fmt='%i,%i+-%i')
 
 ################
 ## PLOTS

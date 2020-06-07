@@ -13,24 +13,23 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 # Messdaten einlesen
-t,N = np.genfromtxt('data/Vanadium.dat',delimiter=',',unpack=True)
+t,N_mess = np.genfromtxt('data/Vanadium.dat',delimiter=',',unpack=True)
 
 # Untergrundrate einlesen
 Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-N_U = ufloat_fromstr(Ergebnisse['Untergrundrate[Imp/s]'])
+N_U = ufloat_fromstr(Ergebnisse['Untergrundrate[Imp/30s]'])
 
 # Messkonstanten
 dt = 30 #s Integrationszeit
 
 # Umrechnungen
-N = unp.uarray(N,np.sqrt(N))
-N = N - N_U*dt # Imp/30s Untergrund abgezogen
+N = unp.uarray(N_mess,np.sqrt(N_mess))
+N = N - N_U # Imp/30s Untergrund abgezogen
 lnN = unp.log(N)
 
 # Ausgleichsrechnung
 def lnN_fit(t,a,b):
     return a*t+b
-params,pcov = curve_fit(lnN_fit,t,noms(lnN),sigma=stds(lnN))
 params,pcov = curve_fit(lnN_fit,t,noms(lnN),sigma=stds(lnN))
 a = ufloat(params[0],np.absolute(pcov[0][0])**0.5) # a=-lambda
 b = ufloat(params[1],np.absolute(pcov[1][1])**0.5)
@@ -56,6 +55,7 @@ T2_sec = (T2/60 - T2_min)*60
 # Ergebnisse speichern JSON
 if not 'Vanadium' in Ergebnisse:
     Ergebnisse['Vanadium'] = {}
+Ergebnisse['Vanadium']['N_U[Imp/30s]'] = '{}'.format(a)
 Ergebnisse['Vanadium']['a'] = '{}'.format(a)
 Ergebnisse['Vanadium']['b'] = '{}'.format(b)
 Ergebnisse['Vanadium']['T[s]'] = '{}'.format(T)
@@ -65,6 +65,11 @@ Ergebnisse['Vanadium']['b2'] = '{}'.format(b2)
 Ergebnisse['Vanadium']['T2[s]'] = '{}'.format(T2)
 Ergebnisse['Vanadium']['T2[min]'] = '{} min + '.format(T2_min) + '({}) sec'.format(T2_sec)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+
+# Messdaten mit Fehler in Tabelle speichern
+data = list(zip(t,N_mess,np.sqrt(N_mess)))
+np.savetxt('data/Vanadium_mit_Fehler.csv', data, header='t[s],N[Imp/15s]', fmt='%i,%i+-%i')
+
 
 ################
 ## PLOTS

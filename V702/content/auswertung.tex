@@ -22,6 +22,77 @@ Von diesen Werten wird für alle folgenden Berechnungen die Untergrundrate $N_0=
 Diese korrigierten Werte sind außerdem in \autoref{fig:plot_vanadium} logarithmisch dargestellt.
 Als Fehler wird hier aufgrund der Poissonverteilung $\Delta N = \sqrt{N}$ angenommen.
 
+\begin{table}
+    \centering
+    \caption{Messergebnisse für die Vanadiumprobe}
+    \resizebox{0.5\textwidth}{!}{%
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{30\second}} \\
+        \midrule
+        30 & 189+-13 \\
+        60 & 197+-14 \\
+        90 & 150+-12 \\
+        120 & 159+-12 \\
+        150 & 155+-12 \\
+        180 & 132+-11 \\
+        210 & 117+-10 \\
+        240 & 107+-10 \\
+        270 & 94+-9 \\
+        300 & 100+-10 \\
+        330 & 79+-8 \\
+        360 & 69+-8 \\
+        390 & 81+-9 \\
+        420 & 46+-6 \\
+        450 & 49+-7 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{30\second}} \\
+        \midrule
+        480 & 61+-7 \\
+        510 & 56+-7 \\
+        540 & 40+-6 \\
+        570 & 45+-6 \\
+        600 & 32+-5 \\
+        630 & 27+-5 \\
+        660 & 43+-6 \\
+        690 & 35+-5 \\
+        720 & 19+-4 \\
+        750 & 28+-5 \\
+        780 & 27+-5 \\
+        810 & 36+-6 \\
+        840 & 25+-5 \\
+        870 & 29+-5 \\
+        900 & 18+-4 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{30\second}} \\
+        \midrule
+        930 & 17+-4 \\
+        960 & 24+-4 \\
+        990 & 21+-4 \\
+        1020 & 25+-5 \\
+        1050 & 21+-4 \\
+        1080 & 24+-4 \\
+        1110 & 25+-5 \\
+        1140 & 17+-4 \\
+        1170 & 20+-4 \\
+        1200 & 19+-4 \\
+        1230 & 20+-4 \\
+        1260 & 18+-4 \\
+        1290 & 16+-4 \\
+        1320 & 17+-4 \\
+         & \\
+        \bottomrule
+    \end{tabular}
+    }
+    \label{tab:vanadium}
+\end{table}
+
 Nun wird nach \autoref{eq:lambda} eine Ausgleichsgerade mit 
 \begin{equation}
     \ln(N(t)) = \lambda*t+b
@@ -35,13 +106,20 @@ Die Bestimmung der Parameter ergibt
 \end{align*}
 Über \autoref{eq:lambda2} lässt sich nun die Halbwertszeit zu
 \begin{equation*}
-    T = \SI{215+-0.04}{\second}
+    T = \SI{215+-7}{\second}
 \end{equation*}
 berechnen.
 Ein Vergleichswert aus der Literatur ist
 \begin{equation*}
     T_\text{lit} = \SI{224.58}{\second} \, .\text{\cite{periodic_table}}
 \end{equation*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/plot_Vanadium.pdf}
+    \caption{Plot der Messwerte für Vanadium}
+    \label{fig:plot_vanadium.pdf}
+\end{figure}
 
 
 \subsection{Bestimmung der Halbwertszeit von Rhodium}
@@ -50,6 +128,77 @@ Ein Vergleichswert aus der Literatur ist
 Die Messreihe der Intensität der zerfallenden Rhodiumprobe (ca. $\SI{10}{\percent}$ $ ^{104i}_{45}Rh$ und $\SI{90}{\percent}$ $ ^{104}_{45}Rh$) ergab die Messwerte in \autoref{tab:rhodium}.
 Auch hier wird für die weiteren Berechnungen die Untergrundrate $N_0=\SI{6.96+-0.20}{\frac{Imp}{15\second}}$ abgezogen und der Fehler $\Delta N = \sqrt{N}$ angenommen.
 Diese korrigierten Werte sind außerdem in \autoref{fig:plot_rhodium} logarithmisch dargestellt.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse für die Rhodiumprobe}
+    \resizebox{0.5\textwidth}{!}{%
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{15\second}} \\
+        \midrule
+        15 & 667+-25 \\
+        30 & 585+-24 \\
+        45 & 474+-21 \\
+        60 & 399+-19 \\
+        75 & 304+-17 \\
+        90 & 253+-15 \\
+        105 & 213+-14 \\
+        120 & 173+-13 \\
+        135 & 152+-12 \\
+        150 & 126+-11 \\
+        165 & 111+-10 \\
+        180 & 92+-9 \\
+        195 & 79+-8 \\
+        210 & 74+-8 \\
+        225 & 60+-7 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{15\second}} \\
+        \midrule
+        240 & 52+-7 \\
+        255 & 56+-7 \\
+        270 & 53+-7 \\
+        285 & 41+-6 \\
+        300 & 36+-6 \\
+        315 & 37+-6 \\
+        330 & 32+-5 \\
+        345 & 36+-6 \\
+        360 & 38+-6 \\
+        375 & 34+-5 \\
+        390 & 40+-6 \\
+        405 & 21+-4 \\
+        420 & 35+-5 \\
+        435 & 33+-5 \\
+        450 & 36+-6 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=3.0] S[table-format=3.0(2)]}
+        \toprule
+        \tableSI{t}{\second} & \tableSI{N}{\frac{Imp}{15\second}} \\
+        \midrule
+        465 & 20+-4 \\
+        480 & 24+-4 \\
+        495 & 30+-5 \\
+        510 & 30+-5 \\
+        525 & 26+-5 \\
+        540 & 28+-5 \\
+        555 & 23+-4 \\
+        570 & 20+-4 \\
+        585 & 28+-5 \\
+        600 & 17+-4 \\
+        615 & 26+-5 \\
+        630 & 19+-4 \\
+        645 & 13+-3 \\
+        660 & 17+-4 \\
+         & \\
+        \bottomrule
+    \end{tabular}
+    }
+    \label{tab:rhodium}
+\end{table}
 
 Hier sind allerdings im Vergleich zu Vanadium zwei Zerfallsprozesse zu beobachten. 
 Die Halbwertszeit von $ ^{104i}_{45}Rh$ ist deutlich geringer und liefert wie in \autoref{fig:plot_rhodium} zu sehen ab einem gewissen Zeitpunkt nahezu keinen Beitrag zur Intensität mehr.
@@ -68,6 +217,13 @@ Der entsprechende Vergleichswert aus der Literatur ist
     T_\text{lang,lit} = \SI{260.4}{\second} \, .\text{\cite{periodic_table}}
 \end{equation*}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/plot_Rhodium.pdf}
+    \caption{Plot der Messwerte für Rhodium}
+    \label{fig:plot_rhodium}
+\end{figure}
+
 In der Zeit bis $t=\SI{210}{\second}$ ist analog nahezu nur der kurzlebige Zerfall zu beobachten, allerdings müssen hier die Messwerte über die extrapolierte Ausgleichsgerade des langlebigen Prozesses korrigiert werden.
 Also werden die in blau dargestellten Messwerte über
 \begin{equation}
@@ -81,7 +237,7 @@ Damit ergeben sich die Parameter zu
 \end{align*}
 und über \autoref{eq:lambda2} eine Halbwertszeit von 
 \begin{equation*}
-    T = \SI{43+-1}{\second} \, .
+    T_\text{kurz} = \SI{43+-1}{\second} \, .
 \end{equation*}
 Der entsprechende Vergleichswert aus der Literatur ist 
 \begin{equation*}

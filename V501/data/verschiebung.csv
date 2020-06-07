@@ -1,0 +1,9 @@
+# Verschiebung des Leuchtflecks nach angelegter Spannung
+# 4 Kästchen = 1 Inch
+# Position[Kästchen],U_D[V](U_B=250V),U_D[V](U_B=300V),U_D[V](U_B=350V),U_D[V](U_B=400V),U_D[V](U_B=450V)
+1,0.3,0.1,0.1,0.1,0.1
+0,2.9,3.2,3.3,3.9,4.4
+-1,6.4,8.2,8.9,10.3,11.9
+-2,10.2,12.3,14.3,17.6,20.2
+-3,13.3,17.0,20.5,24.6,28.2
+-4,17.0,21.8,27.2,31.8,36.2

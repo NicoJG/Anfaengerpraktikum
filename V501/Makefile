@@ -1,10 +1,10 @@
 all: build/main.pdf
 
-plots: build/plot_NAME.pdf
+plots: build/plot_verschiebung.pdf
  
 # hier Python-Skripte: 
-build/plot_NAME.pdf: python/NAME.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
-	python python/NAME.py
+build/plot_verschiebung.pdf: python/verschiebung.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	python python/verschiebung.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

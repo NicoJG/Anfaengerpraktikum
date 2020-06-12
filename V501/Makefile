@@ -5,6 +5,7 @@ plots: build/plot_verschiebung.pdf
 # hier Python-Skripte: 
 build/plot_verschiebung.pdf: python/verschiebung.py ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	python python/verschiebung.py
+	python python/frequenz.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

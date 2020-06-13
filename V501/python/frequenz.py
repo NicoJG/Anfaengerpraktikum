@@ -16,13 +16,13 @@ Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 p2p = 1.27 #cm
 
 # Empfindlichkeit
-Empfindlichkeit = ufloat_fromstr(Ergebnisse['Verschiebung']['p1[cm]'])
+Empfindlichkeit = ufloat_fromstr(Ergebnisse['Verschiebung']['pLdurch2d[cm]'])
 
 # Beschleunigungsspannung
 U_B = 300 #V
 
 # Scheitelwert / Amplitude (Spannung) 
-A = (-1)*(p2p*U_B)/(2*Empfindlichkeit)
+A = (p2p*U_B)/(2*Empfindlichkeit)
 
 
 if not 'Frequenz' in Ergebnisse:

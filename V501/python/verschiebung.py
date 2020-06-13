@@ -20,6 +20,11 @@ Inch = 2.54 #cm
 Kaestchenbreite = Inch/4
 D = Pos*Kaestchenbreite # cm
 
+# Speichern der umgerechneten Verschiebung
+data = list(zip(Pos,D))
+np.savetxt('data/verschiebung_umgerechnet.csv', data, header='Position[Kästchen],D[cm]', fmt='%i,%1.3f')
+
+
 # Ausgleichsgeraden Berechnen
 def D_fit(U_D,a,b):
     return a*U_D + b
@@ -52,11 +57,11 @@ colors = ['blue','orange','green','red','violet']
 for i in range(0,U_B.size):
     U_D_linspace = np.linspace(np.min(U_D[i])-1,np.max(U_D[i])+1,3)
     # Plot der Ausgleichsgerade
-    plt.plot(U_D_linspace,D_fit(U_D_linspace,a[i],b[i]), color=colors[i], linestyle='-', label=r'Ausgleichsgerade für $U_B=\SI{{{U_B}}}{{\volt}}$'.format(U_B=U_B[i]))
+    plt.plot(U_D_linspace,D_fit(U_D_linspace,a[i],b[i]), color=colors[i], linestyle='-')
 
 for i in range(0,U_B.size):
     # Plot der Messwerte
-    plt.plot(U_D[i],D, 'o', color=colors[i], label=r'Messwerte für $U_B=\SI{{{U_B}}}{{\volt}}$'.format(U_B=U_B[i]))
+    plt.plot(U_D[i],D, 'o', color=colors[i], label=r'$U_B=\SI{{{U_B}}}{{\volt}}$'.format(U_B=U_B[i]))
 
 # Achsenbeschriftung
 plt.xlabel(r'$U_D \:/\: \si{\volt}$')

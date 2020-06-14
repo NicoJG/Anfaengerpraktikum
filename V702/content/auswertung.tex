@@ -89,11 +89,11 @@ Als Fehler wird hier aufgrund der Poissonverteilung $\Delta N = \sqrt{N}$ angeno
          & \\
         \bottomrule
     \end{tabular}
-    }
+    }%
     \label{tab:vanadium}
 \end{table}
 
-Nun wird nach \autoref{eq:lambda} eine Ausgleichsgerade mit 
+Nun wird nach \autoref{eq:zerfall} eine Ausgleichsgerade mit 
 \begin{equation}
     \ln(N(t)) = \lambda*t+b
     \label{eq:ausgleichsgerade}
@@ -104,7 +104,7 @@ Die Bestimmung der Parameter ergibt
     \lambda &= \SI{-0.0032+-0.0001}{\per\second} \\
     b &= \num{5.32+-0.04} \, .
 \end{align*}
-Über \autoref{eq:lambda2} lässt sich nun die Halbwertszeit zu
+Über \autoref{eq:lambda} lässt sich nun die Halbwertszeit zu
 \begin{equation*}
     T = \SI{215+-7}{\second}
 \end{equation*}
@@ -118,7 +118,7 @@ Ein Vergleichswert aus der Literatur ist
     \centering
     \includegraphics[width=0.8\textwidth]{build/plot_Vanadium.pdf}
     \caption{Plot der Messwerte für Vanadium}
-    \label{fig:plot_vanadium.pdf}
+    \label{fig:plot_vanadium}
 \end{figure}
 
 
@@ -208,7 +208,7 @@ Somit ergeben sich nach \autoref{eq:ausgleichsgerade} die Parameter zu
     \lambda_\text{lang} &= \SI{-0.0027+-0.0004}{\per\second} \\
     b_\text{lang} &= \num{4.35+-0.17}
 \end{align*}
-und über \autoref{eq:lambda2} eine Halbwertszeit von 
+und über \autoref{eq:lambda} eine Halbwertszeit von 
 \begin{equation*}
     T_\text{lang} = \SI{257+-37}{\second} \, .
 \end{equation*}
@@ -235,7 +235,7 @@ Damit ergeben sich die Parameter zu
     \lambda_\text{kurz} &= \SI{-0.0161+-0.0004}{\per\second} \\
     b_\text{kurz} &= \num{6.68+-0.03}
 \end{align*}
-und über \autoref{eq:lambda2} eine Halbwertszeit von 
+und über \autoref{eq:lambda} eine Halbwertszeit von 
 \begin{equation*}
     T_\text{kurz} = \SI{43+-1}{\second} \, .
 \end{equation*}
@@ -243,5 +243,3 @@ Der entsprechende Vergleichswert aus der Literatur ist
 \begin{equation*}
     T_\text{kurz,lit} = \SI{42.3}{\second} \, .\text{\cite{periodic_table}}
 \end{equation*}
-
-%%%%%%%%%%%%%%%%%% Tabellen und Plots fehlen

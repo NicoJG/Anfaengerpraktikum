@@ -1,20 +1,15 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-% In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
-
-% (eventuell die Aufgaben)
-
-% Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
-
 \subsection{Halbwertszeit}
 \label{ssec:t1}
 
-Atomkerne können unter Umständen sehr instabil werden, variieren die Verhältnisse von Protonen und Neutronen zu sehr, kann es passieren, dass der Kern zerfällt.
+Atomkerne können unter Umständen sehr instabil werden.
+Variieren die Verhältnisse von Protonen und Neutronen zu sehr, kann es passieren, dass der Kern zerfällt.
 Dabei kann er entweder in einen stabilen Zustand zerfallen, oder in einen Zwischenzustand, der ebenfalls durch einen Zerfall in einen neuen Zustand übergeht.
 Es ist unmöglich zu sagen, wann genau dies bei einem einzelen Atom passiert.
 Allerdings ist es möglich bei einer großen Anzahl an Kernen eine Aussage über die Anzahl der nicht zerfallenden Kerne zu treffen.
-Nachdem die sogenannte Halbwertszeit $T$ vertrichen ist, sind noch genau die Hälfte der Kerne unzerfallen.
+Nachdem die sogenannte Halbwertszeit $T$ verstrichen ist, sind noch die Hälfte der Kerne nicht zerfallen.
 Diese Größe kann je nach Kern über 23 Größenordnungen variieren.
 Um diesen Prozess und somit auch die Messung der Halbwertszeit zu verstehen, wird im Folgenden erklärt wie die instabilen Kerne genau funktionieren.
 
@@ -24,7 +19,7 @@ Um diesen Prozess und somit auch die Messung der Halbwertszeit zu verstehen, wir
 Die instabilen Kerne müssen zunächst erzeugt werden.
 Einige von ihnen zerfallen so schnell, dass sie optimalerweise kurz vor der Messung erzeugt werden.
 Dafür werden Neutronen auf stabile Kerne geschossen.
-Der Kern nimmt die kinetische Energie auf und vereilt sie auf seine Nukleonen. 
+Der Kern nimmt die kinetische Energie auf und verteilt sie auf seine Nukleonen. 
 Es ist jetzt nicht möglich ein Nukleon abzustoßen, also gibt der Kern ein Photon $\gamma$ ab.
 Damit begibt er sich in seinen Grundzustand zurück. 
 
@@ -36,8 +31,8 @@ Beide Teilchen teilen sich die Energie, die nach diesem Prozess überschüssig w
 $  \ce{  ^{m+1}_zA -> ^{m+1}_{z+1}C + \symup{\beta}- + E_{Kin} + \bar{\symup{\nu}}_e}   $
 
 Ein weiterer wichtiger Begriff ist der Wirkungsquerschnitt $\sigma$. 
-Diese gibt eine Fläche an, in der jedes auf diese Fläche treffende Neutron eingefangen wird.
-Wird eine dünne Filie mit einer Fläche von $\SI{1}{\square\centi\meter}$ mit der Dicke $d$ und einer Anzahl Atome K pro $\si{\cubic\centi\meter}$ von $n$ Neutronen pro Sekunde getroffen, ergibt sich der Wirkungsquerschnitt 
+Dieser gibt eine Fläche an, in der jedes auf diese Fläche treffende Neutron eingefangen wird.
+Wird eine dünne Folie mit einer Fläche von $\SI{1}{\square\centi\metre}$ mit der Dicke $d$ und einer Anzahl Atome K pro $\si{\cubic\centi\metre}$ von $n$ Neutronen pro Sekunde getroffen, ergibt sich der Wirkungsquerschnitt 
 
 
 \begin{equation}
@@ -88,7 +83,7 @@ Neutronen mit so einer Energie werden thermische Elektronen genannt.
 \label{ssec:t4}
 
 Die eigentliche Analyse der Isotope kann nun beginnen, im folgenden werden Vanadium und Rhodium Isotope betrachtet.
-Diese werden in die Aktivierungsschächte in \autoref{fig:therm} getan.
+Diese werden in die Aktivierungsschächte in \autoref{fig:therm} gesteckt.
 Dort werden sie dann durch Neutronenbeschuss instabil und es wird der daraufhin auftretende Zerfall gemessen.
 Der Zerfall von Vanadium ist
 
@@ -108,7 +103,7 @@ Dieser Zerfall wird über die Funktion
 
 untersucht.
 $N$ gibt die Anzahl der noch nicht zerfallenen Kerne an und $N_0$ die Anzahl der bei $t = 0$ vorliegenden Kerne.
-$\lambda$ ist hier ie Zerfallskonstante.
+$\lambda$ ist hier die Zerfallskonstante.
 Sie ist über die Halbwertszeit 
 
 \begin{equation}
@@ -117,21 +112,21 @@ Sie ist über die Halbwertszeit
 \end{equation}
 
 bestimmbar.
-Experimentell lässt sich $\lambda$ auch über eine Ausgleichsgerade der Form
+% Experimentell lässt sich $\lambda$ auch über eine Ausgleichsgerade der Form
 
-\begin{equation}
-    \ln{N_{\Delta \text{t}}\left(t\right)} = \ln{ N_0 \left(1 - \exp(-\lambda \Delta T) \right)} -\lambda T
-    \label{eq:lambda2}
-\end{equation}
+% \begin{equation}
+%     \ln{N_{\Delta \text{t}}\left(t\right)} = \ln{ N_0 \left(1 - \exp(-\lambda \Delta T) \right)} -\lambda T
+%     \label{eq:lambda2}
+% \end{equation}
 
-bestimmten, wenn eine Ausgleichsgerade durch die Messwerte gelegt wird.
+% bestimmten, wenn eine Ausgleichsgerade durch die Messwerte gelegt wird.
 
 Rhodium zerfällt nicht nur auf eine Art, daher müssen hier zwei Fälle unterschieden werden.
 Zu $90\%$ zerfällt es wie
 
 $\ce{^{103}_{45}Rh + ^{1}_0n -> ^{104}_{45}Rh -> ^{104}_{46}Pd + \symup{\beta}- + \bar{\symup{\nu}}_e}$
 
-Die ist der erwünschte Zerfall, der auch gemessen werden soll.
+Dies ist der erwünschte Zerfall, der auch gemessen werden soll.
 Es kann allerdings auch passieren, dass die Reaktion nach
 
 $\ce{^{103}_{45}Rh + ^{1}_0n -> ^{104i}_{45}Rh -> ^{104}_{45}Rh + \symup{\gamma} -> ^{104}_{46}Pd + \symup{\beta}- + \bar{\symup{\nu}}_e}$
@@ -147,6 +142,6 @@ Dieser Vorgang beeinflusst die Messung des ersten Zerfalls, trägt man die Messu
     \label{fig:zerfall}
 \end{figure}
 
-Hier sind gleich zwei Zerfälle überlagert, eine kurzlebiger und ein langlebiger.
+Hier sind gleich zwei Zerfälle überlagert, ein kurzlebiger und ein langlebiger.
 Für die Auswertung wird zunächst die Zerfallskonstante des langlebigens Zerfalls bestimmt.
 Dann wird diese vom kurzlebigen Zerfall abgezogen.

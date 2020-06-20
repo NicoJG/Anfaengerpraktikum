@@ -9,9 +9,11 @@
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
 
+Die Ergebnisse der Messungen für das Durchschallungsverfahren sind in \autoref{tab:durchschallung} notiert und die jeweilige Messung für das Impuls-Echo-Verfahren in \autoref{tab:impulsecho}.
+
 \begin{table}
     \centering
-    \caption{Keine Ahnung man}
+    \caption{Messergebnisse des Durchschallungsverfahren.}
     \begin{tabular}{S[table-format=3.1] S[table-format=1.2] S[table-format=1.1] S[table-format=1.2] S[table-format=2.1]}
         \toprule
         \tableSI{l}{\centi\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\second}  \\
@@ -28,7 +30,7 @@
 
 \begin{table}
     \centering
-    \caption{Keine Ahnung man}
+    \caption{Messerggebnisse des Impuls-Echo-Verfahrens.}
     \begin{tabular}{S[table-format=3.1] S[table-format=1.2] S[table-format=1.1] S[table-format=1.2] S[table-format=2.1]}
         \toprule
         \tableSI{l}{\centi\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\second}  \\
@@ -42,3 +44,65 @@
     \end{tabular}
     \label{tab:impulsecho}
 \end{table}
+
+Zunächst wird aus diesen Messwerten die Schallgeschwindigkeit $c$ bestimmt, dies gelingt über ein Ausgleichsrechnung.
+Also werden die Messdaten geplottet und eine Ausgleichsgerade durch die Punkte gelegt.
+Bei dem Impuls-Echo-Verfahren wird die Laufzeit $t$ halbiert, da der Impuls die Strecke doppelt durchläuft.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_durchschallung.pdf}
+    \caption{Plot der Messwerte zum Durchschallungsverfahren}
+    \label{fig:durch}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_impulsecho.pdf}
+    \caption{Plot der Messwerte zu Impuls-Echo-Verfahren}
+    \label{fig:impuls}
+\end{figure}
+
+Dabei wurde eine lineare Funktion der Art 
+
+\begin{equation}
+    f(x) = a \cdot x + b 
+\end{equation}
+
+verwendet.
+Für die Durchschallung gilt
+
+\begin{equation}
+    t = \frac{1}{c} \cdot s + b 
+\end{equation}
+
+und für das Impuls-Echo-Verfahren gilt nach \eqref{eq:strecke}
+
+\begin{equation}
+    \frac{t}{2} = \frac{1}{c} \cdot s + b.
+\end{equation}
+
+Dann ergeben sich folgende Ausgleichsparameter für das Durchschallungsverfahren als
+
+\begin{align}
+    a_\text{D} &= 36.63 \pm \SI{0.64}{\second\per\meter}\\
+    b_\text{D} &= 1.33 \pm \SI{0.53}{\second}.
+\end{align}
+
+Auf dem gleichen Weg werden ebenso die Parameter für das Impuls-Echo-Verfahren 
+
+\begin{align}
+    a_\text{I} &= 36.54 \pm \SI{0.57}{\second\per\meter}\\
+    b_\text{I} &= 0.52 \pm \SI{0.47}{\second}.
+\end{align}
+
+bestimmt.
+Hierbei ist wichtig anzumerken, dass der Parameeter $b$ in beiden Fällen einen systematischen Fehler angibt.
+Dieser kann allerdings hier ignoriert werden, da dieser für die weitere Berechnung nicht relevant ist.
+Über 
+
+\begin{equation}
+    c = \frac{1}{a}
+\end{equation}
+
+kann dann die Schallgeschwindigkeit bestimmt werden.

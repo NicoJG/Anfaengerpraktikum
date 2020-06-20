@@ -1,13 +1,15 @@
 all: build/main.pdf
 
-plots: build/plot_NAME.pdf
+plots: build/plot_Durchschallung.pdf build/plot_Impulsecho.pdf
  
 # hier Python-Skripte: 
-build/plot_NAME.pdf: python/NAME.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
-	python python/NAME.py
+build/plot_Durchschallung.pdf: python/Durchschallung.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	python python/Durchschallung.py
 
+build/plot_Impulsecho.pdf: python/Impulsecho.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	python python/Impulsecho.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: plots
+build/main.pdf: plots
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

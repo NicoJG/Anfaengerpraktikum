@@ -16,7 +16,7 @@ Die Ergebnisse der Messungen für das Durchschallungsverfahren sind in \autoref{
     \caption{Messergebnisse des Durchschallungsverfahren.}
     \begin{tabular}{S[table-format=3.1] S[table-format=1.2] S[table-format=1.1] S[table-format=1.2] S[table-format=2.1]}
         \toprule
-        \tableSI{l}{\centi\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\second}  \\
+        \tableSI{l}{\milli\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\micro\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\micro\second}  \\
         \midrule
          31.1 &  0.79&    0.3&     1.35&    12.8\\
          40.5 &  0.79&    0.3&     1.36&    15.8\\
@@ -33,7 +33,7 @@ Die Ergebnisse der Messungen für das Durchschallungsverfahren sind in \autoref{
     \caption{Messerggebnisse des Impuls-Echo-Verfahrens.}
     \begin{tabular}{S[table-format=3.1] S[table-format=1.2] S[table-format=1.1] S[table-format=1.2] S[table-format=2.1]}
         \toprule
-        \tableSI{l}{\centi\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\second}  \\
+        \tableSI{l}{\milli\meter} & \tableSI{U_\text{A}}{\volt} &\tableSI{t_\text{A}}{\micro\second} & \tableSI{U_\text{R}}{\volt} &\tableSI{t_\text{R}}{\micro\second}  \\
         \midrule
          31.1&   1.29&    6.0&     1.36&    23.7\\
          40.5&   1.30&    6.5&     1.33&    30.5\\
@@ -59,7 +59,7 @@ Bei dem Impuls-Echo-Verfahren wird die Laufzeit $t$ halbiert, da der Impuls die 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_impulsecho.pdf}
-    \caption{Plot der Messwerte zu Impuls-Echo-Verfahren}
+    \caption{Plot der Messwerte zum Impuls-Echo-Verfahren}
     \label{fig:impuls}
 \end{figure}
 
@@ -85,15 +85,15 @@ und für das Impuls-Echo-Verfahren gilt nach \eqref{eq:strecke}
 Dann ergeben sich folgende Ausgleichsparameter für das Durchschallungsverfahren als
 
 \begin{align}
-    a_\text{D} &= 36.63 \pm \SI{0.64}{\second\per\meter}\\
-    b_\text{D} &= 1.33 \pm \SI{0.53}{\second}.
+    a_\text{D} &= \SI{366(6)e-6}{\second\per\meter}\\
+    b_\text{D} &= \SI{13(5)e-7}{\second}.
 \end{align}
 
 Auf dem gleichen Weg werden ebenso die Parameter für das Impuls-Echo-Verfahren 
 
 \begin{align}
-    a_\text{I} &= 36.54 \pm \SI{0.57}{\second\per\meter}\\
-    b_\text{I} &= 0.52 \pm \SI{0.47}{\second}.
+    a_\text{I} &= \SI{365(6)e-6}{\second\per\meter}\\
+    b_\text{I} &= \SI{5(5)e-7}{\second}.
 \end{align}
 
 bestimmt.
@@ -106,3 +106,65 @@ Dieser kann allerdings hier ignoriert werden, da dieser für die weitere Berechn
 \end{equation}
 
 kann dann die Schallgeschwindigkeit bestimmt werden.
+Für beide Berechnugsmethoden ergeben sich
+
+\begin{align}
+    c_\text{D} &= \SI{2730(50)}{\meter\per\second}\\
+    c_\text{I} &= \SI{2737(40)}{\meter\per\second}.
+\end{align}
+
+Die Berechnung des Absorptionskoeffizienten gelingt über \eqref{eq:absorption}, wird der Zusammenhang umgeformt, ergibt sich 
+
+\begin{equation}
+    \ln{\frac{I(l)}{I_0}} = - \alpha \cdot l.
+    \label{eq:geradengl}
+\end{equation}
+
+Dabei ist $l$ die Länge des Weges durch die Zylinder und $I_0$ die Startamplitude.
+Die Messwerte für $I(l)$ werden aus \autoref{tab:durchschallung} und \autoref{tab:impulsecho} genommen und geben die Amplitude nach einer durchlaufenen Länge $l$ an.
+$\alpha$ ist der Absorptionskoeffizient und ihn gilt es zu bestimmen. 
+Bereits in \eqref{eq:geradengl} ist eine Gerade der Form 
+
+\begin{equation}
+    f(x) = a \cdot x.
+    \label{eq:geradengl2}
+\end{equation}
+
+zu erkennen.
+Die Messwerte werden also für beide Messverfahren geplottet und dazu wird eine Ausgleichsgerade durch die Messwerte gelegt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_durchschallung2.pdf}
+    \caption{Plot der Abhängigkeit von Amplitude und Weglänge zum Durchschallungsverfahren}
+    \label{fig:durch2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_impuls2.pdf}
+    \caption{Plot der Abhängigkeit von Amplitude und Weglänge zum Impuls-Echo-Verfahren}
+    \label{fig:impuls2}
+\end{figure}
+
+Die Parameter $a$ von \autoref{fig:durch2} und \autoref{fig:impuls2} sind dann
+
+\begin{align}
+    a_\text{D} &= \SI{5.8(14)}{\per\meter}\\
+    a_\text{I} &= \SI{-4.9(27)}{\per\meter}.
+\end{align}
+
+Wird \eqref{eq:geradengl} mit \eqref{eq:geradengl2} verglichen ergibt sich der triviale Zusammenhang 
+
+\begin{equation}
+    \alpha = - a.
+\end{equation}
+
+Darüber werden die Absorptionskoeffiziente der beiden Verfahren zu 
+
+\begin{align}
+    \alpha _\text{D} &= \SI{-5.8(14)}{\per\meter}\\
+    \alpha _\text{I} &= \SI{4.9(27)}{\per\meter}
+\end{align}
+
+bestimmt.

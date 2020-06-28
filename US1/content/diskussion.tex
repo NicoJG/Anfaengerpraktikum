@@ -5,3 +5,42 @@
 % -Vergleich mit Literaturwerten
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
+
+Als erstes wurde die Schallgeschwindigkeit in Acrylglas bestimmt.
+In diesem Experiment wurde sie auf zwei verschiedene Arten bestimmt.
+Im folgenden werden beide Werte jeweils mit ihren Theoriewerten verglichen und ihre Abweichung bestimmt.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der experimentell berechneten und den theoretischen Schallgeschwindigkeiten.\cite{schallgeschw}}
+  \label{tab:e_lit}
+  \begin{tabular}{c S[table-format=4.0,table-figures-uncertainty = 1] S[table-format=4.0] S[table-format=1.2]}
+    \toprule 
+   \text{Verfahren} & \tableSI{c_\text{gem}}{\frac{\meter}{\second}} & \tableSI{c_\text{lit}}{\frac{\meter}{\second}} & \text{Abweichungen} \\ 
+    \midrule 
+    Durchschallung & 2730+-50 & 2760 & 1.09 \% \\
+    Impuls-Echo & 2737+-40 & 2760 & 0.83 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Wird die Unsicherheit der Werte mitbetrachet, liegen die Theoriewerte sogar innerhalb des Intervalls.
+Das Messergebnis kann also als sehr genau beschrieben werden.
+
+Zuletzt wurde der Absorptionskoeffizent $\alpha$ bestimmt, auch hier über beide Messmethoden
+
+\begin{align}
+    \alpha _\text{D} &= \SI{-5.8(14)}{\per\meter}\\
+    \alpha _\text{I} &= \SI{4.9(27)}{\per\meter}.
+\end{align}
+
+Hier muss gesagt werden, dass die Werte sehr ungenau, bis physikalisch unmöglich sind.
+Die Impulsamlitude beim Durchschallungsverfahren ist nach dem Durchlaufen des Zylinders größer geworden.
+Dieses Ergebnis ist nicht erklärbar und es konnte keine Lösung gefunden werden.
+Sämtliche Amplituden eignen sich also nicht im geringsten für die Messung.
+$\alpha _\text{D}$ besitzt daher das falsche Vorzeichen.
+Das gleiche Problem haben die Messwerte des Impuls-Echo Verfahrens.
+Nur hier ist es nicht mal konsistent. Hier werden manche Amplituden verstärkt und andere abgeschwächt, wie es auch sein soll. 
+Es erscheint daher nicht wirklich sinnvoll überhaupt einen Vergleich mit der Theorie vorzunehmen, da die berechneten Werte absolut keine Aussage treffen können.
+Aufgrund der sehr genauen Werte für $c$ wird der Fehler bei der Amplitudenmessung liegen.
+Allerdings kann nachträglich nicht gesagt werden, welche Einstellung nicht korrekt war.

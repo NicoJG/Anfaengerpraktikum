@@ -1,0 +1,9 @@
+Dopplerwinkel a für Prismawinkel b:
+a(b) = 90° - arcsin(sin(b)*c_L/c_P)
+
+c_L = 1800 m/s
+c_P = 2700 m/s
+
+a(15°) = 80.06°
+a(30°) = 70.53°
+a(60°) = 54.74°

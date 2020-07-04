@@ -1,10 +1,11 @@
 all: build/main.pdf
 
-plots: build/plot_NAME.pdf
+plots: build/plot_elektronen.pdf
  
 # hier Python-Skripte: 
-build/plot_NAME.pdf: python/NAME.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
-	python python/NAME.py
+build/plot_elektronen.pdf: python/elektronen.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+	python python/elektronen.py
+	python python/franck-hertz.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots

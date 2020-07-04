@@ -1,0 +1,32 @@
+# Daten abgelesen aus images/originaldaten_1.jpg
+# U_B=11V
+# T=25°C
+# x_0 = 0.6 V
+# x-Skala: 236 Kästchen = 9.4 V
+# y_0 = 105 V
+# y-Skala: 145 Kästchen = 60 nA
+# dx[Kästchen],dy[Kästchen]
+6,4
+10,4
+10,4
+10,4
+10,4
+10,4
+10,4
+10,4
+10,4
+10,5
+10,5
+10,5
+10,5
+10,6
+10,6
+10,6
+10,6
+10,7
+10,7
+10,8
+10,9
+10,10
+10,11
+10,13

@@ -70,6 +70,8 @@ plt.savefig('build/plot_elektronen_diff.pdf')
 
 # Werte in Tabelle speichern
 dU_A = np.append(dU_A,0)
+dx = np.append(dx,0)
 dI_A = np.append(dI_A,0)
-data = list(zip(U_A,dU_A,I_A,dI_A))
-np.savetxt('data/elektronen.csv', data, header='U_A[V],dU_A[V],I_A[nA],dI_A[nA]', fmt='%1.2f,%1.2f,%1.2f,%1.2f')
+dy = np.append(dy,0)
+data = list(zip(dx,dU_A,U_A,dy,dI_A,I_A))
+np.savetxt('data/elektronen.csv', data, header='dx[Kaestchen],dU_A[V],U_A[V],dy[Kaestchen],dI_A[nA],I_A[nA]', fmt='%i,%1.2f,%1.2f,%i,%1.2f,%1.2f')

@@ -3,7 +3,7 @@
 # T=25°C
 # x_0 = 0.6 V
 # x-Skala: 236 Kästchen = 9.4 V
-# y_0 = 105 V
+# y_0 = 105 nA
 # y-Skala: 145 Kästchen = 60 nA
 # dx[Kästchen],dy[Kästchen]
 6,4

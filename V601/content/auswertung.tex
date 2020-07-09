@@ -110,16 +110,30 @@ Die abgelesenen und berechneten Werte sind in \autoref{tab:franck-hertz} aufgeli
     \label{tab:franck-hertz}
 \end{table}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=\textwidth]{images/franck-hertz.jpg}
-%     \caption{mit X-Y-Schreiber aufgenommene Franck-Hertz-Kurve}
-%     \label{fig:franck-hertz}
-% \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/franck-hertz.jpg}
+    \caption{mit X-Y-Schreiber aufgenommene Franck-Hertz-Kurve}
+    \label{fig:franck-hertz}
+\end{figure}
 
-Aus diesen Werten wurde dann der mittlere Abstand der Maxima und der entsprechende Fehler des Mittelwerts berechnet.
+Anzumerken sei, dass die Elektronen durch elastische Stöße Energie verlieren und dadurch die Franck-Hertz Kurve abgeflacht wird.
+Da jedoch hier nur die Abstände der Maxima in Bezug auf die Beschleunigungsspannung für Berechnungen verwendet werden, muss dieser Effekt hier nicht beachtet werden.
+
+Aus diesen Werten wird nun der mittlere Abstand der Maxima und der entsprechende Fehler des Mittelwerts berechnet.
 \begin{equation*}
     \bar{\Delta U_B} = \SI{5.34+-0.15}{\volt}
 \end{equation*}
-
-%%%% Energie und Wellenlänge bestimmen
+Nach \autoref{eq:ueins} und $e_0 \cdot \SI{1}{\volt}=\SI{1}{\electronvolt}$ ist die erste Anregungsenergie des Hg-Atoms gerade
+\begin{equation*}
+    E_{01} = \SI{5.34+-0.15}{\electronvolt} \, .
+\end{equation*}
+Daraus lässt sich nach \autoref{eq:quant} die Wellenlänge $\lambda$ der emitierten elektromagnetischen Strahlung über
+\begin{equation}
+    \lambda = \frac{h \cdot c}{E_{01}}
+\end{equation}
+zu
+\begin{equation*}
+    \lambda = \SI{2.32+-0.06e-07}{\metre}
+\end{equation*}
+berechnen. 

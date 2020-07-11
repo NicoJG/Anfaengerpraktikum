@@ -19,7 +19,7 @@ Die aufgenommenen Werte für $\Delta \nu$ sind in \autoref{tab:dopplerver} notie
     \caption{Messergebnisse der Dopplerverschiebung}
     \begin{tabular}{S[table-format=1.1] S[table-format=3.0] S[table-format=3.0] S[table-format=4.0]}
         \toprule
-        \tableSI{\dot{v}}{\liter\per\minute} & \tableSI{\Delta \nu _{15}}{\hertz} &\tableSI{\Delta \nu _{30}}{\hertz} & \tableSI{\Delta \nu _{60}}{\hertz}  \\
+        \tableSI{\dot{v}}{\frac{\liter}{\minute}} & \tableSI{\Delta \nu _{15}}{\hertz} &\tableSI{\Delta \nu _{30}}{\hertz} & \tableSI{\Delta \nu _{60}}{\hertz}  \\
         \midrule
         3.0 & 200 & 380 & 670\\
         3.5 & 260 & 460 & 820\\
@@ -33,7 +33,7 @@ Die aufgenommenen Werte für $\Delta \nu$ sind in \autoref{tab:dopplerver} notie
 
 $\dot{v}$ ist der eingestellte Volumenstrom, die angibt wie viel Volumen in einer bestimmten Zeit durch die Rohre fließt. 
 $\Delta \nu _{15,30,60}$ sind die Dopplerverschiebungen bei den verschiedenen Prismenwinkeln $\theta$.
-Für die nachfolgenden Rechnungen wird allerdings nicht $\theta$ benötigt, sondern der Dopplerwinkel $\alpha$, dieser kann über THEORIEFORMEL bestimmt werden.
+Für die nachfolgenden Rechnungen wird allerdings nicht $\theta$ benötigt, sondern der Dopplerwinkel $\alpha$, dieser kann über \autoref{eq:dopplerwinkel} bestimmt werden.
 Die Schallgeschwindigkeit in beiden Medien betragen $c_\text{L} = \SI{1800}{\meter\per\second}$ und $c_\text{P} = \SI{2700}{\meter\per\second}$.
 Damit berechnen sich die drei Dopplerwinkel
 \begin{align}
@@ -41,7 +41,7 @@ Damit berechnen sich die drei Dopplerwinkel
 \alpha_2 &= \SI{70.53}{\degree}\\
 \alpha_3 &= \SI{54.74}{\degree}
 \end{align}
-Über THEORIEFORMEL kann nun aus allen vorhandenen Werten die Strömungsgeschwindigkeit $v$ berechnet werden.
+Über \autoref{eq:geschwindigkeit} kann nun aus allen vorhandenen Werten die Strömungsgeschwindigkeit $v$ berechnet werden.
 Die Konstante $c$ ist die Schallgeschwindigkeit in der Dopplerflüssigkeit $c_\text{L}$ und $\nu _0$ die Frequenz der verwendeten Ultraschallsonde mit $\nu _0 = \SI{2}{\mega\hertz}$.
 In \autoref{tab:stroemung} befinden sich die eingestellen Werte des Volumenstroms $\dot{v}$ und die jeweils über einen Dopplerwinkel $\alpha$ berechneten Werte für die Strömungsgeschwindigkeiten $v$.
 Als Vergleichswert wird noch $\dot{v}$ über 
@@ -57,7 +57,7 @@ in eine Strömungsgeschwindigkeit umgerechnet, $R$ beträgt hier $R = \SI{0.005}
     \caption{Berechnete Strömungsgeschwindigkeiten}
     \begin{tabular}{S[table-format=1.1] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
-        \tableSI{\dot{v}}{\liter\per\minute} & \tableSI{\dot{v}}{\meter\per\second} & \tableSI{v_{15}}{\meter\per\second} &\tableSI{v_{30}}{\meter\per\second} & \tableSI{v_{60}}{\meter\per\second}\\
+        \tableSI{\dot{v}}{\frac{\liter}{\minute}} & \tableSI{\dot{v}}{\frac{\meter}{\second}} & \tableSI{v_{15}}{\frac{\meter}{\second}} &\tableSI{v_{30}}{\frac{\meter}{\second}} & \tableSI{v_{60}}{\frac{\meter}{\second}}\\
         \midrule
         3.0 & 0.64 & 0.52 & 0.51 & 0.52 \\
         3.5 & 0.74 & 0.68 & 0.62 & 0.64 \\
@@ -69,7 +69,7 @@ in eine Strömungsgeschwindigkeit umgerechnet, $R$ beträgt hier $R = \SI{0.005}
     \label{tab:stroemung}
 \end{table}
 
-Anschließend werden drei Plots für die verschiedenen Dopplerwinkel erstellt.
+Anschließend werden drei Plots für die verschiedenen Dopplerwinkel erstellt, diese sind in \autoref{fig:doppler1}, \autoref{fig:doppler2} und \autoref{fig:doppler3} zu finden.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_dopplerver1.pdf}
@@ -97,7 +97,7 @@ Anschließend werden drei Plots für die verschiedenen Dopplerwinkel erstellt.
     \caption{Messwerte des Strömungsprofils}
     \begin{tabular}{S[table-format=2.2] S[table-format=3.0] S[table-format=3.0] S[table-format=1.2] S[table-format=3.0] S[table-format=3.0] S[table-format=1.2] }
         \toprule
-        \tableSI{s}{\milli\meter} & \tableSI{\nu _1}{\hertz} & \tableSI{I_1}{\frac{100\volt\squared}{\second}} & \tableSI{v_1}{\meter\per\second} & \tableSI{\nu_2}{\hertz} & \tableSI{I_2}{\frac{100\volt\squared}{\second}} & \tableSI{v_2}{\meter\per\second}\\
+        \tableSI{s}{\milli\meter} & \tableSI{\nu _1}{\hertz} & \tableSI{I_1}{\frac{100\volt\squared}{\second}} & \tableSI{v_1}{\frac{\meter}{\second}} & \tableSI{\nu_2}{\hertz} & \tableSI{I_2}{\frac{100\volt\squared}{\second}} & \tableSI{v_2}{\frac{\meter}{\second}}\\
         \midrule
         8.33 & 340 & 60  & 0.89 &  260 &  45  & 0.68\\
         8.67 & 400 & 130 & 1.04 &  140 &  100 & 0.37 \\
@@ -121,9 +121,9 @@ Anschließend werden drei Plots für die verschiedenen Dopplerwinkel erstellt.
 
 Die Messungen wurden bei einem Prismenwinkel von $\theta = \SI{15}{\degree}$ durchgeführt. 
 Alle Messwerte mit dem Index $1$ sind bei $\dot{v} = \SI{5.2}{\liter\per\second}$ gemessen worden, entsprechend dazu die mit Index $2$ bei $\dot{v} = \SI{3.4}{\liter\per\second}$.
-Wie zuvor kann nun über THEORIEFORMEL aus den Dopplerverschiebungen die Strömungsgeschwindigkeit gemessen werden, diese stehen als $v_1$ und $v_2$ in \autoref{tab:profil2}.
+Wie zuvor kann nun über \autoref{eq:geschwindigkeit} aus den Dopplerverschiebungen die Strömungsgeschwindigkeit gemessen werden, diese stehen als $v_1$ und $v_2$ in \autoref{tab:profil}.
 Diese Geschwindigkeiten werden dann gegen die Messtiefe $s$ geplottet.
-Es entstehen die Plots in \autoref{fig:profil1}..
+Es entstehen die Plots in \autoref{fig:profil1}.
 
 \begin{figure}
     \centering

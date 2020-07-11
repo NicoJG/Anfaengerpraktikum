@@ -8,3 +8,135 @@
 % mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
+
+\subsection{Bestimmung der Strömungsgeschwindigkeit}
+\label{ssec:aus1}
+
+Die aufgenommenen Werte für $\Delta \nu$ sind in \autoref{tab:dopplerver} notiert. 
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse der Dopplerverschiebung}
+    \begin{tabular}{S[table-format=1.1] S[table-format=3.0] S[table-format=3.0] S[table-format=4.0]}
+        \toprule
+        \tableSI{\dot{v}}{\liter\per\minute} & \tableSI{\Delta \nu _{15}}{\hertz} &\tableSI{\Delta \nu _{30}}{\hertz} & \tableSI{\Delta \nu _{60}}{\hertz}  \\
+        \midrule
+        3.0 & 200 & 380 & 670\\
+        3.5 & 260 & 460 & 820\\
+        4.0 & 320 & 600 & 1045\\
+        4.5 & 380 & 720 & 1245\\
+        5.0 & 470 & 850 & 1510\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:dopplerver}
+\end{table}
+
+$\dot{v}$ ist der eingestellte Volumenstrom, die angibt wie viel Volumen in einer bestimmten Zeit durch die Rohre fließt. 
+$\Delta \nu _{15,30,60}$ sind die Dopplerverschiebungen bei den verschiedenen Prismenwinkeln $\theta$.
+Für die nachfolgenden Rechnungen wird allerdings nicht $\theta$ benötigt, sondern der Dopplerwinkel $\alpha$, dieser kann über THEORIEFORMEL bestimmt werden.
+Die Schallgeschwindigkeit in beiden Medien betragen $c_\text{L} = \SI{1800}{\meter\per\second}$ und $c_\text{P} = \SI{2700}{\meter\per\second}$.
+Damit berechnen sich die drei Dopplerwinkel
+\begin{align}
+\alpha_1 &= \SI{80.06}{\degree}\\
+\alpha_2 &= \SI{70.53}{\degree}\\
+\alpha_3 &= \SI{54.74}{\degree}
+\end{align}
+Über THEORIEFORMEL kann nun aus allen vorhandenen Werten die Strömungsgeschwindigkeit $v$ berechnet werden.
+Die Konstante $c$ ist die Schallgeschwindigkeit in der Dopplerflüssigkeit $c_\text{L}$ und $\nu _0$ die Frequenz der verwendeten Ultraschallsonde mit $\nu _0 = \SI{2}{\mega\hertz}$.
+In \autoref{tab:stroemung} befinden sich die eingestellen Werte des Volumenstroms $\dot{v}$ und die jeweils über einen Dopplerwinkel $\alpha$ berechneten Werte für die Strömungsgeschwindigkeiten $v$.
+Als Vergleichswert wird noch $\dot{v}$ über 
+
+\begin{equation}
+v = \frac{\dot{v}}{\pi \cdot R^2}
+\end{equation}
+
+in eine Strömungsgeschwindigkeit umgerechnet, $R$ beträgt hier $R = \SI{0.005}{\meter}$.
+
+\begin{table}
+    \centering
+    \caption{Berechnete Strömungsgeschwindigkeiten}
+    \begin{tabular}{S[table-format=1.1] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
+        \toprule
+        \tableSI{\dot{v}}{\liter\per\minute} & \tableSI{\dot{v}}{\meter\per\second} & \tableSI{v_{15}}{\meter\per\second} &\tableSI{v_{30}}{\meter\per\second} & \tableSI{v_{60}}{\meter\per\second}\\
+        \midrule
+        3.0 & 0.64 & 0.52 & 0.51 & 0.52 \\
+        3.5 & 0.74 & 0.68 & 0.62 & 0.64 \\
+        4.0 & 0.85 & 0.84 & 0.81 & 0.81 \\
+        4.5 & 0.95 & 0.99 & 0.97 & 0.97 \\
+        5.0 & 1.06 & 1.23 & 1.15 & 1.18 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:stroemung}
+\end{table}
+
+Anschließend werden drei Plots für die verschiedenen Dopplerwinkel erstellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_dopplerver1.pdf}
+    \caption{Plot der Abhängigkeit zwischen der Strömungsgeschwindigkeit und dem ersten Dopplerwinkel}
+    \label{fig:doppler1}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_dopplerver2.pdf}
+    \caption{Plot der Abhängigkeit zwischen der Strömungsgeschwindigkeit und dem zweiten Dopplerwinkel}
+    \label{fig:doppler2}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_dopplerver3.pdf}
+    \caption{Plot der Abhängigkeit zwischen der Strömungsgeschwindigkeit und dem dritten Dopplerwinkel}
+    \label{fig:doppler3}
+\end{figure}
+
+\subsection{Erstellung eines Strömungsprofils}
+\label{ssec:aus2}
+
+\begin{table}
+    \centering
+    \caption{Messwerte des Strömungsprofils}
+    \begin{tabular}{S[table-format=2.2] S[table-format=3.0] S[table-format=3.0] S[table-format=1.2] S[table-format=3.0] S[table-format=3.0] S[table-format=1.2] }
+        \toprule
+        \tableSI{s}{\milli\meter} & \tableSI{\nu _1}{\hertz} & \tableSI{I_1}{\frac{100\volt\squared}{\second}} & \tableSI{v_1}{\meter\per\second} & \tableSI{\nu_2}{\hertz} & \tableSI{I_2}{\frac{100\volt\squared}{\second}} & \tableSI{v_2}{\meter\per\second}\\
+        \midrule
+        8.33 & 340 & 60  & 0.89 &  260 &  45  & 0.68\\
+        8.67 & 400 & 130 & 1.04 &  140 &  100 & 0.37 \\
+        9.00 & 480 & 230 & 1.25 &  330 &  160 & 0.86 \\
+        9.33 & 550 & 260 & 1.43 &  365 &  210 & 0.95 \\
+        9.67 & 610 & 310 & 1.59  & 395 &  260 & 1.03\\
+        10.00 & 680 & 360 & 1.77 & 415 &  300 & 1.08\\
+        10.33 & 690 & 380 & 1.80 & 420 &  300 & 1.10\\
+        10.67 & 700 & 420 & 1.83 & 400 &  350 & 1.04\\
+        11.00 & 630 & 490 & 1.64 & 355 &  380 & 0.93\\
+        11.33 & 540 & 480 & 1.41 & 310 &  400 & 0.81\\
+        11.67 & 460 & 390 & 1.20 & 270 &  310 & 0.70\\
+        12.00 & 430 & 250 & 1.12 & 230 &  200 & 0.60\\
+        12.33 & 500 & 160 & 1.30 & 270 &  100 & 0.70\\
+        12.67 & 600 & 100 & 1.56 & 315 &   70 & 0.82\\
+        13.00 & 590 & 110 & 1.54 & 305 &   65 & 0.80\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:profil}
+\end{table}
+
+Die Messungen wurden bei einem Prismenwinkel von $\theta = \SI{15}{\degree}$ durchgeführt. 
+Alle Messwerte mit dem Index $1$ sind bei $\dot{v} = \SI{5.2}{\liter\per\second}$ gemessen worden, entsprechend dazu die mit Index $2$ bei $\dot{v} = \SI{3.4}{\liter\per\second}$.
+Wie zuvor kann nun über THEORIEFORMEL aus den Dopplerverschiebungen die Strömungsgeschwindigkeit gemessen werden, diese stehen als $v_1$ und $v_2$ in \autoref{tab:profil2}.
+Diese Geschwindigkeiten werden dann gegen die Messtiefe $s$ geplottet.
+Es entstehen die Plots in \autoref{fig:profil1}..
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_profil1.pdf}
+    \caption{Plot der Abhängigkeit der Messtiefe und der Geschwindigkeit}
+    \label{fig:profil1}
+\end{figure}
+
+Außerdem wird ebenfalls die Messtiefe $s$ gegen die Streuintensität $I_1$ und $I_2$ geplottet. Die Plots dafür sind in \autoref{fig:profil3} dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_profil3.pdf}
+    \caption{Plot der Abhängigkeit der Messtiefe und der Streuintensität}
+    \label{fig:profil3}
+\end{figure}

@@ -6,38 +6,45 @@
 % -Vergleich mit verschiedenen Messverfahren
 % -bei Abweichungen mögliche Ursachen finden
 
-In \autoref{tab:stroemung} sind die berechneten Geschwindigkeiten eingetragen. Zudem befindet sich dort die umgerechnete eingestellte Geschwindigkeit $\dot{v}$.
-Diese dient als Referenzwert für alle berechneten Werte.
-Nachfolgend werden für alle Werte die Abweichungen bestimmt.
-Die Ergebnisse stehen in \autoref{tab:stroemungsdiskussion}.
+In \autoref{tab:stroemungsdiskussion} sind die berechneten Geschwindigkeiten $v_\theta$ und die Referenzgeschwindigkeit $v$ eingetragen. 
+Außerdem sind die Abweichungen $\Delta v_\theta$ vom Referenzwert aufgelistet.
 
 \begin{table}
     \centering
-    \caption{Vergleich der berechneten Strömungsgeschwindigkeiten mit der Eingestellten}
+    \caption{Vergleich der berechneten Strömungsgeschwindigkeiten mit der eingestellten Strömungsgeschwindigkeit}
     \begin{tabular}{S[table-format=1.2] S[table-format=1.2] S[table-format=2.2] S[table-format=1.2] S[table-format=2.2] S[table-format=1.2] S[table-format=2.2]}
         \toprule
-        \tableSI{\dot{v}}{\frac{\meter}{\second}} & \tableSI{v_{15}}{\frac{\meter}{\second}} & \text{Abw.} & \tableSI{v_{30}}{\frac{\meter}{\second}} & \text{Abw.} & \tableSI{v_{60}}{\frac{\meter}{\second}} & \text{Abw.}\\
+        \tableSI{v}{\frac{\meter}{\second}} & \tableSI{v_{15}}{\frac{\meter}{\second}} & \tableSI{\Delta v_{15}}{\percent} & \tableSI{v_{30}}{\frac{\meter}{\second}} & \tableSI{\Delta v_{30}}{\percent} & \tableSI{v_{60}}{\frac{\meter}{\second}} & \tableSI{\Delta v_{60}}{\percent}\\
         \midrule
-        0.64 & 0.52 & 18.75\% &  0.51 & 20.31\% &  0.52 & 18.75\% \\
-        0.74 & 0.68 &  8.10\% &  0.62 & 16.21\% &  0.64 & 13.51\% \\
-        0.85 & 0.84 &  1.18\% &  0.81 &  4.71\% &  0.81 &  4.71\% \\
-        0.95 & 0.99 &  4.21\% &  0.97 &  2.11\% &  0.97 &  2.11\% \\
-        1.06 & 1.23 & 16.04\% &  1.15 &  8.49\% &  1.18 & 11.32\% \\
+        0.64 & 0.52 & 18.75 &  0.51 & 20.31 &  0.52 & 18.75 \\
+        0.74 & 0.68 &  8.10 &  0.62 & 16.21 &  0.64 & 13.51 \\
+        0.85 & 0.84 &  1.18 &  0.81 &  4.71 &  0.81 &  4.71 \\
+        0.95 & 0.99 &  4.21 &  0.97 &  2.11 &  0.97 &  2.11 \\
+        1.06 & 1.23 & 16.04 &  1.15 &  8.49 &  1.18 & 11.32 \\
         \bottomrule
     \end{tabular}
     \label{tab:stroemungsdiskussion}
 \end{table}
 
-Die Abweichungen varriieren recht stark, aber befinden sich bis auf eine Ausnahme unter den $\SI{20}{\percent}$. 
-Es fällt auf, dass die Messung mit der gerinsten Geschwindigkeit am ungenausten ist, für jeden Dopplerwinkel. Die Werte werden dann zunehmend genauer, bis sie dann am Ende wieder teilweise sehr stark schwanken.
-Hier ist wichtig zu beachten, dass die aus dem Messprogramm abgelesenen Werte teils sehr stark geschwankt haben. Daher musste ein Kompromiss gefunden werden, bei dem etwa der mittlere Wert genommen wurde, jedoch ist das höchst ungenau, was sich teilweise hier wiederspiegelt.
-Die drei Plots \autoref{fig:doppler1}, \autoref{fig:doppler2} und \autoref{fig:doppler3} stellen alle einen linearen Zusammenhang dar. 
-Es gibt in keinem der Plots zu große Abweichungen, die lineare Gestalt ist in jedem Fall erkennebar, also kann hier von einem erfolgreichen Ergebnis die Rede sein.
+Die Abweichungen varriieren recht stark, aber befinden sich bis auf eine Ausnahme unter $\SI{20}{\percent}$. 
+Es fällt auf, dass die Messung mit der geringsten Geschwindigkeit für jeden Dopplerwinkel am ungenausten ist. 
+Die Werte werden dann zunehmend genauer, bis sie am Ende wieder teilweise sehr stark schwanken.
+
+Hier ist wichtig anzumerken, dass die aus dem Messprogramm abgelesenen Werte teils stark geschwankt haben. 
+Daher musste ein Kompromiss gefunden werden, bei dem etwa der mittlere Wert geschätzt wurde. 
+Diese Vorgehensweise war jedoch sehr ungenau, was sich teilweise hier wiederspiegelt.
+
+Die drei Plots der Strömungsgeschwindigkeiten (\autoref{fig:doppler1}, \autoref{fig:doppler2} und \autoref{fig:doppler3}) stellen alle einen linearen Zusammenhang dar. 
+Es gibt in keinem der Plots zu große Abweichungen, die lineare Gestalt ist in jedem Fall erkennbar, also kann hier von einem erfolgreichen Ergebnis gesprochen werden.
 
 Für den zweiten Teil der Auswertung gibt es größtenteils nur Plots, die diskutiert werden können.
-Dabei stellen \autoref{fig:profil1} und \autoref{fig:profil3} in guter Näherung Parabeln dar, allerdings gibt es vor allen im ersten Plot einen starken Ausreißer.
-Dieser lässt sich rückblickend nicht erklären, eventuell ist während dieser Messung die Sonde leicht verrutscht. Von einem Fehler der Messung an sich kann nicht ausgegangen werden, da danach alle Werte wieder eine Parabel ergeben.
-In \autoref{fig:profil1} fallen die letzten Messwerte aus dem Parabelmuster heraus. Es scheint, als würde dort eine neue Parabel beginnen.
-Warum dieser Effekt hier auftritt ist nicht zu erklären, da ein vergleichbarer Knick in \autoref{fig:profil3} nicht auftaucht. 
-Dort sind die Werte weniger präszise, als zuvor, aber sie repräsentieren den zu erwartenden Verlauf. 
-Zusammenfassend ergibt es Sinn, dass beide Größen in der Mitte des Rohres ihr Maximum haben und an den Rändern jeweils eine Schwächung auftaucht.
+Dabei stellen \autoref{fig:profil1} und \autoref{fig:profil3} in guter Näherung Parabeln dar. 
+
+Allerdings gibt es in \autoref{fig:profil1} einen starken Ausreißer.
+Dieser lässt sich rückblickend nicht eindeutig erklären, eventuell ist während dieser Messung die Sonde leicht verrutscht. 
+Von einer fehlerhaften Messung kann nicht ausgegangen werden, da alle folgenden Werte wieder eine Parabel ergeben.
+Außerdem fallen in \autoref{fig:profil1} die letzten Messwerte aus dem Parabelmuster heraus und es scheint, als würde dort eine neue Parabel beginnen.
+Warum dieser Effekt auftritt lässt sich hier nicht erklären, da ein vergleichbarer Knick in \autoref{fig:profil3} nicht auftaucht. 
+Dort sind die Werte weniger präzise als zuvor, aber sie repräsentieren den zu erwartenden Verlauf. 
+
+Zuletzt sei zu erwähnen, dass der Verlauf des Strömungsprofils wie erwartet ausgefallen ist, da beide Größen in der Mitte des Rohres ihr Maximum haben und an den Rändern jeweils eine Schwächung auftaucht.

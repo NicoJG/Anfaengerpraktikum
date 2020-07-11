@@ -97,8 +97,8 @@ plt.clf()
 
 #print('Geschwindigkeit für 1:',G(f1, alpha(15)) )
 
-plt.plot(s,G(f1, alpha(15)), 'ro', label='Werte von v1')
-plt.plot(s,G(f2, alpha(15)), 'bo', label='Werte von v2')
+plt.plot(s,G(f1, alpha(15)), 'ro', label='Werte von $v_1$')
+plt.plot(s,G(f2, alpha(15)), 'bo', label='Werte von $v_2$')
 
 # Achsenbeschriftung
 plt.xlabel(r'$s \:/\: \si{\milli\meter}$')
@@ -111,8 +111,8 @@ plt.savefig('build/plot_profil1.pdf')
 
 plt.clf()
 
-plt.plot(s,I1, 'ro', label='Messwerte von I1')
-plt.plot(s,I2, 'bo', label='Messwerte von I2')
+plt.plot(s,I1, 'ro', label='Messwerte von $I_1$')
+plt.plot(s,I2, 'bo', label='Messwerte von $I_2$')
 
 # Achsenbeschriftung
 plt.xlabel(r'$s \:/\: \si{\milli\meter}$')

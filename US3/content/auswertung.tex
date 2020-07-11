@@ -32,8 +32,9 @@ Die aufgenommenen Werte für $\Delta \nu$ sind in \autoref{tab:dopplerver} notie
 \end{table}
 
 $\dot{v}$ ist der eingestellte Volumenstrom, die angibt wie viel Volumen in einer bestimmten Zeit durch die Rohre fließt. 
-$\Delta \nu _{15,30,60}$ sind die Dopplerverschiebungen bei den verschiedenen Prismenwinkeln $\theta$.
-Für die nachfolgenden Rechnungen wird allerdings nicht $\theta$ benötigt, sondern der Dopplerwinkel $\alpha$, dieser kann über \autoref{eq:dopplerwinkel} bestimmt werden.
+$\Delta \nu _\theta$ sind die Dopplerverschiebungen bei den verschiedenen Prismenwinkeln $\theta$.
+Für die nachfolgenden Rechnungen wird allerdings nicht $\theta$ benötigt, sondern der Dopplerwinkel $\alpha$. 
+Dieser kann über \autoref{eq:dopplerwinkel} bestimmt werden.
 Die Schallgeschwindigkeit in beiden Medien betragen $c_\text{L} = \SI{1800}{\meter\per\second}$ und $c_\text{P} = \SI{2700}{\meter\per\second}$.
 Damit berechnen sich die drei Dopplerwinkel
 \begin{align}
@@ -50,14 +51,14 @@ Als Vergleichswert wird noch $\dot{v}$ über
 v = \frac{\dot{v}}{\pi \cdot R^2}
 \end{equation}
 
-in eine Strömungsgeschwindigkeit umgerechnet, $R$ beträgt hier $R = \SI{0.005}{\meter}$.
+in eine Strömungsgeschwindigkeit $v$ umgerechnet, $R$ beträgt hier $R = \SI{0.005}{\meter}$.
 
 \begin{table}
     \centering
     \caption{Berechnete Strömungsgeschwindigkeiten}
     \begin{tabular}{S[table-format=1.1] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
         \toprule
-        \tableSI{\dot{v}}{\frac{\liter}{\minute}} & \tableSI{\dot{v}}{\frac{\meter}{\second}} & \tableSI{v_{15}}{\frac{\meter}{\second}} &\tableSI{v_{30}}{\frac{\meter}{\second}} & \tableSI{v_{60}}{\frac{\meter}{\second}}\\
+        \tableSI{\dot{v}}{\frac{\liter}{\minute}} & \tableSI{v}{\frac{\meter}{\second}} & \tableSI{v_{15}}{\frac{\meter}{\second}} &\tableSI{v_{30}}{\frac{\meter}{\second}} & \tableSI{v_{60}}{\frac{\meter}{\second}}\\
         \midrule
         3.0 & 0.64 & 0.52 & 0.51 & 0.52 \\
         3.5 & 0.74 & 0.68 & 0.62 & 0.64 \\

@@ -1,9 +1,9 @@
 all: build/main.pdf
 
-plots: build/plot_dopplerver.pdf
+plots: build/plot_dopplerver1.pdf
  
 # hier Python-Skripte: 
-build/plot_dopplerver.pdf: python/dopplerver.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_dopplerver1.pdf: python/dopplerver.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	python python/dopplerver.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:

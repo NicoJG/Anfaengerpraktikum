@@ -19,3 +19,8 @@ if not 'Bessel' in Ergebnisse:
     Ergebnisse['Bessel'] = {}
 Ergebnisse['Bessel']['f_mean[cm]'] = '{}'.format(f_mean)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+
+# Ergebnisse Speichern Tabelle
+data = list(zip(e,g1,g2,d,f))
+np.savetxt('data/bessel_tabelle.csv', data, header='e[cm],g1[cm],g2[cm],d[cm],f[cm]', fmt='%i,%2.1f,%2.1f,%2.1f,%2.2f')
+

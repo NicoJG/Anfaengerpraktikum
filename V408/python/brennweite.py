@@ -76,8 +76,8 @@ for linse in [50,100]:
     plt.plot(s_x,s_y, 'r.', markersize=3.5, markeredgewidth=0, label="Schnittpunkte")
 
     # Achsenbeschriftung
-    plt.xlabel(r'$g \:/\: \si{\centi\metre}$')
-    plt.ylabel(r'$b \:/\: \si{\centi\metre}$')
+    plt.xlabel(r'$x \:/\: \si{\centi\metre}$')
+    plt.ylabel(r'$y \:/\: \si{\centi\metre}$')
 
     # in matplotlibrc leider (noch) nicht möglich
     plt.legend()
@@ -104,6 +104,11 @@ for linse in [50,100]:
     # Zoom zu den Schnittpunkten
     plt.xlim(linse_cm-1.5,linse_cm+1.5)
     plt.ylim(linse_cm-1.5,linse_cm+1.5)
+
+    # Achsenbeschriftung
+    plt.xlabel(r'$x \:/\: \si{\centi\metre}$')
+    plt.ylabel(r'$y \:/\: \si{\centi\metre}$')
+
 
     # in matplotlibrc leider (noch) nicht möglich
     plt.legend()

@@ -1,10 +1,154 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-% Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
+\subsection{Bestimmung der Brennweite mithilfe der Abhängigkeit der Bildweite zur Gegenstandsweite}
+\label{ssec:Auswertung_brennweite}
 
-% Auswertung:
-% Berechnung der geforderten Endergebnisse
-% mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-% Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-% Graphische Darstellung der Ergebnisse
+Die gemessenen Werte und die nach \autoref{eq:linsengesetz} berechneten Brennweiten sind in \autoref{tab:brennweite50} für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$) und in \autoref{tab:brennweite100} für Linse 2 ($f_\text{Referenz}=\SI{100}{\milli\metre}$) aufgelistet.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$)}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=1.2]}
+        \toprule
+        \tableSI{g}{\centi\metre} & \tableSI{b}{\centi\metre} & \tableSI{f}{\centi\metre} \\
+        \midrule
+        6 & 75.9 & 5.56 \\
+        7 & 24.1 & 5.42 \\
+        8 & 16.4 & 5.38 \\
+        9 & 12.9 & 5.30 \\
+        10 & 11.9 & 5.43 \\
+        11 & 10.5 & 5.37 \\
+        12 & 9.5 & 5.30 \\
+        13 & 8.9 & 5.28 \\
+        14 & 8.4 & 5.25 \\
+        16 & 8.2 & 5.42 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:brennweite50}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse für Linse 2 ($f_\text{Referenz}=\SI{100}{\milli\metre}$)}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=1.2]}
+        \toprule
+        \tableSI{g}{\centi\metre} & \tableSI{b}{\centi\metre} & \tableSI{f}{\centi\metre} \\
+        \midrule
+        12 & 66.0 & 10.15 \\
+        13 & 44.6 & 10.07 \\
+        14 & 35.5 & 10.04 \\
+        15 & 30.1 & 10.01 \\
+        16 & 26.6 & 9.99 \\
+        17 & 24.3 & 10.00 \\
+        18 & 21.9 & 9.88 \\
+        19 & 21.0 & 9.98 \\
+        20 & 19.4 & 9.85 \\
+        21 & 19.1 & 10.00 \\
+        22 & 18.1 & 9.93 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:brennweite100}
+\end{table}
+
+Um nun einen Wert für die Brennweite der Linsen zu bestimmen. 
+Wird der Mittelwert der $f$-Werte aus den Tabellen genommen und auch der Fehler des Mittelwerts berechnet.
+Damit ergeben sich die Brennweiten
+\begin{align*}
+    f_{1,\text{berechnet}} &= \SI{5.37+-0.03}{\centi\metre} \\
+    f_{2,\text{berechnet}} &= \SI{9.99+-0.03}{\centi\metre} \, .
+\end{align*}
+
+Eine weitere Methode die Brennweiten zu bestimmen ist in einem Plot die Gegenstandsweiten auf der x-Achse und die Bildweiten auf der y-Achse aufzutragen, die Punktepaare miteinander zu verbinden und den Schnittpunkt der Linien zu betrachten.
+Diese Plots sind in \autoref{fig:plot_brennweite50} bis \ref{fig:plot_brennweite100_zoom} zu sehen.
+Idealerweise sollten sich alle Schnittpunkte an einem Punkt sammeln, der die Brennweite der Linse als x- und x-Koordinate besitzt.
+Die statistische Natur des Versuchs erzeugt allerdings eine Verteilung der Schnittpunkte.
+Als Brennweite werden nun die Mittelwerte der x- und y-Koordinaten der Schnittpunkte berechnet.
+Somit ergeben sich die Brennweiten grafisch zu
+\begin{align*}
+    f_{1,\text{grafisch},x} &= \SI{5.41+-0.09}{\centi\metre}
+    f_{1,\text{grafisch},y} &= \SI{5.24+-0.07}{\centi\metre}
+    f_{2,\text{grafisch},x} &= \SI{10.08+-0.12}{\centi\metre}
+    f_{2,\text{grafisch},y} &= \SI{9.76+-0.12}{\centi\metre} \, .
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_brennweite50.pdf}
+    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$)}
+    \label{fig:plot_brennweite50}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_brennweite50_zoom.pdf}
+    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$) um die Schnittpunkte besser zu erkennen}
+    \label{fig:plot_brennweite50_zoom}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_brennweite100.pdf}
+    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{100}{\milli\metre}$)}
+    \label{fig:plot_brennweite100}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_brennweite100_zoom.pdf}
+    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{100}{\milli\metre}$) um die Schnittpunkte besser zu erkennen}
+    \label{fig:plot_brennweite100_zoom}
+\end{figure}
+
+
+
+\subsection{Bestimmung der Brennweite nach der Methode von Bessel}
+\label{ssec:Auswertung_bessel}
+
+Die Messwerte ($e$, $g_1$, $g_2$) der Methode von Bessel sind in \autoref{tab:bessel} aufgelistet.
+Zur Bestimmung der Brennweite wird nun der Abstand der beiden Linsenpositionen
+\begin{equation}
+    d = g_2 - g_1
+    \label{eq:d}
+\end{equation}
+berechnet.
+Hiermit lässt sich nach Bessel die Brennweite der Linse über
+\begin{equation}
+    f = \frac{e^2-d^2}{4e}
+    \label{eq:bessel}
+\end{equation}
+berechnen.
+Die so berechneten Werte für $d$ und $f$ sind ebenfalls in \autoref{tab:bessel} aufgelistet.
+
+\begin{table}
+    \centering
+    \caption{tab:bessel}
+    \sisetup{
+        table-format=2.1
+    }
+    \begin{tabular}{S[table-format=2.0] S S S S[table-format=2.2]}
+        \toprule
+        \tableSI{e}{\centi\metre} & \tableSI{g_1}{\centi\metre} & \tableSI{g_2}{\centi\metre} & \tableSI{d}{\centi\metre} & \tableSI{f}{\centi\metre} \\
+        \midrule
+        40 & 18.0 & 22.5 & 4.5 & 9.87 \\
+        42 & 16.2 & 26.1 & 9.9 & 9.92 \\
+        44 & 15.4 & 29.1 & 13.7 & 9.93 \\
+        45 & 15.0 & 30.4 & 15.4 & 9.93 \\
+        46 & 14.7 & 31.5 & 16.8 & 9.97 \\
+        48 & 14.4 & 34.2 & 19.8 & 9.96 \\
+        50 & 13.9 & 36.5 & 22.6 & 9.95 \\
+        52 & 13.7 & 38.7 & 25.0 & 10.00 \\
+        54 & 13.5 & 41.0 & 27.5 & 10.00 \\
+        56 & 13.4 & 43.1 & 29.7 & 10.06 \\
+        58 & 13.1 & 45.3 & 32.2 & 10.03 \\
+        60 & 12.9 & 47.4 & 34.5 & 10.04 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Aus den berechneten Werten für $f$ lässt sich der Mittelwert mit entsprechendem Fehler zu
+\begin{equation*}
+    f_\text{Bessel} = \SI{9.97+-0.02}{\centi\metre}
+\end{equation*}
+bestimmen. 
+Als Referenzwert dient hier eine Brennweite von $f_\text{Referenz} = \SI{100}{\milli\metre}$.

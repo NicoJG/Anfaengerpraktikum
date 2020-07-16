@@ -48,9 +48,9 @@ for linse in [50,100]:
     Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
     if not 'Brennweite{}'.format(linse) in Ergebnisse:
         Ergebnisse['Brennweite{}'.format(linse)] = {}
-    Ergebnisse['Brennweite{}'.format(linse)]['f_mean'] = '{}'.format(f_mean)
-    Ergebnisse['Brennweite{}'.format(linse)]['s_x_mean'] = '{}'.format(s_x_mean)
-    Ergebnisse['Brennweite{}'.format(linse)]['s_y_mean'] = '{}'.format(s_y_mean)
+    Ergebnisse['Brennweite{}'.format(linse)]['f_mean[cm]'] = '{}'.format(f_mean)
+    Ergebnisse['Brennweite{}'.format(linse)]['s_x_mean[cm]'] = '{}'.format(s_x_mean)
+    Ergebnisse['Brennweite{}'.format(linse)]['s_y_mean[cm]'] = '{}'.format(s_y_mean)
     json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
     # Tabelle

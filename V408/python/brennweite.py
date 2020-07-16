@@ -85,16 +85,25 @@ for linse in [50,100]:
 
     # Speicherort
     plt.savefig('build/plot_brennweite{}.pdf'.format(linse))
+    plt.clf()
 
+    # Zoomed Plot
     print("plot_brennweite",linse,"_zoom")
+
+    # Plot der Verbindungslinien
+    for i in range(0,g.size):
+        plt.plot([g[i],0],[0,b[i]], 'k-', linewidth=0.5)
+
+    # Plot der Schnittpunkte
+    plt.plot(s_x,s_y, 'r.', markersize=3.5, markeredgewidth=0, label="Schnittpunkte")
+
+    # Schwerpunkt der Schnittpunkte plotten
+    plt.errorbar(s_x_mean.n,s_y_mean.n, yerr=s_y_mean.s, xerr=s_x_mean.s, fmt='go', label="Schwerpunkt der Schnittpunkte")
 
     linse_cm = linse/10
     # Zoom zu den Schnittpunkten
     plt.xlim(linse_cm-1.5,linse_cm+1.5)
     plt.ylim(linse_cm-1.5,linse_cm+1.5)
-
-    # Schwerpunkt der Schnittpunkte plotten
-    plt.errorbar(s_x_mean.n,s_y_mean.n, yerr=s_y_mean.s, xerr=s_x_mean.s, fmt='go', label="Schwerpunkt der Schnittpunkte")
 
     # in matplotlibrc leider (noch) nicht möglich
     plt.legend()
@@ -102,3 +111,4 @@ for linse in [50,100]:
 
     # Zoom Plot Speicherort
     plt.savefig('build/plot_brennweite{}_zoom.pdf'.format(linse))
+    plt.clf()

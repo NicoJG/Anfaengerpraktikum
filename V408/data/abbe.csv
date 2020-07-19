@@ -1,5 +1,6 @@
 # Zusammengesetzte Linse -100mm +100mm
 # Gegenstand bei 30cm
+# Perl-L: 3cm
 # cm Angaben sind direkt abgelesen(also nicht die Abstände)
 # A Referenzpunkt an der Linse
 # S Stelle des Schirms

@@ -33,6 +33,12 @@ params_b,pcov_b = curve_fit(f,(1+V),b)
 a_b = ufloat(params_b[0],np.absolute(pcov_b[0][0])**0.5)
 b_b = ufloat(params_b[1],np.absolute(pcov_b[1][1])**0.5)
 
+# Abstand der Hauptebenen
+d = b_b - b_g
+
+# Referenzwert der Brennweite
+f_R = 200/d
+
 ################################
 ## Werte speichern
 ################################
@@ -45,6 +51,8 @@ Ergebnisse['Abbe']['a_g'] = '{}'.format(a_g)
 Ergebnisse['Abbe']['b_g'] = '{}'.format(b_g)
 Ergebnisse['Abbe']['a_b'] = '{}'.format(a_b)
 Ergebnisse['Abbe']['b_b'] = '{}'.format(b_b)
+Ergebnisse['Abbe']['d'] = '{}'.format(d)
+Ergebnisse['Abbe']['f_R'] = '{}'.format(f_R)
 json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 
 # als Tabelle
@@ -68,7 +76,7 @@ plt.plot((1+1/V), g, 'ro', label='Messwerte')
 
 # Achsenbeschriftung
 plt.xlabel(r'$(1+1/V)$')
-plt.ylabel(r'$g \:/\: \si{\centi\metre}$')
+plt.ylabel(r"$g' \:/\: \si{\centi\metre}$")
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()
@@ -89,8 +97,8 @@ plt.plot(b_linspace, f(b_linspace,*params_b), 'k-', label="Ausgleichsgerade")
 plt.plot((1+V), b, 'ro', label='Messwerte')
 
 # Achsenbeschriftung
-plt.xlabel(r'$(1+V)$')
-plt.ylabel(r'$b \:/\: \si{\centi\metre}$')
+plt.xlabel(r"$(1+V)$")
+plt.ylabel(r"$b' \:/\: \si{\centi\metre}$")
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()

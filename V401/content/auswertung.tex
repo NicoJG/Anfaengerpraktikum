@@ -9,15 +9,15 @@
 % Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 % Graphische Darstellung der Ergebnisse
 
-Die gemessenen Intenistäten $z$ sind in \autoref{tab:welle} notiert. 
+Die gemessenen Intensitäten $z$ sind in \autoref{tab:welle} notiert. 
 Sie wurden jeweils bei $\Delta d = \SI{5}{\milli\meter}$ bestimmt. 
 \autoref{eq:welle} wird nach $\lambda$ umgestellt, so ergibt sich 
 \begin{equation}
     \lambda = \frac{2 \cdot \Delta d}{z \cdot u}.
     \label{eq:lambda}
 \end{equation}
-Es wird ebenfalls der Faktor $\frac{1}{u}$ multipliziert, die Hebelübersetzung.
-Diese beträgt $u = 5.017$. 
+Es wird ebenfalls der Faktor $1/u$ multipliziert.
+Hier ist $u = 5.017$ die Hebelübersetzung. 
 Dann werden über \autoref{eq:lambda} die Wellenlängen $\lambda$ berechnet und ebenfalls in \autoref{tab:welle} notiert.
 
 \begin{table}
@@ -43,18 +43,18 @@ Dann werden über \autoref{eq:lambda} die Wellenlängen $\lambda$ berechnet und 
 \end{table}
 
 Der Mittelwert der berechneten Wellenlängen beträgt dann
-\begin{equation}
+\begin{equation*}
     \lambda = 693.16 \pm \SI{19.12}{\nano\meter}.
-\end{equation}
+\end{equation*}
 
 Für die Berechnung des Brechungsindex $n$ von Luft wird \autoref{eq:index} verwendet. 
-Es werden außerdem einige Konstanten gebraucht, diese sind nachfolgend gelistet.
-\begin{align}
+Dazu werden einige Konstanten benötigt, welche nachfolgend aufgelistet sind.
+\begin{align*}
     T_0 &= \SI{273.15}{\kelvin}\\
     p_0 &= \SI{1.0132}{\bar}\\
     b &= \SI{50}{\milli\meter}\\
     T &= \SI{293.15}{\kelvin}
-\end{align}
+\end{align*}
 Der Normaldruck $p_0$ entspricht dabei ebenfalls dem normalen Druck innerhalb der Messzelle $p$.
 
 \begin{table}
@@ -75,6 +75,6 @@ Der Normaldruck $p_0$ entspricht dabei ebenfalls dem normalen Druck innerhalb de
 \end{table}
 
 Der Mittelwert ergibt sich dann zu 
-\begin{equation}
+\begin{equation*}
     n = 1.000296 \pm 0.000002.
-\end{equation}
+\end{equation*}

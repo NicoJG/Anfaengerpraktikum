@@ -4,11 +4,11 @@
 \subsection{Bestimmung der Brennweite mithilfe der Abhängigkeit der Bildweite zur Gegenstandsweite}
 \label{ssec:Auswertung_brennweite}
 
-Die gemessenen Werte und die nach \autoref{eq:linsengesetz} berechneten Brennweiten sind in \autoref{tab:brennweite50} für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$) und in \autoref{tab:brennweite100} für Linse 2 ($f_\text{Referenz}=\SI{100}{\milli\metre}$) aufgelistet.
+Die gemessenen Werte und die nach \autoref{eq:linsengesetz} berechneten Brennweiten sind in \autoref{tab:brennweite50} für Linse 1 ($f_\text{Referenz}=\SI{5}{\centi\metre}$) und in \autoref{tab:brennweite100} für Linse 2 ($f_\text{Referenz}=\SI{10}{\centi\metre}$) aufgelistet.
 
 \begin{table}
     \centering
-    \caption{Messergebnisse für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$)}
+    \caption{Messergebnisse für Linse 1 ($f_\text{Referenz}=\SI{5}{\centi\metre}$)}
     \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=1.2]}
         \toprule
         \tableSI{g}{\centi\metre} & \tableSI{b}{\centi\metre} & \tableSI{f}{\centi\metre} \\
@@ -30,8 +30,8 @@ Die gemessenen Werte und die nach \autoref{eq:linsengesetz} berechneten Brennwei
 
 \begin{table}
     \centering
-    \caption{Messergebnisse für Linse 2 ($f_\text{Referenz}=\SI{100}{\milli\metre}$)}
-    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=1.2]}
+    \caption{Messergebnisse für Linse 2 ($f_\text{Referenz}=\SI{10}{\centi\metre}$)}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=2.2]}
         \toprule
         \tableSI{g}{\centi\metre} & \tableSI{b}{\centi\metre} & \tableSI{f}{\centi\metre} \\
         \midrule
@@ -61,7 +61,7 @@ Damit ergeben sich die Brennweiten
 
 Eine weitere Methode die Brennweiten zu bestimmen ist in einem Plot die Gegenstandsweiten auf der x-Achse und die Bildweiten auf der y-Achse aufzutragen, die Punktepaare miteinander zu verbinden und den Schnittpunkt der Linien zu betrachten.
 Diese Plots sind in \autoref{fig:plot_brennweite50} bis \ref{fig:plot_brennweite100_zoom} zu sehen.
-Idealerweise sollten sich alle Schnittpunkte an einem Punkt sammeln, der die Brennweite der Linse als x- und x-Koordinate besitzt.
+Idealerweise sollten sich alle Schnittpunkte an einem Punkt sammeln, der die Brennweite der Linse als x- und y-Koordinate besitzt.
 Die statistische Natur des Versuchs erzeugt allerdings eine Verteilung der Schnittpunkte.
 Als Brennweite werden nun die Mittelwerte der x- und y-Koordinaten der Schnittpunkte berechnet.
 Somit ergeben sich die Brennweiten grafisch zu
@@ -75,28 +75,28 @@ Somit ergeben sich die Brennweiten grafisch zu
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_brennweite50.pdf}
-    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$)}
+    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{5}{\centi\metre}$)}
     \label{fig:plot_brennweite50}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_brennweite50_zoom.pdf}
-    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{50}{\milli\metre}$) um die Schnittpunkte besser zu erkennen}
+    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{5}{\centi\metre}$) um die Schnittpunkte besser zu erkennen}
     \label{fig:plot_brennweite50_zoom}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_brennweite100.pdf}
-    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{100}{\milli\metre}$)}
+    \caption{Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 2 ($f_\text{Referenz}=\SI{10}{\centi\metre}$)}
     \label{fig:plot_brennweite100}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_brennweite100_zoom.pdf}
-    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 1 ($f_\text{Referenz}=\SI{100}{\milli\metre}$) um die Schnittpunkte besser zu erkennen}
+    \caption{Vergrößerter Plot der Verbindungslinien der Gegendstands- und Bildweiten für Linse 2 ($f_\text{Referenz}=\SI{10}{\centi\metre}$) um die Schnittpunkte besser zu erkennen}
     \label{fig:plot_brennweite100_zoom}
 \end{figure}
 
@@ -186,18 +186,18 @@ Alle hier verwendeten Variablen folgen den Definitionen aus \autoref{fig:skizze_
     \label{tab:abbe}
 \end{table}
 
-Wie schon in der Durchführung erwähnt entsprechen die Abstände $b'$ und $g'$ nicht der Bild- bzw. der Gegendstandsweite, sondern wurden zu einem Referenzpunkt gemessen.
+Wie schon in der Durchführung erwähnt entsprechen die Abstände $b'$ und $g'$ nicht genau der Bild- bzw. der Gegendstandsweite, sondern wurden zu einem Referenzpunkt gemessen.
 Nach Abbe gilt nun
 \begin{align}
-    g' &= f \cdot \left( 1+\frac{1}{V} \right) + h \\
+    g' &= f \cdot \left( 1+\frac{1}{V} \right) + h \label{eq:abbe_g} \\
     b' &= f \cdot \left( 1+V \right) + h' \, .
-    \label{eq:abbe}
+    \label{eq:abbe_b}
 \end{align}
 Wobei $V$ nach \autoref{eq:abbildungsgesetz} der Abbildungsmaßstab und $f$ die Brennweite des Linsensystems ist. 
 $h$ und $h'$ entsprechen dem Abstand der jeweiligen Hauptebene zum Referenzpunkt. (siehe \autoref{fig:skizze_abbe})
 
-Mit \autoref{eq:abbe} und den Werten aus \autoref{tab:abbe} lassen sich nun zwei Ausgleichsgeraden bestimmen mit den Parametern $f_{g'}$ und $h$ bzw. $f_{b'}$ und $h'$.
-Damit ergeben sich die Parameter
+Mit \autoref{eq:abbe_g}, \autoref{eq:abbe_b} und den Werten aus \autoref{tab:abbe} lassen sich nun zwei Ausgleichsgeraden bestimmen mit den Parametern $f_{g'}$ und $h$ bzw. $f_{b'}$ und $h'$.
+Die Parameter ergeben sich zu
 \begin{align*}
     f_{g'} &= \SI{14.7+-0.8}{\centi\metre} \\
     h &= \SI{-1.7+-2.6}{\centi\metre} \\

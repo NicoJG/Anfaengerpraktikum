@@ -95,10 +95,10 @@ for linse in [50,100]:
         plt.plot([g[i],0],[0,b[i]], 'k-', linewidth=0.5)
 
     # Plot der Schnittpunkte
-    plt.plot(s_x,s_y, 'r.', markersize=3.5, markeredgewidth=0, label="Schnittpunkte")
+    plt.plot(s_x,s_y, 'r.', markersize=5, markeredgewidth=0.1, label="Schnittpunkte")
 
     # Schwerpunkt der Schnittpunkte plotten
-    plt.errorbar(s_x_mean.n,s_y_mean.n, yerr=s_y_mean.s, xerr=s_x_mean.s, fmt='go', label="Schwerpunkt der Schnittpunkte")
+    plt.errorbar(s_x_mean.n,s_y_mean.n, yerr=s_y_mean.s, xerr=s_x_mean.s, fmt='go', markersize=5, label="Schwerpunkt der Schnittpunkte")
 
     linse_cm = linse/10
     # Zoom zu den Schnittpunkten

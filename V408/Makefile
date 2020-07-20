@@ -3,7 +3,7 @@ all: build/main.pdf
 plots: build/plot_brennweite50.pdf build/plot_abbe_g.pdf
  
 # hier Python-Skripte: 
-build/plot_brennweite50.pdf: python/brennweite.py python/bessel.py data/*.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
+build/plot_brennweite50.pdf: python/brennweite.py python/bessel.py data/brennweite50.csv data/brennweite100.csv data/bessel.csv ../default/matplotlibrc ../default/header-matplotlib.tex | build
 	python python/brennweite.py
 	python python/bessel.py
 

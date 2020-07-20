@@ -1,7 +1,37 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-% Kurze Zusammenfassung der Ergebnisse
-% -Vergleich mit Literaturwerten
-% -Vergleich mit verschiedenen Messverfahren
-% -bei Abweichungen mögliche Ursachen finden
+In \autoref{tab:ergebnisse} sind alle in diesem Versuch berechneten Brennweiten aufgelistet. Außerdem wurde die prozentuale Abweichung des gemessenen Wert zum Referenzwert berechnet.
+
+\begin{table}
+    \centering
+    \caption{Ergebnisse der Brennweitenbestimmung mit entsprechendem Referenzwert und Abweichung vom Referenzwert.}
+    \begin{tabular}{l S[table-format=2.2] S[table-format=2.0] S[table-format=1.1]}
+        \toprule
+        Methode & \tableSI{f_\text{gemessen}}{\centi\metre} & \tableSI{f_\text{Referenz}}{\centi\metre} & \tableSI{\Delta f}{\percent} \\
+        \midrule
+        direkt (Linse 1) & 5.37 & 5 & 7.4 \\
+        direkt (Linse 2) & 9.99 & 10 & 0.1 \\
+        grafisch, $x$ (Linse 1) & 5.41 & 5 & 8.2 \\
+        grafisch, $y$ (Linse 1) & 5.24 & 5 & 4.8 \\
+        grafisch, $x$ (Linse 2) & 10.08 & 10  & 0.8 \\
+        grafisch, $y$ (Linse 2) & 9.76 & 10 & 2.4 \\
+        Bessel & 9.97 & 10 & 0.3 \\
+        Abbe, $g'$ & 14.7 & {$16 \pm 4$} & {im Fehlerbereich} \\
+        Abbe, $b'$ & 18.8 & {$16 \pm 4$} & {im Fehlerbereich} \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ergebnisse}
+\end{table}
+
+Insgesamt lässt sich sagen, dass alle hier verwendeten Messmethoden für die Brennweite genügend geringe Abweichungen vom Referenzwert aufzeigen.
+
+Es ist zu beobachten, dass alle Messungen der Linse mit Brennweite von $\SI{50}{\milli\metre}$ eine größere Abweichung aufzeigen als die Vermessung der $\SI{100}{\milli\metre}$ Linse.
+Dies könnte daran liegen, dass die verwendete Linse nicht exakt dem Referenzwert entspricht.
+Eine genaue Quelle dieser erhöhten Abweichung lässt sich im Nachhinein nicht feststellen.
+
+Allerdings sei anzumerken, dass alle Messungen eine gewisse Willkür besitzen, weil beim Messen schwer abzuschätzen war wann ein Bild scharf ist. 
+Bei manchen Messungen erschien das Bild in einem Bereich von mehreren Zentimetern scharf und der Abstand wann es am schärfsten war musste geschätzt werden.
+
+Die Methode von Abbe scheint auf den ersten Blick die ungenauste zu sein, allerdings ist diese die einzige hier verwendete Methode, die ein System aus mehreren Linsen untersucht hat.
+Und dass der Wert im Fehlerbereich des Referenzwertes liegt, zeigt, dass auch diese Methode ausreichend genau ist.

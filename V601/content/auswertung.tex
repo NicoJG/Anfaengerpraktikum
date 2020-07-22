@@ -6,7 +6,15 @@
 
 Um die Energieverteilung der Elektronen bei konstanter Beschleunigungsspannung $U_B=\SI{11}{\volt}$ darzustellen, wurde mit einem XY-Schreiber ein Graph gezeichnet. 
 Dieser ist in \autoref{fig:originaldaten_elektronen} zu sehen.
+
 Die Messung wurde bei einer Temperatur von ungefähr $\SI{25}{\celsius}$ durchgeführt.
+Bei dieser Temperatur ergibt sich über \autoref{eq:wegl} und \autoref{eq:dampfdr} die mittlere freie Weglänge zu
+\begin{equation*}
+    \bar{w} = \SI{0.55}{\centi\metre} \, .
+\end{equation*}
+Die Beschleunigungsstrecke der hier verwendeten Apperatur beträgt etwa $a=\SI{1}{\centi\metre}$.
+Also ist $\bar{w}$ nicht wesentlich kleiner als $a$ und es kommt nur zu wenigen Zusammenstößen.
+
 Aus dem Graphen werden in konstantem Abstand auf der X-Achse Punkte abgelesen, indem auf dem Millimeterpapier die Anzahl der Kästchen in X- und Y-Richtung zum nächsten Punkt gezählt werden. ($\Delta x$ und $\Delta y$ in \autoref{tab:elektronen})
 Aus diesen Abständen in Kästchen werden die Abstände in Volt bzw. Nanoampere über
 \begin{align}
@@ -85,8 +93,16 @@ Das Kontaktpotential kann hier nicht bestimmt werden, da die integrale Energieve
 \subsection{Franck-Herz-Kurve und Anregungsenergie von Hg}
 \label{ssec:auswertung_franck-hertz}
 
-Bei konstanter Bremsspannung $U_A = \SI{1}{\volt}$ und einer Temperatur von ungefähr $\SI{180}{\celsius}$ wurde mit einem XY-Schreiber der Auffängerstrom gegen die Beschleunigungsspannung aufgetragen. (siehe \autoref{fig:originaldaten_franck-hertz}) 
-Die so entstandene Kurve ist die sogenannte Franck-Hertz-Kurve.
+Bei konstanter Bremsspannung $U_A = \SI{1}{\volt}$  wurde mit einem XY-Schreiber der Auffängerstrom gegen die Beschleunigungsspannung aufgetragen. (siehe \autoref{fig:originaldaten_franck-hertz}) 
+
+Die Messung wurde bei einer Temperatur von ungefähr $\SI{180}{\celsius}$ durchgeführt.
+Bei dieser Temperatur ergibt sich über \autoref{eq:wegl} und \autoref{eq:dampfdr} die mittlere freie Weglänge zu
+\begin{equation*}
+    \bar{w} = \SI{2.05e-4}{\centi\metre} \, .
+\end{equation*}
+Die Beschleunigungsstrecke der hier verwendeten Apperatur beträgt etwa $a=\SI{1}{\centi\metre}$.
+Also ist $\bar{w}$ wesentlich kleiner als $a$ und es kommt zu genug Zusammenstößen, sodass eine Franck-Hertz-Kurve entstehen kann.
+
 Hier werden die Abstände $\Delta x$ der relativen Maxima abgelesen und mit
 \begin{equation}
     \Delta U_B = \Delta x \cdot \frac{\SI{60}{\volt}}{\SI{194}{Kästchen}}

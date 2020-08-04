@@ -11,9 +11,9 @@
 
 #### Präsenzversuche: ####  
 **V101 Das Trägheitsmoment**  
-V102 Drehschwingungen  
+*V102 Drehschwingungen*  
 **V103 Biegung elastischer Stäbe**  
-V106 GekoppeltePendel  
+*V106 GekoppeltePendel*  
 V107 Höppler Viskosimeter  
 V201 Das Dulong Petitsche Gesetz  
 **V203 Verdampfungswärme**  

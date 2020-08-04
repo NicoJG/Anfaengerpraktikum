@@ -48,7 +48,9 @@ V504 Thermische Elektronenemission
 V606 Suszeptibilität paramagnetischer Stoffe  
 
 
-![](Plan.png "Versuchsplan")
+![](Plan.png "Versuchsplan fürs Wintersemester")
+
+![](Plan2.png "Versuchsplan fürs Sommersemester")
 
 
 Zum Anlegen eines neuen Versuchs einfach den "template" Ordner kopieren.

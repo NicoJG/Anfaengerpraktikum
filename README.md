@@ -1,29 +1,54 @@
 # Anfängerpraktikum (Physik) - TU Dortmund
 ## David und Nico
 
-![](Plan.png "Versuchsplan")
+## Versuchsübersicht: ##
+### Erstes Semester: ###
+#### Vorversuche ####  
+**V800 Das Oszilloskop**  
+**V801 Messübung**  
+**V802 Fouriersynthese**  
+**V803 Das Hooksche Gesetz**  
 
-Versuchsübersicht:  
-V101 Das Trägheitsmoment  
+**V101 Das Trägheitsmoment**  
 V102 Drehschwingungen  
-V103 Biegung elastischer Stäbe  
+**V103 Biegung elastischer Stäbe**  
 V106 GekoppeltePendel  
 V107 Höppler Viskosimeter  
 V201 Das Dulong Petitsche Gesetz  
-V203 Verdampfungswärme  
+**V203 Verdampfungswärme**  
 V204 Wärmeleitfähigkeit  
-V206 Die Wärmepumpe  
+**V206 Die Wärmepumpe**  
 V302 Brückenschaltungen  
-V303 Der Lock-In-Verstärker  
+**V303 Der Lock-In-Verstärker**  
 V308 Magnetfelder und Spulen  
-V311 Der Hall-Effekt  
-V353 RC-Kreis  
+**V311 Der Hall-Effekt**  
+**V353 RC-Kreis**  
 V354 Gedämpfte und erzwungene Schwingungen  
-V355 Gekoppelte Schwingkreise  
-V800 Das Oszilloskop  
-V801 Messübung  
-V802 Fouriersynthese  
-V803 Das Hooksche Gesetz  
+**V355 Gekoppelte Schwingkreise**  
+
+
+### Zweites Semester ###  
+#### Online ##  
+**V602 Röntgenemission und -absorption  
+V603 Compton-Effekt  
+V702 Aktivierung mit Neutronen  
+V703 Geiger-Müller-Zählrohr**  
+
+**US1 Grundlagen des Ultraschalls**  
+US2 Scanverfahren  
+**US3 Dopplersonographie**  
+**V401 Das Michelson-Interferometer**  
+V406 Beugung am Spalt  
+**V408 Geometrische Optik**  
+V500 Der Photoeffekt  
+**V501 Ablenkung eines Elektronenstrahls im elektrischen Feld**   
+V502 Ablenkung eines Elektronenstrahls im transversalen Magnetfeld   
+V504 Thermische Elektronenemission  
+**V601 Der Franck-Hertz Versuch**  
+V606 Suszeptibilität paramagnetischer Stoffe  
+
+
+![](Plan.png "Versuchsplan")
 
 
 Zum Anlegen eines neuen Versuchs einfach den "template" Ordner kopieren.

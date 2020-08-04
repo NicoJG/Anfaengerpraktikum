@@ -1,14 +1,15 @@
 # Anfängerpraktikum (Physik) - TU Dortmund
 ## David und Nico
 
-## Versuchsübersicht: ##
-### Erstes Semester: ###
-#### Vorversuche ####  
+## Versuchsübersicht ##
+### Erstes Semester ###
+#### Vorversuche: ####  
 **V800 Das Oszilloskop**  
 **V801 Messübung**  
 **V802 Fouriersynthese**  
 **V803 Das Hooksche Gesetz**  
 
+#### Präsenzversuche: ####  
 **V101 Das Trägheitsmoment**  
 V102 Drehschwingungen  
 **V103 Biegung elastischer Stäbe**  
@@ -28,12 +29,13 @@ V354 Gedämpfte und erzwungene Schwingungen
 
 
 ### Zweites Semester ###  
-#### Online ##  
+#### Onlineversuche: ####  
 **V602 Röntgenemission und -absorption  
 V603 Compton-Effekt  
 V702 Aktivierung mit Neutronen  
 V703 Geiger-Müller-Zählrohr**  
 
+#### Präsenzversuche: ####  
 **US1 Grundlagen des Ultraschalls**  
 US2 Scanverfahren  
 **US3 Dopplersonographie**  
@@ -47,7 +49,7 @@ V504 Thermische Elektronenemission
 **V601 Der Franck-Hertz Versuch**  
 V606 Suszeptibilität paramagnetischer Stoffe  
 
-
+   
 ![](Plan.png "Versuchsplan fürs Wintersemester")
 
 ![](Plan2.png "Versuchsplan fürs Sommersemester")

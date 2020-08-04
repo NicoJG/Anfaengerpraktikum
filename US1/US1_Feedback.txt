@@ -1,0 +1,6 @@
+Macht bitte beim nächsten mal entweder euren marker (markersize) größer, oder eure linie dünner. Benutzt Kreuze und keine Punkte.
+
+Bei Plot 5 ist bei dem Fit irgendwas ganz schief gelaufen.
+
+
+Sonst okay.
